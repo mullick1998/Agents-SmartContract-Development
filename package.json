@@ -1,20 +1,11 @@
 {
   "name": "thesis",
   "version": "1.0.0",
-  "description": "Smart contracts with JASON BDI agents",
-  "main": "index.js",
+  "description": "Smart contracts with JASON BDI Agents",
+  "main": "truffle-config.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "geth": "^0.4.0",
-    "lite-server": "^2.6.1",
-    "openzeppelin-solidity": "^4.6.0",
-    "truffle": "^5.5.26",
-    "truffle-hdwallet-provider": "^1.0.17",
-    "web3": "^1.7.5"
-  },
-  "devDependencies": {},
   "scripts": {
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,10 +14,19 @@
     "type": "git",
     "url": "git+https://github.com/mullick1998/thesis.git"
   },
-  "author": "Mostakim Mullick",
+  "author": "Mostakim Mullick <mustakimmullick12345@gmail.com> (9a27455b3ee74500bbbad6f0090ee57f)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mullick1998/thesis/issues"
   },
-  "homepage": "https://github.com/mullick1998/thesis#readme"
+  "homepage": "https://github.com/mullick1998/thesis#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.13",
+    "dotenv": "^16.0.1",
+    "geth": "^0.4.0",
+    "lite-server": "^2.6.1",
+    "openzeppelin-solidity": "^4.6.0",
+    "truffle": "^5.5.26",
+    "web3": "^1.7.5"
+  }
 }
