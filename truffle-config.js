@@ -17,11 +17,19 @@ module.exports = {
     rinkeby: {
       provider: () => new HDWalletProvider(secretkey, `https://rinkeby.infura.io/v3/9a27455b3ee74500bbbad6f0090ee57f`),
       network_id: 4,       // rinkeby id
-      gas: 5500000,        // rinkeby has a lower block limit than mainnet
       confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     },
+    alfajores: {
+      provider: () => new HDWalletProvider( 
+          secretkey, 
+          "https://alfajores-forno.celo-testnet.org"
+        ),
+      network_id: 44787,
+      gas: 20000000,  
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    }
   },
 
   // Set default mocha options here, use special reporters, etc.
@@ -32,7 +40,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.15",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.4.24",      // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
