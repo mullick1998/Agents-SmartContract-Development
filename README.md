@@ -9,3 +9,31 @@ Agents can plan to reach a common goal, which is the fundamental objective for d
 
 A manufacturer, wholesaler, and retailer can realize a product flow. **A retailer can take products from a wholesaler and manufacturer(factory) and a warehouse of the retailer can be updated by rule-based agents upon requesting an order.** This sort of simulation can interact with smart contracts so that one can follow traces of interactions between supply chain network members (retailer, manufacturer, and wholesaler) in a detailed way. Every transaction (operation) between supply chain members are stored in a blockchain network and then one can use this simulation tool without applying an external distributed logging framework.
 
+## Contract Data Model Diagram"
+<img src="Diagrams/Data Model diagram.png" alt="Contract Data Model Diagram"/>
+
+## Contract Sequence Diagram
+<img src="/home/mostakim/thesis/Diagrams/sequence Diagram.png" alt="Contract Sequence Diagram"/>
+
+## Compile Contract
+```
+truffle compile
+```
+
+## Deploy Contract
+```
+truffle migrate --network <network-name>
+truffle migrate --network <network-name> --reset --all
+```
+Availaible networks: `development`, `rinkeby`,  `alfajores`
+
+*Note: Multiple network configuration can be find inside `truffle-config.js`*
+## Test Contract
+```
+truffle test --network <network-name>
+```
+
+## Start interaction on browser
+```
+npm run dev
+```
