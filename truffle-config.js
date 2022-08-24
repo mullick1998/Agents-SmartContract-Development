@@ -10,16 +10,16 @@ module.exports = {
 
   networks: {
     development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 9545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
+      host: "127.0.0.1",    
+      port: 9545,        
+      network_id: "*",       
      },
     rinkeby: {
       provider: () => new HDWalletProvider(secretkey, `https://rinkeby.infura.io/v3/9a27455b3ee74500bbbad6f0090ee57f`),
-      network_id: 4,       // rinkeby id
-      confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
-      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      network_id: 4,       
+      confirmations: 2,    
+      timeoutBlocks: 200, 
+      skipDryRun: true 
     },
     alfajores: {
       provider: () => new HDWalletProvider( 
@@ -28,27 +28,13 @@ module.exports = {
         ),
       network_id: 44787,
       gas: 20000000,  
-      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      skipDryRun: true 
     }
   },
-
-  // Set default mocha options here, use special reporters, etc.
   mocha: {
-    // timeout: 100000
   },
-
-  // Configure your compilers
   compilers: {
     solc: {
-      version: "0.4.24",      // Fetch exact version from solc-bin (default: truffle's version)
-      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
-      //  evmVersion: "byzantium"
-      // }
-    }
+      version: "0.4.24",   
   },
 };

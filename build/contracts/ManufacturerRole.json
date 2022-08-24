@@ -285,7 +285,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1603,
+                          "referencedDeclaration": 1764,
                           "src": "663:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -393,7 +393,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1603,
+                              "referencedDeclaration": 1764,
                               "src": "826:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -459,10 +459,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1606,
-                        1607
+                        1767,
+                        1768
                       ],
-                      "referencedDeclaration": 1606,
+                      "referencedDeclaration": 1767,
                       "src": "803:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -821,7 +821,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1603,
+                          "referencedDeclaration": 1764,
                           "src": "1345:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1587,7 +1587,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1603,
+                                  "referencedDeclaration": 1764,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -1666,10 +1666,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                1606,
-                                1607
+                                1767,
+                                1768
                               ],
-                              "referencedDeclaration": 1606,
+                              "referencedDeclaration": 1767,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1729,7 +1729,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1603,
+                                      "referencedDeclaration": 1764,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -2196,7 +2196,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1603,
+                                  "referencedDeclaration": 1764,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -2702,10 +2702,16 @@
       "links": {},
       "address": "0x553DCF6655ba529ba44A6ABDCCb8F6C0ADe7f123",
       "transactionHash": "0x167dcb61c2cf639b2e4822cb9b4924b18a49304f66a1dc1124ab732ebf652317"
+    },
+    "44787": {
+      "events": {},
+      "links": {},
+      "address": "0xa0623B9a6746a9367CfC13Bd6119C7A4F1Dc8b3b",
+      "transactionHash": "0x599bfc6a043e8b999f9be0ddd9546c8acb787a4d17acacee552c6e5b08ebf463"
     }
   },
   "schemaVersion": "3.4.8",
-  "updatedAt": "2022-08-22T07:46:17.152Z",
+  "updatedAt": "2022-08-24T13:50:19.784Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

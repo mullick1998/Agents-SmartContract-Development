@@ -14,7 +14,6 @@ App = {
 
     init: async function () {
         App.readForm();
-        /// Setup access to blockchain
         return await App.initWeb3();
     },
 
@@ -26,24 +25,18 @@ App = {
     },
 
     initWeb3: async function () {
-        /// Find or Inject Web3 Provider
-        /// Modern dapp browsers...
         if (window.ethereum) {
             App.web3Provider = window.ethereum;
             console.log(App.web3Provider);
             try {
-                // Request account access
                 await window.ethereum.enable();
             } catch (error) {
-                // User denied account access...
                 console.error("User denied account access")
             }
         }
-        // Legacy dapp browsers...
         else if (window.web3) {
             App.web3Provider = window.web3.currentProvider;
         }
-        // If no injected web3 instance is detected, fall back to Ganache
         else {
             App.web3Provider = new Web3.providers.HttpProvider('http://localhost:9545');
         }
@@ -53,7 +46,6 @@ App = {
     getMetaskAccountID: function () {
         web3 = new Web3(App.web3Provider);
 
-        // Retrieving accounts
         web3.eth.getAccounts(function(err, res) {
             if (err) {
                 console.log('Error:',err);
@@ -81,10 +73,7 @@ App = {
     },
 
     initSupplyChain: function () {
-        /// Source the truffle compiled smart contracts
         var jsonSupplyChain='../../build/contracts/SupplyChain.json';
-        //var json
-        /// JSONfy the smart contracts
         $.getJSON(jsonSupplyChain, function(data) {
             console.log('data',data);
             var SupplyChainArtifact = data;
@@ -102,7 +91,6 @@ App = {
     handleButtonClick: async function(event) {
         event.preventDefault();
         App.getMetaskAccountID();
-        var processId = parseInt($(event.target).data('id'));
         console.log('processId',processId);
 
         switch(processId) {
@@ -119,7 +107,7 @@ App = {
                 return await App.fetchItemBufferOne(event);
                 break;
             case 5:
-                return await App.fetchItemBufferTwo(event);
+                return await App.fetchWholesaler(event);
                 break;
             case 6:
                 return await App.fetchItemHistory(event);
@@ -156,6 +144,9 @@ App = {
                 break;
             case 17:
                 return await App.receivedItemByRetailer(event);
+                break;
+            case 18:
+                return await App.fetchRetailer(event);
                 break;
 
             }
@@ -305,8 +296,8 @@ App = {
 
     purchaseItemByWholesaler: function (event) {
         event.preventDefault();
-        var processId = parseInt($(event.target).data('id'));
         var upc = document.getElementById("purchaseupc").value;
+        var wholesalerName = document.getElementById("wholesalerName").value;
         var resultTag = document.getElementById("pid");
         App.contracts.SupplyChain.deployed().then(function(instance) {
             return instance.fetchItemBufferTwo(upc);
@@ -314,7 +305,7 @@ App = {
             var price = result[4];
             var balance = window.web3.utils.toWei(price, 'ether');
             App.contracts.SupplyChain.deployed().then(function(instance) {
-              return instance.purchaseItemByWholesaler(upc, {from: App.wholesalerID, value:balance });
+              return instance.purchaseItemByWholesaler(upc, wholesalerName, {from: App.wholesalerID, value:balance });
             }).then(function(result) {
               resultTag.className = " font";
               resultTag.innerText = "  Tx Hash: "+result.tx;
@@ -334,7 +325,6 @@ App = {
 
     shippedItemByManufacturer: function (event) {
       event.preventDefault();
-      var processId = parseInt($(event.target).data('id'));
       var upc = document.getElementById("shipupc").value;
       var resultTag = document.getElementById("sibf");
       App.contracts.SupplyChain.deployed().then(function(instance) {
@@ -350,7 +340,6 @@ App = {
 
     receivedItemByWholesaler: function (event) {
       event.preventDefault();
-      var processId = parseInt($(event.target).data('id'));
       var upc = document.getElementById("receiveupc").value;
       var resultTag = document.getElementById("ribd");
       App.contracts.SupplyChain.deployed().then(function(instance) {
@@ -366,7 +355,6 @@ App = {
 
     sellItemByWholesaler: function (event) {
       event.preventDefault();
-      var processId = parseInt($(event.target).data('id'));
       var upc = document.getElementById("sellupc").value;
       var price = document.getElementById("sellprice").value;
       var resultTag = document.getElementById("srd");
@@ -385,8 +373,8 @@ App = {
 
     purchaseItemByRetailer: function (event) {
       event.preventDefault();
-      var processId = parseInt($(event.target).data('id'));
       var upc = document.getElementById("purchaseupc").value;
+      var retailerName = document.getElementById("retailerName").value;
       var resultTag = document.getElementById("pir");
       App.contracts.SupplyChain.deployed().then(function(instance) {
           return instance.fetchItemBufferTwo(upc);
@@ -394,7 +382,7 @@ App = {
           var price = result[4];
           var balance = window.web3.utils.toWei(price, 'ether');
           App.contracts.SupplyChain.deployed().then(function(instance) {
-              return instance.purchaseItemByRetailer(upc, {from: App.retailerID,value:balance,gas:3000000});
+              return instance.purchaseItemByRetailer(upc, retailerName, {from: App.retailerID,value:balance,gas:3000000});
           }).then(function(result) {
               resultTag.className = " font";
               resultTag.innerText = "  Tx Hash: "+result.tx;
@@ -413,7 +401,6 @@ App = {
 
     shippedItemByWholesaler: function (event) {
       event.preventDefault();
-      var processId = parseInt($(event.target).data('id'));
       var upc = document.getElementById("shipupc").value;
       var resultTag = document.getElementById("sibd");
       App.contracts.SupplyChain.deployed().then(function(instance) {
@@ -431,7 +418,6 @@ App = {
 
     receivedItemByRetailer: function (event) {
       event.preventDefault();
-      var processId = parseInt($(event.target).data('id'));
       var upc = document.getElementById("receiveupc").value;
       var resultTag = document.getElementById("ribr");
       App.contracts.SupplyChain.deployed().then(function(instance) {
@@ -449,7 +435,6 @@ App = {
     
     fetchItemBufferOne: function () {
         event.preventDefault();
-        var processId = parseInt($(event.target).data('id'));
         var displayTo = document.getElementById("BlockInfoBufferOne");
         var upc = $('#upc1').val();
         App.contracts.SupplyChain.deployed().then(function(instance) {
@@ -470,19 +455,18 @@ App = {
         });
     },
 
-    fetchItemBufferTwo: function () {
+    fetchWholesaler: function () {
         event.preventDefault();
-        var processId = parseInt($(event.target).data('id'));
         var displayTo = document.getElementById("BlockInfoBufferOne");
         var upc = $('#upc1').val();
         App.contracts.SupplyChain.deployed().then(function(instance) {
-          return instance.fetchItemBufferTwo.call(upc,{from:App.metamaskAccountID,gas:3000000});
+          return instance.fetchWholesaler.call(upc);
         }).then(function(result) {
           while (displayTo.firstChild) {
               displayTo.removeChild(displayTo.firstChild);
           }
           console.log(result)
-
+          let today = new Date().toISOString().slice(0, 10)
           displayTo.innerHTML = (
           "SKU: "+result[0]+"<br>"+
           "UPC: "+result[1]+"<br>"+
@@ -490,8 +474,36 @@ App = {
           "Product Name: "+result[3]+"<br>"+
           "Product Price: "+result[4]+"<br>"+
           "Item State: "+result[6]+"<br>"+
+          "Product Date: "+today+"<br>"+
           "Wholesaler ID: "+result[7]+"<br>"+
-          "Retailer ID: "+result[8]);
+          "Wholesaler Name: "+result[8]);
+        }).catch(function(err) {
+          console.log(err.message);
+        });
+    },
+
+    fetchRetailer: function () {
+        event.preventDefault();
+        var displayTo = document.getElementById("BlockInfoBufferOne");
+        var upc = $('#upc1').val();
+        App.contracts.SupplyChain.deployed().then(function(instance) {
+          return instance.fetchRetailer.call(upc);
+        }).then(function(result) {
+          while (displayTo.firstChild) {
+              displayTo.removeChild(displayTo.firstChild);
+          }
+          console.log(result)
+          let today = new Date().toISOString().slice(0, 10)
+          displayTo.innerHTML = (
+          "SKU: "+result[0]+"<br>"+
+          "UPC: "+result[1]+"<br>"+
+          "Product ID: "+result[2]+"<br>"+
+          "Product Name: "+result[3]+"<br>"+
+          "Product Price: "+result[4]+"<br>"+
+          "Item State: "+result[6]+"<br>"+
+          "Product Date: "+today+"<br>"+
+          "Retailer ID: "+result[7]+"<br>"+
+          "Retailer Name: "+result[8]);
         }).catch(function(err) {
           console.log(err.message);
         });
@@ -499,7 +511,6 @@ App = {
 
     fetchItemHistory: function () {
         event.preventDefault();
-        var processId = parseInt($(event.target).data('id'));
         var upc = $('#upc1').val();
         var displayTo = document.getElementById("BlockInfoBufferOne");
         App.contracts.SupplyChain.deployed().then(function(instance) {
