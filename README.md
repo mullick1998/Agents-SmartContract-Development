@@ -13,10 +13,10 @@ A manufacturer, wholesaler, and retailer can realize a product flow. **A retaile
 <img src="Diagrams/OverallClassDiagram.svg" alt="Overall Class Diagram"/>
 
 ## Contract Data Model Diagram
-<img src="Diagrams/Data Model diagram.png" alt="Contract Data Model Diagram"/>
+<img src="Diagrams/Data Model diagram.svg" alt="Contract Data Model Diagram"/>
 
 ## Contract Sequence Diagram
-<img src="Diagrams/Sequence Diagram.png" alt="Contract Sequence Diagram"/>
+<img src="Diagrams/Sequence diagram.svg" alt="Contract Sequence Diagram"/>
 
 ## Compile Contract
 ```
