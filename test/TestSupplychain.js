@@ -345,12 +345,40 @@ contract('SupplyChain', function(accounts) {
 
     })
 
+    // 13th Test
+    it("Testing smart contract function fetchWholesaler()", async() => {
+        const resultWholesaler = await supplyChain.fetchWholesaler(upc);
+        assert.equal(resultWholesaler[0],sku, "Error: Invalid item SKU")
+        assert.equal(resultWholesaler[1],upc, "Error: Invalid item UPC")
+        assert.equal(resultWholesaler[2],productID, "Error: Invalid item productID")
+        assert.equal(resultWholesaler[3],productNotes, "Error: Invalid productnote")
+        assert.equal(resultWholesaler[4],productPrice, "Error: Invalid productPrice")
+        assert.equal(resultWholesaler[6],itemState, "Error: Invalid itemState")
+        assert.equal(resultWholesaler[7],wholesalerID, "Error: Invalid wholesalerID")
+        assert.equal(resultWholesaler[8],wholesalerName, "Error: Invalid wholesalerName")
+
+    })
+
+    // 14th Test
+    it("Testing smart contract function fetchRetailer()", async() => {
+        const resultRetailer = await supplyChain.fetchRetailer(upc);
+        assert.equal(resultRetailer[0],sku, "Error: Invalid item SKU")
+        assert.equal(resultRetailer[1],upc, "Error: Invalid item UPC")
+        assert.equal(resultRetailer[2],productID, "Error: Invalid item productID")
+        assert.equal(resultRetailer[3],productNotes, "Error: Invalid productnote")
+        assert.equal(resultRetailer[4],productPrice, "Error: Invalid productPrice")
+        assert.equal(resultRetailer[6],itemState, "Error: Invalid itemState")
+        assert.equal(resultRetailer[7],retailerID, "Error: Invalid retailerID")
+        assert.equal(resultRetailer[8],retailerName, "Error: Invalid retailerName")
+
+    })
+
 async function getTx(blockNumber){
     let tx1 = await web3.eth.getBlock(blockNumber);
     return  (await web3.eth.getTransaction(tx1.transactions[0]));
 }
 
-    // 13th Test
+    // 15th Test
     it("Testing smart contract function fetchItemHistory()", async() => {
         const resultItemHistory = await supplyChain.fetchitemHistory(upc);
         const MTW = await getTx(resultItemHistory[0].toString());

@@ -9,6 +9,9 @@ Agents can plan to reach a common goal, which is the fundamental objective for d
 
 A manufacturer, wholesaler, and retailer can realize a product flow. **A retailer can take products from a wholesaler and manufacturer(factory) and a warehouse of the retailer can be updated by rule-based agents upon requesting an order.** This sort of simulation can interact with smart contracts so that one can follow traces of interactions between supply chain network members (retailer, manufacturer, and wholesaler) in a detailed way. Every transaction (operation) between supply chain members are stored in a blockchain network and then one can use this simulation tool without applying an external distributed logging framework.
 
+## Overall Class Diagram
+<img src="Diagrams/OverallClassDiagram.svg" alt="Overall Class Diagram"/>
+
 ## Contract Data Model Diagram
 <img src="Diagrams/Data Model diagram.png" alt="Contract Data Model Diagram"/>
 
@@ -47,3 +50,8 @@ or `php -S localhost:<port-number>`
 
 ## JASON (AgentSpeak)
 Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
+
+### Run Agent File
+```
+jason ~/thesis/JASON/Agents/agents.mas2j
+```
