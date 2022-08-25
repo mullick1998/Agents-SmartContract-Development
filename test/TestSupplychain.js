@@ -1,6 +1,11 @@
 const SupplyChain = artifacts.require('SupplyChain')
 
 contract('SupplyChain', function(accounts) {
+
+    beforeEach('Initialize parameter', async () => {
+        supplyChain = await SupplyChain.deployed(); 
+    });
+    let supplyChain;
     var sku = 1
     var upc = 1
     var ownerID = accounts[0]
@@ -13,20 +18,18 @@ contract('SupplyChain', function(accounts) {
     const wholesalerID = accounts[2]
     const wholesalerName = "Mr. Mullick"
     const retailerID = accounts[3]
-    const retailerName = "Mrs. Mullick"
-
-
-
+    const retailerName = "Mrs. Mullick" 
+    
     console.log("<----------------ACCOUNTS----------------> ")
     console.log("Contract Owner: accounts[0] ", accounts[0])
     console.log("Manufacturer: accounts[1] ", accounts[1])
     console.log("Wholesaler: accounts[2] ", accounts[2])
-    console.log("Retailer: accounts[3] ", accounts[3])
+    console.log("Retailer: accounts[3] ", accounts[3]) 
 
     console.log("<-------TESTING CONTRACT FUNCTIONS------->")
     // 1st Test
     it("Testing smart contract function produceItem() that allows a manufacturer to produce product", async() => {
-        const supplyChain = await SupplyChain.deployed();
+        // const supplyChain = await SupplyChainInstance.deployed();
         await supplyChain.addManufacturer(originManufacturerID)
         var eventEmitted = false;
 
@@ -59,7 +62,6 @@ contract('SupplyChain', function(accounts) {
     
     // 2nd Test
     it("Testing smart contract function packageItemByManufacturer() that allows a Manufacturer to package product", async() => {
-        const supplyChain = await SupplyChain.deployed()
         var eventEmitted = false;
         itemState = 1;
         await supplyChain.packageItemByManufacturer(upc,{from: originManufacturerID});
@@ -85,7 +87,6 @@ contract('SupplyChain', function(accounts) {
 
     // 3rd Test
     it("Testing smart contract function sellItemByManufacturer() that allows a manufacturer to sell product", async() => {
-        const supplyChain = await SupplyChain.deployed()
         var eventEmitted = false;
         itemState = 2;
         await supplyChain.sellItemByManufacturer(upc,productPrice,{from: originManufacturerID});
@@ -114,7 +115,6 @@ contract('SupplyChain', function(accounts) {
 
     // 4th Test
     it("Testing smart contract function purchaseItemByWholesaler() that allows a wholesaler to buy product", async() => {
-        const supplyChain = await SupplyChain.deployed()
 
         await supplyChain.addWholesaler(wholesalerID);
 
@@ -149,7 +149,7 @@ contract('SupplyChain', function(accounts) {
 
     // 5th Test
     it("Testing smart contract function shippedItemByManufacturer() that allows a manufacturer to ship product ", async() => {
-        const supplyChain = await SupplyChain.deployed()
+        // const supplyChain = await SupplyChainInstance.deployed()
 
         var eventEmitted = false;
         itemState = 4;
@@ -179,7 +179,6 @@ contract('SupplyChain', function(accounts) {
 
     // 6th Test
     it("Testing smart contract function receivedItemByWholesaler() that allows a wholesaler to receive product", async() => {
-        const supplyChain = await SupplyChain.deployed()
 
         var eventEmitted = false;
         itemState = 5;
@@ -210,7 +209,6 @@ contract('SupplyChain', function(accounts) {
 
     // 7th Test
     it("Testing smart contract function sellItemByWholesaler() that allows a wholesaler to sell product", async() => {
-        const supplyChain = await SupplyChain.deployed()
 
         var eventEmitted = false;
         itemState = 6;
@@ -239,8 +237,7 @@ contract('SupplyChain', function(accounts) {
 
     // 8th Test
     it("Testing smart contract function purchaseItemByRetailer() that allows a retailer to purchase product", async() => {
-        const supplyChain = await SupplyChain.deployed()
-
+        
         await supplyChain.addRetailer(retailerID);
         var eventEmitted = false;
         itemState = 7;
@@ -271,7 +268,6 @@ contract('SupplyChain', function(accounts) {
 
     // 9th Test
     it("Testing smart contract function shippedItemByWholesaler() that allows a wholesaler to ship product", async() => {
-        const supplyChain = await SupplyChain.deployed()
 
         var eventEmitted = false;
         itemState = 8;
@@ -299,7 +295,6 @@ contract('SupplyChain', function(accounts) {
 
     // 10th Test
     it("Testing smart contract function receivedItemByRetailer() that allows a retailer to receive product", async() => {
-        const supplyChain = await SupplyChain.deployed()
 
         var eventEmitted = false;
         itemState = 9;
@@ -326,7 +321,6 @@ contract('SupplyChain', function(accounts) {
 
     // 11th Test
     it("Testing smart contract function fetchItemBufferOne()", async() => {
-        const supplyChain = await SupplyChain.deployed();
 
         const resultBufferOne = await supplyChain.fetchItemBufferOne(upc);
         assert.equal(resultBufferOne[0],sku,"Error: Invalid item SKU")
@@ -339,7 +333,6 @@ contract('SupplyChain', function(accounts) {
 
     // 12th Test
     it("Testing smart contract function fetchItemBufferTwo()", async() => {
-        const supplyChain = await SupplyChain.deployed()
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo(upc);
         assert.equal(resultBufferTwo[0],sku, "Error: Invalid item SKU")
         assert.equal(resultBufferTwo[1],upc, "Error: Invalid item UPC")
@@ -359,7 +352,6 @@ async function getTx(blockNumber){
 
     // 13th Test
     it("Testing smart contract function fetchItemHistory()", async() => {
-        const supplyChain = await SupplyChain.deployed()
         const resultItemHistory = await supplyChain.fetchitemHistory(upc);
         const MTW = await getTx(resultItemHistory[0].toString());
         const WTR = await getTx(resultItemHistory[1].toString());

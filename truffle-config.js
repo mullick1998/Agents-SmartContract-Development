@@ -14,6 +14,11 @@ module.exports = {
       port: 9545,        
       network_id: "*",       
      },
+    sampledevelopment: {
+      host: "127.0.0.1",    
+      port: 8545,        
+      network_id: "*",       
+    },
     rinkeby: {
       provider: () => new HDWalletProvider(secretkey, `https://rinkeby.infura.io/v3/9a27455b3ee74500bbbad6f0090ee57f`),
       network_id: 4,       

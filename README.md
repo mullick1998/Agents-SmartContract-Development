@@ -33,6 +33,12 @@ Availaible networks: `development`, `rinkeby`,  `alfajores`
 truffle test --network <network-name>
 ```
 
+Sample Usage
+
+```
+truffle test --network sampledevelopment
+```
+
 ## Start interaction on browser
 ```
 npm run dev
