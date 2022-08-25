@@ -91,6 +91,7 @@ App = {
     handleButtonClick: async function(event) {
         event.preventDefault();
         App.getMetaskAccountID();
+        var processId = parseInt($(event.target).data('id'));
         console.log('processId',processId);
 
         switch(processId) {

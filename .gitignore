@@ -5,6 +5,7 @@
 
 #env
 .env
+*.zip
 
 # User-specific files
 *.rsuser

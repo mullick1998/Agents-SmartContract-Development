@@ -37,3 +37,7 @@ truffle test --network <network-name>
 ```
 npm run dev
 ```
+or `php -S localhost:<port-number>`
+
+## JASON (AgentSpeak)
+Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
