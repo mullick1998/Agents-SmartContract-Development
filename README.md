@@ -9,8 +9,11 @@ Agents can plan to reach a common goal, which is the fundamental objective for d
 
 A manufacturer, wholesaler, and retailer can realize a product flow. **A retailer can take products from a wholesaler and manufacturer(factory) and a warehouse of the retailer can be updated by rule-based agents upon requesting an order.** This sort of simulation can interact with smart contracts so that one can follow traces of interactions between supply chain network members (retailer, manufacturer, and wholesaler) in a detailed way. Every transaction (operation) between supply chain members are stored in a blockchain network and then one can use this simulation tool without applying an external distributed logging framework.
 
-## Overall Class Diagram
+## Activity Diagram 
 <img src="Diagrams/OverallClassDiagram.svg" alt="Overall Class Diagram"/>
+
+## Overall Class Diagram
+<img src="Diagrams/Activity Diagram.svg" alt="Activity Diagram"/>
 
 ## Contract Data Model Diagram
 <img src="Diagrams/Data Model diagram.svg" alt="Contract Data Model Diagram"/>
