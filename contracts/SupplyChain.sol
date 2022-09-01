@@ -1,10 +1,10 @@
-pragma solidity >=0.4.24;
+pragma solidity >=0.5.16;
 
 // inherited contracts
-import '../CoreFile/Ownable.sol';
-import '../AccessControlFiles/ManufacturerRole.sol';
-import '../AccessControlFiles/WholesalerRole.sol';
-import '../AccessControlFiles/RetailerRole.sol';
+import '../contracts/Ownable.sol';
+import '../contracts/ManufacturerRole.sol';
+import '../contracts/WholesalerRole.sol';
+import '../contracts/RetailerRole.sol';
 
 
 // Define a contract 'Supplychain'
@@ -102,7 +102,7 @@ event ReceivedByRetailer(uint upc);            //10
   }
 
   // Define a modifier that checks the price and refunds the remaining balance
-  modifier checkValue(uint _upc, address addressToFund) {
+  modifier checkValue(uint _upc, address payable addressToFund) {
     uint _price = items[_upc].productPrice;
     uint  amountToReturn = msg.value - _price;
     addressToFund.transfer(amountToReturn);
@@ -170,14 +170,14 @@ event ReceivedByRetailer(uint upc);            //10
     // Define a function 'kill'
   function kill() public {
     if (msg.sender == owner) {
-      address ownerAddressPayable = _make_payable(owner);
+      address payable ownerAddressPayable = _make_payable(owner);
       selfdestruct(ownerAddressPayable);
     }
   }
 
 
     // allows you to convert an address into a payable address
-  function _make_payable(address x) internal pure returns (address) {
+  function _make_payable(address x) internal pure returns (address payable) {
       return address(uint160(x));
   }
 
@@ -253,13 +253,13 @@ Allows manufacturer to sell product
 4th step in supplychain
 Allows wholesaler to purchase product
 */
-  function purchaseItemByWholesaler(uint _upc, string _wholesalerName) public payable
+  function purchaseItemByWholesaler(uint _upc, string memory _wholesalerName) public payable
     onlyWholesaler() // check msg.sender belongs to wholesalerRole
     forSaleByManufacturer(_upc) // check items state is for ForSaleByManufacturer
     paidEnough(items[_upc].productPrice) // check if wholesaler sent enough Ether for product
     checkValue(_upc, msg.sender) // check if overpayed return remaing funds back to msg.sender
     {
-    address ownerAddressPayable = _make_payable(items[_upc].originManufacturerID); // make originFarmID payable
+    address payable ownerAddressPayable = _make_payable(items[_upc].originManufacturerID); // make originFarmID payable
     ownerAddressPayable.transfer(items[_upc].productPrice); // transfer funds from wholesaler to manufacturer
     items[_upc].ownerID = msg.sender; // update owner
     items[_upc].wholesalerID = msg.sender; // update wholesaler
@@ -314,13 +314,13 @@ Allows wholesaler to purchase product
   8th step in supplychain
   Allows retailer to purchase product
   */
-  function purchaseItemByRetailer(uint _upc, string _retailerName) public payable
+  function purchaseItemByRetailer(uint _upc, string memory _retailerName) public payable
     onlyRetailer() // check msg.sender belongs to RetailerRole
     forSaleByWholesaler(_upc)
     paidEnough(items[_upc].productPrice)
     checkValue(_upc, msg.sender)
     {
-    address ownerAddressPayable = _make_payable(items[_upc].wholesalerID);
+    address payable ownerAddressPayable = _make_payable(items[_upc].wholesalerID);
     ownerAddressPayable.transfer(items[_upc].productPrice);
     items[_upc].ownerID = msg.sender;
     items[_upc].retailerID = msg.sender;
@@ -394,8 +394,8 @@ Allows wholesaler to purchase product
     State   itemState,
     address wholesalerID,
     address retailerID,
-    string wholesalerName,
-    string retailerName
+    string memory wholesalerName,
+    string memory retailerName
     )
     {
       // Assign values to the 9 parameters
@@ -429,7 +429,7 @@ Allows wholesaler to purchase product
     uint256 productDate,
     State   itemState,
     address wholesalerID,
-    string wholesalerName
+    string memory wholesalerName
     )
     {
       // Assign values to the 9 parameters
@@ -461,7 +461,7 @@ Allows wholesaler to purchase product
     uint256 productDate,
     State   itemState,
     address retailerID,
-    string retailerName
+    string memory retailerName
     )
     {
       // Assign values to the 9 parameters

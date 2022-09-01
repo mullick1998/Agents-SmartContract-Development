@@ -54,6 +54,11 @@ or `php -S localhost:<port-number>`
 ## JASON (AgentSpeak)
 Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
 
+### Create .abi and .bin files inside `/JASON`
+```
+solc ~/thesis/contracts/SupplyChain.sol --bin --abi --optimize -o ~/thesis/JASON/outputABI
+```
+
 ### Run Agent File
 ```
 jason ~/thesis/JASON/Agents/agents.mas2j
