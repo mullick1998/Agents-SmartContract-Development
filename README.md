@@ -45,6 +45,12 @@ Sample Usage
 truffle test --network sampledevelopment
 ```
 
+## Start interaction on browser
+```
+npm run dev
+```
+or `php -S localhost:<port-number>`
+
 ## JASON (AgentSpeak)
 Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
 
@@ -52,3 +58,5 @@ Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tu
 ```
 jason ~/thesis/JASON/Agents/agents.mas2j
 ```
+
+[Thesis Paper](https://www.overleaf.com/project/62dfc9e6c07bbf02dc82519e)
