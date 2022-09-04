@@ -9,6 +9,7 @@ defaultTasks 'run'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 
 version '1.0'
 group   'org.jason'
@@ -30,6 +31,7 @@ repositories {
 }
 
 dependencies {
+    implementation ('org.web3j:core:5.0.0')
     implementation('org.jason:jason:3.1')
 }
 

@@ -52,13 +52,11 @@ npm run dev
 or `php -S localhost:<port-number>`
 
 ## JASON (AgentSpeak)
-Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
-
-### Create .abi and .bin files inside `/JASON`
+Setup JASON from [here](http://jason.sourceforge.net/mini-tutorial/getting-started/shell-based.html).
 ```
-solc ~/thesis/contracts/SupplyChain.sol --bin --abi --optimize -o ~/thesis/JASON/outputABI
+export JASON_HOME=/path/with/ScriptsAndLibs
+export PATH=$JASON_HOME/scripts:$PATH
 ```
-
 ### Run Agent File
 ```
 jason ~/thesis/JASON/Agents/agents.mas2j
