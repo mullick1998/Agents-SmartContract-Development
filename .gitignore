@@ -354,18 +354,9 @@ MigrationBackup/
 .ionide/
 
 #json files
-build/contracts/
+build
 
-# ABI and BIN file
-JASON/outputABI/ManufacturerRole.abi
-JASON/outputABI/ManufacturerRole.bin
-JASON/outputABI/Ownable.abi
-JASON/outputABI/Ownable.bin
-JASON/outputABI/RetailerRole.abi
-JASON/outputABI/RetailerRole.bin
-JASON/outputABI/Roles.abi
-JASON/outputABI/Roles.bin
-JASON/outputABI/SupplyChain.abi
-JASON/outputABI/SupplyChain.bin
-JASON/outputABI/WholesalerRole.abi
-JASON/outputABI/WholesalerRole.bin
+JASON/src
+JASON/Agents/build
+JASON/Agents/.gradle
+.idea
