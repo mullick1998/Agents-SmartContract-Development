@@ -357,6 +357,16 @@ MigrationBackup/
 build
 
 JASON/src
-JASON/Agents/build
-JASON/Agents/.gradle
+jason/agents/build
+jason/agents/.gradle
+jason/agents/gradle
+jdks
+wrapper
+workers
+jason/agents/.stop___MAS
 .idea
+caches
+.tmp
+jason/src
+daemon
+native
