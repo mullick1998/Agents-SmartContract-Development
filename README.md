@@ -57,5 +57,9 @@ export PATH=$JASON_HOME/scripts:$PATH
 ```
 jason ~/thesis/jason/agents/agents.mas2j
 ```
+### Run Agent on IDE
+``
+jason-ide
+```
 
 [Thesis Paper](https://www.overleaf.com/project/62dfc9e6c07bbf02dc82519e)

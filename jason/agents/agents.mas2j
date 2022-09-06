@@ -14,5 +14,5 @@ MAS agents {
 
     infrastructure: Local
 
-    agents: sample_agent;
+    agents i: manufacturer;
 }

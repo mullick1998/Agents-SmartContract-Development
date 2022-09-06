@@ -25,7 +25,6 @@ if [ -z "$JDK_HOME" ] ; then
            JDK_HOME=`dirname "$JDK_HOME"`
        fi
 fi
-
 # check JDK_HOME
 if [ ! -f "$JDK_HOME/bin/javac" ] ; then
    echo JDK_HOME is not properly set! Value is $JDK_HOME

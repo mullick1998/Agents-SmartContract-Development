@@ -108,71 +108,54 @@ public class SupplyChain extends Contract {
 
     public static final Event FORSALEBYMANUFACTURER_EVENT = new Event("ForSaleByManufacturer", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event FORSALEBYWHOLESALER_EVENT = new Event("ForSaleByWholesaler", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event MANUFACTURERADDED_EVENT = new Event("ManufacturerAdded", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
-    ;
 
     public static final Event MANUFACTURERREMOVED_EVENT = new Event("ManufacturerRemoved", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
-    ;
 
     public static final Event PACKAGEDBYMANUFACTURER_EVENT = new Event("PackagedByManufacturer", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event PRODUCEBYMANUFACTURER_EVENT = new Event("ProduceByManufacturer", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event PURCHASEDBYRETAILER_EVENT = new Event("PurchasedByRetailer", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event PURCHASEDBYWHOLESALER_EVENT = new Event("PurchasedByWholesaler", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event RECEIVEDBYRETAILER_EVENT = new Event("ReceivedByRetailer", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event RECEIVEDBYWHOLESALER_EVENT = new Event("ReceivedByWholesaler", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event RETAILERADDED_EVENT = new Event("RetailerAdded", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
-    ;
 
     public static final Event RETAILERREMOVED_EVENT = new Event("RetailerRemoved", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
-    ;
 
     public static final Event SHIPPEDBYMANUFACTURER_EVENT = new Event("ShippedByManufacturer", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event SHIPPEDBYWHOLESALER_EVENT = new Event("ShippedByWholesaler", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event TRANSFEROWNERSHIP_EVENT = new Event("TransferOwnership", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}, new TypeReference<Address>(true) {}));
-    ;
 
     public static final Event WHOLESALERADDED_EVENT = new Event("WholesalerAdded", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
-    ;
 
     public static final Event WHOLESALERREMOVED_EVENT = new Event("WholesalerRemoved", 
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
-    ;
 
     protected static final HashMap<String, String> _addresses;
 

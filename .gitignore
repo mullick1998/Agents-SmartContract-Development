@@ -370,3 +370,5 @@ caches
 jason/src
 daemon
 native
+/jason/examples
+/jason/demos
