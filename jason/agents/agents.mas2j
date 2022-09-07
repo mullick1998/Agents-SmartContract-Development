@@ -1,18 +1,16 @@
 /*
     agents
     ---------------------------
-
     Jason Project File
-
     This file defines the initial state of the MAS
-
     Jason 3.1
-    August 25, 2022 - 12:08:19
+    August 22, 2022 - 12:08:19
 */
 
 MAS agents {
-
     infrastructure: Local
-
-    agents i: manufacturer;
+    environment: SupplyChainEnv(gui)
+    agents : manufacturer;
+             wholesaler;
+             retailer;
 }
