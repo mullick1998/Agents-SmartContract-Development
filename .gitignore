@@ -354,4 +354,21 @@ MigrationBackup/
 .ionide/
 
 #json files
-build/contracts/
+build
+
+JASON/src
+jason/agents/build
+jason/agents/.gradle
+jason/agents/gradle
+jdks
+wrapper
+workers
+jason/agents/.stop___MAS
+.idea
+caches
+.tmp
+jason/src
+daemon
+native
+/jason/examples
+/jason/demos

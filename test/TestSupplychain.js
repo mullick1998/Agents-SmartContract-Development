@@ -28,8 +28,7 @@ contract('SupplyChain', function(accounts) {
 
     console.log("<-------TESTING CONTRACT FUNCTIONS------->")
     // 1st Test
-    it("Testing smart contract function produceItem() that allows a manufacturer to produce product", async() => {
-        // const supplyChain = await SupplyChainInstance.deployed();
+    it("Testing smart contract function produceItemByManufacturer()", async() => {
         await supplyChain.addManufacturer(originManufacturerID)
         var eventEmitted = false;
 
@@ -61,7 +60,7 @@ contract('SupplyChain', function(accounts) {
 
     
     // 2nd Test
-    it("Testing smart contract function packageItemByManufacturer() that allows a Manufacturer to package product", async() => {
+    it("Testing smart contract function packageItemByManufacturer()", async() => {
         var eventEmitted = false;
         itemState = 1;
         await supplyChain.packageItemByManufacturer(upc,{from: originManufacturerID});
@@ -86,7 +85,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 3rd Test
-    it("Testing smart contract function sellItemByManufacturer() that allows a manufacturer to sell product", async() => {
+    it("Testing smart contract function sellItemByManufacturer()", async() => {
         var eventEmitted = false;
         itemState = 2;
         await supplyChain.sellItemByManufacturer(upc,productPrice,{from: originManufacturerID});
@@ -114,7 +113,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 4th Test
-    it("Testing smart contract function purchaseItemByWholesaler() that allows a wholesaler to buy product", async() => {
+    it("Testing smart contract function purchaseItemByWholesaler()", async() => {
 
         await supplyChain.addWholesaler(wholesalerID);
 
@@ -148,8 +147,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 5th Test
-    it("Testing smart contract function shippedItemByManufacturer() that allows a manufacturer to ship product ", async() => {
-        // const supplyChain = await SupplyChainInstance.deployed()
+    it("Testing smart contract function shippedItemByManufacturer()", async() => {
 
         var eventEmitted = false;
         itemState = 4;
@@ -178,7 +176,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 6th Test
-    it("Testing smart contract function receivedItemByWholesaler() that allows a wholesaler to receive product", async() => {
+    it("Testing smart contract function receivedItemByWholesaler()", async() => {
 
         var eventEmitted = false;
         itemState = 5;
@@ -208,7 +206,7 @@ contract('SupplyChain', function(accounts) {
 
 
     // 7th Test
-    it("Testing smart contract function sellItemByWholesaler() that allows a wholesaler to sell product", async() => {
+    it("Testing smart contract function sellItemByWholesaler()", async() => {
 
         var eventEmitted = false;
         itemState = 6;
@@ -236,7 +234,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 8th Test
-    it("Testing smart contract function purchaseItemByRetailer() that allows a retailer to purchase product", async() => {
+    it("Testing smart contract function purchaseItemByRetailer()", async() => {
         
         await supplyChain.addRetailer(retailerID);
         var eventEmitted = false;
@@ -267,7 +265,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 9th Test
-    it("Testing smart contract function shippedItemByWholesaler() that allows a wholesaler to ship product", async() => {
+    it("Testing smart contract function shippedItemByWholesaler()", async() => {
 
         var eventEmitted = false;
         itemState = 8;
@@ -294,7 +292,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 10th Test
-    it("Testing smart contract function receivedItemByRetailer() that allows a retailer to receive product", async() => {
+    it("Testing smart contract function receivedItemByRetailer()", async() => {
 
         var eventEmitted = false;
         itemState = 9;
@@ -320,7 +318,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 11th Test
-    it("Testing smart contract function fetchItemBufferOne()", async() => {
+    it("Testing smart contract function fetchManufacturerDetails()", async() => {
 
         const resultBufferOne = await supplyChain.fetchItemBufferOne(upc);
         assert.equal(resultBufferOne[0],sku,"Error: Invalid item SKU")
@@ -331,22 +329,8 @@ contract('SupplyChain', function(accounts) {
 
     })
 
-    // 12th Test
-    it("Testing smart contract function fetchItemBufferTwo()", async() => {
-        const resultBufferTwo = await supplyChain.fetchItemBufferTwo(upc);
-        assert.equal(resultBufferTwo[0],sku, "Error: Invalid item SKU")
-        assert.equal(resultBufferTwo[1],upc, "Error: Invalid item UPC")
-        assert.equal(resultBufferTwo[2],productID, "Error: Invalid item productID")
-        assert.equal(resultBufferTwo[3],productNotes, "Error: Invalid productnote")
-        assert.equal(resultBufferTwo[4],productPrice, "Error: Invalid productPrice")
-        assert.equal(resultBufferTwo[6],itemState, "Error: Invalid itemState")
-        assert.equal(resultBufferTwo[7],wholesalerID, "Error: Invalid wholesalerID")
-        assert.equal(resultBufferTwo[8],retailerID, "Error: Invalid retailerID")
-
-    })
-
     // 13th Test
-    it("Testing smart contract function fetchWholesaler()", async() => {
+    it("Testing smart contract function fetchWholesalerDetails()", async() => {
         const resultWholesaler = await supplyChain.fetchWholesaler(upc);
         assert.equal(resultWholesaler[0],sku, "Error: Invalid item SKU")
         assert.equal(resultWholesaler[1],upc, "Error: Invalid item UPC")
@@ -360,7 +344,7 @@ contract('SupplyChain', function(accounts) {
     })
 
     // 14th Test
-    it("Testing smart contract function fetchRetailer()", async() => {
+    it("Testing smart contract function fetchRetailerDetails()", async() => {
         const resultRetailer = await supplyChain.fetchRetailer(upc);
         assert.equal(resultRetailer[0],sku, "Error: Invalid item SKU")
         assert.equal(resultRetailer[1],upc, "Error: Invalid item UPC")
