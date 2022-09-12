@@ -106,55 +106,55 @@ public class SupplyChain extends Contract {
 
     public static final String FUNC_FETCHITEMHISTORY = "fetchitemHistory";
 
-    public static final Event FORSALEBYMANUFACTURER_EVENT = new Event("ForSaleByManufacturer", 
+    public static final Event FORSALEBYMANUFACTURER_EVENT = new Event("ForSaleByManufacturer",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event FORSALEBYWHOLESALER_EVENT = new Event("ForSaleByWholesaler", 
+    public static final Event FORSALEBYWHOLESALER_EVENT = new Event("ForSaleByWholesaler",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event MANUFACTURERADDED_EVENT = new Event("ManufacturerAdded", 
+    public static final Event MANUFACTURERADDED_EVENT = new Event("ManufacturerAdded",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
 
-    public static final Event MANUFACTURERREMOVED_EVENT = new Event("ManufacturerRemoved", 
+    public static final Event MANUFACTURERREMOVED_EVENT = new Event("ManufacturerRemoved",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
 
-    public static final Event PACKAGEDBYMANUFACTURER_EVENT = new Event("PackagedByManufacturer", 
+    public static final Event PACKAGEDBYMANUFACTURER_EVENT = new Event("PackagedByManufacturer",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event PRODUCEBYMANUFACTURER_EVENT = new Event("ProduceByManufacturer", 
+    public static final Event PRODUCEBYMANUFACTURER_EVENT = new Event("ProduceByManufacturer",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event PURCHASEDBYRETAILER_EVENT = new Event("PurchasedByRetailer", 
+    public static final Event PURCHASEDBYRETAILER_EVENT = new Event("PurchasedByRetailer",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event PURCHASEDBYWHOLESALER_EVENT = new Event("PurchasedByWholesaler", 
+    public static final Event PURCHASEDBYWHOLESALER_EVENT = new Event("PurchasedByWholesaler",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event RECEIVEDBYRETAILER_EVENT = new Event("ReceivedByRetailer", 
+    public static final Event RECEIVEDBYRETAILER_EVENT = new Event("ReceivedByRetailer",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event RECEIVEDBYWHOLESALER_EVENT = new Event("ReceivedByWholesaler", 
+    public static final Event RECEIVEDBYWHOLESALER_EVENT = new Event("ReceivedByWholesaler",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event RETAILERADDED_EVENT = new Event("RetailerAdded", 
+    public static final Event RETAILERADDED_EVENT = new Event("RetailerAdded",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
 
-    public static final Event RETAILERREMOVED_EVENT = new Event("RetailerRemoved", 
+    public static final Event RETAILERREMOVED_EVENT = new Event("RetailerRemoved",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
 
-    public static final Event SHIPPEDBYMANUFACTURER_EVENT = new Event("ShippedByManufacturer", 
+    public static final Event SHIPPEDBYMANUFACTURER_EVENT = new Event("ShippedByManufacturer",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event SHIPPEDBYWHOLESALER_EVENT = new Event("ShippedByWholesaler", 
+    public static final Event SHIPPEDBYWHOLESALER_EVENT = new Event("ShippedByWholesaler",
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
 
-    public static final Event TRANSFEROWNERSHIP_EVENT = new Event("TransferOwnership", 
+    public static final Event TRANSFEROWNERSHIP_EVENT = new Event("TransferOwnership",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}, new TypeReference<Address>(true) {}));
 
-    public static final Event WHOLESALERADDED_EVENT = new Event("WholesalerAdded", 
+    public static final Event WHOLESALERADDED_EVENT = new Event("WholesalerAdded",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
 
-    public static final Event WHOLESALERREMOVED_EVENT = new Event("WholesalerRemoved", 
+    public static final Event WHOLESALERREMOVED_EVENT = new Event("WholesalerRemoved",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>(true) {}));
 
     protected static final HashMap<String, String> _addresses;
@@ -712,201 +712,201 @@ public class SupplyChain extends Contract {
 
     public RemoteFunctionCall<TransactionReceipt> addManufacturer(String account) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_ADDMANUFACTURER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)), 
+                FUNC_ADDMANUFACTURER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> addRetailer(String account) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_ADDRETAILER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)), 
+                FUNC_ADDRETAILER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> addWholesaler(String account) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_ADDWHOLESALER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)), 
+                FUNC_ADDWHOLESALER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<Boolean> isManufacturer(String account) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISMANUFACTURER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISMANUFACTURER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }
 
     public RemoteFunctionCall<Boolean> isOwner() {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISOWNER, 
-                Arrays.<Type>asList(), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISOWNER,
+                Arrays.<Type>asList(),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }
 
     public RemoteFunctionCall<Boolean> isRetailer(String account) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISRETAILER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISRETAILER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }
 
     public RemoteFunctionCall<Boolean> isWholesaler(String account) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISWHOLESALER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ISWHOLESALER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(account)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }
 
     public RemoteFunctionCall<String> ownerLookup() {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_OWNERLOOKUP, 
-                Arrays.<Type>asList(), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_OWNERLOOKUP,
+                Arrays.<Type>asList(),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteFunctionCall<TransactionReceipt> renounceManufacturer() {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_RENOUNCEMANUFACTURER, 
-                Arrays.<Type>asList(), 
+                FUNC_RENOUNCEMANUFACTURER,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> renounceOwnership() {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_RENOUNCEOWNERSHIP, 
-                Arrays.<Type>asList(), 
+                FUNC_RENOUNCEOWNERSHIP,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> renounceRetailer() {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_RENOUNCERETAILER, 
-                Arrays.<Type>asList(), 
+                FUNC_RENOUNCERETAILER,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> renounceWholesaler() {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_RENOUNCEWHOLESALER, 
-                Arrays.<Type>asList(), 
+                FUNC_RENOUNCEWHOLESALER,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> transferOwnership(String newOwner) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_TRANSFEROWNERSHIP, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(newOwner)), 
+                FUNC_TRANSFEROWNERSHIP,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(newOwner)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> kill() {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_KILL, 
-                Arrays.<Type>asList(), 
+                FUNC_KILL,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> produceItemByManufacturer(BigInteger _upc, String _originManufacturerName, String _productNotes, BigInteger _price) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_PRODUCEITEMBYMANUFACTURER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc), 
-                new org.web3j.abi.datatypes.Utf8String(_originManufacturerName), 
-                new org.web3j.abi.datatypes.Utf8String(_productNotes), 
-                new org.web3j.abi.datatypes.generated.Uint256(_price)), 
+                FUNC_PRODUCEITEMBYMANUFACTURER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc),
+                        new org.web3j.abi.datatypes.Utf8String(_originManufacturerName),
+                        new org.web3j.abi.datatypes.Utf8String(_productNotes),
+                        new org.web3j.abi.datatypes.generated.Uint256(_price)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> packageItemByManufacturer(BigInteger _upc) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_PACKAGEITEMBYMANUFACTURER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+                FUNC_PACKAGEITEMBYMANUFACTURER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> sellItemByManufacturer(BigInteger _upc, BigInteger _price) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_SELLITEMBYMANUFACTURER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc), 
-                new org.web3j.abi.datatypes.generated.Uint256(_price)), 
+                FUNC_SELLITEMBYMANUFACTURER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc),
+                        new org.web3j.abi.datatypes.generated.Uint256(_price)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> purchaseItemByWholesaler(BigInteger _upc, String _wholesalerName, BigInteger weiValue) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_PURCHASEITEMBYWHOLESALER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc), 
-                new org.web3j.abi.datatypes.Utf8String(_wholesalerName)), 
+                FUNC_PURCHASEITEMBYWHOLESALER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc),
+                        new org.web3j.abi.datatypes.Utf8String(_wholesalerName)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function, weiValue);
     }
 
-    public RemoteFunctionCall<TransactionReceipt> shippedItemByManufacturer(BigInteger _upc, BigInteger weiValue) {
+    public RemoteFunctionCall<TransactionReceipt> shippedItemByManufacturer(BigInteger _upc) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_SHIPPEDITEMBYMANUFACTURER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+                FUNC_SHIPPEDITEMBYMANUFACTURER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Collections.<TypeReference<?>>emptyList());
-        return executeRemoteCallTransaction(function, weiValue);
+        return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> receivedItemByWholesaler(BigInteger _upc) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_RECEIVEDITEMBYWHOLESALER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+                FUNC_RECEIVEDITEMBYWHOLESALER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> sellItemByWholesaler(BigInteger _upc, BigInteger _price) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_SELLITEMBYWHOLESALER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc), 
-                new org.web3j.abi.datatypes.generated.Uint256(_price)), 
+                FUNC_SELLITEMBYWHOLESALER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc),
+                        new org.web3j.abi.datatypes.generated.Uint256(_price)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> purchaseItemByRetailer(BigInteger _upc, String _retailerName, BigInteger weiValue) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_PURCHASEITEMBYRETAILER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc), 
-                new org.web3j.abi.datatypes.Utf8String(_retailerName)), 
+                FUNC_PURCHASEITEMBYRETAILER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc),
+                        new org.web3j.abi.datatypes.Utf8String(_retailerName)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function, weiValue);
     }
 
     public RemoteFunctionCall<TransactionReceipt> shippedItemByWholesaler(BigInteger _upc) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_SHIPPEDITEMBYWHOLESALER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+                FUNC_SHIPPEDITEMBYWHOLESALER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<TransactionReceipt> receivedItemByRetailer(BigInteger _upc) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
-                FUNC_RECEIVEDITEMBYRETAILER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+                FUNC_RECEIVEDITEMBYRETAILER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<Tuple7<BigInteger, BigInteger, String, String, String, BigInteger, BigInteger>> fetchItemBufferOne(BigInteger _upc) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHITEMBUFFERONE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHITEMBUFFERONE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Address>() {}, new TypeReference<Address>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}));
         return new RemoteFunctionCall<Tuple7<BigInteger, BigInteger, String, String, String, BigInteger, BigInteger>>(function,
                 new Callable<Tuple7<BigInteger, BigInteger, String, String, String, BigInteger, BigInteger>>() {
@@ -914,20 +914,20 @@ public class SupplyChain extends Contract {
                     public Tuple7<BigInteger, BigInteger, String, String, String, BigInteger, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple7<BigInteger, BigInteger, String, String, String, BigInteger, BigInteger>(
-                                (BigInteger) results.get(0).getValue(), 
-                                (BigInteger) results.get(1).getValue(), 
-                                (String) results.get(2).getValue(), 
-                                (String) results.get(3).getValue(), 
-                                (String) results.get(4).getValue(), 
-                                (BigInteger) results.get(5).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
+                                (BigInteger) results.get(1).getValue(),
+                                (String) results.get(2).getValue(),
+                                (String) results.get(3).getValue(),
+                                (String) results.get(4).getValue(),
+                                (BigInteger) results.get(5).getValue(),
                                 (BigInteger) results.get(6).getValue());
                     }
                 });
     }
 
     public RemoteFunctionCall<Tuple11<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String, String, String>> fetchItemBufferTwo(BigInteger _upc) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHITEMBUFFERTWO, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHITEMBUFFERTWO,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint8>() {}, new TypeReference<Address>() {}, new TypeReference<Address>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Utf8String>() {}));
         return new RemoteFunctionCall<Tuple11<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String, String, String>>(function,
                 new Callable<Tuple11<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String, String, String>>() {
@@ -935,24 +935,24 @@ public class SupplyChain extends Contract {
                     public Tuple11<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String, String, String> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple11<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String, String, String>(
-                                (BigInteger) results.get(0).getValue(), 
-                                (BigInteger) results.get(1).getValue(), 
-                                (BigInteger) results.get(2).getValue(), 
-                                (String) results.get(3).getValue(), 
-                                (BigInteger) results.get(4).getValue(), 
-                                (BigInteger) results.get(5).getValue(), 
-                                (BigInteger) results.get(6).getValue(), 
-                                (String) results.get(7).getValue(), 
-                                (String) results.get(8).getValue(), 
-                                (String) results.get(9).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
+                                (BigInteger) results.get(1).getValue(),
+                                (BigInteger) results.get(2).getValue(),
+                                (String) results.get(3).getValue(),
+                                (BigInteger) results.get(4).getValue(),
+                                (BigInteger) results.get(5).getValue(),
+                                (BigInteger) results.get(6).getValue(),
+                                (String) results.get(7).getValue(),
+                                (String) results.get(8).getValue(),
+                                (String) results.get(9).getValue(),
                                 (String) results.get(10).getValue());
                     }
                 });
     }
 
     public RemoteFunctionCall<Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>> fetchWholesaler(BigInteger _upc) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHWHOLESALER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHWHOLESALER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint8>() {}, new TypeReference<Address>() {}, new TypeReference<Utf8String>() {}));
         return new RemoteFunctionCall<Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>>(function,
                 new Callable<Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>>() {
@@ -960,22 +960,22 @@ public class SupplyChain extends Contract {
                     public Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>(
-                                (BigInteger) results.get(0).getValue(), 
-                                (BigInteger) results.get(1).getValue(), 
-                                (BigInteger) results.get(2).getValue(), 
-                                (String) results.get(3).getValue(), 
-                                (BigInteger) results.get(4).getValue(), 
-                                (BigInteger) results.get(5).getValue(), 
-                                (BigInteger) results.get(6).getValue(), 
-                                (String) results.get(7).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
+                                (BigInteger) results.get(1).getValue(),
+                                (BigInteger) results.get(2).getValue(),
+                                (String) results.get(3).getValue(),
+                                (BigInteger) results.get(4).getValue(),
+                                (BigInteger) results.get(5).getValue(),
+                                (BigInteger) results.get(6).getValue(),
+                                (String) results.get(7).getValue(),
                                 (String) results.get(8).getValue());
                     }
                 });
     }
 
     public RemoteFunctionCall<Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>> fetchRetailer(BigInteger _upc) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHRETAILER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHRETAILER,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint8>() {}, new TypeReference<Address>() {}, new TypeReference<Utf8String>() {}));
         return new RemoteFunctionCall<Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>>(function,
                 new Callable<Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>>() {
@@ -983,22 +983,22 @@ public class SupplyChain extends Contract {
                     public Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple9<BigInteger, BigInteger, BigInteger, String, BigInteger, BigInteger, BigInteger, String, String>(
-                                (BigInteger) results.get(0).getValue(), 
-                                (BigInteger) results.get(1).getValue(), 
-                                (BigInteger) results.get(2).getValue(), 
-                                (String) results.get(3).getValue(), 
-                                (BigInteger) results.get(4).getValue(), 
-                                (BigInteger) results.get(5).getValue(), 
-                                (BigInteger) results.get(6).getValue(), 
-                                (String) results.get(7).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
+                                (BigInteger) results.get(1).getValue(),
+                                (BigInteger) results.get(2).getValue(),
+                                (String) results.get(3).getValue(),
+                                (BigInteger) results.get(4).getValue(),
+                                (BigInteger) results.get(5).getValue(),
+                                (BigInteger) results.get(6).getValue(),
+                                (String) results.get(7).getValue(),
                                 (String) results.get(8).getValue());
                     }
                 });
     }
 
     public RemoteFunctionCall<Tuple2<BigInteger, BigInteger>> fetchitemHistory(BigInteger _upc) {
-        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHITEMHISTORY, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)), 
+        final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_FETCHITEMHISTORY,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(_upc)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}, new TypeReference<Uint256>() {}));
         return new RemoteFunctionCall<Tuple2<BigInteger, BigInteger>>(function,
                 new Callable<Tuple2<BigInteger, BigInteger>>() {
@@ -1006,7 +1006,7 @@ public class SupplyChain extends Contract {
                     public Tuple2<BigInteger, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple2<BigInteger, BigInteger>(
-                                (BigInteger) results.get(0).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
                                 (BigInteger) results.get(1).getValue());
                     }
                 });
@@ -1030,23 +1030,23 @@ public class SupplyChain extends Contract {
         return new SupplyChain(contractAddress, web3j, transactionManager, contractGasProvider);
     }
 
-    public static RemoteCall<SupplyChain> deploy(Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider, BigInteger initialWeiValue) {
+    /*public static RemoteCall<SupplyChain> deploy(Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider, BigInteger initialWeiValue) {
         return deployRemoteCall(SupplyChain.class, web3j, credentials, contractGasProvider, BINARY, "", initialWeiValue);
     }
 
     public static RemoteCall<SupplyChain> deploy(Web3j web3j, TransactionManager transactionManager, ContractGasProvider contractGasProvider, BigInteger initialWeiValue) {
         return deployRemoteCall(SupplyChain.class, web3j, transactionManager, contractGasProvider, BINARY, "", initialWeiValue);
-    }
+    }*/
 
     @Deprecated
-    public static RemoteCall<SupplyChain> deploy(Web3j web3j, Credentials credentials, BigInteger gasPrice, BigInteger gasLimit, BigInteger initialWeiValue) {
-        return deployRemoteCall(SupplyChain.class, web3j, credentials, gasPrice, gasLimit, BINARY, "", initialWeiValue);
+    public static RemoteCall<SupplyChain> deploy(Web3j web3j, Credentials credentials, BigInteger gasPrice, BigInteger gasLimit) {
+        return deployRemoteCall(SupplyChain.class, web3j, credentials, gasPrice, gasLimit, BINARY, "");
     }
 
-    @Deprecated
+    /*@Deprecated
     public static RemoteCall<SupplyChain> deploy(Web3j web3j, TransactionManager transactionManager, BigInteger gasPrice, BigInteger gasLimit, BigInteger initialWeiValue) {
         return deployRemoteCall(SupplyChain.class, web3j, transactionManager, gasPrice, gasLimit, BINARY, "", initialWeiValue);
-    }
+    }*/
 
     protected String getStaticDeployedAddress(String networkId) {
         return _addresses.get(networkId);
