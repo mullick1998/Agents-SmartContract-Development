@@ -18,8 +18,7 @@ public class accessControl {
     String manufacturerID =  web3j.ethAccounts().send().getAccounts().get(1);
     String wholesalerID = web3j.ethAccounts().send().getAccounts().get(2);
     String retailerID = web3j.ethAccounts().send().getAccounts().get(3);
-    private final String CONTRACT_ADDRESS= deployContract(web3j, getCredentialsFromPrivateKey());
-
+    private final String CONTRACT_ADDRESS = deployContract(web3j, getCredentialsFromPrivateKey());
     public static void main(String[] args) {
         try {
             new accessControl();
@@ -32,14 +31,13 @@ public class accessControl {
 
         printWeb3Version(web3j);
 
-        System.out.println("<----------------ACCOUNTS----------------> ");
-        System.out.println("CONTRACT ADDRESS: "+ CONTRACT_ADDRESS );
-        System.out.println("Contract Owner: "+ownerID);
-        System.out.println("Manufacturer ID: "+manufacturerID);
-        System.out.println("Wholesaler ID: "+wholesalerID);
-        System.out.println("Retailer ID: "+retailerID);
+        System.out.println("<-------------------ACCOUNTS----------------------->");
+        System.out.println("CONTRACT ADDRESS: " + CONTRACT_ADDRESS);
+        System.out.println("Contract Owner: " + ownerID);
+        System.out.println("Manufacturer ID: " + manufacturerID);
+        System.out.println("Wholesaler ID: " + wholesalerID);
+        System.out.println("Retailer ID: " + retailerID);
 
-        // String deployAddress = deployContract(web3j, getCredentialsFromPrivateKey());;
         //System.out.println("DA: "+deployAddress);
 
         SupplyChain supplychain= loadContract(CONTRACT_ADDRESS, web3j, getCredentialsFromPrivateKey());
@@ -51,11 +49,11 @@ public class accessControl {
         supplychain.produceItemByManufacturer(valueOf(1), "mullick", "milk", valueOf(1)).send();
         supplychain.packageItemByManufacturer(valueOf(1)).send();
         supplychain.sellItemByManufacturer(valueOf(1), valueOf(1)).send();
-        supplychain.purchaseItemByWholesaler(valueOf(1), "mr. mullick", valueOf(1)).send();
+        supplychain.purchaseItemByWholesaler(valueOf(1), "mr. mullick", BigInteger.valueOf(1)).send();
         supplychain.shippedItemByManufacturer(valueOf(1)).send();
         supplychain.receivedItemByWholesaler(valueOf(1)).send();
         supplychain.sellItemByWholesaler(valueOf(1), BigInteger.valueOf(1)).send();
-        supplychain.purchaseItemByRetailer(valueOf(1),"mrs. mullick", valueOf(1)).send();
+        supplychain.purchaseItemByRetailer(valueOf(1),"mrs. mullick", BigInteger.valueOf(1)).send();
         supplychain.shippedItemByWholesaler(valueOf(1)).send();
         supplychain.receivedItemByRetailer(valueOf(1)).send();
         supplychain.fetchItemBufferOne(valueOf(1)).send();
@@ -75,7 +73,7 @@ public class accessControl {
         }
         assert web3ClientVersion != null;
         String web3ClientVersionString = web3ClientVersion.getWeb3ClientVersion();
-        System.out.println("Web3 client version: " + web3ClientVersionString);
+        System.out.println("Web3j client version: " + web3ClientVersionString);
     }
 
     private Credentials getCredentialsFromPrivateKey() {

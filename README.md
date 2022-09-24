@@ -44,6 +44,11 @@ truffle test --network sampledevelopment
 ```
 <img src="images/test_ss.png" alt="Unit Test Screenshot"/>
 
+### Generate java wrapper class web3j
+```
+web3j generate truffle --truffle-json /home/mostakim/thesis/build/contracts/SupplyChain.json -o /home/mostakim/thesis/jason/supplyChainAgents/src/main/java -p thesis.SupplyChain
+```
+
 ## JASON (AgentSpeak)
 Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
 
@@ -59,8 +64,9 @@ export PATH=$JASON_HOME/scripts:$PATH
 ```
 jason ~/thesis/jason/agents/agents.mas2j
 ```
+
 ### Run Agent on IDE
-``
+```
 jason-ide
 ```
 
