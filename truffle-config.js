@@ -12,7 +12,7 @@ module.exports = {
     development: {
       host: "127.0.0.1",    
       port: 9545,        
-      network_id: "*",       
+      network_id: 5777,
      },
     sampledevelopment: {
       host: "127.0.0.1",    
@@ -40,7 +40,7 @@ module.exports = {
   },
   compilers: {
     solc: {
-      version: "0.5.16",   
+      version: "0.8.2",
   },
 }
 };

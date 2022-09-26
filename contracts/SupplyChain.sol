@@ -1,4 +1,6 @@
-pragma solidity >=0.5.16;
+// SPDX-License-Identifier: ISC
+pragma solidity ^0.8.2;
+
 
 // inherited contracts
 import '../contracts/Ownable.sol';
@@ -8,7 +10,12 @@ import '../contracts/RetailerRole.sol';
 
 
 // Define a contract 'Supplychain'
-contract SupplyChain is Ownable, ManufacturerRole, WholesalerRole, RetailerRole {
+contract SupplyChain is
+    Ownable,
+    ManufacturerRole,
+    WholesalerRole,
+    RetailerRole {
+
 
   // Define 'owner'
   address owner;
@@ -25,6 +32,15 @@ contract SupplyChain is Ownable, ManufacturerRole, WholesalerRole, RetailerRole 
   // Define a public mapping 'itemsHistory' that maps the UPC to an array of TxHash,
   // that track its journey through the supply chain -- to be sent from DApp.
   mapping (uint => Txblocks) itemsHistory;
+
+  // constructor setup owner sku upc
+  constructor() payable {
+    owner = msg.sender;
+    sku = 1;
+    upc = 1;
+  }
+
+
 
   // Define enum 'State' with the following values:
   enum State
@@ -84,7 +100,7 @@ event ReceivedByRetailer(uint upc);            //10
 
 
   // Define a modifer that checks to see if msg.sender == owner of the contract
-  modifier onlyOwner() {
+  modifier onlyOwner()  override{
     require(msg.sender == owner, "owner doesn't match");
     _;
   }
@@ -160,12 +176,6 @@ event ReceivedByRetailer(uint upc);            //10
     _;
   }
 
-// constructor setup owner sku upc
-  constructor() public payable {
-    owner = msg.sender;
-    sku = 1;
-    upc = 1;
-  }
 
     // Define a function 'kill'
   function kill() public {
@@ -178,7 +188,7 @@ event ReceivedByRetailer(uint upc);            //10
 
     // allows you to convert an address into a payable address
   function _make_payable(address x) internal pure returns (address payable) {
-      return address(uint160(x));
+      return payable(address (uint160(x)));
   }
 
 /*
@@ -200,7 +210,7 @@ event ReceivedByRetailer(uint upc);            //10
     newProduce.productID = _upc+sku;  // Product ID
     newProduce.productNotes = _productNotes; // Product Notes
     newProduce.productPrice = _price;  // Product Price
-    newProduce.productDate = now;
+    newProduce.productDate = block.timestamp;
     newProduce.productPieces = 0;
     newProduce.itemState = defaultState; // Product State as represented in the enum above
     newProduce.wholesalerID = wholesalerID; // Metamask-Ethereum address of the Wholesaler
@@ -257,7 +267,7 @@ Allows wholesaler to purchase product
     onlyWholesaler() // check msg.sender belongs to wholesalerRole
     forSaleByManufacturer(_upc) // check items state is for ForSaleByManufacturer
     paidEnough(items[_upc].productPrice) // check if wholesaler sent enough Ether for product
-    checkValue(_upc, msg.sender) // check if overpayed return remaing funds back to msg.sender
+    checkValue(_upc, payable(msg.sender)) // check if overpayed return remaing funds back to msg.sender
     {
     address payable ownerAddressPayable = _make_payable(items[_upc].originManufacturerID); // make originFarmID payable
     ownerAddressPayable.transfer(items[_upc].productPrice); // transfer funds from wholesaler to manufacturer
@@ -318,7 +328,7 @@ Allows wholesaler to purchase product
     onlyRetailer() // check msg.sender belongs to RetailerRole
     forSaleByWholesaler(_upc)
     paidEnough(items[_upc].productPrice)
-    checkValue(_upc, msg.sender)
+    checkValue(_upc, payable(msg.sender))
     {
     address payable ownerAddressPayable = _make_payable(items[_upc].wholesalerID);
     ownerAddressPayable.transfer(items[_upc].productPrice);
