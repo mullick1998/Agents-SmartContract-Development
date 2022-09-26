@@ -62,8 +62,11 @@ export PATH=$JASON_HOME/scripts:$PATH
 
 ### Run Agent File
 ```
-jason ~/thesis/jason/agents/agents.mas2j
+jason ~/thesis/jason/jasonAgent/jasonAgent.mas2j
 ```
+Output ( without connecting to contracts):
+
+<img src="images/agents_run.png" alt="Agent Run Screenshot"/>
 
 ### Run Agent on IDE
 ```
