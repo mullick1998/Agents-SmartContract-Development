@@ -8,8 +8,10 @@
 */
 
 MAS supplyChainAgents {
-    environment: SupplyChainEnv(gui)
-    agents : manufacturer;
-             wholesaler;
-             retailer;
+    agents : mainAgent;
+             //manufacturer;
+             //wholesaler;
+             //retailer;
+    aslSourcePath:
+            "src/asl";
 }

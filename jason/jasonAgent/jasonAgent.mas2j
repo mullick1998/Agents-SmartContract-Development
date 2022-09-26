@@ -1,0 +1,18 @@
+/*
+    jasonAgent
+    ---------------------------
+
+    Jason Project File
+
+    This file defines the initial state of the MAS
+
+    Jason 3.1
+    September 26, 2022 - 14:32:13
+*/
+
+MAS jasonAgent {
+
+    agents: supplyChainAgent;
+    aslSourcePath:
+                "src/asl";
+}
