@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: ISC
 pragma solidity ^0.8.2;
 
+
 /**
  * @title Roles
  * @dev Library for managing addresses assigned to a Role.

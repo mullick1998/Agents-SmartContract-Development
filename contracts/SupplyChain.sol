@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: ISC
 pragma solidity ^0.8.2;
 
+
 // inherited contracts
 import '../contracts/Ownable.sol';
 import '../contracts/ManufacturerRole.sol';
@@ -14,6 +15,7 @@ contract SupplyChain is
     ManufacturerRole,
     WholesalerRole,
     RetailerRole {
+
 
   // Define 'owner'
   address owner;
@@ -173,6 +175,7 @@ event ReceivedByRetailer(uint upc);            //10
     require(items[_upc].itemState == State.ReceivedByRetailer, "receivedByRetailer State doesn't match");
     _;
   }
+
 
     // Define a function 'kill'
   function kill() public {

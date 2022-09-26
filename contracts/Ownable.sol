@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: ISC
 pragma solidity ^0.8.2;
 
+
 /// Provides basic authorization control
 contract Ownable {
     address private origOwner;
@@ -9,6 +10,7 @@ contract Ownable {
     event TransferOwnership(address indexed oldOwner, address indexed newOwner);
 
     /// Assign the contract to an owner
+
     constructor() {
         origOwner = msg.sender;
         emit TransferOwnership(address(0), origOwner);
@@ -21,6 +23,7 @@ contract Ownable {
 
     /// Define a function modifier 'onlyOwner'
     modifier onlyOwner() virtual {
+
         require(isOwner(), "owner required");
         _;
     }

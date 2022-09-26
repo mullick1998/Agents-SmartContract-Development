@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: ISC
 pragma solidity ^0.8.2;
 
+
 // Import the library 'Roles'
 import "./Roles.sol";
 

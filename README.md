@@ -57,6 +57,7 @@ set the Jason home directory with the following command:
 export JASON_HOME=~/thesis/jason/
 export PATH=$JASON_HOME/scripts:$PATH
 ```
+
 ## Multi-Agent Flow Chart
 <img src="diagrams/Flow Chart.svg" alt="Multi-Agent Flow Chart"/>
 
@@ -70,6 +71,7 @@ Output ( without connecting to contracts):
 
 ### Run Agent on IDE
 ```
+
 jason-ide
 ```
 
