@@ -9,10 +9,15 @@ Agents can plan to reach a common goal, which is the fundamental objective for d
 
 A manufacturer, wholesaler, and retailer can realize a product flow. **A retailer can take products from a wholesaler and manufacturer(factory) and a warehouse of the retailer can be updated by rule-based agents upon requesting an order.** This sort of simulation can interact with smart contracts so that one can follow traces of interactions between supply chain network members (retailer, manufacturer, and wholesaler) in a detailed way. Every transaction (operation) between supply chain members are stored in a blockchain network and then one can use this simulation tool without applying an external distributed logging framework.
 
-## Activity Diagram 
-<img src="diagrams/OverallClassDiagram.svg" alt="Overall Class Diagram"/>
+# Contents
+- [Directory Structure](#directory-structure)
+- [Implement Smart-contracts](#compile-contract)
+- [MAS Implementation using JASON](#jason-agentspeak)
 
 ## Overall Class Diagram
+<img src="diagrams/OverallClassDiagram.svg" alt="Overall Class Diagram"/>
+
+## Activity Diagram
 <img src="diagrams/Activity Diagram.svg" alt="Activity Diagram"/>
 
 ## Contract Data Model Diagram
@@ -72,5 +77,70 @@ Output ( without connecting to contracts):
 ```
 jason-ide
 ```
+## Directory Structure
+
+```bash 
+.gitignore
+README.md
+package-lock.json
+package.json
+truffle-config.js
+meeting (Orçun Oruç)
+ |-- meeting_description.md"
+ |-- small_presentation.pdf"
+contracts
+|-- ManufacturerRole.sol
+|-- Migrations.sol
+|-- Ownable.sol
+|-- RetailerRole.sol
+|-- Roles.sol
+|-- SupplyChain.sol
+|-- SupplyChainUpgradeable.sol
+|-- WholesalerRole.sol
+migrations
+|-- 1_initial_migration.js
+|-- 2_deploy_contracts.js
+test
+|-- TestSupplychain.js
+jason
+|-- jedit
+|-- libs
+|-- scripts
+|-- jasonAgent
+|   |-- src
+|   |   |-- asl
+|   |   |   |-- manufacturerAgent.asl
+|   |   |   |-- retailerAgent.asl
+|   |   |   |-- supplyChainAgent.asl
+|   |   |   |-- wholesalerAgent.asl
+|-- supplyChainAgents
+|   |-- src
+|   |   |-- asl
+|   |   |   |-- mainAgent.asl
+|   |   |   |-- manufacturer.asl
+|   |   |   |-- retailer.asl
+|   |   |   |-- wholesaler.asl
+|   |   |-- main
+|   |   |   |-- java
+|   |   |   |   |-- SupplyChainEnv.java
+|   |   |   |   |-- thesis
+|   |   |   |   |   |-- SupplyChain
+|   |   |   |   |   |   |-- SupplyChain.java
+|   |   |   |   |   |   |-- accessControl.java
+|   |   |   |   |   |   |-- connect.java
+|   |   |   |-- resources
+|   |-- supplyChainAgents.mas2j
+diagrams
+|-- Activity Diagram.svg
+|-- Data Model diagram.svg
+|-- Flow Chart.svg
+|-- OverallClassDiagram.svg
+|-- Sequence diagram.svg
+gantt chart
+|-- Gantt_Chart.xlsx
+images
+|-- agents_run.png
+|-- test_ss.png
+``
 
 [Thesis Paper](https://www.overleaf.com/project/62dfc9e6c07bbf02dc82519e)
