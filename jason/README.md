@@ -39,7 +39,7 @@ export JASON_HOME=~/thesis/jason/
 export PATH=$JASON_HOME/scripts:$PATH
 ```
 ## Multi-Agent Flow Chart
-<img src="/thesis/diagrams/Flow Chart.svg" alt="Multi-Agent Flow Chart"/>
+<img src="../diagrams/Flow Chart.svg" alt="Multi-Agent Flow Chart"/>
 
 ### Run Agent File
 ```
@@ -57,4 +57,5 @@ jason ~/thesis/jason/jasonAgent/jasonAgent.mas2j
   - merely to test the `asl` files without smart contracts, I created this folder.
   - Includes `asl` directory containing all the `asl` files
   - running of MAS shows:
-    <img src="/thesis/images/agents_run.png" alt="Agent Run Screenshot"/>
+
+ <img src="../images/agents_run.png" alt="Agent Run Screenshot"/>
