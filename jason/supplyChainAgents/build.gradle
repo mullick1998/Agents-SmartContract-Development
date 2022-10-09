@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    implementation ('org.web3j:core:5.0.0')
+    implementation('org.web3j:core:5.0.0')
     implementation('org.jason:jason:3.1')
     implementation("org.slf4j:slf4j-jdk14:2.0.0")
 }

@@ -1,7 +1,7 @@
 ## Multi-Agent System
 
 ### Directory Structure
-```bash
+```
 jason
 |-- jedit
 |-- libs
@@ -47,15 +47,5 @@ jason ~/thesis/jason/jasonAgent/jasonAgent.mas2j
 ```
 ### main directories
 - `libs` and `scripts`: to build and run `MAS`
-- **supplyChainAgents**
-  - Includes `src` which has `asl` files and ``main file
-  - `asl` contains all agent files
-  - `main` includes `thesis.SupplyChain` package which contains a java-wrapper file generated from `SupplyChain.sol`
-  - _**`Error.txt` file shows generated error while running `MAS`, reason might be solidity version.**_ 
-  - **Solution:** Check the compatibilty between gradle and solidity version(Orçun Oruç)
-- **jasonAgents**
-  - merely to test the `asl` files without smart contracts, I created this folder.
-  - Includes `asl` directory containing all the `asl` files
-  - running of MAS shows:
-
- <img src="../images/agents_run.png" alt="Agent Run Screenshot"/>
+- **supplyChainAgents** : Connects MAS via blockchain
+- **jasonAgents** : merely to test the `asl` files without smart contracts
