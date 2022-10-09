@@ -1,7 +1,7 @@
 ## Operate MAS with blockchain
 
 ### Directory structure
-```aidl
+```
 |-- supplyChainAgents
 |   |-- src
 |   |   |-- asl
