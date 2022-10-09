@@ -26,7 +26,7 @@
  - `accessControl.java` runs the java-wrappper class and success in deploying and also does all the transaction as shown by printing all the details:
     - **Problem:** Unable to change the owner of the contract.
     - **Solution:** _Proxy contract_ can be used, but can't find anything related to Java.
-```aidl
+```
 > Task :processResources UP-TO-DATE
 > Task :classes
 
@@ -46,7 +46,7 @@ BUILD SUCCESSFUL in 17s
 ### Error while running the agents
 - Gets the following _**`Pacakge error` while running `MAS`, reason might be solidity version's incompatibility with the gradle's version.**_
   - **Solution:** Check the compatibilty between gradle and solidity version(Mr. Orçun Oruç)
-```aidl
+```
 mostakim@mostakim:~/thesis$ jason /home/mostakim/thesis/jason/supplyChainAgents/supplyChainAgents.mas2j
 Executing /usr/lib/jvm/jdk-18/bin/java -classpath /home/mostakim/thesis/jason/libs/ant-launcher-1.10.5.jar org.apache.tools.ant.launch.Launcher -e -f bin/supplyChainAgents.xml run
 Buildfile: /home/mostakim/thesis/jason/supplyChainAgents/bin/supplyChainAgents.xml
