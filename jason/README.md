@@ -39,7 +39,7 @@ export JASON_HOME=~/thesis/jason/
 export PATH=$JASON_HOME/scripts:$PATH
 ```
 ## Multi-Agent Flow Chart
-<img src="/thesis/diagrams/Flow Chart.svg" alt="Multi-Agent Flow Chart"/>
+<img src="../diagrams/Flow Chart.svg" alt="Multi-Agent Flow Chart"/>
 
 ### Run Agent File
 ```
@@ -51,10 +51,11 @@ jason ~/thesis/jason/jasonAgent/jasonAgent.mas2j
   - Includes `src` which has `asl` files and ``main file
   - `asl` contains all agent files
   - `main` includes `thesis.SupplyChain` package which contains a java-wrapper file generated from `SupplyChain.sol`
-  - _**`Error.txt` file shows generated error while running `MAS`, reason might be solidity version.**_ 
+  - _**`Error.txt` file shows generated error while running `MAS`, reason might be solidity version.**_
   - **Solution:** Check the compatibilty between gradle and solidity version(Orçun Oruç)
 - **jasonAgents**
   - merely to test the `asl` files without smart contracts, I created this folder.
   - Includes `asl` directory containing all the `asl` files
   - running of MAS shows:
-    <img src="/thesis/images/agents_run.png" alt="Agent Run Screenshot"/>
+
+ <img src="../images/agents_run.png" alt="Agent Run Screenshot"/>
