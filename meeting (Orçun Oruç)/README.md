@@ -19,9 +19,20 @@
 - Only has AgentSpeak compiler, compiler error basically, Find AgentSpeak jason compiler that works with java compiler.
 - Try with `maven` instead of `gradle`. <span style="color: orange"> _(tried but didn't work)_  </span>
 
+_(click on **supplyChainAgents** directory > **Add Framework Support** > click on **Maven**)_
+
 `**error: could not find artifact org.jason:jason:pom:3.1 in central (https://repo.maven.apache.org/maven2)`
 ![Jason package fail in maven](../images/mavenFail_jason.png)
 - Start writing paper.
 
-## 4th meeting (14th October 2022) []
+## 4th meeting (21st October 2022) [10:00-10:20]
+- Check for how to add jar files locally and try maven again. 
+**Remove** ```<scope>runtime</scope>``` and **Add** in _pom.xml_:
+```
+<scope>system</scope>
+<systemPath>/home/mostakim/thesis/jason/libs/jason-3.1.jar</systemPath>
+```
+maven file build successful, but the same issue still persists regarding _package error_ while running _AGENTS_.
+- Put the **related papers** inside folder in repository
+- Take more notice on case studies, do intensive research.
 
