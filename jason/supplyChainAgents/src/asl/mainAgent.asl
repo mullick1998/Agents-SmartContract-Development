@@ -1,18 +1,26 @@
 !start. // initial goal
 
 +!start : true
-   <- .print("Creating Retailer");
-      .create_agent(bob, "bob.asl");
-      .send(bob, achieve, a);
-      .wait(100);
-      .print("Killing agent bob!");
-      .kill_agent(bob);
+   <- .print("Creating RetailerAgent");
+      .create_agent(retailerAgent, "retailerAgent.asl");
+      .send(retailerAgent, achieve, a);
+      .wait(5000);
+      .send(retailerAgent, achieve, check_warehouse);
+      .wait(5000).
 
-      .print("Creating agent with internal action");
++!create_wholesaler: true
+    <- .print("Creating WholesalerAgent");
+       .create_agent(wholesalerAgent, "wholesalerAgent.asl");
+       .send(wholesalerAgent, achieve, a);
+       .wait(5000);
+       .send(wholesalerAgent, achieve, check_warehouse);
+       .wait(5000).
 
-      !end(10000).
 
-+!end(T) : T <= 0 <- .stopMAS.
-+!end(T) : true
-   <- .print("The MAS will stop in ",T/1000," seconds!");
-      .wait(2000); !end(T-2000).
++!create_manufacturer: true
+    <- .print("Creating ManufacturerAgent");
+       .create_agent(manufacturerAgent, "manufacturerAgent.asl");
+       .send(manufacturerAgent, achieve, a);
+       .wait(5000);
+       .send(manufacturerAgent, achieve, check_warehouse);
+       .wait(5000).

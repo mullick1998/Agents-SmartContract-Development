@@ -26,13 +26,20 @@ _(click on **supplyChainAgents** directory > **Add Framework Support** > click o
 - Start writing paper.
 
 ## 4th meeting (21st October 2022) [10:00-10:20]
-- Check for how to add jar files locally and try maven again. 
+- Check for how to add jar files locally and try maven again. <span style="color: green"> _(done)_  </span>
 **Remove** ```<scope>runtime</scope>``` and **Add** in _pom.xml_:
 ```
 <scope>system</scope>
 <systemPath>/home/mostakim/thesis/jason/libs/jason-3.1.jar</systemPath>
 ```
 maven file build successful, but the same issue still persists regarding _package error_ while running _AGENTS_.
-- Put the **related papers** inside folder in repository
-- Take more notice on case studies, do intensive research.
+- Put the **related papers** inside folder in repository <span style="color: green"> _(done)_  </span>
+- Take more notice on case studies, do intensive research. <span style="color: yellow"> _Still doing_  </span>
 
+## 5th meeting (28th October 2022) [09:30-09:35]
+- Look for solving the error; more research.
+- Check the example how they are using packages (Already checked)
+- Tried importing all `.jar` files locally, inside `dir:/jason/libs`
+- With both `pom.xml` in maven and `build.gradle` separately.
+
+## 6th meeting (4th November 2022) [09:30-09:]
