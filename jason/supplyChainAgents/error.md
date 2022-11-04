@@ -1,3 +1,9 @@
+## command 
+```
+jason /home/mostakim/thesis/jason/supplyChainAgents/supplyChainAgents.mas2j
+```
+## error:
+```
 mostakim@mostakim:~/thesis$ jason /home/mostakim/thesis/jason/supplyChainAgents/supplyChainAgents.mas2j
 Executing /usr/lib/jvm/jdk-18/bin/java -classpath /home/mostakim/thesis/jason/libs/ant-launcher-1.10.5.jar org.apache.tools.ant.launch.Launcher -e -f bin/supplyChainAgents.xml run
 Buildfile: /home/mostakim/thesis/jason/supplyChainAgents/bin/supplyChainAgents.xml
@@ -458,3 +464,4 @@ only showing the first 100 errors, of 835 total; use -Xmaxerrs if you would like
 
 BUILD FAILED
 /home/mostakim/thesis/jason/supplyChainAgents/bin/supplyChainAgents.xml:45: Compile failed; see the compiler error output for details.
+```

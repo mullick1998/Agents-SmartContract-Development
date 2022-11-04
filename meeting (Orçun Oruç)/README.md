@@ -42,4 +42,10 @@ maven file build successful, but the same issue still persists regarding _packag
 - Tried importing all `.jar` files locally, inside `dir:/jason/libs`
 - With both `pom.xml` in maven and `build.gradle` separately.
 
-## 6th meeting (4th November 2022) [09:30-09:]
+## 6th meeting (4th November 2022) [09:30-09:45]
+- Check [https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project](https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project)
+- Check [https://github.com/niklasf/python-agentspeak](https://github.com/niklasf/python-agentspeak) and [http://astralanguage.com/wordpress/](http://astralanguage.com/wordpress/)
+- Try to look alternate solutions. <span style="color: Yellow"> _(Still looking)_  </span>
+- Create README file for opinions and error. <span style="color: green"> _(done)_  </span>
+- Put the thesis folder as a main one. <span style="color: green"> _(done)_  </span>
+- Change repo name, put abbv. <span style="color: green"> _(done)_  </span>
