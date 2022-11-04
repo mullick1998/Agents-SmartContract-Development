@@ -48,4 +48,4 @@ maven file build successful, but the same issue still persists regarding _packag
 - Try to look alternate solutions. <span style="color: Yellow"> _(Still looking)_  </span>
 - Create README file for opinions and error. <span style="color: green"> _(done)_  </span>
 - Put the thesis folder as a main one. <span style="color: green"> _(done)_  </span>
-- Change repo name, put abbv. <span style="color: green"> _(done)_  </span>
+- Change repo name, put abbv. Changed to **Agents-SmartContract-Development** <span style="color: green"> _(done)_  </span>
