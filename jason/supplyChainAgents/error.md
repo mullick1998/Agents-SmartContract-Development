@@ -13,7 +13,6 @@ init:
 user-init:
 
 compile:
-
 run:
 Running project jasonAgent
 Jason Http Server running on http://127.0.1.1:3272
@@ -521,5 +520,6 @@ BUILD FAILED
 /home/mostakim/Agents-SmartContract-Development/jason/supplyChainAgents/bin/supplyChainAgents.xml:45: Compile failed; see the compiler error output for details.
 
 Total time: 4 seconds
+
 
 ```
