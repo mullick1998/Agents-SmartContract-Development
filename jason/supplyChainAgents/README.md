@@ -46,4 +46,3 @@ BUILD SUCCESSFUL in 17s
 ### Error while running the agents (Check **error.md**)
 - Gets the following _**`Pacakge error` while running `MAS`, reason might be solidity version's incompatibility with the gradle's version.**_
   - **Solution:** Check **meeting folder** (Mr. Orçun Oruç)
-
