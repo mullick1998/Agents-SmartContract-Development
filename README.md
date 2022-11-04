@@ -51,7 +51,7 @@ truffle test --network sampledevelopment
 
 ### Generate java wrapper class web3j
 ```
-web3j generate truffle --truffle-json /home/mostakim/thesis/build/contracts/SupplyChain.json -o /home/mostakim/thesis/jason/supplyChainAgents/src/main/java -p thesis.SupplyChain
+web3j generate truffle --truffle-json /home/mostakim/Agents-SmartContract-Development/build/contracts/SupplyChain.json -o /home/mostakim/Agents-SmartContract-Development/jason/supplyChainAgents/src/main/java -p thesis.SupplyChain
 ```
 
 ## JASON (AgentSpeak)
@@ -59,7 +59,7 @@ Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tu
 
 set the Jason home directory with the following command:
 ```
-export JASON_HOME=~/thesis/jason/
+export JASON_HOME=~/Agents-SmartContract-Development/jason/
 export PATH=$JASON_HOME/scripts:$PATH
 ```
 ## Multi-Agent Flow Chart
@@ -67,7 +67,7 @@ export PATH=$JASON_HOME/scripts:$PATH
 
 ### Run Agent File
 ```
-jason ~/thesis/jason/jasonAgent/jasonAgent.mas2j
+jason ~/Agents-SmartContract-Development/jason/jasonAgent/jasonAgent.mas2j
 ```
 Output ( without connecting to contracts):
 
@@ -88,9 +88,11 @@ truffle-config.js
 meeting (Orçun Oruç)
 |-- meeting_description.md
 |-- small_presentation.pdf
-Papers
+thesis
+|-- includes
+|-- thesis.tex
+papers
 |-- Related Paper
-|-- Master thesis paper
 contracts
 |-- ManufacturerRole.sol
 |-- Migrations.sol
