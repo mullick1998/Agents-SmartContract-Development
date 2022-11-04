@@ -9,9 +9,6 @@
 
 MAS supplyChainAgents {
     agents : mainAgent;
-             //manufacturer;
-             //wholesaler;
-             //retailer;
     aslSourcePath:
             "src/asl";
 }

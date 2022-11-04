@@ -88,6 +88,9 @@ truffle-config.js
 meeting (Orçun Oruç)
 |-- meeting_description.md
 |-- small_presentation.pdf
+Papers
+|-- Related Paper
+|-- Master thesis paper
 contracts
 |-- ManufacturerRole.sol
 |-- Migrations.sol

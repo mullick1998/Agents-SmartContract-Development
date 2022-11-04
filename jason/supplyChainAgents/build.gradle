@@ -9,6 +9,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
 
 version '1.0'
 group   'org.jason'
@@ -16,6 +17,23 @@ group   'org.jason'
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(15)
+    }
+}
+
+publishing {
+    publications {
+        customLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'agentrepo'
+            url = layout.buildDirectory.dir("repo") 
+            // run './gradle publish' and find publications/customLibrary – containing the 
+            //converted POM file with the name pom-default.xml
+        }
     }
 }
 
@@ -30,18 +48,19 @@ repositories {
 }
 
 dependencies {
-    implementation('org.web3j:core:5.0.0')
+    //implementation('org.web3j:core:5.0.0')
     implementation('org.jason:jason:3.1')
-    implementation("org.slf4j:slf4j-jdk14:2.0.0")
+    implementation('org.slf4j:slf4j-jdk14:2.0.3')
+    implementation fileTree(dir: "/home/mostakim/thesis/jason/libs/jar_files/", include:'*.jar')
 }
 
 sourceSets {
     main {
         java {
-            srcDir 'src/java'
+            srcDir 'src/main/java'
         }
         resources {
-            srcDir 'src/resources'
+            srcDir 'src/main/resources'
         }
     }
 }

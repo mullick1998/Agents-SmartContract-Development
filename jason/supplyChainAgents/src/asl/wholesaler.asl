@@ -1,35 +1,38 @@
-/* Initial goals */
-!check_warehouse.
-!order.
-!receive.
-!sell.
-!ship.
+init.
++init : true
+  <- .print("I am running");
+     .wait(2000).
+
++!a : true
+  <- .print("Ok, I am here");
+     .wait(2000).
 
 +!check_warehouse: true
-    <- !sell.
--!check_warehouse: false
-    <- !order.
+    <- .print("Checking Warehouse, and order");
+        !order;
+        .wait(5000).
 
-+!order : true //purchaseItemByWholesaler
-    <- .send(manufacturer, achieve, has(wholesaler,product))
-        //&& purchaseItemByWholesaler()
-        && .print("Item purchased by wholesaler").
++!order: true
+    <- .print("Ordering to manufacturerAgent");
+        .send(supplyChainAgent, achieve, create_manufacturer);
+        .wait(5000).
 
-+has(wholesaler,product): true
-    <- !sell.
--has(wholesaler,product): true
-    <- !order.
++!purchase: true
+    <- .print("Purchasing product from manufacturerAgent");
+        .send(manufacturerAgent, achieve, ship);
+        .wait(5000).
 
-+!receive_product: true
-    <- //receivedItemByWholesaler()
-        && .print("Item received by wholesaler")
++!receive: true
+    <- .print("Received product from manufacturerAgent");
+        !sell;
+        .wait(5000).
 
-+sell: true
-    <- .print("Sell to Retailer")
-        //&& sellItemByWholesaler()
-        && !ship.
++!sell: true
+    <- .print("Selling product to retailerAgent");
+       .send(retailerAgent, achieve, purchase);
+       .wait(5000).
 
 +!ship: true
-     <- .print("Ship to Retailer, Payment received already!")
-        //&& shippedItemByWholesaler()
-
+    <- .print("Shipping product to retailerAgent");
+        .send(retailerAgent, achieve, receive);
+        .wait(5000).

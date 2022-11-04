@@ -1,39 +1,33 @@
-/* Initial goals */
-last_order_id(1).
+init.
++init : true
+  <- .print("I am running");
+     .wait(2000).
 
-!check_warehouse.
-!manufacture.
-!package.
-!sell.
-!ship.
++!a : true
+  <- .print("Ok, I am here");
+     .wait(2000).
 
 +!check_warehouse: true
-    <- !sell.
--!check_warehouse: false
-    <- !manufacture.
+    <- .print("Checking Warehouse, and Manufacturing");
+        !manufacture;
+        .wait(5000).
 
-+!manufacture : true //produceItemByManufacturer()
-    <- ?last_order_id(N);
-        OrderId = N + 1;
-        -+last_order_id(OrderId)// produceItemByManufacturer()
-        && .print("Item manufactured by manufacturer").
-        && !package.
++!manufacture: true
+    <- .print("Manufacture Product");
+        !package;
+        .wait(5000).
 
-+!package : true
-    <- // packageItemByManufacturer()
-        && .print("Item packaged by manufacturer").
++!package: true
+    <- .print("Packaging Product");
+        !sell;
+        .wait(5000).
 
-+has(manufacturer,product): true
-    <- !sell.
--has(manufacturer,product): true
-    <- !manufacture.
-
-+sell: true
-    <- .print("Sell to Wholesaler").
-        //&& sellItemByManufacturer()
-        && !ship.
++!sell: true
+    <- .print("Selling product to wholesalerAgent");
+       .send(wholesalerAgent, achieve, purchase);
+       .wait(5000).
 
 +!ship: true
-     <- .print("Ship to Wholesaler, Payment received already!")
-        //&& shippedItemByManufacturer()
-
+    <- .print("Shipping product to wholesalerAgent");
+        .send(wholesalerAgent, achieve, receive);
+        .wait(5000).
