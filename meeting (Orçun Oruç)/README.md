@@ -30,7 +30,7 @@ _(click on **supplyChainAgents** directory > **Add Framework Support** > click o
 **Remove** ```<scope>runtime</scope>``` and **Add** in _pom.xml_:
 ```
 <scope>system</scope>
-<systemPath>/home/mostakim/thesis/jason/libs/jason-3.1.jar</systemPath>
+<systemPath>/home/mostakim/Agents-SmartContract-Development/jason/libs/jason-3.1.jar</systemPath>
 ```
 maven file build successful, but the same issue still persists regarding _package error_ while running _AGENTS_.
 - Put the **related papers** inside folder in repository <span style="color: green"> _(done)_  </span>
@@ -43,8 +43,13 @@ maven file build successful, but the same issue still persists regarding _packag
 - With both `pom.xml` in maven and `build.gradle` separately.
 
 ## 6th meeting (4th November 2022) [09:30-09:45]
-- Check [https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project](https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project)
-- Check [https://github.com/niklasf/python-agentspeak](https://github.com/niklasf/python-agentspeak) and [http://astralanguage.com/wordpress/](http://astralanguage.com/wordpress/)
+- Check https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project <span style="color: green"> _(Tried already)_  </span>
+- Check https://github.com/niklasf/python-agentspeak and http://astralanguage.com/wordpress/
+
+(Definitely check http://astralanguage.com/wordpress/docs/introduction-to-agentspeakl/ 
+and http://astralanguage.com/wordpress/using-astra-with-maven/ and http://guide.astralanguage.com/en/latest/introduction/ )
+
+`check dir: astra-agent/README.md` ASTRA FAILED!
 - Try to look alternate solutions. <span style="color: Yellow"> _(Still looking)_  </span>
 - Create README file for opinions and error. <span style="color: green"> _(done)_  </span>
 - Put the thesis folder as a main one. <span style="color: green"> _(done)_  </span>
