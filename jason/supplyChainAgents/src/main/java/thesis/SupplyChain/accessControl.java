@@ -4,6 +4,7 @@ import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
+import thesis.SupplyChain.rolebasedcontracts.SupplyChain;
 
 import java.io.IOException;
 import java.math.BigInteger;

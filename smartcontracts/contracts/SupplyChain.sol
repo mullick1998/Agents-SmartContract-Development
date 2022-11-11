@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: ISC
-pragma solidity ^0.8.2;
+pragma solidity >=0.8.7;
 
 // inherited contracts
-import '../contracts/Ownable.sol';
-import '../contracts/ManufacturerRole.sol';
-import '../contracts/WholesalerRole.sol';
-import '../contracts/RetailerRole.sol';
+import './Ownable.sol';
+import './ManufacturerRole.sol';
+import './WholesalerRole.sol';
+import './RetailerRole.sol';
 
 
 // Define a contract 'Supplychain'

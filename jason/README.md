@@ -49,3 +49,26 @@ jason ~/thesis/jason/jasonAgent/jasonAgent.mas2j
 - `libs` and `scripts`: to build and run `MAS`
 - **supplyChainAgents** : Connects MAS via blockchain
 - **jasonAgents** : merely to test the `asl` files without smart contracts
+
+
+### TASK - IMPORTANT
+
+We need to solve the following error: 
+
+```bash
+[ERROR] /Users/orcunoruc/Desktop/papers/TU_Dresden_Proposal/MyProposal/PHD-Presentations/Student-Projects/Mostakim-Work/MostakimThesisNewVersion/JASONBDIConnectionWeb3j/jason/supplyChainAgents/src/main/java/thesis/SupplyChain/accessControl.java:[58,20] method purchaseItemByWholesaler in class thesis.SupplyChain.rolebasedcontracts.SupplyChain cannot be applied to given types;
+[ERROR]   required: java.math.BigInteger,java.lang.String
+[ERROR]   found:    java.math.BigInteger,java.lang.String,java.math.BigInteger
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /Users/orcunoruc/Desktop/papers/TU_Dresden_Proposal/MyProposal/PHD-Presentations/Student-Projects/Mostakim-Work/MostakimThesisNewVersion/JASONBDIConnectionWeb3j/jason/supplyChainAgents/src/main/java/thesis/SupplyChain/accessControl.java:[62,20] method purchaseItemByRetailer in class thesis.SupplyChain.rolebasedcontracts.SupplyChain cannot be applied to given types;
+[ERROR]   required: java.math.BigInteger,java.lang.String
+[ERROR]   found:    java.math.BigInteger,java.lang.String,java.math.BigInteger
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+```

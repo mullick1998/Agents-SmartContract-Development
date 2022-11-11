@@ -32,9 +32,9 @@ public class Hello extends ASTRAClass {
 				"Hello", new int[] {9,19,11,6},
 				new Statement[] {
 					new ModuleCall("console",
-						"Hello", new int[] {10,9,10,39},
+						"Hello", new int[] {10,9,10,53},
 						new Predicate("println", new Term[] {
-							Primitive.newPrimitive("hello world")
+							Primitive.newPrimitive("hello Supply Chain Agents")
 						}),
 						new DefaultModuleCallAdaptor() {
 							public boolean inline() {

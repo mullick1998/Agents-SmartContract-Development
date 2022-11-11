@@ -7,6 +7,6 @@
      initial !init();
 
      rule +!init() {
-         console.println("hello world");
+         console.println("hello Supply Chain Agents");
      }
  }

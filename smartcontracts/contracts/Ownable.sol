@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: ISC
-pragma solidity ^0.8.2;
+pragma solidity >=0.8.7;
 
 /// Provides basic authorization control
 contract Ownable {

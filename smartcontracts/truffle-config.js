@@ -11,14 +11,9 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",    
-      port: 9545,        
-      network_id: 5777,
-     },
-    sampledevelopment: {
-      host: "127.0.0.1",    
       port: 8545,        
-      network_id: "*",       
-    },
+      network_id: "*",
+     },
     rinkeby: {
       provider: () => new HDWalletProvider(secretkey, `https://rinkeby.infura.io/v3/9a27455b3ee74500bbbad6f0090ee57f`),
       network_id: 4,       
@@ -40,7 +35,7 @@ module.exports = {
   },
   compilers: {
     solc: {
-      version: "0.8.2",
+      version: "0.8.7",
   },
 }
 };
