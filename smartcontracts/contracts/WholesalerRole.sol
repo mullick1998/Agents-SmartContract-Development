@@ -13,7 +13,7 @@ contract WholesalerRole {
   // Define a struct 'wholesalers' by inheriting from 'Roles' library, struct Role
   Roles.Role private wholesalers;
   // In the constructor make the address that deploys this contract the 1st wholesaler
-  constructor() public {
+  constructor() {
     _addWholesaler(msg.sender);
   }
 

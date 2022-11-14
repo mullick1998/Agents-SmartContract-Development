@@ -58,3 +58,10 @@ and http://astralanguage.com/wordpress/using-astra-with-maven/ and http://guide.
 - Create README file for opinions and error. <span style="color: green"> _(done)_  </span>
 - Put the thesis folder as a main one. <span style="color: green"> _(done)_  </span>
 - Change repo name, put abbv. Changed to **Agents-SmartContract-Development** <span style="color: green"> _(done)_  </span>
+
+## 7th meeting (11th November 2022) [09:30-09:55]
+- Don't use Vyper.
+- Use python JASON
+- wrapper from java to solidity, not in python. No need of wrapper class.
+- Use script for python.
+- Try to include everything in thesis paper in the result.

@@ -16,7 +16,7 @@ contract ManufacturerRole {
   Roles.Role private manufacturers;
 
   // In the constructor make the address that deploys this contract the 1st manufacturer
-  constructor() public {
+  constructor() {
     _addManufacturer(msg.sender);
   }
 
