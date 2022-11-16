@@ -1,9 +1,7 @@
 import json
 from web3 import Web3
-from web3 import EthereumTesterProvider
-from solcx import compile_standard, install_solc
 
-print("---------------------SMART CONTRACTS AND AGENTS-----------------------")
+print(f'\n<---------------------SMART CONTRACTS AND AGENTS----------------------->')
 
 ganache_url = 'HTTP://127.0.0.1:9545'
 web3 = Web3(Web3.HTTPProvider(ganache_url))
@@ -16,7 +14,7 @@ with open("../python-Contracts-Agents/abi-bin/SupplyChain.abi", "r") as file:
 contract_address = web3.toChecksumAddress("0xc9f78D73aCAf603Fe2319682316268A39Cc5CBB7")
 # variable to be used to call function ('contract.functions.name.transact()')
 contract = web3.eth.contract(address=contract_address, abi=abi)
-print("Deployed Contract Address: "+contract.address)
+print(f'Deployed Contract Address: {contract.address}')
 
 
 # Assigning Addresses
@@ -25,13 +23,118 @@ manufacturer_id = web3.eth.accounts[1]
 wholesaler_id = web3.eth.accounts[2] 
 retailer_id = web3.eth.accounts[3]
 
-print("Owner's Address: "+owner_id)
-print("Manufacturer's Address: "+manufacturer_id)
-print("Wholesaler's Address: "+wholesaler_id)
-print("Retailer's Address: "+retailer_id)
+print(f'Owner Address: accounts[0] {owner_id}')
+print(f'Manufacturer Address: accounts[1] {manufacturer_id}')
+print(f'Wholesaler Address: accounts[2] {wholesaler_id}')
+print(f'Retailer Address: accounts[3] {retailer_id}')
+print(f'------------------------------------------------------------------------')
+print(f'\n<----------------------------TRANSACTION HASHES--------------------------->')
 
-#latest_block = w3.eth.get_block('latest')
-#print(latest_block)
-#wallet = w3.toChecksumAddress('0x4A9fe326Edc88F1f22940DC9F70BD391fB4218f8')
-#print(w3.eth.get_balance(wallet))
-#print(w3.fromWei(w3.eth.get_balance(wallet), 'ether'))
+
+def produceItemByManufacturer(): 
+    tx1 = contract.functions.produceItemByManufacturer(1, "mullick", "milk", 1).transact({
+            'from': manufacturer_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx1)
+    print(f'Tx produceItemByManufacturer successful with hash: { tx_receipt.transactionHash.hex() }')    
+
+
+def packageItemByManufacturer():
+    tx2 = contract.functions.packageItemByManufacturer(1).transact({
+            'from': manufacturer_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx2)
+    print(f'Tx packageItemByManufacturer successful with hash: { tx_receipt.transactionHash.hex() }')    
+
+
+def sellItemByManufacturer():
+    tx3 = contract.functions.sellItemByManufacturer(1, 1).transact({
+            'from': manufacturer_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx3)
+    print(f'Tx sellItemByManufacturer successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+def purchaseItemByWholesaler():
+    tx4 = contract.functions.purchaseItemByWholesaler(1, "mullick").transact(
+    {   
+        'gasPrice': web3.eth.gas_price,
+        'to': manufacturer_id,
+        'from': wholesaler_id,
+        'nonce': web3.eth.get_transaction_count(wholesaler_id),
+    }
+    )
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx4)
+    print(f'Tx purchaseItemByWholesaler successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+def shippedItemByManufacturer():
+    tx5 = contract.functions.shippedItemByManufacturer(1).transact({
+            'gasPrice': web3.eth.gas_price,
+            'to': wholesaler_id,
+            'from': manufacturer_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx5)
+    print(f'Tx shippedItemByManufacturer successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+def receivedItemByWholesaler():
+    tx6 = contract.functions.receivedItemByWholesaler(1).transact({
+            'gasPrice': web3.eth.gas_price,
+            'from': wholesaler_id,
+            'to': manufacturer_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx6)
+    print(f'Tx shippedItemByManufacturer successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+def sellItemByWholesaler():
+    tx7 = contract.functions.sellItemByWholesaler(1, 1).transact({
+            'from': wholesaler_id,
+            'to': retailer_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx7)
+    print(f'Tx shippedItemByManufacturer successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+def purchaseItemByRetailer():
+    tx8 = contract.functions.purchaseItemByRetailer(1,"mrs. mullick").transact(
+    {
+        'gasPrice': web3.eth.gas_price,
+        'to': wholesaler_id,
+        'from': retailer_id,
+        'nonce': web3.eth.get_transaction_count(retailer_id),
+    }
+    )
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx8)
+    print(f'Tx purchaseItemByRetailer successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+def shippedItemByWholesaler():
+    tx9 = contract.functions.shippedItemByWholesaler(1).transact({
+            'from': wholesaler_id,
+            'to': retailer_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx9)
+    print(f'Tx shippedItemByWholesaler successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+def receivedItemByRetailer():
+    tx10 = contract.functions.receivedItemByRetailer(1).transact({
+            'from': retailer_id,
+            'to': wholesaler_id
+        })
+    tx_receipt = web3.eth.wait_for_transaction_receipt(tx10)
+    print(f'Tx receivedItemByRetailer successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+produceItemByManufacturer()
+packageItemByManufacturer()
+sellItemByManufacturer()
+purchaseItemByWholesaler()
+shippedItemByManufacturer()
+receivedItemByWholesaler()
+sellItemByWholesaler()
+purchaseItemByRetailer()
+shippedItemByWholesaler()
+receivedItemByRetailer()
