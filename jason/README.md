@@ -1,5 +1,34 @@
 ## Multi-Agent System
 
+### Generate java wrapper class web3j
+```
+web3j generate truffle --truffle-json /home/mostakim/Agents-SmartContract-Development/build/contracts/SupplyChain.json -o /home/mostakim/Agents-SmartContract-Development/jason/supplyChainAgents/src/main/java -p thesis.SupplyChain
+```
+
+## JASON (AgentSpeak)
+Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
+
+set the Jason home directory with the following command:
+```
+export JASON_HOME=~/Agents-SmartContract-Development/jason/
+export PATH=$JASON_HOME/scripts:$PATH
+```
+## Multi-Agent Flow Chart
+<img src="../diagrams/Flow Chart.svg" alt="Multi-Agent Flow Chart"/>
+
+### Run Agent File
+```
+jason ~/Agents-SmartContract-Development/jason/jasonAgent/jasonAgent.mas2j
+```
+Output ( without connecting to contracts):
+
+<img src="../images/agents_run.png" alt="Agent Run Screenshot"/>
+
+### Run Agent on IDE
+```
+jason-ide
+```
+
 ### Directory Structure
 ```
 jason
@@ -31,15 +60,7 @@ jason
 |   |   |   |-- resources
 |   |-- supplyChainAgents.mas2j
 ```
-Install JASON from [here](https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/shell-based.adoc).
 
-set the Jason home directory with the following command:
-```
-export JASON_HOME=~/thesis/jason/
-export PATH=$JASON_HOME/scripts:$PATH
-```
-## Multi-Agent Flow Chart
-<img src="../diagrams/Flow Chart.svg" alt="Multi-Agent Flow Chart"/>
 
 ### Run Agent File
 ```

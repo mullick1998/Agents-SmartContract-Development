@@ -2,10 +2,25 @@
 
 Each supply chain agent's solidity file is included in the directory, along with SupplyChain.sol, which initiates the work flow amongst all the agents.
 
-### Look at the diagrams below to get a better understanding of the flow to contracts:
+## Compile Contract
+```
+truffle compile
+```
 
-### Activity Diagram
-<img src="/thesis/diagrams/Activity Diagram.svg" alt="Activity Diagram"/>
+## Deploy Contract
+```
+truffle migrate --network <network-name>
+truffle migrate --network <network-name> --reset --all
+```
+Available networks: `development`, `rinkeby`,  `alfajores`
 
-### Overall Class Diagram
-<img src="/thesis/diagrams/OverallClassDiagram.svg" alt="Overall Class Diagram"/>
+*Note: Multiple network configuration can be find inside `truffle-config.js`*
+## Test Contract
+```
+truffle test --network <network-name>
+```
+Sample Usage
+```
+truffle test --network sampledevelopment
+```
+<img src="../images/test_ss.png" alt="Unit Test Screenshot"/>
