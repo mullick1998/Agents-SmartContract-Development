@@ -1,5 +1,4 @@
-init.
-+init : true
++!start
   <- .print("I am running");
      .wait(2000).
 
@@ -19,8 +18,14 @@ init.
 
 +!purchase: true
     <- .print("Purchasing product from wholesalerAgent");
+        .purchaseItemByRetailer(3, X);
+        .print("Tx purchaseItemByRetailer successful with hash:", X);
         .send(wholesalerAgent, achieve, ship);
         .wait(1000).
 
 +!receive: true
-    <- .print("Received product from wholesalerAgent").
+    <-  .print("Received product from wholesalerAgent");
+        .receivedItemByRetailer(3, X);
+        .print("Tx receivedItemByRetailer successful with hash:", X);
+        .print("NOW SELL TO CUSTOMER!!");
+        .send(supplyChainAgent, achieve, a).

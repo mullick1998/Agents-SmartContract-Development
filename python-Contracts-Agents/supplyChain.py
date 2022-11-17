@@ -30,9 +30,9 @@ print(f'Retailer Address: accounts[3] {retailer_id}')
 print(f'------------------------------------------------------------------------')
 print(f'\n<----------------------------TRANSACTION HASHES--------------------------->')
 
-
-def produceItemByManufacturer(): 
-    tx1 = contract.functions.produceItemByManufacturer(1, "mullick", "milk", 1).transact({
+# Calling functions for SupplyChain
+def produceItemByManufacturer(upc): 
+    tx1 = contract.functions.produceItemByManufacturer(upc, "mullick", "milk", 1).transact({
             'from': manufacturer_id
         })
     tx_receipt = web3.eth.wait_for_transaction_receipt(tx1)
@@ -128,13 +128,13 @@ def receivedItemByRetailer():
     print(f'Tx receivedItemByRetailer successful with hash: { tx_receipt.transactionHash.hex() }')
 
 
-produceItemByManufacturer()
-packageItemByManufacturer()
-sellItemByManufacturer()
-purchaseItemByWholesaler()
-shippedItemByManufacturer()
-receivedItemByWholesaler()
-sellItemByWholesaler()
-purchaseItemByRetailer()
-shippedItemByWholesaler()
-receivedItemByRetailer()
+produceItemByManufacturer(1)
+# packageItemByManufacturer()
+# sellItemByManufacturer()
+# purchaseItemByWholesaler()
+# shippedItemByManufacturer()
+# receivedItemByWholesaler()
+# sellItemByWholesaler()
+# purchaseItemByRetailer()
+# shippedItemByWholesaler()
+# receivedItemByRetailer()

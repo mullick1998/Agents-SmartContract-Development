@@ -16,7 +16,7 @@ Wholesaler Address: accounts[2] 0x5fB0Cd136C7A19E8E12F062548002B4460B0dC0d
 Retailer Address: accounts[3] 0xc7D1C50D87B82E85b959DBC2cD9959bfc0480A5E
 ------------------------------------------------------------------------
 
-<---------------------TRANSACTION HASHES----------------------->
+<----------------------------TRANSACTION HASHES--------------------------->
 Tx produceItemByManufacturer successful with hash: 0x0b6d7ae819202163e531c9b297298142f7e9b1530c6968c8c802713c4d751050
 Tx packageItemByManufacturer successful with hash: 0x18bb6c283a3ae492da0a6a1af364239de23005c7e3780b3d232ac8770146dbd5
 Tx sellItemByManufacturer successful with hash: 0x3446b3c393e7be7e52c73bc3cf6182959cc866cd68cb904390884d9ea3a47c30
@@ -34,3 +34,9 @@ pip install agentspeak
 python3 env.py
 ```
 ![py_run_agents](../images/py_run_agents.png)
+
+## AGENTS RUNNING WITH SMART CONTRACTS
+```
+python3 env.py
+```
+![impl_py.png](../images/impl_py.png)
