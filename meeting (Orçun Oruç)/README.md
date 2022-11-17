@@ -65,3 +65,4 @@ and http://astralanguage.com/wordpress/using-astra-with-maven/ and http://guide.
 - wrapper from java to solidity, not in python. No need of wrapper class.
 - Use script for python.
 - Try to include everything in thesis paper in the result.
+
