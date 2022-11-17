@@ -42,6 +42,21 @@ print(f'\n<---------------------INTERACTION BETWEEN AGENTS-------------------->'
 
 actions = agentspeak.Actions(agentspeak.stdlib.actions)
 
+@actions.add_function(".addOwner", ())
+def addOwner(): 
+    return owner_id
+
+@actions.add_function(".addManufacturer", ())
+def addManufacturer(): 
+    return manufacturer_id
+
+@actions.add_function(".addWholesaler", ())
+def addWholesaler(): 
+    return wholesaler_id
+
+@actions.add_function(".addRetailer", ())
+def addRetailer(): 
+    return retailer_id
 
 @actions.add_function(".produceItemByManufacturer", (int, ))
 def produceItemByManufacturer(upc): 

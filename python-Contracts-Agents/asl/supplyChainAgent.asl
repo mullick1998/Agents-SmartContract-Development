@@ -2,6 +2,8 @@
 
 +!start : true
    <- .print("Starting SupplyChain with SmartContracts");
+      .addOwner(X);
+      .print("Hi, I am the owner of Contract, with account:", X);
       .print("Creating RetailerAgent");
       .send(retailerAgent, achieve, a);
       .wait(1000);
