@@ -26,28 +26,6 @@ A manufacturer, wholesaler, and retailer can realize a product flow. **A retaile
 ## Contract Sequence Diagram
 <img src="diagrams/Sequence diagram.svg" alt="Contract Sequence Diagram"/>
 
-## Compile Contract
-```
-truffle compile
-```
-
-## Deploy Contract
-```
-truffle migrate --network <network-name>
-truffle migrate --network <network-name> --reset --all
-```
-Available networks: `development`, `rinkeby`,  `alfajores`
-
-*Note: Multiple network configuration can be find inside `truffle-config.js`*
-## Test Contract
-```
-truffle test --network <network-name>
-```
-Sample Usage
-```
-truffle test --network sampledevelopment
-```
-<img src="images/test_ss.png" alt="Unit Test Screenshot"/>
 
 ### Generate java wrapper class web3j
 ```
@@ -93,20 +71,29 @@ thesis
 |-- thesis.tex
 papers
 |-- Related Paper
-contracts
-|-- ManufacturerRole.sol
-|-- Migrations.sol
-|-- Ownable.sol
-|-- RetailerRole.sol
-|-- Roles.sol
-|-- SupplyChain.sol
-|-- SupplyChainUpgradeable.sol
-|-- WholesalerRole.sol
-migrations
-|-- 1_initial_migration.js
-|-- 2_deploy_contracts.js
-test
-|-- TestSupplychain.js
+python-Contracts-Agents
+|-- asl
+|--abi-bin
+|--env.py
+smartcontracts
+|-- README.md
+|-- package-lock.json
+|-- package.json
+|-- truffle-config.js
+|-- contracts
+|  |-- ManufacturerRole.sol
+|  |-- Migrations.sol
+|  |-- Ownable.sol
+|  |-- RetailerRole.sol
+|  |-- Roles.sol
+|  |-- SupplyChain.sol
+|  |-- SupplyChainUpgradeable.sol
+|  |-- WholesalerRole.sol
+|-- migrations
+|  |-- 1_initial_migration.js
+|  |-- 2_deploy_contracts.js
+|-- test
+|  |-- TestSupplychain.js
 jason
 |-- jedit
 |-- libs
@@ -114,17 +101,9 @@ jason
 |-- jasonAgent
 |   |-- src
 |   |   |-- asl
-|   |   |   |-- manufacturerAgent.asl
-|   |   |   |-- retailerAgent.asl
-|   |   |   |-- supplyChainAgent.asl
-|   |   |   |-- wholesalerAgent.asl
 |-- supplyChainAgents
 |   |-- src
 |   |   |-- asl
-|   |   |   |-- mainAgent.asl
-|   |   |   |-- manufacturer.asl
-|   |   |   |-- retailer.asl
-|   |   |   |-- wholesaler.asl
 |   |   |-- main
 |   |   |   |-- java
 |   |   |   |   |-- SupplyChainEnv.java
@@ -135,17 +114,10 @@ jason
 |   |   |   |   |   |   |-- connect.java
 |   |   |   |-- resources
 |   |-- supplyChainAgents.mas2j
+|   |-- pom.xml
 diagrams
-|-- Activity Diagram.svg
-|-- Data Model diagram.svg
-|-- Flow Chart.svg
-|-- OverallClassDiagram.svg
-|-- Sequence diagram.svg
 gantt chart
-|-- Gantt_Chart.xlsx
 images
-|-- agents_run.png
-|-- test_ss.png
 ```
 
 [Thesis Paper](https://www.overleaf.com/project/62dfc9e6c07bbf02dc82519e)

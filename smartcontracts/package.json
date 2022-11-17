@@ -1,0 +1,35 @@
+{
+  "name": "thesis",
+  "version": "1.0.0",
+  "description": "Smart contracts with JASON BDI Agents",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mullick1998/thesis.git"
+  },
+  "author": "Mostakim Mullick <mustakimmullick12345@gmail.com> (9a27455b3ee74500bbbad6f0090ee57f)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mullick1998/thesis/issues"
+  },
+  "homepage": "https://github.com/mullick1998/thesis#readme",
+  "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "@openzeppelin/contracts-upgradeable": "^4.7.3",
+    "@truffle/contract": "^4.5.22",
+    "@truffle/hdwallet-provider": "^2.0.13",
+    "dotenv": "^16.0.1",
+    "geth": "^0.4.0",
+    "jquery": "^3.6.0",
+    "lite-server": "^2.6.1",
+    "truffle": "^5.6.5",
+    "web3": "^1.7.5"
+  }
+}

@@ -48,10 +48,10 @@ repositories {
 }
 
 dependencies {
-    //implementation('org.web3j:core:5.0.0')
+    implementation('org.web3j:core:5.0.0')
     implementation('org.jason:jason:3.1')
     implementation('org.slf4j:slf4j-jdk14:2.0.3')
-    implementation fileTree(dir: "/home/mostakim/jason ~/Agents-SmartContract-Development/jason/jasonAgent/jasonAgent.mas2j/jason/libs/jar_files/", include:'*.jar')
+    //mplementation fileTree(dir: "/home/mostakim/jason ~/Agents-SmartContract-Development/jason/jasonAgent/jasonAgent.mas2j/jason/libs/jar_files/", include:'*.jar')
 }
 
 sourceSets {

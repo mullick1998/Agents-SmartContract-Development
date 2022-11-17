@@ -30,7 +30,7 @@ _(click on **supplyChainAgents** directory > **Add Framework Support** > click o
 **Remove** ```<scope>runtime</scope>``` and **Add** in _pom.xml_:
 ```
 <scope>system</scope>
-<systemPath>/home/mostakim/thesis/jason/libs/jason-3.1.jar</systemPath>
+<systemPath>/home/mostakim/Agents-SmartContract-Development/jason/libs/jason-3.1.jar</systemPath>
 ```
 maven file build successful, but the same issue still persists regarding _package error_ while running _AGENTS_.
 - Put the **related papers** inside folder in repository <span style="color: green"> _(done)_  </span>
@@ -43,9 +43,26 @@ maven file build successful, but the same issue still persists regarding _packag
 - With both `pom.xml` in maven and `build.gradle` separately.
 
 ## 6th meeting (4th November 2022) [09:30-09:45]
-- Check [https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project](https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project)
-- Check [https://github.com/niklasf/python-agentspeak](https://github.com/niklasf/python-agentspeak) and [http://astralanguage.com/wordpress/](http://astralanguage.com/wordpress/)
+- Check https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project <span style="color: green"> _(Tried already)_  </span>
+- Check [Python-JASON](https://github.com/niklasf/python-agentspeak) and [ASTRA](http://astralanguage.com/wordpress/) <span style="color: green"> _(Tried already)_  </span>
+
+(**For Python JASON:** 
+- _Implementation of Python for the JVM called _Jython_. Jython is an implementation of Python that operates on the JVM and therefore can interact with Java modules. However, very few people work with Jython and therefore you will be a bit on your own about making everything work properly. You would not need to re-write your vanilla Python code (since Jython can interpret Python 2.x) but not all libraries (such as numpy) will be supported._
+- _[Inheritance not supported](https://vyper.readthedocs.io/en/v0.1.0-beta.7/frequently-asked-questions.html#what-is-not-included-in-vyper) if change to **Vyper** from **Solidity**)_
+
+(**For ASTRA:** _Definitely check http://astralanguage.com/wordpress/docs/introduction-to-agentspeakl/ 
+and http://astralanguage.com/wordpress/using-astra-with-maven/ and http://guide.astralanguage.com/en/latest/introduction/ )_
+
+`check dir: astra-agent/README.md` ASTRA FAILED!
 - Try to look alternate solutions. <span style="color: Yellow"> _(Still looking)_  </span>
 - Create README file for opinions and error. <span style="color: green"> _(done)_  </span>
 - Put the thesis folder as a main one. <span style="color: green"> _(done)_  </span>
 - Change repo name, put abbv. Changed to **Agents-SmartContract-Development** <span style="color: green"> _(done)_  </span>
+
+## 7th meeting (11th November 2022) [09:30-09:55]
+- Don't use Vyper.
+- Use python JASON
+- wrapper from java to solidity, not in python. No need of wrapper class.
+- Use script for python.
+- Try to include everything in thesis paper in the result.
+

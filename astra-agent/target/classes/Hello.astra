@@ -1,0 +1,12 @@
+ import org.web3j.crypto.Credentials;
+ import java.math.BigInteger;
+
+ agent Hello {
+     module Console console;
+
+     initial !init();
+
+     rule +!init() {
+         console.println("hello Supply Chain Agents");
+     }
+ }

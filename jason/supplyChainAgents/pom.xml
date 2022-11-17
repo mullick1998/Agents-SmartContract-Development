@@ -10,19 +10,24 @@
     <groupId>org.jason</groupId>
     <artifactId>supplyChainAgents</artifactId>
     <version>1.0</version>
+    <properties>
+        <maven.compiler.source>11 </maven.compiler.source>
+        <maven.compiler.target>11 </maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>core</artifactId>
-            <version>5.0.0</version>
-            <scope>runtime</scope>
+            <version>4.5.16</version>
         </dependency>
         <dependency>
             <groupId>org.jason</groupId>
             <artifactId>jason</artifactId>
             <version>3.1</version>
             <scope>system</scope>
-            <systemPath>/home/mostakim/Downloads/thesis/jason/libs/jason-3.1.jar</systemPath>
+            <systemPath>${basedir}/libs/jason-3.1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -31,4 +36,28 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+    <build>
+    <plugins>
+            <plugin>
+				<groupId>com.github.longdt</groupId>
+				<artifactId>web3j-maven-plugin</artifactId>
+				<version>4.8.10</version>
+				<configuration>
+					<soliditySourceFiles>
+						<directory>../../smartcontracts/contracts</directory>
+						<includes>
+							<include>**/*.sol</include>
+						</includes>
+					</soliditySourceFiles>
+					<outputDirectory>
+						<java></java>
+						<abi></abi>
+						<bin></bin>
+					</outputDirectory>
+					<packageName>thesis.SupplyChain.rolebasedcontracts</packageName>
+				</configuration>
+			</plugin>
+        </plugins>
+
+    </build>
 </project>
