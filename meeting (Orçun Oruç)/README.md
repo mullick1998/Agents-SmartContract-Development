@@ -60,8 +60,21 @@ and http://astralanguage.com/wordpress/using-astra-with-maven/ and http://guide.
 - Change repo name, put abbv. Changed to **Agents-SmartContract-Development** <span style="color: green"> _(done)_  </span>
 
 ## 7th meeting (11th November 2022) [09:30-09:55]
-- Don't use Vyper.
-- Use python JASON
-- wrapper from java to solidity, not in python. No need of wrapper class.
-- Use script for python.
-- Try to include everything in thesis paper in the result.
+- Don't use Vyper. <span style="color: green"> _(done)_  </span>
+- Use python JASON <span style="color: green"> _(WORKED!!)_  </span>
+- wrapper from java to solidity, not in python. No need of wrapper class. 
+- Use script for python. <span style="color: green"> _(done)_  </span>
+- Try to include everything in thesis paper in the result. <span style="color: Yellow"> _(Still doing)_  </span>
+
+## 8th meeting (18th November 2022) [09:30-09:44]
+- use jython https://www.jython.org/
+```
+public class JythonHelloWorld {
+  public static void main(String[] args) {
+    try(PythonInterpreter pyInterp = new PythonInterpreter()) {
+      pyInterp.exec("print('Hello Python World!')");
+    }
+  }
+}
+```
+- dont use abi-bin, instead get direct from json
