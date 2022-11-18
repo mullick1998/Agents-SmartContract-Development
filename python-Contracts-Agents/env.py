@@ -13,9 +13,11 @@ print(f'\n<---------------------SMART CONTRACTS AND AGENTS----------------------
 ganache_url = 'HTTP://127.0.0.1:9545'
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-# Reading abi file
-with open("../python-Contracts-Agents/abi-bin/SupplyChain.abi", "r") as file:
-    abi = json.loads(file.read())
+# Reading abi and bin from .json file
+with open("../build/contracts/SupplyChain.json", "r") as file:
+    supplyChain = json.loads(file.read())
+abi = supplyChain["abi"]
+bin = supplyChain["bytecode"]
 
 # Took depolyed Address
 contract_address = web3.toChecksumAddress("0xc9f78D73aCAf603Fe2319682316268A39Cc5CBB7")
@@ -42,6 +44,24 @@ print(f'\n<---------------------INTERACTION BETWEEN AGENTS-------------------->'
 
 actions = agentspeak.Actions(agentspeak.stdlib.actions)
 
+@actions.add_function(".addOwner", ())
+def addOwner(): 
+    return owner_id
+
+@actions.add_function(".addManufacturer", ())
+def addManufacturer(): 
+    #contract.functions.addManufacturer(manufacturer_id).call()
+    return manufacturer_id
+
+@actions.add_function(".addWholesaler", ())
+def addWholesaler(): 
+    #contract.functions.addWholesaler(wholesaler_id).call()
+    return wholesaler_id
+
+@actions.add_function(".addRetailer", ())
+def addRetailer(): 
+    #contract.functions.addRetailer(retailer_id).call()
+    return retailer_id
 
 @actions.add_function(".produceItemByManufacturer", (int, ))
 def produceItemByManufacturer(upc): 

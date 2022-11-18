@@ -60,8 +60,19 @@ and http://astralanguage.com/wordpress/using-astra-with-maven/ and http://guide.
 - Change repo name, put abbv. Changed to **Agents-SmartContract-Development** <span style="color: green"> _(done)_  </span>
 
 ## 7th meeting (11th November 2022) [09:30-09:55]
-- Don't use Vyper.
-- Use python JASON
-- wrapper from java to solidity, not in python. No need of wrapper class.
-- Use script for python.
-- Try to include everything in thesis paper in the result
+- Don't use Vyper. <span style="color: green"> _(done)_  </span>
+- Use python JASON <span style="color: green"> _(WORKED!!)_  </span>
+- wrapper from java to solidity, not in python. No need of wrapper class. 
+- Use script for python. <span style="color: green"> _(done)_  </span>
+- Try to include everything in thesis paper in the result. <span style="color: Yellow"> _(Still doing)_  </span>
+
+## 8th meeting (18th November 2022) [09:30-09:44]
+- Use jython https://www.jython.org/, to run JASON with java and python
+
+Got same error, with `PythonInterpreter` package while running `.mas2j` file
+
+Check `README.md` from `dir:./jason/jythonSCAgent`
+- Don't use abi-bin, instead get it direct from `./build/*.json`.  <span style="color: green"> _(done)_  </span>
+- Include everything in thesis paper
+
+## 9th meeting (25th November 2022) [09:30-]

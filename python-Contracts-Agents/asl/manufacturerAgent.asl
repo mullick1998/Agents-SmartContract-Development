@@ -4,8 +4,9 @@
      .wait(2000).
 
 +!a : true
-  <- .print("Ok, I am here");
-     .wait(2000).
+  <- .addManufacturer(X);
+     .print("Hi, I am here, with account:", X);
+     .wait(1000).
 
 +!check_warehouse: true
     <- .print("Checking Warehouse, and Manufacturing");

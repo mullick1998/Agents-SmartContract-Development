@@ -44,8 +44,8 @@ papers
 |-- Related Paper
 python-Contracts-Agents
 |-- asl
-|--abi-bin
-|--env.py
+|-- abi-bin
+|-- env.py
 smartcontracts
 |-- README.md
 |-- package-lock.json
