@@ -67,14 +67,12 @@ and http://astralanguage.com/wordpress/using-astra-with-maven/ and http://guide.
 - Try to include everything in thesis paper in the result. <span style="color: Yellow"> _(Still doing)_  </span>
 
 ## 8th meeting (18th November 2022) [09:30-09:44]
-- use jython https://www.jython.org/
-```
-public class JythonHelloWorld {
-  public static void main(String[] args) {
-    try(PythonInterpreter pyInterp = new PythonInterpreter()) {
-      pyInterp.exec("print('Hello Python World!')");
-    }
-  }
-}
-```
-- dont use abi-bin, instead get direct from json
+- Use jython https://www.jython.org/, to run JASON with java and python
+
+Got same error, with `PythonInterpreter` package while running `.mas2j` file
+
+Check `README.md` from `dir:./jason/jythonSCAgent`
+- Don't use abi-bin, instead get it direct from `./build/*.json`.  <span style="color: green"> _(done)_  </span>
+- Include everything in thesis paper
+
+## 9th meeting (25th November 2022) [09:30-]
