@@ -25,7 +25,7 @@ location: class JythonHelloWorld
 4 errors
 
 BUILD FAILED
-``
+```
 
 ### Directory structure
 ```
