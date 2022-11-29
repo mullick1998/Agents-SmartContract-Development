@@ -1,0 +1,128 @@
+
+\ifx\doclanguage\english
+\chapter{Introduction}
+
+The term \textit{"agent"} is commonly used these days. This applies to both \ac{AI} and fields outside of it, such as databases and automated manufacturing. Despite growing in popularity, the phrase has been employed in so many different contexts that it has lost all meaning when not connected to a certain understanding of agenthood. The terminology "agent" is most frequently used in the context of  \ac{AI} to describe an object that operates constantly and autonomously in a context that also contains other processes and agents.
+Perhaps this is the single characteristic that all practitioners of the word in \ac{AI} agree upon. Although the definition of "autonomy" is vague, it is generally understood to suggest that the behaviors of the agents do not need ongoing human direction or interference. Additional presumptions are frequently made about the environment, such as that it is physical and mostly unpredictable.
+
+\vspace{.5cm}
+
+Agents are frequently assumed to be robotic agents, in which case additional problems including sensory input, motor control, and time constraints are stated. Finally, agents are frequently perceived as "high-level." Although this meaning is somewhat nebulous, many people use some variation of it to separate agents from other pieces of hardware or software. The "high level" is exhibited by symbolic representation and/or cognitive-like skills. Agents may be "informable," have symbolic planning in addition to stimulus-response rules, and even be able to speak. This meaning is not universally assumed in \ac{AI}, so clearly, the concept of agenthood in \ac{AI} is far from clear. As a result, We should be explicit about what we mean when we use the term "agent," which is as follows: An entity whose state is seen to be composed of mental elements including beliefs, capabilities, decisions, and commitments is referred to as an agent. These elements are precisely specified and roughly correspond to their equivalents from common sense. Therefore, according to this perspective, an agent only exists in the programmer's head. Any hardware or software component only qualifies as an agent if its analysis and management have been done in this way.
+
+\vspace{.5cm}
+
+In latest years, there has been a lot of interest in the research of computational agents that can behave rationally. The architecture of systems required to conduct high-level management and control activities in complex dynamic situations is becoming increasingly important in the commercial world. Air traffic control, telecommunications networks, commercial operations, space spacecraft, and medical services are examples of such systems. Experience with using traditional software methodologies to design such systems has revealed that they are extremely complicated and costly to build, validate, and sustain. Agent-oriented systems, which are based on a fundamentally different perspective of computational entities, provide opportunities for a qualitative shift in this stance. 
+
+\vspace{.5cm}
+
+One such architecture views the system as a rational agent with particular mental attitudes of Belief, Desire, and Intention (\ac{BDI}), reflecting, respectively, the informational, motivating, and deliberative states of the agent. When deliberation is subject to resource constraints, these mental attitudes govern the system's behavior and are crucial for obtaining adequate or optimal performance.
+
+\vspace{.5cm}
+
+\ac{BDI} agents can be considered for both a formulation of a theory and a practical design standpoint. However, there is still a significant discrepancy between theory and practice. The complication of theorem-proving or model-checking in these expressive specification logics has been the primary cause for this. As a result, \ac{BDI} systems that have been deployed have tended to employ the three primary attitudes as data structures rather than modal operators. \textit{AgentSpeak(L)} is a generalization of one of the implemented \ac{BDI} systems that allows agent programs to be developed and processed in the same way as a horn-clause rationale programs.
+
+\vspace{.5cm}
+
+It is a language of programming based on a limited first-order language with events and actions. The programs created in AgentSpeak(L) govern the agent's behavior (i.e., its interaction with the environment). The agent's beliefs, desires, and intentions are not explicitly stated as modal formulae. Instead, as designers, one may attribute these ideas to AgentSpeak(L) agents. The agent's present belief state may be considered as a model of itself, its environment, and other agents; states that the agent seeks to bring about based on external or internal stimuli can be viewed as desires; and the adoption of programs to meet such stimuli can be viewed as intents.
+
+\vspace{.5cm}
+
+It is a language of programming based on a limited first-order language with events and actions. The programs created in AgentSpeak(L) govern the agent's behavior (i.e., its interaction with the environment). The agent's beliefs, desires, and intentions are not explicitly stated as modal formulae. Instead, as designers, one may attribute these ideas to AgentSpeak(L) agents. The agent's present belief state may be considered as a model of itself, its environment, and other agents; states that the agent seeks to bring about based on external or internal stimuli can be viewed as desires; and the adoption of programs to meet such stimuli can be viewed as intents. 
+
+\vspace{.5cm}
+
+It is therefore easy to design an agent capable of controlling its surroundings on its own, but this becomes troublesome when the environment is shared by more than one agent. AgentSpeak(L) is extended by languages such as jason and astra. They could be used to implement that language's operational semantics and provide a foundation for the development of \ac{MAS} with different user-customizable features.
+
+\vspace{.5cm}
+
+The implementation of these agents in specialized fields would be helpful when discussing about the agents' ability to communicate utilizing AgentSpeak(L). One of the most significant areas will be supply chain management, where we may assign roles to various agents such as manufacturers, wholesalers, and retailers.It seems sense that whenever agents interact, there will be a transaction, and that transaction should be recorded. Rather than keeping these interactions in databases or spreadsheets, it will be perfect for storing them in smart contracts, which can be inspected for tracking or future references. 
+
+\vspace{.5cm}
+
+The concept of \textit{smart contracts}, or computer protocols intended to automatically facilitate, authenticate, and implement the negotiation and application of digital contracts without the need for centralized authorities, has been revived in recent years has resulted of the rapid development of cryptocurrencies and the \ac{BCT} that underpins them. Smart contracts have been incorporated into popular blockchain-based development platforms like Ethereum and Hyperledger. They have a wide range of potential application areas in the globalised era and intelligent sectors of the economy, including financial sector, management, healthcare, and Internet of Things, among many others.
+
+\vspace{.5cm}
+
+The combination of the agent and blockchain domains appears to be effective. In order to study the operation, compatibility, and behavior pattern of smart contracts with agents, some work has been done in the area of integrating agents with smart contracts.
+
+\vspace{.5cm}
+
+In this thesis, a \textbf{\textit{Smart contract development with jason \ac{BDI} Agents}} is presented. An environment that will show off several agents, allowing agents throughout the supply chain—namely, manufacturers, retailers, and wholesalers—to communicate with one another utilizing a primary agent. This ecosystem will also make it possible to maintain relationships between agents, store transactions using smart contracts and offer a hash for each transaction that may be used to examine further information.
+
+
+\section{Motivation}
+
+The blockchain is having an increasing influence on a variety of research and application fields, from distributed computing and storage to supply chain management and healthcare accountability. In fact, there are many distinct use cases where the promise of supplying a secure and fault-tolerant ledger that mutually untrusted parties may use to monitor computations and interactions completely dispersed and decentralized without the need for a central authority is intriguing. 
+
+\vspace{.5cm}
+
+The agent community is no different; it began expressing interest in the opportunities presented by the blockchain to either solve long-standing problems (such as trust management in open systems, accountability of actions for liability, among others), or to take advantage of expected benefits to endow a system with new properties (such as novel infrastructures for \ac{MAS}, trustworthy coordination).
+
+\vspace{.5cm}
+
+Smart contracts play a critical role in enabling the blockchain to function as a general-purpose distributed computing engine while retaining its core properties of security, trust, and fault-tolerance, and they actually extend their reach to cover computations other than data storage and management.
+
+\vspace{.5cm}
+The convergence of the agent and blockchain worlds appears to be promising: Agents are distributed autonomous entities whose interactions should be managed and mediated in trustworthy ways; blockchains and smart contracts, on the other hand, are trust-sensitive mechanisms for mediating and managing interactions.
+
+\section{Our contributions}
+
+The contribution of the paper are as follows:
+
+\begin{itemize}
+
+    \item We demonstrate and analyze the aspects of \ac{MAS}-\ac{BCT} created by integrating agents with smart contracts, as well as the implications for agent-oriented practice and blockchain. The primary goal was to utilize AgentSpeak(L) to program agents and store their interactions using smart contracts.
+    
+    \item  The fundamental concept was to construct \ac{MAS} using jason, an extension of AgentSpeak(L), and smart contracts using Solidity and integrating them together.
+    
+    \item Our research enabled the usage of jason with both the Python interpreter and Java. As an alternative to jason, we also tested using astra. Because Java was the prior implementation language, astra's type system is based on it. By using a comparable type system, translating between astra and Java is made easier and more clear. Vyper was also taken under consideration for Smart contracts while switching from Java to Python, but was later abandoned owing to some of its drawbacks.
+    
+\end{itemize}
+
+In order to integrate them, we conducted extensive study while doing that. When choosing a programming language to integrate agents written in agentSpeak(L) with smart Contracts written in Solidity, we run into a myriad of challenges.
+
+\section{State of the Art}
+
+Most methodologies to bridging \ac{MAS} and \ac{BCT} are of the "agent-vs-blockchain" variety—that is, they place a \ac{MAS} and a blockchain side by side, allowing agents to utilize blockchain services opportunistically as needed. We contend that these techniques do not fully integrate agents and blockchain on a technical level, because the \ac{MAS} just exploits the blockchain like any other software library. In fact, the agents are viewed essentially like any other off-chain entity, such as blockchain clients, whose contact with the blockchain is restricted to making transactions and deploying/invoking smart contracts—just like any other service.
+
+\vspace{.5cm}
+
+A more interesting family of approaches is what we call “agent-to-blockchain”—that is, efforts
+striving to put elements of agent-oriented models and technologies directly into the blockchain.
+For instance, adopting agent programming languages for implementing smart contracts would be an
+integration effort belonging to this category, as well as empowering smart contracts’ computational
+model (usually, object-oriented) with features defining agent-orientation. Another approach family is feasible, "blockchain-to-agent," which would comprise integration efforts attempting to introduce concepts and techniques from the \ac{BCT} domain into agents. An agent-programming platform, for example, can be offered, in which agents are written in a smart contract language and their interactions are enabled and governed by a \ac{BCT}'s transactions mechanism.
+
+\vspace{.5cm}
+
+Some of the aforementioned methods naturally see agents as off-chain entities, while others attempt to integrate them onto the chain. Agents are always off-chain entities that use blockchain services when necessary in agent-vs-blockchain methods. Agents are always on-chain entities that join the blockchain as nodes or smart contracts in agent-to-blockchain strategies. The on-chain/off-chain difference is meaningless in blockchain-to-agent techniques.
+
+\vspace{.5cm}
+
+The existing research focuses on both computational and interactional aspects. Many strategies focus on the computational aspect, aiming to use the blockchain to store data in a safe and traceable manner in order to hold agents who manipulate it accountable for their actions; other strategies concentrate on the interaction aspect, making use of the blockchain transaction mechanism, frequently in conjunction with smart contracts, to validate and control interactions among agents. However, we stress that not all aspects of the interaction dimension have been taken into account. Existing approaches always assume that interactions will take place between off-chain entities, whether they contain agents or not. However, this leaves open the possibility of using agent-oriented abstractions to mediate on-chain entity interactions, such as those involving smart contract reciprocal invocations or node communication protocols.
+
+\vspace{.5cm}
+
+We'll focus mostly on "agent-to-blockchain" methods in this thesis.
+
+\section{Evaluation results}
+
+An evaluation was conducted using three separate criteria. (1) Comparison of smart contract performance across various networks (2) \ac{MAS} performance using jason and astra (3) Outcomes of combining smart contracts with Agents. Experimental findings from these many angles are systematically examined.
+
+\newcommand\descitem[1]{\item{\bfseries #1}\\}
+\begin{enumerate}
+  \descitem{Comparison of smart contract performance across various networks} (//about to write about local network, infura using ropsten, alfajores, rinkby and will also write about vyper a bit).
+  \descitem{\ac{MAS} performance using jason (Java and Python interpreters) and astra} (//about to write about writing the .asl files and difference noticed)
+  \descitem{Outcomes of combining smart contracts with Agents} (//will write about the package issue faced with java, using jarfiles in gradle and maven, and at last using python, and also add a bit about jython)
+\end{enumerate}
+
+
+\section{Outline of the thesis}
+\begin{itemize}
+    \item The research and associated work that has been done in the area of our study are covered in Chapter 2.
+    \item The technical information needed to comprehend the ideas offered in this thesis is provided in Chapter 3.
+    \item The system's high-level design and architecture are covered in Chapter 4 of this thesis.
+    \item The technical details and several sample use cases created for this work are covered in Chapter 5.
+    \item Chapter 6 summarizes the system's evaluation findings.
+    \item The design enhancements for upcoming and additional study subjects that result from this effort are covered in Chapter 7.
+\end{itemize}
