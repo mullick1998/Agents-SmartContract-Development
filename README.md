@@ -30,21 +30,21 @@ A manufacturer, wholesaler, and retailer can realize a product flow. **A retaile
 
 ```
 .gitignore
-README.md
-package-lock.json
-package.json
-truffle-config.js
+diagrams
+images
+Master_thesis.pdf
+Master thesis
+|-- thesis.tex
+|-- includes
+|  |-- *.tex
+|  |-- figures
+papers
+|-- Related Paper
 meeting (Orçun Oruç)
 |-- meeting_description.md
 |-- small_presentation.pdf
-thesis
-|-- includes
-|-- thesis.tex
-papers
-|-- Related Paper
 python-Contracts-Agents
 |-- asl
-|-- abi-bin
 |-- env.py
 smartcontracts
 |-- README.md
@@ -52,14 +52,7 @@ smartcontracts
 |-- package.json
 |-- truffle-config.js
 |-- contracts
-|  |-- ManufacturerRole.sol
-|  |-- Migrations.sol
-|  |-- Ownable.sol
-|  |-- RetailerRole.sol
-|  |-- Roles.sol
-|  |-- SupplyChain.sol
-|  |-- SupplyChainUpgradeable.sol
-|  |-- WholesalerRole.sol
+|  |-- *.sol
 |-- migrations
 |  |-- 1_initial_migration.js
 |  |-- 2_deploy_contracts.js
@@ -77,7 +70,6 @@ jason
 |   |   |-- asl
 |   |   |-- main
 |   |   |   |-- java
-|   |   |   |   |-- SupplyChainEnv.java
 |   |   |   |   |-- thesis
 |   |   |   |   |   |-- SupplyChain
 |   |   |   |   |   |   |-- SupplyChain.java
@@ -85,9 +77,17 @@ jason
 |   |   |   |-- resources
 |   |-- supplyChainAgents.mas2j
 |   |-- pom.xml
-diagrams
-gantt chart
-images
+|-- jythonSCAgents
+|   |-- src
+|   |   |-- asl
+|   |   |-- main
+|   |   |   |-- java
+|   |   |   |   |-- thesis
+|   |   |   |   |   |-- SupplyChain
+|   |   |   |   |   |   |-- jythonFile.java
+|   |   |   |-- resources
+|   |-- supplyChainAgents.mas2j
+|   |-- pom.xml
 ```
 
 [Thesis Paper](https://www.overleaf.com/project/62dfc9e6c07bbf02dc82519e)
