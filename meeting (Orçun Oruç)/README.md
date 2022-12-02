@@ -75,4 +75,11 @@ Check `README.md` from `dir:./jason/jythonSCAgent`
 - Don't use abi-bin, instead get it direct from `./build/*.json`.  <span style="color: green"> _(done)_  </span>
 - Include everything in thesis paper
 
-## 9th meeting (25th November 2022) [09:30-]
+## 9th meeting (25th November 2022) [09:30- 09:39]
+- Asked about the evaluation part from Orcun Oruc
+- Asked him to read.
+
+## 10th meeting (2nd December 2022) [09:30- 09:39]
+- Asked Orcun tp write comments.
+- Write technical details in implementation part. Parameters will be in Evaluation part.
+- Include everything in implementation part, jython etc
