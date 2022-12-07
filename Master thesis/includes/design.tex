@@ -3,10 +3,17 @@
 
 This chapter describes the layout of the thesis' proposed solution. The \ac{BDI} agents work in a \ac{MAS} via Jason AgentSpeak and communicate via solidity and python-based smart contracts. We would talk about the application's design objectives and general overview. We will also go through the application's design and functionality for both creating smart contracts independently and after doing so, as well as for creating agents. This chapter's prerequisites include understanding the design and architecture of blockchain, AgentSpeak, and \ac{AOP} as described in the previous chapter. The prior chapter's contents should be reviewed in order to fully comprehend the chapters that follow.
 
-\section{Roadmap}
-.......
+\section{Roadmaps}
+
+The initial roadmap will involve generating multiple agents in a \ac{MAS} and running them simply to see how they fulfill their objectives. Goals are the driving force that directs an agent's proactivity, as agents are expected to actively pursue the goals assigned to them without needing to be constantly stimulated, as opposed to object-orientation with service/method/function invocation, where services/objects are purely reactive entities that provide functionalities. Examine how agents summon each other by sending messages, as well as how they behave and interact with one another. 
+
+\vspace{.5cm}
+
+The next step will be to create smart contracts for each process on a blockchain, complete with state and events. Additionally, while creating the contract, select the appropriate language and version. Finally, integrating \ac{MAS} and \ac{MAS} to execute the entire program.
 
 \section{Model Description}
+
+The application is designed to be as basic as possible in order to learn how a supply chain works in the real world, i.e. each entity interacts with the other entity on a different level in order to complete the chain.
 
     \begin{figure}[h]
     \centering
@@ -15,6 +22,7 @@ This chapter describes the layout of the thesis' proposed solution. The \ac{BDI}
       \label{Flow chart}
     \end{figure}
 
+\vspace{.5cm}
 
 The application flow for the \textit{Smart contract development with Jason \ac{BDI} agents} is depicted in Figure  \ref{Flow chart}. These three agents, a manufacturer, a wholesaler, and a retailer, each perform a specific function in the supply chain. All three of the other agents are being invoked by another primary agent in the \ac{MAS}. Figure \ref{Sequence Diagram} may be used to demonstrate this.
 
@@ -26,6 +34,8 @@ The application flow for the \textit{Smart contract development with Jason \ac{B
     \end{figure}
 
 \section{Design Goals}
+
+The purpose of this project is to develop an application that integrates \ac{MAS} and \ac{BCT}. To construct such an application, we took design considerations that influenced our architecture. We have certain particular goals in mind while contemplating integrating both technologies. The following design objectives are listed:
 
 \begin{itemize}
 
@@ -60,7 +70,7 @@ As aforementioned, the terminology blockchain refers to two things: a distribute
     \begin{figure}[h]
     \centering
       \includegraphics[width=15cm]{includes/figures/Data Model diagram.png} 
-      \caption{Data Model Diagram}
+      \caption{Smart Contract's Data Model Diagram}
       \label{Data Model diagram}
     \end{figure}
     
@@ -91,3 +101,12 @@ An agent program is run by the Jason interpreter. An agent uses a reasoning cycl
 \vspace{.5cm}
 
 In our \ac{MAS}, each participant's function within the supply chain will be handled by an agent , see figure \ref{Agent Interaction}. The retailer agent will work to ensure that the product is available in the warehouse before ordering it from the wholesaler agent, who will then ask the wholesaler to check its inventory, get in touch with the manufacturer to produce the product, and ship it to the wholesaler, who will then send it to the retailer agent. There will be a \textit{main agent}, who will launch the retailer agent's efforts to sell items to consumers and also other agents by sending messages.
+
+\section{Agent-Contract Collaboration}
+
+ 
+ We are largely focused on agent-oriented models and technology, and we have smart contracts directly incorporated into the blockchain. With reference to the illustration \ref{Agent Interaction}, the model will be the same for the agents, but their communication will take place via smart contracts, be recorded as transactions on the blockchain, and be subsequently verified using the transaction hashes.
+ 
+ \vspace{.5cm}
+ 
+The next chapter explains our suggested approach for taking the steps along smart contracts deployed in a bespoke blockchain with their own flow of control among agents constructed utilizing agent oriented language.
