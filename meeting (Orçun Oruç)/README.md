@@ -79,7 +79,13 @@ Check `README.md` from `dir:./jason/jythonSCAgent`
 - Asked about the evaluation part from Orcun Oruc
 - Asked him to read.
 
-## 10th meeting (2nd December 2022) [09:30- 09:39]
+## 10th meeting (2nd December 2022) [09:30- 09:35]
 - Asked Orcun tp write comments.
 - Write technical details in implementation part. Parameters will be in Evaluation part.
 - Include everything in implementation part, jython etc
+
+## 11th meeting (9th December 2022) [09:30- 09:41]
+- Comments for thesis papers.
+- Comments on testing part
+- Needs to be checked 
+- Create a temporary folder. Put jason and astra-agent folder in that.
