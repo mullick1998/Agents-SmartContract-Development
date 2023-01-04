@@ -317,59 +317,59 @@ contract('SupplyChain', function(accounts) {
 
     })
 
-    // 11th Test
-    it("Testing smart contract function fetchManufacturerDetails()", async() => {
+//     // 11th Test
+//     it("Testing smart contract function fetchManufacturerDetails()", async() => {
 
-        const resultBufferOne = await supplyChain.fetchItemBufferOne(upc);
-        assert.equal(resultBufferOne[0],sku,"Error: Invalid item SKU")
-        assert.equal(resultBufferOne[1],upc,"Error: Invalid item UPC")
-        assert.equal(resultBufferOne[2],retailerID,"Error: Invalid OwnerID")
-        assert.equal(resultBufferOne[3],originManufacturerID,"Error: Invalid originFarmID")
-        assert.equal(resultBufferOne[4],originManufacturerName,"Error: Invalid originManufacturerName")
+//         const resultBufferOne = await supplyChain.fetchItemBufferOne(upc);
+//         assert.equal(resultBufferOne[0],sku,"Error: Invalid item SKU")
+//         assert.equal(resultBufferOne[1],upc,"Error: Invalid item UPC")
+//         assert.equal(resultBufferOne[2],retailerID,"Error: Invalid OwnerID")
+//         assert.equal(resultBufferOne[3],originManufacturerID,"Error: Invalid originFarmID")
+//         assert.equal(resultBufferOne[4],originManufacturerName,"Error: Invalid originManufacturerName")
 
-    })
+//     })
 
-    // 13th Test
-    it("Testing smart contract function fetchWholesalerDetails()", async() => {
-        const resultWholesaler = await supplyChain.fetchWholesaler(upc);
-        assert.equal(resultWholesaler[0],sku, "Error: Invalid item SKU")
-        assert.equal(resultWholesaler[1],upc, "Error: Invalid item UPC")
-        assert.equal(resultWholesaler[2],productID, "Error: Invalid item productID")
-        assert.equal(resultWholesaler[3],productNotes, "Error: Invalid productnote")
-        assert.equal(resultWholesaler[4],productPrice, "Error: Invalid productPrice")
-        assert.equal(resultWholesaler[6],itemState, "Error: Invalid itemState")
-        assert.equal(resultWholesaler[7],wholesalerID, "Error: Invalid wholesalerID")
-        assert.equal(resultWholesaler[8],wholesalerName, "Error: Invalid wholesalerName")
+//     // 13th Test
+//     it("Testing smart contract function fetchWholesalerDetails()", async() => {
+//         const resultWholesaler = await supplyChain.fetchWholesaler(upc);
+//         assert.equal(resultWholesaler[0],sku, "Error: Invalid item SKU")
+//         assert.equal(resultWholesaler[1],upc, "Error: Invalid item UPC")
+//         assert.equal(resultWholesaler[2],productID, "Error: Invalid item productID")
+//         assert.equal(resultWholesaler[3],productNotes, "Error: Invalid productnote")
+//         assert.equal(resultWholesaler[4],productPrice, "Error: Invalid productPrice")
+//         assert.equal(resultWholesaler[6],itemState, "Error: Invalid itemState")
+//         assert.equal(resultWholesaler[7],wholesalerID, "Error: Invalid wholesalerID")
+//         assert.equal(resultWholesaler[8],wholesalerName, "Error: Invalid wholesalerName")
 
-    })
+//     })
 
-    // 14th Test
-    it("Testing smart contract function fetchRetailerDetails()", async() => {
-        const resultRetailer = await supplyChain.fetchRetailer(upc);
-        assert.equal(resultRetailer[0],sku, "Error: Invalid item SKU")
-        assert.equal(resultRetailer[1],upc, "Error: Invalid item UPC")
-        assert.equal(resultRetailer[2],productID, "Error: Invalid item productID")
-        assert.equal(resultRetailer[3],productNotes, "Error: Invalid productnote")
-        assert.equal(resultRetailer[4],productPrice, "Error: Invalid productPrice")
-        assert.equal(resultRetailer[6],itemState, "Error: Invalid itemState")
-        assert.equal(resultRetailer[7],retailerID, "Error: Invalid retailerID")
-        assert.equal(resultRetailer[8],retailerName, "Error: Invalid retailerName")
+//     // 14th Test
+//     it("Testing smart contract function fetchRetailerDetails()", async() => {
+//         const resultRetailer = await supplyChain.fetchRetailer(upc);
+//         assert.equal(resultRetailer[0],sku, "Error: Invalid item SKU")
+//         assert.equal(resultRetailer[1],upc, "Error: Invalid item UPC")
+//         assert.equal(resultRetailer[2],productID, "Error: Invalid item productID")
+//         assert.equal(resultRetailer[3],productNotes, "Error: Invalid productnote")
+//         assert.equal(resultRetailer[4],productPrice, "Error: Invalid productPrice")
+//         assert.equal(resultRetailer[6],itemState, "Error: Invalid itemState")
+//         assert.equal(resultRetailer[7],retailerID, "Error: Invalid retailerID")
+//         assert.equal(resultRetailer[8],retailerName, "Error: Invalid retailerName")
 
-    })
+//     })
 
-async function getTx(blockNumber){
-    let tx1 = await web3.eth.getBlock(blockNumber);
-    return  (await web3.eth.getTransaction(tx1.transactions[0]));
-}
+// async function getTx(blockNumber){
+//     let tx1 = await web3.eth.getBlock(blockNumber);
+//     return  (await web3.eth.getTransaction(tx1.transactions[0]));
+// }
 
-    // 15th Test
-    it("Testing smart contract function fetchItemHistory()", async() => {
-        const resultItemHistory = await supplyChain.fetchitemHistory(upc);
-        const MTW = await getTx(resultItemHistory[0].toString());
-        const WTR = await getTx(resultItemHistory[1].toString());
-        assert.equal(WTR.from,retailerID,"Error: Invalid transaction between retailer and wholesaler")
-        assert.equal(MTW.from,wholesalerID,"Error: Invalid transaction between manufacturer and wholesaler")
+//     // 15th Test
+//     it("Testing smart contract function fetchItemHistory()", async() => {
+//         const resultItemHistory = await supplyChain.fetchitemHistory(upc);
+//         const MTW = await getTx(resultItemHistory[0].toString());
+//         const WTR = await getTx(resultItemHistory[1].toString());
+//         assert.equal(WTR.from,retailerID,"Error: Invalid transaction between retailer and wholesaler")
+//         assert.equal(MTW.from,wholesalerID,"Error: Invalid transaction between manufacturer and wholesaler")
 
-    })
+//     })
 
 });

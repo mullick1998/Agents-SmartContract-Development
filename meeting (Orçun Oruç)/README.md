@@ -89,3 +89,46 @@ Check `README.md` from `dir:./jason/jythonSCAgent`
 - Comments on testing part
 - Needs to be checked 
 - Create a temporary folder. Put jason and astra-agent folder in that.
+
+## 1st Review (10.12.2022) 
+
+
+    1. Be careful about the abbreviation. First, use the Belief-Desire-Intention word somewhere in your thesis, and then you can use the BDI abbreviation in the rest of your thesis. (Done)
+
+    2. The technical Background part should be updated. Agent, BDI Model (It is a software design pattern), and Agent Programming can be explained in a single subchapter. (Done)
+    
+    3. In the Background, an explanation of the Concept subchapter should be cited. I assume that individualized, ubiquity and Efficient are not your definitions with their internal details. (Done)
+    
+    4. There is no relevancy between Jython and the Background part. You need to explain this in the implementation. (Done)
+
+    5. Design and Implementation chapters must be combined. (Done)
+    
+    6. You don’t have research questions or hypotheses. Please define it. 
+    
+    7. You need to define the limits of your research (what are the boundaries of your research).
+    
+    8. The thesis template is wrong on the first page. You need to use the latex format like under this link. https://tu-dresden.de/ing/informatik/smt/cgv/studium/materialien?set_language=en  (Done)
+    
+    9. Qualitative and Quantitative methods are not explained well in the result section. (Performance parameters, tool, and library versions, how did you create your performance experiment? What was your use case ?). Why did you test with different blockchain networks? Is it really necessary and does the result section respond to one of the research questions or not? 
+    
+    10. You can reduce the number of subchapters in the Related Work section. 
+
+
+## 12th meeting (16th December 2022) [09:30- 09:46]
+VERYYYYYYYYYY IMPORTANTTTTTTTTTTTTTTTTTTTT!!!!!!!
+
+- Will decide task description together.
+- think of research question and hypothesis. (Idea: use task description)
+- Create a question, Which fetaure to implement to Intercat between BDI and MAS. Hoe to Interact bw agent and on chain smart contract. Put it on the introduction. In introduction: Put limit, plans, contribtion, thesis organization. One idea: Relate with current scenerio.
+- Important: Answer theoretical part of thesis. Not about technology. Which features need to add to interact BDI with MAS.
+- Cretae some question for literature research? Add this to Related work.
+- Create Hypothesis. Ask question based on assumption.
+
+## 13th meeting (23rd December 2022) [09:30-09:40]
+- Write documention to code.
+- Make changes so Orcun can read.
+- Add Solidity code format, https://docs.soliditylang.org/en/v0.8.17/natspec-format.html
+
+# WINTER BREAK
+
+## 14th meeting (6th January 2023) [09:30-]
