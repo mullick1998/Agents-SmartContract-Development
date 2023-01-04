@@ -506,5 +506,3 @@ Allows wholesaler to purchase product
 
     }
 }
-
-
