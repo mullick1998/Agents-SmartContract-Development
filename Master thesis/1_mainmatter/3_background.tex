@@ -8,11 +8,11 @@ This section discusses the background information needed to comprehend the subje
 
 \section{Agent}
 
-\subsection{\textit{What is an agent?}}
+\subsubsection{\textit{What is an agent?}}
 An \textit{agent} is a reactive system with some autonomy in the sense that if a task is assigned to it, the system determines the optimal way to complete the task. These systems are referred to as "agents" because they are regarded as active, purposeful producers of actions: they are sent out into their environment to achieve objectives, and actively pursue these objectives, figuring out how tasks are to be done for themselves rather than being told in low-level detail how to do so. If they are robotic agents, they may be assigned tasks like as organizing a trip for us, buying tickets to booking hotels, bidding on our behalf in an online auction, and many other tasks that we can conceive of delegating.
 
 
-\subsection{Characteristics of Agents}
+\subsubsection{Characteristics of Agents}
 
 We define agents as systems that exist in a certain context. This means that agents can sense their surroundings (through sensors) and have a repertoire of possible actions to do (via effectors or actuators) in order to affect their surroundings. The essential question for the agent is how to transition from sensor input to action output: how to decide what to do depending on sensor data. An agent's environment can be physical (in the case of robots inhabiting the physical world) or software-based (in the case of a software agent inhabiting a computer operating system or network).
 
@@ -82,20 +82,16 @@ This section outlines the \ac{BDI} system's modeled architecture, also shown in 
 \subsubsection{Beliefs}
     Beliefs reflect the agent's informational state, or its perspective (including itself and other agents). Inference rules can also be included in beliefs, allowing forward chaining to lead to new beliefs. Using the word belief rather than knowledge acknowledges that what an agent believes may or may not be accurate (and in fact may change in the future). One or more belief states and a belief set constitute a belief model.
  
- \vspace{.5cm}
- 
-    \begin{description} [style=nextline]
-        \item[Belief set]
+    \begin{description}
+        \item[Belief set:]
         A collection of object diagrams that outline the subject matter of an agent class's beliefs serve as the specification for the belief set. A set of instance diagrams that specify a specific instance of the belief set is referred to as a belief state. Although this is an operational decision, beliefs are maintained in a database (also known as a belief foundation or a belief set).
     \end{description}
 
 \subsubsection{Desires}
 Desires indicate the agent's motivational state. They reflect goals or scenarios that the agent wishes to achieve or create.
-    
-    \vspace{.5cm}
-    
-    \begin{description} [style=nextline]
-        \item[Goals]
+
+    \begin{description}
+        \item[Goals:]
         A desire that has been embraced for active pursuit by the agent is referred to as a goal. The additional requirement that the collection of active wants must be consistent is added when the term "goals" is used.
     \end{description}
 
@@ -104,14 +100,14 @@ Intentions depict the agent's deliberate state, or what the agent has decided to
     
     \vspace{.5cm}
     
-    \begin{description} [style=nextline]
-        \item[Plans]
+    \begin{description}
+        \item[Plans:]
         Plans are collection of instructions that an agent can follow to carry out one or more of its objectives. They can be thought of as recipes or knowledge bases. Plans could incorporate different plans. Three different categories of nodes—start states, end states, and internal states—as well as one kind of directed nape of the neck the plan graph's constituent parts.
         
         \vspace{.5cm}
         
-        \begin{description} [style=nextline]
-        \item[$\bullet$  Plan Execution]
+        \begin{description}
+        \item[$\bullet$  Plan Execution:]
         An \textit{activation event} and \textit{activation condition}, which specify when and in what context the plan should be activated, are labeled on the plan graph's first transition. The activation event could be a goal event that happens as a result of the accomplishment of a sub goal activity in another plan, leading to goal-driven activation, or a belief event that happens when an agent's beliefs change or when certain external changes are noticed. If more than one plan is relevant to an event in a particular context, they are either engaged concurrently if the activation is event-driven or progressively until they are successfully terminated if the activation is goal-driven. When a plan is activated, an action may be conducted with the help of an optional activation action.
         
         \vspace{.5cm}
@@ -120,21 +116,20 @@ Intentions depict the agent's deliberate state, or what the agent has decided to
         
         \vspace{.5cm}
         
-        \item[$\bullet$  Failure]
+        \item[$\bullet$  Failure:]
         The semantics of plan graphs includes the idea of failure. When an action on a transition fails, when there is an explicit transition to a fail state, or when the activity of an active state ends in failure with no outbound transition enabled, failure inside a graph can happen.
         \end{description}
     \end{description}
     
     \vspace{.5cm}
     
-    \item[$\bullet$  Events]
+    \subsubsection{Events}
     In a nutshell, events function as triggers for the agent to react. An event may alter aims, activate plans, or update beliefs. Externally produced events may be picked up by sensors or other connected systems. Events may also be produced internally to start decoupling updates or activity plans.
-\end{description}
 
 In order to include obligations, norms, and commitments of agents acting within a social context, the \ac{BDI} was further enhanced with an obligations component, giving rise to the \ac{BOID} \cite{boid} agent architecture.
 
 
-\subsection{Agent Programming}
+\subsubsection{Agent Programming}
 
 In the \ac{AOP} paradigm, the idea of software agents serves as the foundation for the development of the software. \ac{AOP} has externally stated agents (with interfaces and messaging capabilities) at its core as opposed to \ac{OOP}, which has objects (offering methods with variable parameters) at its foundation. They might be viewed as abstractions of actual items. Messages are interpreted in a class-specific manner by receiving "agents."
 
@@ -173,7 +168,7 @@ A variety of restrictions are imposed on an agent's mental state, which generall
 
 \vspace{.5cm}
 
-\subsection{AgentSpeak(L): \ac{BDI} Agents Interaction}
+\subsubsection{AgentSpeak(L): \ac{BDI} Agents Interaction}
 
 AgentSpeak(L) is a simplified textual version of \ac{PRS} \cite{prs} or \ac{dMARS} \cite{dmars}. In most ways, the language and its operational semantics are comparable to the implemented system. The implemented system includes extra language constructs to facilitate agent programming.
 
@@ -196,7 +191,7 @@ It has become customary to include a simple example program to aid comprehension
 \vspace{.5cm}
 
 \begin{lstlisting}[backgroundcolor = \color{white}, frame=none, numbers=none]
-	 started.
+    started.
 
     +started <- .print("Hello, I'm an Agent").
 \end{lstlisting}
@@ -224,7 +219,7 @@ As a result, \ac{ASTRA} programs are more organized than AgentSpeak(L) applicati
          initial !init();
     
          rule +!init() {
-             console.println("Hello, I'm an Agent");
+             console.println("Hello,I'm Agent");
          }
      }
 \end{lstlisting}
@@ -235,10 +230,11 @@ As can be observed, \ac{ASTRA} has embraced the Java \texttt{package} and \textt
 
 \section{Web3}
 
-\subsection{Background}
+\subsection{Overview}
 The terms "Web 1.0" and "Web 2.0" refer to phases in the development of the World Wide Web using different technology and formats. Web 1.0 refers to a time when the bulk of websites just had static pages and the great majority of people consumed information rather than created it. Web 2.0 is centered on user-generated content that is published to forums, social media and networking sites, blogs, and wikis, among other services. It is founded on the concept of "the web as platform."
 
-\subsection{Introduction}
+\vspace{.5cm}
+
 An notion for a new version of the World Wide Web called Web3 (sometimes referred to as Web 3.0) integrates ideas including decentralization, blockchain technology, and token-based economy. Some journalists and engineers have compared it to Web 2.0, where they claim that content and data are concentrated in a select few businesses frequently referred to as "Big Tech."
 
 \vspace{.5cm}
@@ -336,21 +332,22 @@ In order to automatically execute, control, or document legally significant even
 
 A smart legal contract, as opposed to a smart contract, is a conventional, legally-binding pact with specific provisions defined and put into machine-readable code. Smart legal contracts should not be confused with smart contracts.
 
-\subsection{\ac{EVM}}
-
-The second-largest blockchain system in the world is believed to be Ethereum. With smart contracts, Ethereum enhances the blockchain paradigm. The applications running on the Ethereum blockchain are known as smart contracts. Ethereum provides the \ac{EVM} to parse the source code of the contracts into an opcode sequence that is predefined by Ethereum in order to execute the smart contracts. For the Ethereum blockchain to correctly execute contracts and handle transactions, each node requires an \ac{EVM}.
-
-\vspace{.5cm}
-
-The \ac{EVM} may be conceptualized practically as a vast, decentralized system with large numbers of objects, called \textit{accounts}, that can maintain an internal database, run code, and communicate with one another.
-
-\subsection{Solidity: Build Smart Contracts}
+\subsubsection{Solidity: Build Smart Contracts}
 
 The Ethereum blockchain's popularity and disruptive power are directly related to its capacity to execute smart contracts. \ac{BCT} may be effectively used to create \ac{Dapp} using Ethereum platform. A \ac{Dapp} is a tool used to connect individuals and groups on various sides of an interaction without the usage of a centralized intermediary.
 
 \vspace{.5cm}
 
 \textit{Solidity}, a Javascript-like language designed expressly for creating smart contracts, is the primary language used in Ethereum. Among its other characteristics, Solidity is statically typed and enables complicated user-defined types, libraries, and inheritance. The solidity compiler converts source code into \ac{EVM} bytecode so that it may be deployed into the Ethereum network. The owner of the contract is responsible for paying the additional transaction fees associated with contract deployments and smart contract interactions in the form of \textit{gas}.
+
+
+\subsubsection{\ac{EVM}}
+
+The second-largest blockchain system in the world is believed to be Ethereum. With smart contracts, Ethereum enhances the blockchain paradigm. The applications running on the Ethereum blockchain are known as smart contracts. Ethereum provides the \ac{EVM} to parse the source code of the contracts into an opcode sequence that is predefined by Ethereum in order to execute the smart contracts. For the Ethereum blockchain to correctly execute contracts and handle transactions, each node requires an \ac{EVM}.
+
+\vspace{.5cm}
+
+The \ac{EVM} may be conceptualized practically as a vast, decentralized system with large numbers of objects, called \textit{accounts}, that can maintain an internal database, run code, and communicate with one another.
 
 \subsection{Truffle Suite}
 \subsubsection{Truffle}

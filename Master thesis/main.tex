@@ -4,7 +4,7 @@
 	\frontmatter
 	\pagenumbering{Roman} 				% needed to capitalize the roman page numbering
 	\input{0_frontmatter/1_title}		% title page
-	%\input{0_frontmatter/2_task}		% task description
+	\input{0_frontmatter/2_task}		% task description
 	\input{0_frontmatter/3_declaration}	% declaration of authorship
 	\input{0_frontmatter/4_abstract}
 	\tableofcontents
@@ -18,15 +18,19 @@
 	\input{1_mainmatter/5_results}
 	\input{1_mainmatter/6_conclusion_and_future_work}
 	
-	\input{2_bib/0_bibliography} 		% Literatur
 	
-	\listoffigures
-	\listoftables
+	
+	
 
 	\appendix							% (alphabetic numbering)
 	\input{3_appendix/0_appendix}
 
 %	\backmatter
 %   \chapter{Acknowledgement}
+    \listoffigures
+	\listoftables
+    \lstlistoflistings
+
+    \input{2_bib/0_bibliography} 		% Literatur
 \end{document}
 

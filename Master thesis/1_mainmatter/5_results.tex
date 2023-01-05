@@ -49,6 +49,8 @@ According to the test scenarios, smart contracts are functioning well. Each cont
 
 Due to a built-in feature of the truffle tool that indicates how long it takes to build each contract as well as how long it takes to generate all of the contracts, we had to consider other options for our smart contracts. We tried to check the time taken by each network in order to get more knowledge, specifically taking into account the local network, Alfajores, and Rinkeby. We also considered testing out a different programming language to write our contracts in order to determine why Solidity is more effective than all of them.
 
+\vspace{.5cm}
+
 \begin{figure}[h]
 \centering
   \includegraphics[width=15cm]{includes/figures/graph.png} 
@@ -68,7 +70,7 @@ We were decided from the outset to utilize Solidity to construct the smart contr
 
 JASON's and some issue with web3 libraries gave us the opportunity to explore more and to switch from Solidity to Vyper and learn more about the language. Because Vyper lacks \textit{Modifiers}, \textit{Class Inheritance}, \textit{Inline Assembly}, \textit{Function Overloading}, \textit{Operator Overloading}, and \textit{Binary Fixed Point}, a thorough examination of Vyper prompted us to chose Solidity once more. The usage of the following constructs might result in confusing or challenging to comprehend code, hence they are not included and to create final smart contracts, we continued to use Solidity as our primary language.
 
-\section{\ac{MAS} Development}
+\section{MAS Development}
 
 We originally utilized JASON with a java-based interpreter to execute \ac{MAS}. To run \ac{MAS}, we downloaded the necessary scripts and libraries. Gradle and maven were then used for straightforward configuration and setting up the home variables. Then, in order to enable agent interaction, we created \texttt{mas2j} files after designing \texttt{asl} files for each agent. We introduced four agents: \texttt{supplyChainAgent}, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}. The \texttt{supplyChainAgent} is the primary agent who will engage other agents to achieve their objectives. As their names imply, the other agents will perform their respective tasks in an adaptive supply chain. Running the agents in the \ac{MAS} environment produced the following results.
 
@@ -116,7 +118,7 @@ Due to the limitations of Java-based interpreter with \texttt{web3} package, we 
 
 Although \ac{ASTRA} is simpler to grasp, it suffers from the same restriction as JASON with its Java-based interpreter in that it cannot leverage the \texttt{web3} package to infuse \ac{BCT} into the \ac{MAS}. As a result, we decided to use JASON with a Python-based interpreter. It is being used after installing the \texttt{agentspeak} package using \ac{pip}. It utilizes the same \texttt{asl} file, but instead of a \texttt{mas2j} file, it initiates the agents interaction with a python script. It is as simple to run as any other Python script and works flawlessly when smart contract functionalities are added to it as \texttt{actions} of agents.
 
-\section{Infuse \ac{BCT} in \ac{MAS} }
+\section{Infuse BCT in MAS}
 
 Following the creation of contracts, we began looking for an appropriate \ac{AOP} language that is compatible with the \texttt{web3} library and can be used by agents in a \ac{MAS} to generate smart contracts. In the last chapter, we discussed every solution we considered. 
 
