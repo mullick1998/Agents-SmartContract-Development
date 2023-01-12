@@ -5,8 +5,7 @@
 \label{sec:introduction}
 
 
-The term \textit{"agent"} is commonly used these days. This applies to both \ac{AI} and fields outside of it, such as databases and automated manufacturing. Despite growing in popularity, the phrase has been employed in so many different contexts that it has lost all meaning when not connected to a certain understanding of agenthood. The terminology "agent" is most frequently used in the context of  \ac{AI} to describe an object that operates constantly and autonomously in a context that also contains other processes and agents.
-Perhaps this is the single characteristic that all practitioners of the word in \ac{AI} agree upon. Although the emphasis is on the word "autonomy,"  the definition of autonomy is vague, but it is generally understood to suggest that the behaviors of the agents do not need ongoing human direction or interference, and presumptions are frequently made about the environment of the agents, such as that it is mostly unpredictable.
+The term \textit{"agent"} is commonly used these days. This applies to both \ac{AI} and fields outside of it, such as databases and automated manufacturing. Despite growing in popularity, the phrase has been employed in so many different contexts that it has lost all meaning when not connected to a certain understanding of agenthood. The terminology "agent" is most frequently used in the context of  \ac{AI} to describe an object that operates constantly and autonomously in a context that also contains other processes and agents. Perhaps this is the single characteristic that all practitioners of the word in \ac{AI} agree upon. Although the emphasis is on the word "autonomy,"  the definition of autonomy is vague, but it is generally understood to suggest that the behaviors of the agents do not need ongoing human direction or interference, and presumptions are frequently made about the environment of the agents, such as that it is mostly unpredictable.
 
 \vspace{.5cm}
 
@@ -30,20 +29,23 @@ It is therefore easy to design an agent capable of controlling its surroundings 
 
 \vspace{.5cm}
 
-The implementation of these agents in specialized fields would be helpful when discussing the agents' ability to communicate using AgentSpeak(L). One of the most significant areas will be supply chain management, where we may assign roles to various agents such as manufacturers, wholesalers, and retailers. An adaptable supply chain allows retailer, distributor, and manufacturer agents to adjust to environmental changes. Each agent has a core objective as well as related secondary objectives. It seems logical that whenever agents interact in the supply chain, there will be a transaction, and that transaction should be recorded. The transaction can be stored in any database by agents, but will it be optimal? A programmable ledger can be used to record the movement and ownership of items between each agent. So rather than keeping these interactions in the form of transactions in databases or spreadsheets, it will be perfect for storing them in smart contracts, which can be inspected for tracking or future references. 
+The implementation of these agents in specialized fields would be helpful when discussing the agents' ability to communicate using AgentSpeak(L). One of the most significant areas will be supply chain management, where we may assign roles to various agents such as manufacturers, wholesalers, and retailers. An adaptable supply chain allows retailer, distributor, and manufacturer agents to adjust to environmental changes. Each agent has a core objective as well as related secondary objectives. \ac{BDI} agents can be used to improve decision-making in supply chain management by allowing for the simulation and optimization of different scenarios and strategies. For example, a \ac{BDI} agent could be used to forecast demand for a product and adjust inventory levels accordingly. 
 
 \vspace{.5cm}
 
-The concept of \textit{smart contracts}, or computer protocols intended to automatically facilitate, authenticate, and implement the negotiation and application of digital contracts without the need for centralized authorities, has been revived in recent years has resulted of the rapid development of cryptocurrencies and the \ac{BCT} that underpins them. Smart contracts have been incorporated into popular blockchain-based development platforms like Ethereum and Hyperledger. They have a wide range of potential application areas in the globalised era and intelligent sectors of the economy, including financial sector, management, healthcare, and Internet of Things, among many others.
+Additionally, \ac{BDI} agents can also be used for negotiation and coordination with other agents for obtaining better prices or delivery schedules. It seems logical that whenever agents interact in the supply chain, there will be a transaction, and that transaction should be recorded. The transaction can be stored in any database by agents, but will it be optimal? A programmable ledger can be used to record the movement and ownership of items between each agent. So rather than keeping these interactions in the form of transactions in databases or spreadsheets, it will be perfect for storing them in smart contracts, which can be inspected for tracking or future references.	
 
 \vspace{.5cm}
 
-The combination of the agent and blockchain domains appears to be effective. In order to study the operation, compatibility, and behavior pattern of smart contracts with agents, some work has been done in the area of integrating agents with smart contracts.
+The concept of \textit{smart contracts}, or computer protocols intended to automatically facilitate, authenticate, and implement the negotiation and application of digital contracts without the need for centralized authorities, has been revived in recent years has resulted of the rapid development of cryptocurrencies and the \ac{BCT} that underpins them. Smart contracts have been incorporated into popular blockchain-based development platforms like Ethereum and Hyperledger. They have a wide range of potential application areas in the globalised era and intelligent sectors of the economy, including financial sector, management, healthcare, and Internet of Things (IoT), among many others. Smart contracts offer a tamper-proof and auditable record of all the transactions between various parties, which may be used to improve traceability and transparency in the supply chain. In lengthy and complicated supply chains where it is challenging to follow the flow of items, this might be very helpful.
 
 \vspace{.5cm}
 
-In this thesis, a \textbf{\textit{Smart contract development with JASON \ac{BDI} Agents}} is presented. An environment that will show off several agents, allowing agents throughout the supply chain—namely, manufacturers, retailers, and wholesalers—to communicate with one another utilizing a primary agent. This ecosystem will also make it possible to maintain relationships between agents, store transactions using smart contracts and offer a hash for each transaction that may be used to examine further information.
+The fields of agents and blockchain seem to work well together. To find out if we can describe supply chain participants (retailer, wholesaler, and manufacturer) in Solidity language to work with the Agent \ac{BDI} Library and if agents can coordinate their actions with rules through smart contracts, we must first examine each component separately before combining them. Additionally, we will see whether we can synchronize our intentions and objectives via AgentSpeak with the payload of on-chain smart contract transactions.
 
+\vspace{.5cm}
+
+In this thesis, a \textbf{\textit{Smart contract development with JASON \ac{BDI} Agents}} is presented. We will attempt to develop an application that will display various agents, allowing agents across the supply to interact with one another. This ecosystem will also allow agents to maintain relationships, store transactions using smart contracts, and determine whether both the technologies can be used to create a fair and efficient dispute resolution mechanism in the supply chain by providing a transparent and tamper-proof record of the agreements and interactions between parties.
 
 \section{Motivation}
 
@@ -51,14 +53,45 @@ The blockchain is having an increasing influence on a variety of research and ap
 
 \vspace{.5cm}
 
-The agent community is no different; it began expressing interest in the opportunities presented by the blockchain to either solve long-standing problems (such as trust management in open systems, accountability of actions for liability, among others), or to take advantage of expected benefits to endow a system with new properties (such as novel infrastructures for \ac{MAS}, trustworthy coordination).
+The agent community is no different; it began expressing interest in the opportunities presented by the blockchain to either solve long-standing problems (such as trust management in open systems, accountability of actions for liability, among others), or to take advantage of expected benefits to endow a system with new properties (such as novel infrastructures for \ac{MAS}, trustworthy coordination). \ac{BDI} agents may be used to build more resilient and sustainable supply chains by simulating and optimizing various sustainability scenarios, such as examining the environmental effect of different transportation routes or manufacturing processes. \ac{BDI} agents can also be programmed to automatically initiate smart contracts with suppliers or customers to enforce sustainability-related commitments.
 
 \vspace{.5cm}
 
-Smart contracts play a critical role in enabling the blockchain to function as a general-purpose distributed computing engine while retaining its core properties of security, trust, and fault-tolerance, and they actually extend their reach to cover computations other than data storage and management.
+Smart contracts play a critical role in enabling the blockchain to function as a general-purpose distributed computing engine while retaining its core properties of security, trust, and fault-tolerance, and they actually extend their reach to cover computations other than data storage and management. Smart contracts can be utilized to improve supply chain traceability and transparency by providing a tamper-proof and auditable record of all transactions between multiple parties. This is especially beneficial in complicated and extensive supply chains where it is difficult to maintain track of products movement.
 
 \vspace{.5cm}
-The convergence of the agent and blockchain worlds appears to be promising: Agents are distributed autonomous entities whose interactions should be managed and mediated in trustworthy ways; blockchains and smart contracts, on the other hand, are trust-sensitive mechanisms for mediating and managing interactions.
+The convergence of the agent and blockchain worlds appears to be promising: Agents are distributed autonomous entities whose interactions should be managed and mediated in trustworthy ways; blockchains and smart contracts, on the other hand, are trust-sensitive mechanisms for mediating and managing interactions. Combining \ac{MAS} with smart contracts can have several potential benefits for supply chain management and other industries:
+
+\begin{itemize}
+    
+\item \textbf{Improved coordination} \\ By coordinating the activities of multiple agents through smart contracts, the supply chain can be more efficient and effective. Smart contracts can be used to define the rules and constraints that govern the interactions between agents in a supply chain, which can help to synchronize the activities of different agents and reduce the risk of errors or inconsistencies.
+
+\vspace{.5cm}
+
+\item \textbf{Decentralized decision-making} \\ By programming agents to make decisions based on their beliefs, desires, and intentions, multiple agent systems can provide a decentralized and autonomous approach to decision-making. This allows agents to make decisions based on the most current information and adapt to changing conditions in the supply chain.
+
+\vspace{.5cm}
+
+\item \textbf{Transparency} \\ Smart contracts and multiple agent systems can provide transparency in the supply chain. Smart contracts can be used to record all activities and interactions among agents, allowing all parties to see the flow of goods and the state of the supply chain.
+
+\vspace{.5cm}
+
+\item \textbf{Improved security} \\ By using smart contracts to define the rules and constraints that govern the interactions between agents, the system can be more resistant to malicious attacks and fraud. Additionally, multiple agents can work together to detect and defend against any malicious attempt.
+
+\vspace{.5cm}
+
+\item \textbf{Scalability} \\ Smart contracts can be used to handle a large number of transactions and interactions between agents, which can help to scale the system as the number of agents and transactions increases.
+
+\vspace{.5cm}
+
+\item \textbf{Interoperability} \\ By using smart contracts to facilitate communication and coordination among multiple agent systems, the system can be designed to be interoperable with other blockchain and non-blockchain platforms.
+
+\vspace{.5cm}
+
+\item \textbf{Flexibility} \\ By using multiple agents with \ac{BDI} approach, the system can adapt to changing conditions and goals, making the system more flexible.
+\end{itemize}
+
+It is crucial to remember that while merging \ac{MAS} with smart contracts might have numerous advantages, doing so takes knowledge of both disciplines, and the system's design must take into consideration the supply chain's complexity and dynamic nature.
 
 \section{Our contributions}
 
@@ -108,7 +141,7 @@ Our evaluation was conducted using three separate criteria. (1) Smart Contract F
 
 \subsubsection{Smart Contract Functionality}
   
-  We examined how well smart contracts run on several networks, including the local network, Infura utilizing Rinkeby, and Alfajores, as well as how long it takes to construct each contract. Local networks consistently had the lowest delay time across all the networks after testing the prototype for smart contracts, thus we utilized this network to test our subsequent scenarios involving agents. Since CELO is simpler to obtain than RinkenyETH, testing on Alfajores test network was likewise simpler than on Rinkeby test network. In none of our test scenarios did we use the mainnet.
+  We will check if it is possible to describe supply chain members (such as a retailer, wholesaler, and manufacturer) in Solidity, the programming language used for writing smart contracts on the Ethereum blockchain. We examined how well smart contracts run on several networks, including the local network, Infura utilizing Rinkeby, and Alfajores, as well as how long it takes to construct each contract. Local networks consistently had the lowest delay time across all the networks after testing the prototype for smart contracts, thus we utilized this network to test our subsequent scenarios involving agents. Since CELO is simpler to obtain than RinkenyETH, testing on Alfajores test network was likewise simpler than on Rinkeby test network. In none of our test scenarios did we use the mainnet.
   
   \vspace{.5cm}
   
@@ -133,8 +166,7 @@ The principal goal of this thesis was to operate the agents in a \ac{MAS} while 
  \vspace{.5cm}
  
 In order to make it easier to grasp, the evaluation of the thesis is outlined in more detail later in the chapter.
-  
-\newpage
+
 \section{Outline of the thesis}
 \begin{itemize}
     \item The research and associated work that has been done in the area of our study are covered in Chapter 2.

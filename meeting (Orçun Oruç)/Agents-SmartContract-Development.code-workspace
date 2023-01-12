@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "[u-boot/u-boot source archive]",
+			"uri": "codeql-zip-archive://0-128/home/mostakim/.config/Code/User/workspaceStorage/092ba0d6067cff060ccf5b191ccf1599/GitHub.vscode-codeql/python/codeql_db/src.zip"
+		}
+	],
+	"settings": {}
+}

@@ -131,4 +131,31 @@ VERYYYYYYYYYY IMPORTANTTTTTTTTTTTTTTTTTTTT!!!!!!!
 
 # WINTER BREAK
 
-## 14th meeting (6th January 2023) [09:30-]
+## 14th meeting (6th January 2023) [REVIEW SENT on 07.01.2023]
+1. You still did not put your research questions. Without research questions, keep writing a thesis is very dangerous.
+
+_reply- Now I have mentioned it at the end of introduction_
+
+2. In the subchapter called “Performance over test networks”, test network comparison is unnecessary for performance evaluation or if necessary, you need to explain which parameters are important. You are focusing on the language, not the blockchain network. You can compare gas costs in different networks, maybe.
+
+_reply- I was trying to go through all the aspects, including why I chosen solidity over Viper, and now also added gascost comparison_
+
+3. First, write your definition, then the abbreviation (Agent-oriented programming - AOP)
+
+_reply- DONE_
+
+4. MAS and Blockchain: Results from a Systematic Literature Review title is not suitable. Systematic Literature Review is a different process than normal literature review and usually, it belongs to Doctoral Work. 
+
+_reply- In RELATED PAPER chapter, the bold bullet points are the name of paper, including MAS and Blockchain: Results from a Systematic Literature Review. I wrote this before starting with mentioning the papers_
+
+5. Figure 4.2, there are some errors in the sequence diagram. The return value should always be demonstrated with a dashed arrow. The supply chain (Yellow box) cannot be an initiator (Probably it is an agent).
+
+_reply- I rectified the diagram, although supply chain (Yellow box) is not an agent or initiator, its just a general role to whom all the data are passed after finishing each process. check "deploy.odt" in this folder, manufacturerole, wholesalerrole, retailerrole, supplychain_
+
+6. In Figure 4.3, what do BaseFile and CoreFile represent? CoreFile assigns an owner address, but it still uses the reference of BaseFile. Why? 
+
+_reply- I rectified the diagram, I designed the diagram earlier accordingly, but you changed the file structure, so i rectified it now_
+
+7. We need concrete literature review questions that address your subchapters under Chapter 2 Related Work. 
+
+_reply- I wrote at the starting of RELATED WORK CHAPTER regarding why we are reading the papers and at the end I added why we are not doing something of our own using BDI agents_

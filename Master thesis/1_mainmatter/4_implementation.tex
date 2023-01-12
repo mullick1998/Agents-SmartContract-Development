@@ -19,36 +19,51 @@ The next step will be to create smart contracts for each process on a blockchain
 
 The purpose of this project is to develop an application that integrates \ac{MAS} and \ac{BCT}. To construct such an application, we took design considerations that influenced our architecture. We have certain particular goals in mind while contemplating integrating both technologies. The following design objectives are listed:
 \vspace{.5cm}
-\begin{description} [style=nextline]
+\begin{itemize}
 
-    \item[ $\bullet$ Autonomous]
-    To fulfill the objectives assigned to an agent, autonomy simply implies being able to work autonomously. An autonomous agent, thus, at the very least, makes independent judgments about how to accomplish its given goals; these decisions (and subsequently, its actions) are within its own control and are not influenced by other forces.
+    \item \textbf{Decentralization} \\ One of the main advantages of using smart contracts and \ac{BDI} agents in supply chain management is that they allow for decentralized decision-making and coordination. The design of the system should aim to enable decentralized 
 
     \vspace{.5cm}
     
-    \item[ $\bullet$ Efficiency]
+    \item \textbf{Autonomous} \\ To fulfill the objectives assigned to an agent, autonomy simply implies being able to work autonomously. An autonomous agent, thus, at the very least, makes independent judgments about how to accomplish its given goals; these decisions (and subsequently, its actions) are within its own control and are not influenced by other forces.
+
+    \vspace{.5cm}
+
+    \item \textbf{Transparency} \\ Smart contracts and \ac{BDI} agents are designed to provide transparency in the supply chain. The design of the system should aim to provide transparency of all activities and interactions among agents, allowing all parties to see the flow of goods and the state of the supply chain.
+
+    \vspace{.5cm}
+    
+    \item \textbf{Efficiency} \\
     Effectiveness strategies improve the functioning of a smart contract or lower the expenses connected with its use. These patterns can help operators and consumers save time and money.
     
     \vspace{.5cm}
+
+    \item \textbf{Interoperability} \\ The design of the system should aim for interoperability with other blockchain and non-blockchain platforms in order to enable the integration of existing systems and the exchange of information among different platforms.
+
+    \vspace{.5cm}
     
-    \item[ $\bullet$ Access Control Patterns]
-    Particular smart contract functionalities are only accessible by certain people, according to access control rules. For a specific task, permissions and authorizations can be managed, such as limiting access to the admin. On a public blockchain ledger, where everyone can observe the contract but you want to limit who may do what within the contract, the ability to restrict access is especially helpful. Certain access control patterns, such multi-authorization, ownership, and role-based access control, have names that make it obvious what they are meant to do.
+    \item \textbf{Flexibility} \\
+    Supply chains are complex and dynamic systems. The design of the system should be flexible enough to adapt to changing conditions in the supply chain. This can be achieved by programming the agents to reason and decide based on their beliefs, desires and intentions which can change over time.
     
     \vspace{.5cm}
     
-    \item[ $\bullet$ Goal-directed behaviour]
+    \item \textbf{Goal-directed behaviour} \\
     If an agent has been assigned a specific objective, it is assumed that the agent would attempt to attain the goal. Proactivity eliminates completely passive actors who never strive to accomplish anything.
 
     \vspace{.5cm}
     
-    \item[ $\bullet$ Reactiveness]
+    \item \textbf{Reactiveness} \\
     Implementing an application that achieves an appropriate mix of goal-directed and reactive behavior becomes difficult. This is one of the primary design goals of AgentSpeak.
     
     \vspace{.5cm}
     
-    \item[ $\bullet$ Security]
-    Protection patterns are created to optimize a smart contract's level of security against any threat. Reentrancy attacks, overflow assaults, or the problematic behavior of the actual smart contracts are all prevented by using them. There are various different types of frequently utilized security patterns, which is not surprising given the quantity of assets connected to smart contracts. Numerous of these patterns, such as circuit breakers and evacuation plans, are intended to safeguard contracts against failure in the event that the worst occurs.
-\end{description}
+    \item \textbf{Security} \\
+    As \ac{MAS} on the blockchain will handle sensitive information, the security of the system is crucial. The design of the system should aim to protect agents and transactions from malicious actors.
+
+    \vspace{.5cm}
+    
+    \item \textbf{Scalability} \\ As the number of agents and transactions in a supply chain increases, the scalability of the system can become a challenge. The design of the system should aim for scalability solutions that enable large-scale deployment of agent-based systems on the blockchain.
+\end{itemize}
 
 \section{System Configuration And Model Description}
 
@@ -70,14 +85,14 @@ The application flow for the \textit{Smart contract development with JASON \ac{B
    \begin{figure}[h]
     \centering
       \includegraphics[width=\linewidth]{includes/figures/Sequence diagram.png} 
-      \caption{Supply Chain Sequence Diagram}
+      \caption{State Sequence Diagram for Smart Contracts}
       \label{Sequence Diagram}
     \end{figure}
 
 \vspace{.5cm}
 
 The application was created and tested on a Linux Ubuntu 22.04.1 LTS system.
-Visual Studio and InetlliJ are the \ac{IDE}s used to create the application. jEdit is also used somehow to run agents using JASON while creating \texttt{.asl} and running \texttt{.mas2j} file.
+Visual Studio and InetlliJ are the \ac{IDE} used to create the application. \textit{jEdit} is also used somehow to run agents using JASON while creating \texttt{.asl} and running \texttt{.mas2j} file.
 To test the compatibility of web3j with gradle for agents, many versions of Java Standard Edition Development Kit were utilized, however the most commonly used was Java SE Development Kit 18.0.2.1. 
 
 \vspace{.5cm}

@@ -62,6 +62,22 @@ Due to a built-in feature of the truffle tool that indicates how long it takes t
 
 It is obvious that the local network used far less time than the other two networks from Figure \ref{Testing on networks}. However, it was simpler to obtain CELO for Alfajores, the blockchain currency we used as gas for deployment and payment, than it was to acquire RinkebyETH for the Rinkeby test network. On the other hand, we can see that contract deployment was a little faster using the Rinkeby test network compared to the Alfajores test network.
 
+
+\begin{figure}[h]
+\centering
+  \includegraphics[width=11cm]{includes/figures/totalCost.png} 
+  \caption{Overall Gas Cost calculation}
+  \label{Overall Gas Cost calculation}
+\end{figure}
+
+\vspace{.5cm}
+
+The intricacy of the code, the volume of data being processed, and the present status of the network are some of the variables that affect how much gas will be required overall for a transaction or the deployment of a smart contract on a blockchain network. Because a local test network is less busy and has fewer resource demands than a public testnet like alfajores or rinkeby, the overall amount of gas utilized there is probably lower. However, depending on how much data is processed and how complex the code is, the total amount of gas used could still differ.
+
+\vspace{.5cm}
+
+The entire amount of gas utilized on a public testnet, such as alfajores and rinkeby, will depend on the network's present condition and resource demand. Due to the greater volume of transactions and contracts being executed on the public testnet, the overall gas consumption can be higher than on a local test network. In light of the fact that gas prices change on the public testnet as well, the total amount of gas utilized will also rely on those prices at the time of deployment and transaction. In Figure \ref{Overall Gas Cost calculation}, The most expensive test network is rinkeby, however even though its price might be the same as alfajores test network's, alfajores' overall cost decreased to approximately one-third of rinkeby test network's cost due to low gas prices.
+
 \subsubsection{Contract Language Analogy}
 
 We were decided from the outset to utilize Solidity to construct the smart contracts since it is a curly-bracket language meant to target the \ac{EVM}. C++, Python, and JavaScript have all had an impact on it. Solidity is statically typed and, among other things, enables inheritance, libraries, and sophisticated user-defined types. Furthermore, it receives frequent upgrades and breaking modifications, and new features are released on a regular basis. 
@@ -70,7 +86,7 @@ We were decided from the outset to utilize Solidity to construct the smart contr
 
 JASON's and some issue with web3 libraries gave us the opportunity to explore more and to switch from Solidity to Vyper and learn more about the language. Because Vyper lacks \textit{Modifiers}, \textit{Class Inheritance}, \textit{Inline Assembly}, \textit{Function Overloading}, \textit{Operator Overloading}, and \textit{Binary Fixed Point}, a thorough examination of Vyper prompted us to chose Solidity once more. The usage of the following constructs might result in confusing or challenging to comprehend code, hence they are not included and to create final smart contracts, we continued to use Solidity as our primary language.
 
-\section{MAS Development}
+\section{Multiple Agent System Development}
 
 We originally utilized JASON with a java-based interpreter to execute \ac{MAS}. To run \ac{MAS}, we downloaded the necessary scripts and libraries. Gradle and maven were then used for straightforward configuration and setting up the home variables. Then, in order to enable agent interaction, we created \texttt{mas2j} files after designing \texttt{asl} files for each agent. We introduced four agents: \texttt{supplyChainAgent}, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}. The \texttt{supplyChainAgent} is the primary agent who will engage other agents to achieve their objectives. As their names imply, the other agents will perform their respective tasks in an adaptive supply chain. Running the agents in the \ac{MAS} environment produced the following results.
 
@@ -118,7 +134,7 @@ Due to the limitations of Java-based interpreter with \texttt{web3} package, we 
 
 Although \ac{ASTRA} is simpler to grasp, it suffers from the same restriction as JASON with its Java-based interpreter in that it cannot leverage the \texttt{web3} package to infuse \ac{BCT} into the \ac{MAS}. As a result, we decided to use JASON with a Python-based interpreter. It is being used after installing the \texttt{agentspeak} package using \ac{pip}. It utilizes the same \texttt{asl} file, but instead of a \texttt{mas2j} file, it initiates the agents interaction with a python script. It is as simple to run as any other Python script and works flawlessly when smart contract functionalities are added to it as \texttt{actions} of agents.
 
-\section{Infuse BCT in MAS}
+\section{Infuse Blockchain Technology in Multiple Agent System}
 
 Following the creation of contracts, we began looking for an appropriate \ac{AOP} language that is compatible with the \texttt{web3} library and can be used by agents in a \ac{MAS} to generate smart contracts. In the last chapter, we discussed every solution we considered. 
 
@@ -173,6 +189,10 @@ retailerAgent    : NOW SELL TO CUSTOMER!!
 supplyChainAgent :  TxHashes stored in BLOCKCHAIN
 supplyChainAgent : SUPPLYCHAIN COMPLETE
 \end{lstlisting}
+
+\vspace{.5cm}
+
+The output above demonstrates how the various supply chain roles interact with one another in order to complete the process of planning, manufacturing, and delivering a product or service. It demonstrates that each role has been given an \texttt{account number}, and that whenever they interact or complete a procedure, a \texttt{transaction hash} is issued to verify its authenticity and for future use.
 
 \vspace{.5cm}
 

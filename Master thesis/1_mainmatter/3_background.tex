@@ -22,31 +22,31 @@ Decisions regarding what action to do are turned into real actions by some metho
 
 \vspace{.5cm}
 
-\begin{description} [style=nextline]
-    \item[$\bullet$  Autonomy]
+\begin{itemize}
+    \item \textbf{Autonomy}\\
     
     At its most basic, autonomy implies being able to work freely in order to attain the goals assigned to an agent. Thus, an autonomous agent, at the very least, makes independent judgments about how to attain its designated goals; its decisions (and thus actions) are under its own control and are not influenced by others.
 
     \vspace{.5cm}
     
-    \item[$\bullet$  Proactiveness]
+    \item \textbf{Proactiveness}\\
     Being proactive entails being able to engage in goal-directed behavior. If an agent has been assigned a specific goal, we expect the agent to make every effort to fulfill that goal. Proactivity eliminates completely passive agents who never strive to accomplish anything. As a result, we don't normally conceive of an object as an agent in the Java sense: such an object is effectively inert until somebody runs a method on it, i.e. instructs it what to do.
 
     \vspace{.5cm}
     
-    \item[$\bullet$  Reactivity]
+    \item \textbf{Reactivity}\\
     It is not difficult to design a system that merely responds to external stimuli in a reflexive manner; such a system can be constructed as a lookup table, which just translates environment states directly to actions. Similarly, creating a fully goal-driven system is not difficult. (After all, typical computer programs are ultimately just chunks of code designed to fulfill certain goals.) However, putting in place a system that achieves an appropriate mix of goal-directed and reactive behavior is difficult. This is one of the primary design goals of AgentSpeak.
 
     \vspace{.5cm}
     
-    \item[$\bullet$  Social ability]
+    \item \textbf{Social ability}\\
     In this context, social ability refers to an agent's ability to collaborate and coordinate actions with other agents in order to achieve goals. To realize this type of social ability, it is necessary to create agents that can interact not just in terms of exchanging bytes or calling procedures on one another, but also at the knowledge level. That is, agents should be able to communicate with one another about their opinions, aims, and plans.
     
     \vspace{.5cm}
     
-\end{description}
+\end{itemize}
 
-\subsection{MAS}
+\subsection{Multiple Agent System (MAS)}
 \textit{'Single agent systems'} are uncommon in practice. The more usual scenario is for agents to coexist in an environment with other agents, resulting in a multi-agent system.
 Each agent has the unique capacity to control a portion of its surroundings, but more generically, and more problematically, the domains of influence in the environment may overlap, implying that the environment is jointly controlled by more than on agent. This complicates life for our agents because, in order to accomplish the desired outcome in the environment, our agent must consider how the other agents with some influence are likely to respond.
 
@@ -58,7 +58,7 @@ Agents may have different organizational ties to one another; one agent may be a
 
 A language that supports goal-level delegation, support for goal-directed problem solving, lends itself to the creation of systems that are responsive to their environment, should cleanly integrate goal-directed and responsive behavior, and should support knowledge-level communication and cooperation are all necessary for making all the agents in MAS interact with one another.
 
-\section{\ac{BDI} Model}
+\section{Belief-Desire-Intention (BDI) Model}
 
 \subsection{Introduction}
 
@@ -79,35 +79,36 @@ This section outlines the \ac{BDI} system's modeled architecture, also shown in 
       \label{BDI Architecture}
     \end{figure}
     
-\subsubsection{Beliefs}
+\begin{itemize}
+    \item \textbf{Beliefs} \\
     Beliefs reflect the agent's informational state, or its perspective (including itself and other agents). Inference rules can also be included in beliefs, allowing forward chaining to lead to new beliefs. Using the word belief rather than knowledge acknowledges that what an agent believes may or may not be accurate (and in fact may change in the future). One or more belief states and a belief set constitute a belief model.
  
-    \begin{description}
-        \item[Belief set:]
+    \begin{itemize}
+        \item \textbf{Belief set} \\
         A collection of object diagrams that outline the subject matter of an agent class's beliefs serve as the specification for the belief set. A set of instance diagrams that specify a specific instance of the belief set is referred to as a belief state. Although this is an operational decision, beliefs are maintained in a database (also known as a belief foundation or a belief set).
-    \end{description}
+    \end{itemize}
 
-\subsubsection{Desires}
+\item \textbf{Desires} \\
 Desires indicate the agent's motivational state. They reflect goals or scenarios that the agent wishes to achieve or create.
 
-    \begin{description}
-        \item[Goals:]
+    \begin{itemize}
+        \item \textbf{Goals} \\
         A desire that has been embraced for active pursuit by the agent is referred to as a goal. The additional requirement that the collection of active wants must be consistent is added when the term "goals" is used.
-    \end{description}
+    \end{itemize}
 
-\subsubsection{Intentions}
+\item \textbf{Intentions} \\
 Intentions depict the agent's deliberate state, or what the agent has decided to do. Intentions are aspirations that the agent has made some commitment to. This indicates that the agent has started carrying out a strategy in implemented systems.
     
     \vspace{.5cm}
     
-    \begin{description}
-        \item[Plans:]
+    \begin{itemize}
+        \item \textbf{Plans} \\
         Plans are collection of instructions that an agent can follow to carry out one or more of its objectives. They can be thought of as recipes or knowledge bases. Plans could incorporate different plans. Three different categories of nodes—start states, end states, and internal states—as well as one kind of directed nape of the neck the plan graph's constituent parts.
         
         \vspace{.5cm}
         
-        \begin{description}
-        \item[$\bullet$  Plan Execution:]
+        \begin{itemize}
+        \item \textbf{Plan Execution} \\
         An \textit{activation event} and \textit{activation condition}, which specify when and in what context the plan should be activated, are labeled on the plan graph's first transition. The activation event could be a goal event that happens as a result of the accomplishment of a sub goal activity in another plan, leading to goal-driven activation, or a belief event that happens when an agent's beliefs change or when certain external changes are noticed. If more than one plan is relevant to an event in a particular context, they are either engaged concurrently if the activation is event-driven or progressively until they are successfully terminated if the activation is goal-driven. When a plan is activated, an action may be conducted with the help of an optional activation action.
         
         \vspace{.5cm}
@@ -116,16 +117,16 @@ Intentions depict the agent's deliberate state, or what the agent has decided to
         
         \vspace{.5cm}
         
-        \item[$\bullet$  Failure:]
+        \item \textbf{Failure} \\
         The semantics of plan graphs includes the idea of failure. When an action on a transition fails, when there is an explicit transition to a fail state, or when the activity of an active state ends in failure with no outbound transition enabled, failure inside a graph can happen.
-        \end{description}
-    \end{description}
+        \end{itemize}
+    \end{itemize}
     
     \vspace{.5cm}
     
-    \subsubsection{Events}
+    \item \textbf{Events} \\
     In a nutshell, events function as triggers for the agent to react. An event may alter aims, activate plans, or update beliefs. Externally produced events may be picked up by sensors or other connected systems. Events may also be produced internally to start decoupling updates or activity plans.
-
+\end{itemize}
 In order to include obligations, norms, and commitments of agents acting within a social context, the \ac{BDI} was further enhanced with an obligations component, giving rise to the \ac{BOID} \cite{boid} agent architecture.
 
 
@@ -133,7 +134,7 @@ In order to include obligations, norms, and commitments of agents acting within 
 
 In the \ac{AOP} paradigm, the idea of software agents serves as the foundation for the development of the software. \ac{AOP} has externally stated agents (with interfaces and messaging capabilities) at its core as opposed to \ac{OOP}, which has objects (offering methods with variable parameters) at its foundation. They might be viewed as abstractions of actual items. Messages are interpreted in a class-specific manner by receiving "agents."
 
-\subsubsection{AOP versus OOP}
+\subsubsection{Agent Oriented Programming versus Object Oriented Programming}
 
 \ac{AOP} specialising the framework by fixing the state (now called mental state) of the modules (now called agents) to consist of components such as beliefs (along with beliefs about the world, about themselves, and about one another), capabilities, and decisions, each of which enjoys a precisely defined set of properties. OOP proposes viewing a computational system as being composed of modules that are able to communicate with one another and that have individual ways of handling incoming messages.  Table \ref{AOP versus OOP} summarizes the relation between \ac{AOP} and \ac{OOP}.
 
@@ -251,24 +252,24 @@ Web 3.0 may be recognized by a collection of traits that are altering how people
 
 \vspace{.5cm}
 
-\begin{description} [style=nextline]
+\begin{itemize}
 
-    \item[$\bullet$  Individualized]  
+    \item \textbf{Individualized} \\
     Information may be divided into context-relevant segments based on network contacts and personal preferences. In fact, one of the features of Web 3.0 is the capacity to deal with unstructured content on the Web more intelligently by giving the published data about individual or group factors contextual meaning. The social networks are a well-known method of connection with a very broad audience of adopters. People may choose their own exposure and contacts depending on information preferences and "proximity".
 
 \vspace{.5cm}
 
-    \item[$\bullet$  Ubiquity]
+    \item \textbf{Ubiquity} \\
   People can connect at any time and from any location. Staying connected is made easier by a variety of communication alternatives, including mobile networks, Wi-Fi networks, cable networks, or cellular networks, as well as many device kinds, including laptops, desktop computers, tablets, and an endless array of mobile devices. Regardless of the architectures or systems being used
 
 
 \vspace{.5cm}
 
 
-    \item[$\bullet$  Efficient]
+    \item \textbf{Efficient} \\
     Both people and computing devices are capable of filtering information based on context, meaning, and relevance. This trait has an implied connection to the individualized trait. Regarding individual variances, knowledge causes various responses in various persons. The capacity to filter content based on user interests appears to be a benefit of Web 3.0. Efficiency requires that the information must be organized such that algorithms can read it and comprehend it as clearly and completely as humans can.
 
-\end{description}
+\end{itemize}
 \section{Blockchain}
 
 \subsection{Introduction}
@@ -302,18 +303,22 @@ Different procedures, including as \ac{PoW} \cite{pow}, \ac{PoS} \cite{pos}, and
  
 On a higher level, blockchains may be split into two categories: permissioned and permissionless. Consortial and private blockchains are also included in the permissioned blockchains, whereas public blockchains are included in the permissionless blockchains. Below, we explore these categories' characteristics.
 
-\subsubsection{Public Blockchains}
+\begin{itemize}
+   
 
+ \item \textbf{Public Blockchains} \\
 Public blockchains are permission-less blockchains in which anybody with a personal computer may run an open-source protocol and connect to the network as an equal node. The public blockchains run completely decentralized peer-to-peer systems. They are the perfect approach for implementing digital currency. The most well-known public blockchains are Ethereum and Bitcoin.
 
-\subsubsection{Private Blockchains}
+\vspace{.5cm}
 
+\item \textbf{Private Blockchains} \\
 Private blockchains are distributed node clusters that operate within a secure private network and store and process data according to blockchain rules. Private blockchains are governed by a centralized organization rather than being decentralized in nature. They primarily serve as a distributed ledger that is scalable. Private blockchains often employ the lightweight \ac{PoA} protocol to add new blocks.
 
-\subsubsection{Consortial Blockchains}
+\vspace{.5cm}
 
+ \item \textbf{Consortial Blockchains}\\
 Consortial blockchains are permissioned blockchains, just as private blockchains, and the general public cannot join them. They belong to a group of priveleged individuals who could be associated with this network. The cluster of nodes is dispersed throughout the intranets of the participating organizations. They are especially helpful when two mutually trusted parties wish to use the distributed ledger's privacy-preserving features. Hyperledger Fabric, Hyperledger Indy, and other consortium blockchains are the most well-known.
-
+\end{itemize}
 
 \subsection{Smart Contracts}
 
@@ -341,7 +346,7 @@ The Ethereum blockchain's popularity and disruptive power are directly related t
 \textit{Solidity}, a Javascript-like language designed expressly for creating smart contracts, is the primary language used in Ethereum. Among its other characteristics, Solidity is statically typed and enables complicated user-defined types, libraries, and inheritance. The solidity compiler converts source code into \ac{EVM} bytecode so that it may be deployed into the Ethereum network. The owner of the contract is responsible for paying the additional transaction fees associated with contract deployments and smart contract interactions in the form of \textit{gas}.
 
 
-\subsubsection{\ac{EVM}}
+\subsubsection{Ethereum Virtual Machine}
 
 The second-largest blockchain system in the world is believed to be Ethereum. With smart contracts, Ethereum enhances the blockchain paradigm. The applications running on the Ethereum blockchain are known as smart contracts. Ethereum provides the \ac{EVM} to parse the source code of the contracts into an opcode sequence that is predefined by Ethereum in order to execute the smart contracts. For the Ethereum blockchain to correctly execute contracts and handle transactions, each node requires an \ac{EVM}.
 
