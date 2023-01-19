@@ -159,3 +159,10 @@ _reply- I rectified the diagram, I designed the diagram earlier accordingly, but
 7. We need concrete literature review questions that address your subchapters under Chapter 2 Related Work. 
 
 _reply- I wrote at the starting of RELATED WORK CHAPTER regarding why we are reading the papers and at the end I added why we are not doing something of our own using BDI agents_
+
+## 15th meeting (13th January 2023) [09:30-10:05]
+- write research question before introduction
+- calculate gas consumption for function while running them.
+- make that as you research question
+- add a paragraph for sequence diagram, either sequence diagram or state diagram. change Fig 4.2 name and think about 4.2 diagram also. change 4.3 diagram name. and modify 4.3 too. Read UML book.
+- Put literature questions, how OOP is different from AOP. 

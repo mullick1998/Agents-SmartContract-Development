@@ -4,9 +4,9 @@
 \label{sec:background}
 
 
-This section discusses the background information needed to comprehend the subject and the technologies that are essential to this research. Starting with AgentSpeak(L), which is one of the key use cases for this thesis, we will go through a variety of subjects. Then we switch to Smart contracts built on the \ac{BCT} protocol. The core of this thesis is the creation of supply chain agents and the initiation of their interaction in \ac{BCT} smart contracts, which are thoroughly detailed in this chapter. We go into great depth on the various implementations that enable us to operate Agents with smart contracts. We would next discuss the planning and execution of the key points of this thesis.
+This section discusses the background information needed to comprehend the subject and the technologies that are essential to this research. Starting with AgentSpeak(L), which is one of the key use cases for this thesis, we will go through a variety of subjects. Then we switch to Smart contracts built on the blockchain technology's protocol. The core of this thesis is the creation of supply chain agents and the initiation of their interaction using smart contracts, which are thoroughly detailed in this chapter. We go into great depth on the various topics that enable us to operate agents with smart contracts. 
 
-\section{Agent}
+\section{Agent Introduction}
 
 \subsubsection{\textit{What is an agent?}}
 An \textit{agent} is a reactive system with some autonomy in the sense that if a task is assigned to it, the system determines the optimal way to complete the task. These systems are referred to as "agents" because they are regarded as active, purposeful producers of actions: they are sent out into their environment to achieve objectives, and actively pursue these objectives, figuring out how tasks are to be done for themselves rather than being told in low-level detail how to do so. If they are robotic agents, they may be assigned tasks like as organizing a trip for us, buying tickets to booking hotels, bidding on our behalf in an online auction, and many other tasks that we can conceive of delegating.
@@ -14,11 +14,11 @@ An \textit{agent} is a reactive system with some autonomy in the sense that if a
 
 \subsubsection{Characteristics of Agents}
 
-We define agents as systems that exist in a certain context. This means that agents can sense their surroundings (through sensors) and have a repertoire of possible actions to do (via effectors or actuators) in order to affect their surroundings. The essential question for the agent is how to transition from sensor input to action output: how to decide what to do depending on sensor data. An agent's environment can be physical (in the case of robots inhabiting the physical world) or software-based (in the case of a software agent inhabiting a computer operating system or network).
+Agents are defined as systems that exist in a certain context. This means that agents can sense their environment and have a repertoire of possible actions to do in order to affect their environment. An agent's environment can be physical (in the case of robots inhabiting the physical world) or software-based (in the case of a software agent inhabiting a computer operating system or network).
 
 \vspace{.5cm}
 
-Decisions regarding what action to do are turned into real actions by some method external to the agent; often, this is accomplished through some type of \ac{API}. In practically all realistic applications, agents have very limited influence over their surroundings. As a result, while individuals may take acts that alter their surroundings, they cannot entirely control it. This is frequently due to the presence of other agents in the environment who have influence over their portion of the environment. Aside from being located in an environment, the following characteristics are expected of a rational agent:
+Aside from being located in an environment, the following characteristics are expected of a rational agent \cite{charAgent}:
 
 \vspace{.5cm}
 
@@ -66,7 +66,7 @@ The \ac{BDI} software model is a programming approach for intelligent agents. Al
 
 \vspace{.5cm}
 
-In essence, it offers a technique for distinguishing between the action of picking a plan and the execution of already active plans. As a result, \ac{BDI} agents may balance the time spent discussing about plans and implementing those plans. The system designer and programmer are in charge of the third activity, which is planning—making the plans in the first place. This activity is outside the model's purview.
+In essence, it offers a technique for distinguishing between the action of picking a plan and the execution of already active plans. As a result, \ac{BDI} agents may balance the time spent discussing about plans and implementing those plans.
 
 \subsection{Architecture}
 
@@ -83,7 +83,7 @@ This section outlines the \ac{BDI} system's modeled architecture, also shown in 
     \item \textbf{Beliefs} \\
     Beliefs reflect the agent's informational state, or its perspective (including itself and other agents). Inference rules can also be included in beliefs, allowing forward chaining to lead to new beliefs. Using the word belief rather than knowledge acknowledges that what an agent believes may or may not be accurate (and in fact may change in the future). One or more belief states and a belief set constitute a belief model.
  
-    \begin{itemize}
+    \begin{itemize}[label={}]
         \item \textbf{Belief set} \\
         A collection of object diagrams that outline the subject matter of an agent class's beliefs serve as the specification for the belief set. A set of instance diagrams that specify a specific instance of the belief set is referred to as a belief state. Although this is an operational decision, beliefs are maintained in a database (also known as a belief foundation or a belief set).
     \end{itemize}
@@ -91,7 +91,7 @@ This section outlines the \ac{BDI} system's modeled architecture, also shown in 
 \item \textbf{Desires} \\
 Desires indicate the agent's motivational state. They reflect goals or scenarios that the agent wishes to achieve or create.
 
-    \begin{itemize}
+    \begin{itemize}[label={}]
         \item \textbf{Goals} \\
         A desire that has been embraced for active pursuit by the agent is referred to as a goal. The additional requirement that the collection of active wants must be consistent is added when the term "goals" is used.
     \end{itemize}
@@ -99,21 +99,13 @@ Desires indicate the agent's motivational state. They reflect goals or scenarios
 \item \textbf{Intentions} \\
 Intentions depict the agent's deliberate state, or what the agent has decided to do. Intentions are aspirations that the agent has made some commitment to. This indicates that the agent has started carrying out a strategy in implemented systems.
     
-    \vspace{.5cm}
-    
-    \begin{itemize}
+    \begin{itemize}[label={}]
         \item \textbf{Plans} \\
-        Plans are collection of instructions that an agent can follow to carry out one or more of its objectives. They can be thought of as recipes or knowledge bases. Plans could incorporate different plans. Three different categories of nodes—start states, end states, and internal states—as well as one kind of directed nape of the neck the plan graph's constituent parts.
-        
-        \vspace{.5cm}
-        
-        \begin{itemize}
+        Plans are collection of instructions that an agent can follow to carry out one or more of its objectives. They can be thought of as recipes or knowledge bases. Plans could incorporate different plans.
+    
+        \begin{itemize}[label={}]
         \item \textbf{Plan Execution} \\
-        An \textit{activation event} and \textit{activation condition}, which specify when and in what context the plan should be activated, are labeled on the plan graph's first transition. The activation event could be a goal event that happens as a result of the accomplishment of a sub goal activity in another plan, leading to goal-driven activation, or a belief event that happens when an agent's beliefs change or when certain external changes are noticed. If more than one plan is relevant to an event in a particular context, they are either engaged concurrently if the activation is event-driven or progressively until they are successfully terminated if the activation is goal-driven. When a plan is activated, an action may be conducted with the help of an optional activation action.
-        
-        \vspace{.5cm}
-        
-        Events pass and fail may be used to indicate the success or failure of the activity connected with the active state during transitions between them. Activities may be halted by transitions from active states that are denoted with the event any whenever their condition is satisfied. The transition of a plan that is aborted is a specific instance of this. The plan fails if the abort condition is true at any point during the execution of its body after it has been triggered. The final transitions of the plan graph may be labeled with the steps to be taken in the event that the plan is successful, unsuccessful, or abandoned.
+        An \textit{activation event} and \textit{activation condition}, which specify when and in what context the plan should be activated, are labeled on the plan graph's first transition. The activation event could be a goal event that happens as a result of the accomplishment of a sub goal activity in another plan, leading to goal-driven activation, or a belief event that happens when an agent's beliefs change or when certain external changes are noticed. If more than one plan is relevant to an event in a particular context, they are either engaged concurrently if the activation is event-driven or progressively until they are successfully terminated if the activation is goal-driven. When a plan is activated, an action may be conducted with the help of an optional activation action. Events pass and fail may be used to indicate the success or failure of the activity connected with the active state during transitions between them. Activities may be halted by transitions from active states that are denoted with the event any whenever their condition is satisfied. The transition of a plan that is aborted is a specific instance of this. The plan fails if the abort condition is true at any point during the execution of its body after it has been triggered. The final transitions of the plan graph may be labeled with the steps to be taken in the event that the plan is successful, unsuccessful, or abandoned.
         
         \vspace{.5cm}
         
@@ -121,8 +113,7 @@ Intentions depict the agent's deliberate state, or what the agent has decided to
         The semantics of plan graphs includes the idea of failure. When an action on a transition fails, when there is an explicit transition to a fail state, or when the activity of an active state ends in failure with no outbound transition enabled, failure inside a graph can happen.
         \end{itemize}
     \end{itemize}
-    
-    \vspace{.5cm}
+   
     
     \item \textbf{Events} \\
     In a nutshell, events function as triggers for the agent to react. An event may alter aims, activate plans, or update beliefs. Externally produced events may be picked up by sensors or other connected systems. Events may also be produced internally to start decoupling updates or activity plans.
@@ -130,20 +121,13 @@ Intentions depict the agent's deliberate state, or what the agent has decided to
 In order to include obligations, norms, and commitments of agents acting within a social context, the \ac{BDI} was further enhanced with an obligations component, giving rise to the \ac{BOID} \cite{boid} agent architecture.
 
 
-\subsubsection{Agent Programming}
+\subsubsection{Agent-Oriented Programming}
 
 In the \ac{AOP} paradigm, the idea of software agents serves as the foundation for the development of the software. \ac{AOP} has externally stated agents (with interfaces and messaging capabilities) at its core as opposed to \ac{OOP}, which has objects (offering methods with variable parameters) at its foundation. They might be viewed as abstractions of actual items. Messages are interpreted in a class-specific manner by receiving "agents."
 
-\subsubsection{Agent Oriented Programming versus Object Oriented Programming}
-
-\ac{AOP} specialising the framework by fixing the state (now called mental state) of the modules (now called agents) to consist of components such as beliefs (along with beliefs about the world, about themselves, and about one another), capabilities, and decisions, each of which enjoys a precisely defined set of properties. OOP proposes viewing a computational system as being composed of modules that are able to communicate with one another and that have individual ways of handling incoming messages.  Table \ref{AOP versus OOP} summarizes the relation between \ac{AOP} and \ac{OOP}.
-
 \vspace{.5cm}
 
-A variety of restrictions are imposed on an agent's mental state, which generally match to restrictions placed on their common sense equivalents. These agents notify, request, offer, accept, reject, compete, and help one another to do a computation. This concept is directly adapted from the literature on speech acts \cite{speech}. Speech is categorized according to speech acts, which include informing, requesting, offering, and more. Each of these communication acts has a unique set of assumptions and outcomes. \ac{AI}, natural language processing, and plan recognition all use speech act theory.
- Table \ref{AOP versus OOP} summarizes the relation between AOP and OOP
-
-\vspace{.5cm}
+\ac{AOP} specialising the framework by fixing the state (now called mental state) of the modules (now called agents) to consist of components such as beliefs (along with beliefs about the world, about themselves, and about one another), desires, and intentions, each of which enjoys a precisely defined set of properties. \ac{OOP} proposes viewing a computational system as being composed of modules that are able to communicate with one another and that have individual ways of handling incoming messages.  Table \ref{AOP versus OOP} summarizes the relation between \ac{AOP} and \ac{OOP}.
 
 \begin{table}[h]
 \small
@@ -183,7 +167,7 @@ The agent's existing belief state may be considered as a model of itself, its en
 
 \subsubsection{JASON}
 
-The agent program and an agent architecture can be differentiate as, the software framework in which an agent program operates is referred to as the agent architecture. The \ac{PRS} is an example of an agent architecture, and the plans are the software that exists within it. We design the program that will drive the agent's behavior, but the architecture itself determines most of what the agent does without the programmer having to worry about it. JASON's language is an extension of AgentSpeak, which is based on the \ac{BDI} architecture. As a result, a belief basis is one of the components of the agent architecture. Another key component is the agent's goals, which are realized through plan execution.
+The agent program and an agent architecture can be differentiate as, the software framework in which an agent program operates is referred to as the agent architecture. The \ac{PRS} is an example of an agent architecture, and the plans are the software that exists within it. We design the program that will drive the agent's behavior, but the architecture itself determines most of what the agent does without the programmer having to worry about it. JASON is an extension of AgentSpeak, which is based on the \ac{BDI} architecture. As a result, a belief basis is one of the components of the agent architecture. Another key component is the agent's goals, which are realized through plan execution.
 
 \vspace{.5cm}
 
@@ -201,9 +185,9 @@ It has become customary to include a simple example program to aid comprehension
 
 Let us attempt to grasp some of what is going on here. The first thing to realize is that this is the definition of a single agent. This specification is generally kept in a single file with the \texttt{'.asl'} extension. Agent's basic beliefs is described in the first line. The full stop, \texttt{'.'}, serves as a syntactic separator in the same way as a semicolon does in Java or C. The next line establishes a plan for the agent, which is the sole plan this agent possesses. This action will display \texttt{'Hello, I'm an Agent'} on the user's terminal. Later, more goals and sub-goals also can be added, according to the plans and requirements.
 
-\subsubsection{\ac{ASTRA}}
+\subsubsection{AgentSpeak(TR) Agents}
 
-\ac{ASTRA} is also based on AgentSpeak(L) in that it provides all of the same fundamental capabilities as AgentSpeak(L), but it also adds a number of extra features that makes it more practical Agent Programming Language. The fundamental distinction between beliefs, aims, and events is that words and variables are typed. \ac{ASTRA}'s type system is based on the Java type system, mainly because Java is the underlying implementation language, and using a comparable type system makes translating between \ac{ASTRA} and Java easier and more visible.
+\ac{ASTRA} is also based on AgentSpeak(L) in that it provides all of the same fundamental capabilities as AgentSpeak(L), but it also adds a number of extra features that makes it more practical agent programming language. The fundamental distinction between beliefs, aims, and events is that words and variables are typed. \ac{ASTRA}'s type system is based on the Java type system, mainly because Java is the underlying implementation language, and using a comparable type system makes translating between \ac{ASTRA} and Java easier and more visible.
 
 \vspace{.5cm}
 As a result, \ac{ASTRA} programs are more organized than AgentSpeak(L) applications. The basic structure is seen below:
@@ -255,7 +239,7 @@ Web 3.0 may be recognized by a collection of traits that are altering how people
 \begin{itemize}
 
     \item \textbf{Individualized} \\
-    Information may be divided into context-relevant segments based on network contacts and personal preferences. In fact, one of the features of Web 3.0 is the capacity to deal with unstructured content on the Web more intelligently by giving the published data about individual or group factors contextual meaning. The social networks are a well-known method of connection with a very broad audience of adopters. People may choose their own exposure and contacts depending on information preferences and "proximity".
+    Information may be divided into context-relevant segments based on network contacts and personal preferences. In fact, one of the features of Web 3.0 is the capacity to deal with unstructured content on the web more intelligently by giving the published data about individual or group factors contextual meaning. The social networks are a well-known method of connection with a very broad audience of adopters. People may choose their own exposure and contacts depending on information preferences and "proximity".
 
 \vspace{.5cm}
 

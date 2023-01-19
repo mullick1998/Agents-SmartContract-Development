@@ -6,86 +6,6 @@
 
 This chapter focuses on reviewing all of the work completed while utilizing all of the technologies to construct the application. Prior to integrating the technologies, each technique is evaluated independently.
 
-\section{Smart Contract Performance }
-
-Solidity-based smart contracts were created with the intention of integrating them into supply chains to maintain records of goods ownership and movement from one entity to another. It was vital to determine if the smart contracts were functioning properly or not shortly after developing them while keeping in mind the supply chain's sequence as shown in Figure \ref{Sequence Diagram}. 
-
-\vspace{.5cm}
-
-To verify this, we created several test cases and ran them using the Truffle tool. We kept in mind to verify the states, which are essentially the order of the supply chain, as well as store the ownership and movement of the product from one entity to another entity in each contract when doing the testing. The test cases are illustrated below utilizing a local network named "development," in which we are testing each contract by confirming the state of the product displayed in the Figure \ref{Data Model diagram}, as well as movement and ownership of the product using \ac{SKU}, \ac{UPC}, and owner ID and storing it into a buffer and then the cross checking them.
-
-\vspace{.5cm}
-
-\begin{lstlisting}[numbers=none, basicstyle=\ttfamily\tiny]
-Using network 'development'.
-Compiling your contracts...
-===========================
-> Everything is up to date, there is nothing to compile.
-<----------------ACCOUNTS---------------->
-Contract Owner: accounts[0]  0xad0BC114B5CF3F0797346fF1Fb1Daf1Cf5123395
-Manufacturer: accounts[1]  0x4A9fe326Edc88F1f22940DC9F70BD391fB4218f8
-Wholesaler: accounts[2]  0x5fB0Cd136C7A19E8E12F062548002B4460B0dC0d
-Retailer: accounts[3]  0xc7D1C50D87B82E85b959DBC2cD9959bfc0480A5E
-<-------TESTING CONTRACT FUNCTIONS------->
-  Contract: SupplyChain
-    Testing smart contract function produceItemByManufacturer() (14051ms)
-    Testing smart contract function packageItemByManufacturer() (2723ms)
-    Testing smart contract function sellItemByManufacturer() (2526ms)
-    Testing smart contract function purchaseItemByWholesaler() (2037ms)
-    Testing smart contract function shippedItemByManufacturer() (1566ms)
-    Testing smart contract function receivedItemByWholesaler() (1542ms)
-    Testing smart contract function sellItemByWholesaler() (1486ms)
-    Testing smart contract function purchaseItemByRetailer() (2440ms)
-    Testing smart contract function shippedItemByWholesaler() (1438ms)
-    Testing smart contract function receivedItemByRetailer() (1380ms)
-  10 passing (1m)
-\end{lstlisting}
-
-\vspace{.5cm}
-
-According to the test scenarios, smart contracts are functioning well. Each contract will produce a transaction hash, which is simple to get and can be used to further verify information like as the date and time, amount of gas consumed, account used to deploy the contract, etcetera.
-
-\subsubsection{Performance Over Test Networks}
-
-Due to a built-in feature of the truffle tool that indicates how long it takes to build each contract as well as how long it takes to generate all of the contracts, we had to consider other options for our smart contracts. We tried to check the time taken by each network in order to get more knowledge, specifically taking into account the local network, Alfajores, and Rinkeby. We also considered testing out a different programming language to write our contracts in order to determine why Solidity is more effective than all of them.
-
-\vspace{.5cm}
-
-\begin{figure}[h]
-\centering
-  \includegraphics[width=15cm]{includes/figures/graph.png} 
-  \caption{Performance across various networks}
-  \label{Testing on networks}
-\end{figure}
-
-\vspace{.5cm}
-
-It is obvious that the local network used far less time than the other two networks from Figure \ref{Testing on networks}. However, it was simpler to obtain CELO for Alfajores, the blockchain currency we used as gas for deployment and payment, than it was to acquire RinkebyETH for the Rinkeby test network. On the other hand, we can see that contract deployment was a little faster using the Rinkeby test network compared to the Alfajores test network.
-
-
-\begin{figure}[h]
-\centering
-  \includegraphics[width=11cm]{includes/figures/totalCost.png} 
-  \caption{Overall Gas Cost calculation}
-  \label{Overall Gas Cost calculation}
-\end{figure}
-
-\vspace{.5cm}
-
-The intricacy of the code, the volume of data being processed, and the present status of the network are some of the variables that affect how much gas will be required overall for a transaction or the deployment of a smart contract on a blockchain network. Because a local test network is less busy and has fewer resource demands than a public testnet like alfajores or rinkeby, the overall amount of gas utilized there is probably lower. However, depending on how much data is processed and how complex the code is, the total amount of gas used could still differ.
-
-\vspace{.5cm}
-
-The entire amount of gas utilized on a public testnet, such as alfajores and rinkeby, will depend on the network's present condition and resource demand. Due to the greater volume of transactions and contracts being executed on the public testnet, the overall gas consumption can be higher than on a local test network. In light of the fact that gas prices change on the public testnet as well, the total amount of gas utilized will also rely on those prices at the time of deployment and transaction. In Figure \ref{Overall Gas Cost calculation}, The most expensive test network is rinkeby, however even though its price might be the same as alfajores test network's, alfajores' overall cost decreased to approximately one-third of rinkeby test network's cost due to low gas prices.
-
-\subsubsection{Contract Language Analogy}
-
-We were decided from the outset to utilize Solidity to construct the smart contracts since it is a curly-bracket language meant to target the \ac{EVM}. C++, Python, and JavaScript have all had an impact on it. Solidity is statically typed and, among other things, enables inheritance, libraries, and sophisticated user-defined types. Furthermore, it receives frequent upgrades and breaking modifications, and new features are released on a regular basis. 
-
-\vspace{.5cm}
-
-JASON's and some issue with web3 libraries gave us the opportunity to explore more and to switch from Solidity to Vyper and learn more about the language. Because Vyper lacks \textit{Modifiers}, \textit{Class Inheritance}, \textit{Inline Assembly}, \textit{Function Overloading}, \textit{Operator Overloading}, and \textit{Binary Fixed Point}, a thorough examination of Vyper prompted us to chose Solidity once more. The usage of the following constructs might result in confusing or challenging to comprehend code, hence they are not included and to create final smart contracts, we continued to use Solidity as our primary language.
-
 \section{Multiple Agent System Development}
 
 We originally utilized JASON with a java-based interpreter to execute \ac{MAS}. To run \ac{MAS}, we downloaded the necessary scripts and libraries. Gradle and maven were then used for straightforward configuration and setting up the home variables. Then, in order to enable agent interaction, we created \texttt{mas2j} files after designing \texttt{asl} files for each agent. We introduced four agents: \texttt{supplyChainAgent}, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}. The \texttt{supplyChainAgent} is the primary agent who will engage other agents to achieve their objectives. As their names imply, the other agents will perform their respective tasks in an adaptive supply chain. Running the agents in the \ac{MAS} environment produced the following results.
@@ -133,6 +53,94 @@ Due to the limitations of Java-based interpreter with \texttt{web3} package, we 
 \vspace{.5cm}
 
 Although \ac{ASTRA} is simpler to grasp, it suffers from the same restriction as JASON with its Java-based interpreter in that it cannot leverage the \texttt{web3} package to infuse \ac{BCT} into the \ac{MAS}. As a result, we decided to use JASON with a Python-based interpreter. It is being used after installing the \texttt{agentspeak} package using \ac{pip}. It utilizes the same \texttt{asl} file, but instead of a \texttt{mas2j} file, it initiates the agents interaction with a python script. It is as simple to run as any other Python script and works flawlessly when smart contract functionalities are added to it as \texttt{actions} of agents.
+
+\section{Smart Contract Implementation }
+
+Solidity-based smart contracts were created with the intention of integrating them into supply chains to maintain records of goods ownership and movement from one entity to another. It was vital to determine if the smart contracts were functioning properly or not shortly after developing them while keeping in mind the supply chain's sequence as shown in Figure \ref{Sequence Diagram}. 
+
+\vspace{.5cm}
+
+To verify this, we created several test cases and ran them using the Truffle tool. We kept in mind to verify the states, which are essentially the order of the supply chain, as well as store the ownership and movement of the product from one entity to another entity in each contract when doing the testing. The test cases are illustrated below utilizing a local network named "development," in which we are testing each contract by confirming the state of the product displayed in the Figure \ref{Data Model diagram}, as well as movement and ownership of the product using \ac{SKU}, \ac{UPC}, and owner ID and storing it into a buffer and then the cross checking them.
+
+\vspace{.5cm}
+
+\begin{lstlisting}[numbers=none, basicstyle=\ttfamily\tiny]
+Using network 'LocalNetwork'.
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+<----------------ACCOUNTS---------------->
+Contract Owner: accounts[0]  0xad0BC114B5CF3F0797346fF1Fb1Daf1Cf5123395
+Manufacturer: accounts[1]  0x4A9fe326Edc88F1f22940DC9F70BD391fB4218f8
+Wholesaler: accounts[2]  0x5fB0Cd136C7A19E8E12F062548002B4460B0dC0d
+Retailer: accounts[3]  0xc7D1C50D87B82E85b959DBC2cD9959bfc0480A5E
+<-------TESTING CONTRACT FUNCTIONS------->
+  Contract: SupplyChain
+    Testing smart contract function produceItemByManufacturer() (14051ms)
+    Testing smart contract function packageItemByManufacturer() (2723ms)
+    Testing smart contract function sellItemByManufacturer() (2526ms)
+    Testing smart contract function purchaseItemByWholesaler() (2037ms)
+    Testing smart contract function shippedItemByManufacturer() (1566ms)
+    Testing smart contract function receivedItemByWholesaler() (1542ms)
+    Testing smart contract function sellItemByWholesaler() (1486ms)
+    Testing smart contract function purchaseItemByRetailer() (2440ms)
+    Testing smart contract function shippedItemByWholesaler() (1438ms)
+    Testing smart contract function receivedItemByRetailer() (1380ms)
+  10 passing (1m)
+\end{lstlisting}
+
+\vspace{.5cm}
+
+According to the test scenarios, smart contracts are functioning well. Each contract will produce a transaction hash, which is simple to get and can be used to further verify information like as the date and time, amount of gas consumed, account used to deploy the contract, etcetera.
+
+\subsubsection{Performance}
+
+Due to a built-in feature of the truffle tool that indicates how long it takes to build each contract as well as how long it takes to generate all of the contracts, we had to consider other options for our smart contracts. We tried to check the time taken by each network in order to get more knowledge, specifically taking into account the local network, Alfajores, and Rinkeby. We also considered testing out a different programming language to write our contracts in order to determine why Solidity is more effective than all of them.
+
+\vspace{.5cm}
+
+\begin{figure}[h]
+\centering
+  \includegraphics[width=15cm]{includes/figures/graph.png} 
+  \caption{Performance across various networks}
+  \label{Testing on networks}
+\end{figure}
+
+\vspace{.5cm}
+
+It is obvious that the local network used far less time than the other two networks from Figure \ref{Testing on networks}. However, it was simpler to obtain CELO for Alfajores, the blockchain currency we used as gas for deployment and payment, than it was to acquire RinkebyETH for the Rinkeby test network. On the other hand, we can see that contract deployment was a little faster using the Rinkeby test network compared to the Alfajores test network.
+
+
+\begin{figure}[h]
+\centering
+  \includegraphics[width=11cm]{includes/figures/totalCost.png} 
+  \caption{Overall deployment gas cost calculation }
+  \label{Overall Gas Cost calculation}
+\end{figure}
+
+\vspace{.5cm}
+
+The entire amount of gas utilized on a public testnet, such as alfajores and rinkeby, will depend on the network's present condition and resource demand. Due to the greater volume of transactions and contracts being executed on the public testnet, the overall gas consumption can be higher than on a local test network. In light of the fact that gas prices change on the public testnet as well, the total amount of gas utilized will also rely on those prices at the time of deployment and transaction. In Figure \ref{Overall Gas Cost calculation}, The most expensive test network is rinkeby, however even though its gas consumption was same as alfajores test network's, alfajores' overall cost decreased to approximately one-third of rinkeby test network's cost due to low gas prices which was just 7.5 Gwei or 7500000000 Wei compared to rinkeby test network's gas price which was 20 Gwei or 20000000000 Wei.
+
+\begin{figure}[h]
+\centering
+  \includegraphics[width=12cm]{includes/figures/smartcontractgas.png} 
+  \caption{Gas consumed by each smart contract}
+  \label{Gas consumed by each contract}
+\end{figure}
+
+\vspace{.5cm}
+The intricacy of the code, the volume of data being processed, and the present status of the network are some of the variables that affect how much gas will be required overall for a transaction or the deployment of a smart contract on a blockchain network. Because a local test network is less busy and has fewer resource demands than a public testnet like alfajores or rinkeby, the overall amount of gas utilized there is probably lower. Therefore, we selected the local test network to determine how much gas was used to generate each of the smart contracts as shown in Figure \ref{Gas consumed by each contract}. We determined that the overall quantity of gas utilized might still vary depending on how much data is handled and how complicated the code is.
+
+
+\subsubsection{Contract Language Analogy}
+
+We were decided from the outset to utilize Solidity to construct the smart contracts since it is a curly-bracket language meant to target the \ac{EVM}. C++, Python, and JavaScript have all had an impact on it. Solidity is statically typed and, among other things, enables inheritance, libraries, and sophisticated user-defined types. Furthermore, it receives frequent upgrades and breaking modifications, and new features are released on a regular basis. 
+
+\vspace{.5cm}
+
+JASON's and some issue with web3 libraries gave us the opportunity to explore more and to switch from Solidity to Vyper and learn more about the language. Because Vyper lacks \textit{Modifiers}, \textit{Class Inheritance}, \textit{Inline Assembly}, \textit{Function Overloading}, \textit{Operator Overloading}, and \textit{Binary Fixed Point}, a thorough examination of Vyper prompted us to chose Solidity once more. The usage of the following constructs might result in confusing or challenging to comprehend code, hence they are not included and to create final smart contracts, we continued to use Solidity as our primary language.
+
 
 \section{Infuse Blockchain Technology in Multiple Agent System}
 
