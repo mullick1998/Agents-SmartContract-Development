@@ -93,25 +93,25 @@ Check `README.md` from `dir:./jason/jythonSCAgent`
 ## 1st Review (10.12.2022) 
 
 
-    1. Be careful about the abbreviation. First, use the Belief-Desire-Intention word somewhere in your thesis, and then you can use the BDI abbreviation in the rest of your thesis. (Done)
+1. Be careful about the abbreviation. First, use the Belief-Desire-Intention word somewhere in your thesis, and then you can use the BDI abbreviation in the rest of your thesis. (Done)
 
-    2. The technical Background part should be updated. Agent, BDI Model (It is a software design pattern), and Agent Programming can be explained in a single subchapter. (Done)
+2. The technical Background part should be updated. Agent, BDI Model (It is a software design pattern), and Agent Programming can be explained in a single subchapter. (Done)
     
-    3. In the Background, an explanation of the Concept subchapter should be cited. I assume that individualized, ubiquity and Efficient are not your definitions with their internal details. (Done)
+3. In the Background, an explanation of the Concept subchapter should be cited. I assume that individualized, ubiquity and Efficient are not your definitions with their internal details. (Done)
     
-    4. There is no relevancy between Jython and the Background part. You need to explain this in the implementation. (Done)
+4. There is no relevancy between Jython and the Background part. You need to explain this in the implementation. (Done)
 
-    5. Design and Implementation chapters must be combined. (Done)
+5. Design and Implementation chapters must be combined. (Done)
     
-    6. You don’t have research questions or hypotheses. Please define it. 
+6. You don’t have research questions or hypotheses. Please define it. 
     
-    7. You need to define the limits of your research (what are the boundaries of your research).
+7. You need to define the limits of your research (what are the boundaries of your research).
     
-    8. The thesis template is wrong on the first page. You need to use the latex format like under this link. https://tu-dresden.de/ing/informatik/smt/cgv/studium/materialien?set_language=en  (Done)
+8. The thesis template is wrong on the first page. You need to use the latex format like under this link. https://tu-dresden.de/ing/informatik/smt/cgv/studium/materialien?set_language=en  (Done)
     
-    9. Qualitative and Quantitative methods are not explained well in the result section. (Performance parameters, tool, and library versions, how did you create your performance experiment? What was your use case ?). Why did you test with different blockchain networks? Is it really necessary and does the result section respond to one of the research questions or not? 
+9. Qualitative and Quantitative methods are not explained well in the result section. (Performance parameters, tool, and library versions, how did you create your performance experiment? What was your use case ?). Why did you test with different blockchain networks? Is it really necessary and does the result section respond to one of the research questions or not? 
     
-    10. You can reduce the number of subchapters in the Related Work section. 
+10. You can reduce the number of subchapters in the Related Work section. 
 
 
 ## 12th meeting (16th December 2022) [09:30- 09:46]
@@ -124,10 +124,12 @@ VERYYYYYYYYYY IMPORTANTTTTTTTTTTTTTTTTTTTT!!!!!!!
 - Cretae some question for literature research? Add this to Related work.
 - Create Hypothesis. Ask question based on assumption.
 
+
 ## 13th meeting (23rd December 2022) [09:30-09:40]
 - Write documention to code.
 - Make changes so Orcun can read.
 - Add Solidity code format, https://docs.soliditylang.org/en/v0.8.17/natspec-format.html
+
 
 # WINTER BREAK
 
@@ -160,9 +162,19 @@ _reply- I rectified the diagram, I designed the diagram earlier accordingly, but
 
 _reply- I wrote at the starting of RELATED WORK CHAPTER regarding why we are reading the papers and at the end I added why we are not doing something of our own using BDI agents_
 
+
 ## 15th meeting (13th January 2023) [09:30-10:05]
 - write research question before introduction
 - calculate gas consumption for function while running them.
 - make that as you research question
 - add a paragraph for sequence diagram, either sequence diagram or state diagram. change Fig 4.2 name and think about 4.2 diagram also. change 4.3 diagram name. and modify 4.3 too. Read UML book.
 - Put literature questions, how OOP is different from AOP. 
+
+### 16th meeting (20th January 2023) [09:30-]
+- agent behaviour change to belied desire. Change can, ask how!! combine Q1 and Q3
+- Use RQ and LRQ, combin LRQ1 with LRQ2
+- Create a sequence diagram
+- use gwei (shannon)10 exp 9 mwei (lovelace) 10 exp 6
+- change 5.2 and 5.3 and deatail description regarding the numbers.
+- Add discuss chapter after result, discuss with yourself.
+- Evaluate with Professor(maybe)

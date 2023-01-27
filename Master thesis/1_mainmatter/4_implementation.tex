@@ -79,7 +79,7 @@ The application is designed to be as basic as possible in order to learn how a s
 \vspace{.5cm}
 
 The application flow for the \textit{Smart contract development with JASON \ac{BDI} agents} is depicted in Figure  \ref{Flow chart}. These three agents, a manufacturer, a wholesaler, and a retailer, each perform a specific function in the supply chain. All three of the other agents are being invoked by another primary agent in the \ac{MAS}. Figure 
- \ref{Data Model diagram} and Figure \ref{State Diagram} can be used for brief demonstration regarding the states and also on which basis the smart contracts are to be created within the supply chain.
+ \ref{Smart Contract Sequence Diagram}  shows the sequence of generating the smart contracts and Figure \ref{State Diagram} can be used for brief demonstration regarding the states on which the smart contracts are to be generated within the supply chain.
 
 \vspace{.5cm}
 
@@ -104,14 +104,14 @@ As aforementioned, the terminology blockchain refers to two things: a distribute
 
     \begin{figure}[h]
     \centering
-      \includegraphics[width=15cm]{includes/figures/Data Model diagram.png} 
-      \caption{Smart Contract's Data Model Diagram}
-      \label{Data Model diagram}
+      \includegraphics[width=15cm]{includes/figures/Sequence Diagram.jpg} 
+      \caption{Smart Contract Sequence Diagram}
+      \label{Smart Contract Sequence Diagram}
     \end{figure}
     
 \vspace{.5cm}
 
-The programming for smart contracts related supply chain is done while keeping the version in mind in order to integrate it with the agent programming language so that they can work together. Smart contracts perform the following functions: (1) The product is produced by the manufacturer, (2) the manufacturer completes the packaging, (3) the product is placed on the market, (4) the wholesaler purchases the product, (5) the manufacturer ships the product, (6) the wholesaler receives the product, (7) the wholesaler places the product on the market, (8) the retailer purchases the product, (9) the wholesaler ships the product, and (10) the retailer receives the product as the final result.
+The programming for smart contracts related supply chain is done while keeping the version in mind in order to integrate it with the agent programming language so that they can work together. Smart contracts perform the following functions with reference to Figure \ref{Smart Contract Sequence Diagram}: (1) The product is produced by the manufacturer, (2) the manufacturer completes the packaging, (3) the product is placed on the market, (4) the wholesaler purchases the product, (5) the manufacturer ships the product, (6) the wholesaler receives the product, (7) the wholesaler places the product on the market, (8) the retailer purchases the product, (9) the wholesaler ships the product, and (10) the retailer receives the product as the final result.
 
 \vspace{.5cm}
 
@@ -124,7 +124,7 @@ The programming for smart contracts related supply chain is done while keeping t
 
 \vspace{.5cm}
 
-Each function is regarded as an event, and every event is given a state, as shown in Figure \ref{Data Model diagram}. It has always been a rule that each event must occur after the one before it has concluded. For example, a manufacturer cannot sell a product before producing it, while a wholesaler cannot receive a product before buying it. It is carried out with the aid of a state check as shown in Figure \ref{State Diagram}. A product can also be tracked using the \ac{UPC} or by utilizing the \ac{SKU} to trace the entire batch.
+Each function is regarded as an event, and every event is given a state. It has always been a rule that each event must occur after the one before it has concluded. For example, a manufacturer cannot sell a product before producing it, while a wholesaler cannot receive a product before buying it. It is carried out with the aid of a state check as shown in Figure \ref{State Diagram}. A product can also be tracked using the \ac{UPC} or by utilizing the \ac{SKU} to trace the entire batch.
 
 \vspace{.5cm}
 
@@ -282,7 +282,17 @@ An interpreter for JASON, an agent-oriented programming language, built on Pytho
 
  
  We are largely focused on agent-oriented models and technology, and we have smart contracts directly incorporated into the blockchain. With reference to the illustration \ref{Agent Interaction}, the model will be the same for the agents, but their communication will take place via smart contracts, be recorded as transactions on the blockchain, and be subsequently verified using the transaction hashes.
- 
+
+ \vspace{.5cm}
+The application flow is developed in accordance with Figure \ref{Sequence Diagram for BDI agents and Smart Contracts}, which is an extension of Figure \ref{Smart Contract Sequence Diagram}.
+
+ \begin{figure}[h!]
+\centering
+  \includegraphics[width=15cm]{includes/figures/sqdgm.jpg} 
+  \caption{Sequence Diagram for \ac{BDI} agents and Smart Contracts}
+  \label{Sequence Diagram for BDI agents and Smart Contracts}
+\end{figure}
+
  \vspace{.5cm}
 
 The thesis' core premise is the integration of the two technologies, \ac{MAS} and \ac{BCT}. We have tried to integrate both the technologies using several tries by using several web3 libraries, i.e., \textit{web3.js} for JavaScript, \textit{web3.py} for Python and \textit{web3j} for Java in order to interact with Ethereum.

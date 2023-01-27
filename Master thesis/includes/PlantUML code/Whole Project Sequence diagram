@@ -1,0 +1,100 @@
+@startuml
+!pragma teoz true
+box "Supply Chain (BDI-Agents and Smart Contrcats)" #LightYellow
+actor Customer
+
+box "Supply Chain Framework" #LightBlue
+entity MainAgent
+Participant ManufacturerAgent
+Participant WholesalerAgent
+Participant RetailerAgent
+end box
+
+end box
+
+note over Customer: Want to buy
+activate Customer #LightGrey
+Customer --> MainAgent : Approch Framework
+activate MainAgent #LightGrey
+
+MainAgent --> RetailerAgent : Activates ""RetailerAgent""
+
+RetailerAgent -> RetailerAgent: Checks Warehouse
+note right RetailerAgent #Pink : //If it has product then sell// \n //to Customer otherwise it// \n will let the ""MainAgent"" \n //to activate ""WholesalerAgent"".// \n (Assume no product)
+
+RetailerAgent --> MainAgent : request to activate ""WholesalerAgent""
+MainAgent--> WholesalerAgent: Activates ""WholesalerAgent""
+WholesalerAgent -> WholesalerAgent : Checks Warehouse
+note over WholesalerAgent #Pink : (Assume no product)
+WholesalerAgent --> MainAgent : request to activate ""ManufacturerAgent""
+MainAgent--> ManufacturerAgent: Activates ""ManufacturerAgent""
+ManufacturerAgent -> ManufacturerAgent : Checks Warehouse
+note over ManufacturerAgent #Pink : (Assume no product)
+
+box "Blockchain Framework" #LightGreen
+database EthereumVirtualMachine as EVM
+end box
+
+note over ManufacturerAgent: //Manufatures product//
+ManufacturerAgent -> EVM: invoking ""produceItemByManufacturer()""
+activate ManufacturerAgent #DarkSalmon
+activate EVM #FFBBBB
+note right #Orange: **Generating Transaction Hash**
+EVM --> ManufacturerAgent : ""Tx Hash""
+
+note over ManufacturerAgent: //Packages product//
+ManufacturerAgent -> EVM: invoking ""packageItemByManufacturer()""
+EVM --> ManufacturerAgent: ""Tx Hash""
+
+note over ManufacturerAgent: //Out for Sale//
+ManufacturerAgent-> EVM: invoking ""sellItemByManufacturer()""
+EVM --> ManufacturerAgent: ""Tx Hash""
+
+note over WholesalerAgent: //Purchase Product by paying// \n //the desire amount by ""ManufacturerAgent""//
+WholesalerAgent -> ManufacturerAgent : Purchases product
+activate WholesalerAgent #DarkSalmon
+WholesalerAgent -> EVM  : invoking ""purchaseItemByWholesaler()""
+EVM --> WholesalerAgent: ""Tx Hash""
+
+note over ManufacturerAgent: //Sending Product to ""WholesalerAgent""//
+ManufacturerAgent -> WholesalerAgent: Ships Product
+ManufacturerAgent -> EVM: invoking ""shippedItemByManufacturer()""
+EVM --> ManufacturerAgent: ""Tx Hash""
+
+deactivate ManufacturerAgent 
+
+note over WholesalerAgent: //Receives Product//
+WholesalerAgent -> EVM: invoking ""receivedItemByWholesaler()""
+EVM --> WholesalerAgent : ""Tx Hash""
+
+note over WholesalerAgent: //Out for Sale//
+WholesalerAgent-> EVM: invoking ""sellItemByWholesaler()""
+EVM --> WholesalerAgent : ""Tx Hash""
+
+note over RetailerAgent: //Purchase Product by paying// \n //the desire amount by ""WholesalerAgent""//
+
+RetailerAgent -> WholesalerAgent : Purchases product
+activate RetailerAgent #DarkSalmon
+RetailerAgent -> EVM  : invoking ""purchaseItemByRetailer()""
+EVM --> RetailerAgent: ""Tx Hash""
+
+note over WholesalerAgent: //Sending Product to ""RetailerAgent""//
+WholesalerAgent -> RetailerAgent: Ships Product
+WholesalerAgent -> EVM: invoking ""shippedItemByWholesaler()""
+EVM --> WholesalerAgent: ""Tx Hash""
+
+deactivate WholesalerAgent
+
+note over RetailerAgent: //Receives Product//
+RetailerAgent -> EVM: invoking ""receivedItemByRetailer()""
+EVM --> RetailerAgent : ""Tx Hash""
+deactivate EVM
+RetailerAgent --> MainAgent
+deactivate RetailerAgent
+
+
+MainAgent --> Customer : Sells Product
+deactivate MainAgent
+deactivate Customer
+
+@enduml
