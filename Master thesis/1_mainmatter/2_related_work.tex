@@ -6,11 +6,14 @@
 
 The pertinent research in the field of agent programming using smart contracts will be covered in this part. The associated papers' subjects were arranged to address the following literature research questions (LRQ): 
 \begin{itemize}[label={}]
-    \item \textbf{LRQ1.} How to determine the distinction between object-oriented and agent-oriented programming, and how to build agents and \ac{MAS} with JASON, \ac{ASTRA} or other domain-specific \ac{AOP} languages, and have them interact in supply chain management?\\
-    
-    \item \textbf{LRQ2.} After understanding \ac{MAS}, how to include smart contracts into \ac{MAS}, record agent interactions on a blockchain using smart contracts, and store transactions on a blockchain?\\
+    \item \textbf{LRQ1.} How to determine the distinction between object-oriented and agent-oriented programming, and how to build agents and \ac{MAS} with JASON, ASTRA or other domain-specific \ac{AOP} languages, and have them interact in supply chain management?\\
 
-    \item \textbf{LRQ3.} What's the need for more study on this area if there are existing blockchain-based \ac{MAS} applications in functioning?
+    \item \textbf{LRQ2.} While researching about the \ac{BDI}-based agents, an important question came into a picture regarding, What are the other frameworks available except \textbf{JASON} for writing the agents using the \ac{BDI} model, and how do they compare?\\
+    
+    \item \textbf{LRQ3.} After understanding \ac{MAS}, how to include smart contracts into \ac{MAS}, record agent interactions on a blockchain using smart contracts, and store transactions on a blockchain?\\
+
+    \item \textbf{LRQ4.} What is the purpose of conducting further study when there has already been considerable research done on decentralized execution of smart contracts using the agent model?
+
 \end{itemize}
 
 \section{Assimilating Agents and Agent Oriented Programming}
@@ -24,7 +27,7 @@ Researchers in agent-oriented programming have created a number of agent program
  
  \vspace{.5cm}
  
-In this paper \cite{astra}, a conceptual mapping between \ac{OOP} and the AgentSpeak(L) family of \ac{AOP} languages was made in an effort to create such a linkage. This mapping examines how AgentSpeak(L) notions connect to \ac{OOP} principles and the concurrent programming concept of threads. After that, they used the study of this mapping to inform the creation of the \textbf{\ac{ASTRA}} programming language.
+In this paper \cite{astra}, a conceptual mapping between \ac{OOP} and the AgentSpeak(L) family of \ac{AOP} languages was made in an effort to create such a linkage. This mapping examines how AgentSpeak(L) notions connect to \ac{OOP} principles and the concurrent programming concept of threads. After that, they used the study of this mapping to inform the creation of the \textbf{ASTRA} programming language.
 
  \vspace{.5cm}
  
@@ -35,12 +38,6 @@ This study \cite{jasonBDI} is premised on the instruction that was offered as a 
 \vspace{.5cm}
 
 The paper also discusses how agent-based technology has become increasingly popular for a number of reasons, including how well-suited it has proven to be for the invention of a wide range of applications, such as for air traffic control, autonomous spacecraft control, healthcare, and industrial systems control, to mention a few. These are undoubtedly application areas where reliable systems are needed. The fact that formal verification techniques tailored specifically for \ac{MAS} are also an area that is luring much research attention and is likely to have a major impact on the uptake of agent technology is one of the benefits of the approach to programming \ac{MAS} that results from the research reviewed in this paper.
-
-\vspace{.5cm}
-
-\item \textbf{Paper Title: \textit{Domain specific agent-oriented programming language based on the Xtext framework}} \\
-
-One of the most reliable methods for creating distributed systems is the agent technology. A runtime environment that allows the execution of software agents is presented by the multi-agent middleware XJAF. The researchers suggest a domain-specific agent language called \textbf{ALAS}, whose major function is to facilitate the construction and execution of agents across heterogeneous platforms, in order to address the issue of incompatibility. According to the demands and needs of the agents, a metamodel and grammar of the ALAS language have been developed to describe the language's structure. The development of the compiler and the creation of Java executable code that can be run in XJAF are both covered in this paper \cite{xtext}.
 
 \vspace{.5cm}
 
@@ -57,9 +54,42 @@ These agents collaborate with one another to plan and carry out their tasks and 
 The objective of developing models and methods that allow \ac{MAS} to do coordinated work in practical applications has been advanced by the research in a number of different ways. These strategies are carried out by the agents, which causes several organized dialogues to occur amongst the agents. These concepts have been supported by the development of a useful, application-neutral coordination language that offers tools for describing coordination-enhanced plans as well as the interpreter supporting their execution. The researcher of the study has tested the coordination language and the shell on a number of issues, including supply chain coordination initiatives carried out in collaboration with industry. Despite the fact that the number of solutions they built and the number of users of our system are both limited, the evidence they have so far shows that their methodology is promising in terms of the naturalness of the coordination model, the effectiveness of the representation and power, and the usability of the provided programming tools.
 \end{itemize}
 
+\vspace{.5cm}
+
+The JASON framework facilitates reasoning about beliefs, desires, and intentions, as well as agent communication. Other frameworks that support the BDI paradigm and MAS are also available. \textbf{LRQ2} led us to these research articles presented below.
+
+\begin{itemize}[label={}]
+
+\item \textbf{Paper Title: \textit{A Review of Agent Platforms}}\\
+
+The goal of the paper \cite{review} is to give information on various frameworks and conduct an in-depth analysis. It offers details on active projects, projects whose status is unknown in relation to certain platform types, such as general-purpose, special-purpose, modeling-simulation platforms, and platforms that are no longer being developed. It also shows MAS development techniques.
+
+\vspace{.5cm}
+
+Table \ref{BDI model frameworks} in Chapter 6 has been likewise structured with the assistance of this research.
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{Domain specific agent-oriented programming language based on the Xtext framework}} \\
+
+One of the most reliable methods for creating distributed systems is the agent technology. A runtime environment that allows the execution of software agents is presented by the multi-agent middleware XJAF. The researchers suggest a domain-specific agent language called \textbf{ALAS}, whose major function is to facilitate the construction and execution of agents across heterogeneous platforms, in order to address the issue of incompatibility. According to the demands and needs of the agents, a metamodel and grammar of the ALAS language have been developed to describe the language's structure. The development of the compiler and the creation of Java executable code that can be run in XJAF are both covered in this paper \cite{xtext}.
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{A Survey of Agent Platforms}}\\
+
+The article \cite{survey} provides an up-to-date comparative analysis of the most promising current agent platforms that can be deployed. It is built on universal comparison and assessment standards, offering classes to assist readers understand which agent platforms have roughly comparable qualities and which decisions should be made in which scenarios.
+
+\vspace{.5cm}
+
+The researchers have proposed a realistic guideline suggestion for comparing and assessing agent platforms in this article, which is directly connected to the scope of platform operation and the quality of each platform's given feature. This proposal for guidelines is made up of five separate criterion categories: platform attributes, usability, operational ability, pragmatics, and security management. Each of these categories contains a number of subcriteria indicating a thorough examination of each agent platform.
+
+\end{itemize}
+
+
 \section{Linking Blockchain with Agents}
 
-The principal objective was to include BCT into MAS, which is a very current and innovative subject that may be applied in a futuristic supply chain. Some researchers have already worked on it, which has given us some ideas on how to construct smart contracts with JASON BDI agents. The papers listed below are aligned to our work and can be read to have a stronger insight to answer the \textbf{LRQ2} we posed in this chapter.
+The principal objective was to include \ac{BCT} into \ac{MAS}, which is a very current and innovative subject that may be applied in a futuristic supply chain. Some researchers have already worked on it, which has given us some ideas on how to construct smart contracts with JASON \ac{BDI} agents. The papers listed below are aligned to our work and can be read to have a stronger insight to answer the \textbf{LRQ3} we posed in this chapter.
 
 \begin{itemize}[label={}]
 
@@ -96,11 +126,13 @@ The creation of intelligent distributed systems that manage sensitive data makes
 This paper\cite{literature} includes a thorough literature evaluation of trials using \ac{MAS} and \ac{BCT} as conciliatory remedies as the first required step toward achieving this aim. The authors examined the reasons, presumptions, prerequisites, characteristics, and limits offered in the current state of the art in an effort to give a thorough review of their application fields. They also lay out their vision for how \ac{MAS} and \ac{BCT} may be coupled in various application situations while noting upcoming hurdles.
 \end{itemize}
 
+\vspace{.5cm}
+
 Understanding how applications employing \ac{MAS} and smart contracts are deployed inside a supply chain is crucial to ascertain if smart contracts and agents can be used to build a fair and efficient dispute resolution procedure in a supply chain. 
 
 \vspace{.5cm}
 
-As mentioned in \textbf{LRQ3}, some work has been done combining agents and blockchain, but we are conducting additional research in this area because the agents we are about to use are \ac{BDI} agents, which are a type of software agent that can make autonomous decisions based on its beliefs about the environment, desires or goals, and intentions to achieve those goals. \ac{BDI} agents can assist with supply chain management by arranging the flow of commodities, monitoring inventory levels, and negotiating with suppliers and consumers. They may also be used to help with decision making, such as identifying the best suppliers to work with and identifying potential supply chain difficulties or problems.
+As mentioned in \textbf{LRQ4}, some work has been done combining agents and blockchain, but we are conducting additional research in this area because the agents we are about to use are \ac{BDI} agents, which are a type of software agent that can make autonomous decisions based on its beliefs about the environment, desires or goals, and intentions to achieve those goals. \ac{BDI} agents can assist with supply chain management by arranging the flow of commodities, monitoring inventory levels, and negotiating with suppliers and consumers. They may also be used to help with decision making, such as identifying the best suppliers to work with and identifying potential supply chain difficulties or problems.
 
 \vspace{.5cm}
 

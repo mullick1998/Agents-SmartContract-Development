@@ -25,7 +25,7 @@ One such architecture envisions the system as a sensible agent with distinct men
 
 \vspace{.5cm}
 
-It is therefore easy to design an agent capable of controlling its surroundings on its own, but this becomes troublesome when the environment is shared by more than one agent. AgentSpeak(L) is extended by languages such as JASON and \ac{ASTRA}. They could be used to implement that language's operational semantics and provide a foundation for the development of \ac{MAS} with different user-customizable features.
+It is therefore easy to design an agent capable of controlling its surroundings on its own, but this becomes troublesome when the environment is shared by more than one agent. AgentSpeak(L) is extended by languages such as JASON and ASTRA. They could be used to implement that language's operational semantics and provide a foundation for the development of \ac{MAS} with different user-customizable features.
 
 \vspace{.5cm}
 
@@ -43,9 +43,9 @@ The concept of \textit{smart contracts}, or computer protocols intended to autom
 While conducting further in-depth study on programming agents and smart contracts, we would want to investigate the viability of an interaction mechanism between agent-oriented programming and smart contracts in this thesis. We shall attempt to address the research questions (RQ) listed below.
 \begin{itemize}[label={}]
 
-\item \textbf{RQ2.} Is it possible to use  smart contracts to coordinate the beliefs, desires and intentions of agents?\\
+\item \textbf{RQ1.} Is it possible to use smart contracts to coordinate the beliefs, desires, and intentions of agents? \\
 
- \item \textbf{RQ1.} How can we represent supply chain members in Solidity language such that Agent \ac{BDI} Library can coordinate and synchronize AgentSpeak plans and goals with on-chain smart contract transaction payload?\\
+ \item \textbf{RQ2.} How to represent supply chain roles (manufacturer, wholesaler, retailer) in Solidity language such that \ac{BDI} model agent library can coordinate and synchronize AgentSpeak plans and goals with on-chain smart contract transaction payload? \\
  
  
 \end{itemize}
@@ -113,7 +113,7 @@ The contribution of the paper are as follows:
     
 \vspace{.5cm}
 
-    \item Our research enabled the usage of JASON with both the Python interpreter and Java. As an alternative to JASON, we also tested using \ac{ASTRA}. Because Java was the prior implementation language, \ac{ASTRA}'s type system is based on it. By using a comparable type system, translating between \ac{ASTRA} and Java is made easier and more clear. Vyper was also taken under consideration for Smart contracts while switching from Java to Python, but was later abandoned owing to some of its drawbacks.
+    \item Our research enabled the usage of JASON with both the Python interpreter and Java. As an alternative to JASON, we also tested using ASTRA. Because Java was the prior implementation language, ASTRA's type system is based on it. By using a comparable type system, translating between ASTRA and Java is made easier and more clear. Vyper was also taken under consideration for Smart contracts while switching from Java to Python, but was later abandoned owing to some of its drawbacks.
     
 \vspace{.5cm}
 
@@ -130,7 +130,7 @@ Use of \ac{BDI} agents for decentralized autonomous organizations (DAOs), which 
 
 \vspace{.5cm}
 
-Overall, the current state of the art for \ac{BDI} agents and smart contracts is still in its early stages, but with increasing interest in blockchain technology, research and development in this field is projected to increase in the forthcoming years. For the purpose of running a supply chain using agents, we will largely focus in this thesis on agent-oriented models built on the \ac{BDI} framework and connected into the blockchain.
+Overall, the current state of the art for \ac{BDI} agents and smart contracts is still in its early stages, but with increasing interest in blockchain technology, research and development in this field is projected to increase in the forthcoming years. For the purpose of running a supply chain using agents, we will largely focus in this thesis on agent-oriented models built on the \ac{BDI} framework and connected into the blockchain. In Chapter 2, we delved deep into the subject using some Literature review questions (LRQ) to have a deeper understanding.
 
 \section{Evaluation Results}
 
@@ -138,7 +138,7 @@ In order to answer our research questions, our evaluation was conducted using th
 
 \subsubsection{Choosing \ac{AOP} Language with \ac{BDI} Framework}
 
-  In order to understand how they operate and determine whether they are compatible with other languages to be used to include them into blockbhain, we developed the \texttt{.asl} files using JASON and \ac{ASTRA}. We utilized Java and Python based interpreters to create \ac{MAS} utilizing JASON AgentSpeak(L), and we also tested \ac{ASTRA} to learn more about the differences between the languages and see if it works well with Java and makes use of all Java packages like \texttt{org.web3j}. 
+  In order to understand how they operate and determine whether they are compatible with other languages to be used to include them into blockbhain, we developed the \texttt{.asl} files using JASON and ASTRA. We utilized Java and Python based interpreters to create \ac{MAS} utilizing JASON AgentSpeak(L), and we also tested ASTRA to learn more about the differences between the languages and see if it works well with Java and makes use of all Java packages like \texttt{org.web3j}. 
 
   \vspace{.5cm}
   
@@ -146,7 +146,7 @@ In order to answer our research questions, our evaluation was conducted using th
 
   \vspace{.5cm}
 
-  Although \ac{ASTRA}-written agents are somewhat unique since they are more likely to resemble Java-style syntax. There is no need to create separate files for the interaction between agents because all the agents may be written in a single file with the \texttt{.astra} extension.
+  Although ASTRA-written agents are somewhat unique since they are more likely to resemble Java-style syntax. There is no need to create separate files for the interaction between agents because all the agents may be written in a single file with the \texttt{.astra} extension.
   
 \subsubsection{Smart Contract Functionality}
   
@@ -158,7 +158,7 @@ In order to answer our research questions, our evaluation was conducted using th
 
 \subsubsection{Outcomes of smart contracts with Agents}
 
-The principal goal of this thesis was to operate the agents in a \ac{MAS} while adapting a supply chain and collaborating \ac{BCT} to it in the form of smart contracts. We experimented with combining several AgentSpeak languages with web3 libraries for the assessment. Only \texttt{web3.py} and a Python-based interpreter for JASON were found to be effective for the implementation. With other web3 libraries, such as the \texttt{web3j} and \texttt{web3.js} libraries, we had problems with jar files and missing packages while using \ac{AOP}, since \ac{ASTRA} and java-based interpreter of JASON can't work with the core libraries required to run smart contracts.
+The principal goal of this thesis was to operate the agents in a \ac{MAS} while adapting a supply chain and collaborating \ac{BCT} to it in the form of smart contracts. We experimented with combining several AgentSpeak languages with web3 libraries for the assessment. Only \texttt{web3.py} and a Python-based interpreter for JASON were found to be effective for the implementation. With other web3 libraries, such as the \texttt{web3j} and \texttt{web3.js} libraries, we had problems with jar files and missing packages while using \ac{AOP}, since ASTRA and java-based interpreter of JASON can't work with the core libraries required to run smart contracts.
 
  \vspace{.5cm}
  
@@ -166,23 +166,31 @@ In order to make it easier to grasp, the evaluation of the thesis is outlined in
 
 \section{Outline of the thesis}
 \begin{itemize}
-    \item The research and associated work that has been done in the area of our study are covered in Chapter 2.
+    \item The research and associated work that has been done in the area of our study are covered in Chapter 2 with literature research questions(LRQs),
     
 \vspace{.5cm}
 
-    \item The technical information needed to comprehend the ideas offered in this thesis is provided in Chapter 3.
+    \item Technical information needed to comprehend the ideas offered in this thesis is provided in Chapter 3,
     
 \vspace{.5cm}
 
-    \item The system's high-level design, architecture, technical details and several sample use cases created for this work are covered  are covered in Chapter 4 of this thesis.
+    \item The system's high-level design, architecture, technical details and several sample use cases created for this work are covered  are covered in Chapter 4,
     
 \vspace{.5cm}
 
-    \item Chapter 5 summarizes the system's evaluation findings.
+    \item Chapter 5 details the application's outcomes and evaluation.
     
 \vspace{.5cm}
 
-    \item The design enhancements for upcoming and additional study subjects that result from this effort are covered in Chapter 6.
+    \item Chapter 6 comprises a self-discussion of the primary concepts identified when researching study subjects,
+
+\vspace{.5cm}
+
+    \item Conclusions of the system's evaluation are summarized in Chapter 7,
+
+\vspace{.5cm}
+  
+    \item Design enhancements for upcoming and additional study subjects that result from this effort are covered in Chapter 8.
 \end{itemize}
 
 

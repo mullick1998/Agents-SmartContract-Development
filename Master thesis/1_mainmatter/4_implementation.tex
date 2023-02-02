@@ -214,7 +214,7 @@ The \ac{BDI} architecture is the most common technique to implementing "intellig
     
     \vspace{.5cm}
     
-    \item \textbf{\ac{ASTRA}}
+    \item \textbf{ASTRA}
     
     \vspace{.5cm}
     
@@ -267,11 +267,11 @@ In addition to being able to interpret the original AgentSpeak, JASON possesses 
 
 \subsubsection{ASTRA Implementation}
 
-\ac{ASTRA} programs are divided into agent classes, which may be expanded using a multiple inheritance paradigm. Each agent class is written in a separate file with the same name as the agent class and the \texttt{.astra} extension. \ac{ASTRA} is distinct from AgentSpeak (L). Because \ac{ASTRA} applications can refer to Java classes, support for delivering fully qualified class names is required. \ac{ASTRA} programs incorporate partial plans (called plan bodies) in addition to plan rules to promote code/class resuability. \ac{ASTRA} strives to be familiar to developers who are familiar with mainstream programming languages, particularly Java.
+ASTRA programs are divided into agent classes, which may be expanded using a multiple inheritance paradigm. Each agent class is written in a separate file with the same name as the agent class and the \texttt{.astra} extension. ASTRA is distinct from AgentSpeak (L). Because ASTRA applications can refer to Java classes, support for delivering fully qualified class names is required. ASTRA programs incorporate partial plans (called plan bodies) in addition to plan rules to promote code/class resuability. ASTRA strives to be familiar to developers who are familiar with mainstream programming languages, particularly Java.
 
  \vspace{.5cm}
  
-Agent Programming Languages are intended to aid in the creation of \ac{MAS}. Such systems are intended to have more than one agent and more than one agent type by default. Support for deploying numerous agents is given in many Agent Programming Languages via deployment files, which let the developer to define the initial community of agents to be deployed. \ac{ASTRA} does not support this; instead, you construct an agent that generates new agents. The System \ac{API} provides the essential functionality to allow this approach. In \ac{ASTRA}, coding one agent to produce another agent is extremely straightforward. You just invoke the System \ac{API}'s \texttt{createAgent(...)} operation.
+Agent Programming Languages are intended to aid in the creation of \ac{MAS}. Such systems are intended to have more than one agent and more than one agent type by default. Support for deploying numerous agents is given in many Agent Programming Languages via deployment files, which let the developer to define the initial community of agents to be deployed. ASTRA does not support this; instead, you construct an agent that generates new agents. The System \ac{API} provides the essential functionality to allow this approach. In ASTRA, coding one agent to produce another agent is extremely straightforward. You just invoke the System \ac{API}'s \texttt{createAgent(...)} operation.
 
 \subsubsection{JASON (Python-based interpreter)}
 
@@ -307,7 +307,7 @@ The plan to utilize Web3j with JASON was eventually scrapped since, in order for
 
 \subsubsection{ASTRA and Web3j}
 
-After several attempts with web3j and JASON, we considered switching to \ac{ASTRA}, a programming language that is quite similar to Java and aims to be familiar to developers with language. A successful agent construction was followed by the same problem as with JASON when importing the web3j package.
+After several attempts with web3j and JASON, we considered switching to ASTRA, a programming language that is quite similar to Java and aims to be familiar to developers with language. A successful agent construction was followed by the same problem as with JASON when importing the web3j package.
 
 \subsubsection{JASON and Web3.py}
 

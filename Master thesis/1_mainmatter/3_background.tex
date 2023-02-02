@@ -9,7 +9,7 @@ This section discusses the background information needed to comprehend the subje
 \section{Agent Introduction}
 
 \subsubsection{\textit{What is an agent?}}
-An \textit{agent} is a reactive system with some autonomy in the sense that if a task is assigned to it, the system determines the optimal way to complete the task. These systems are referred to as "agents" because they are regarded as active, purposeful producers of actions: they are sent out into their environment to achieve objectives, and actively pursue these objectives, figuring out how tasks are to be done for themselves rather than being told in low-level detail how to do so. If they are robotic agents, they may be assigned tasks like as organizing a trip for us, buying tickets to booking hotels, bidding on our behalf in an online auction, and many other tasks that we can conceive of delegating.
+An \textit{agent} is a reactive system with some autonomy in the sense that if a task is assigned to it, the system determines the optimal way to complete the task \cite{defagent}. These systems are referred to as "agents" because they are regarded as active, purposeful producers of actions: they are sent out into their environment to achieve objectives, and actively pursue these objectives, figuring out how tasks are to be done for themselves rather than being told in low-level detail how to do so. If they are robotic agents, they may be assigned tasks like as organizing a trip for us, buying tickets to booking hotels, bidding on our behalf in an online auction, and many other tasks that we can conceive of delegating.
 
 
 \subsubsection{Characteristics of Agents}
@@ -75,7 +75,7 @@ This section outlines the \ac{BDI} system's modeled architecture, also shown in 
     \begin{figure}[h]
     \centering
       \includegraphics[width=12cm]{includes/figures/BDI_arch.png}
-      \caption{\ac{BDI} Architecture}
+      \caption{\ac{BDI} Architecture \cite{bdiarch}}
       \label{BDI Architecture}
     \end{figure}
     
@@ -134,24 +134,20 @@ In the \ac{AOP} paradigm, the idea of software agents serves as the foundation f
 \centering
 \caption{\ac{AOP} versus \ac{OOP}}
 \label{AOP versus OOP}
-\resizebox{11cm}{!}{%
+\resizebox{12cm}{!}{%
 \begin{tabular}{|l| l| l|}
 \hline
 \textbf{} & \textbf{\ac{AOP} } & \textbf{\ac{OOP}} \\ 
 \hline\hline
-\textbf{Fundamental Unit} & Agent  &  Object\\ \hline 
-\textbf{Parameters defining} & beliefs, commitments,  & Unconstrained\\
-\textbf{state of basic unit} &  capabilities, choices .... & \\ \hline 
-\textbf{Computation process} & message passing and  &  message passing and \\ 
- & response methods & response methods\\ \hline 
-\textbf{Types of message} & inform, request, offer,  & Unconstrained\\ 
- & promise, decline .... & \\ \hline 
-\textbf{Constraints on methods} & honesty, consistency ....  &  None\\ 
+\textbf{Focus}	& Autonomous agents &	Objects \\ \hline
+\textbf{Structure}	 & Multi-agent systems	 & Class hierarchies \\ \hline
+\textbf{Interaction}	& Agent-to-agent communication	 & Object-to-object interaction \\ \hline
+\textbf{Execution}	 & Concurrent execution of agents	 & Sequential execution of objects \\ \hline
+\textbf{Autonomy} &	High degree of autonomy for agents &	Limited autonomy for objects\\ 
 \hline \hline 
 \end{tabular}}
 \end{table}
 
-\vspace{.5cm}
 
 \subsubsection{AgentSpeak(L): \ac{BDI} Agents Interaction}
 
@@ -185,12 +181,12 @@ It has become customary to include a simple example program to aid comprehension
 
 Let us attempt to grasp some of what is going on here. The first thing to realize is that this is the definition of a single agent. This specification is generally kept in a single file with the \texttt{'.asl'} extension. Agent's basic beliefs is described in the first line. The full stop, \texttt{'.'}, serves as a syntactic separator in the same way as a semicolon does in Java or C. The next line establishes a plan for the agent, which is the sole plan this agent possesses. This action will display \texttt{'Hello, I'm an Agent'} on the user's terminal. Later, more goals and sub-goals also can be added, according to the plans and requirements.
 
-\subsubsection{AgentSpeak(TR) Agents}
+\subsubsection{ASTRA}
 
-\ac{ASTRA} is also based on AgentSpeak(L) in that it provides all of the same fundamental capabilities as AgentSpeak(L), but it also adds a number of extra features that makes it more practical agent programming language. The fundamental distinction between beliefs, aims, and events is that words and variables are typed. \ac{ASTRA}'s type system is based on the Java type system, mainly because Java is the underlying implementation language, and using a comparable type system makes translating between \ac{ASTRA} and Java easier and more visible.
+ASTRA is also based on AgentSpeak(L) in that it provides all of the same fundamental capabilities as AgentSpeak(L), but it also adds a number of extra features that makes it more practical agent programming language. The fundamental distinction between beliefs, aims, and events is that words and variables are typed. ASTRA's type system is based on the Java type system, mainly because Java is the underlying implementation language, and using a comparable type system makes translating between ASTRA and Java easier and more visible.
 
 \vspace{.5cm}
-As a result, \ac{ASTRA} programs are more organized than AgentSpeak(L) applications. The basic structure is seen below:
+As a result, ASTRA programs are more organized than AgentSpeak(L) applications. The basic structure is seen below:
 
 \vspace{.5cm}
 
@@ -211,7 +207,7 @@ As a result, \ac{ASTRA} programs are more organized than AgentSpeak(L) applicati
 
 \vspace{.5cm}
 
-As can be observed, \ac{ASTRA} has embraced the Java \texttt{package} and \texttt{import} nomenclature. The \texttt{agent} keyword denotes the beginning of the agent program, and curly braces represent the body of that program (known here as an \texttt{agent class}). This specification is generally kept in a single file with the \texttt{'.astra'} extension. This action will also display \texttt{'Hello, I'm an Agent'} on the user's console.
+As can be observed, ASTRA has embraced the Java \texttt{package} and \texttt{import} nomenclature. The \texttt{agent} keyword denotes the beginning of the agent program, and curly braces represent the body of that program (known here as an \texttt{agent class}). This specification is generally kept in a single file with the \texttt{'.astra'} extension. This action will also display \texttt{'Hello, I'm an Agent'} on the user's console.
 
 \section{Web3}
 
@@ -275,7 +271,7 @@ According to its technical definition, a blockchain is a series of interconnecte
  
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{includes/figures/blocks.png}
-  \caption{Blocks chained together in a blockchain}
+  \caption{Blocks chained together in a blockchain \cite{bcdig}}
   \label{Blocks chained together in a blockchain}
 \end{figure}
 
@@ -285,7 +281,7 @@ Different procedures, including as \ac{PoW} \cite{pow}, \ac{PoS} \cite{pos}, and
  
 \vspace{.5cm}
  
-On a higher level, blockchains may be split into two categories: permissioned and permissionless. Consortial and private blockchains are also included in the permissioned blockchains, whereas public blockchains are included in the permissionless blockchains. Below, we explore these categories' characteristics.
+On a higher level, blockchains may be split into two categories: permissioned and permissionless. Consortial and private blockchains are also included in the permissioned blockchains, whereas public blockchains are included in the permissionless blockchains. Below, we explore these categories' characteristics \cite{typebc1, typebc2}.
 
 \begin{itemize}
    

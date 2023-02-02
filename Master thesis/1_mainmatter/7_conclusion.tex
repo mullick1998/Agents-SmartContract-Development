@@ -4,19 +4,14 @@
 
 \label{sec:conclusion}
 
-In this thesis, we explored the multiple-agent system and blockchain technology, which are well-known technologies that are expected to be used in the future in both a substantial supply chain industry and other sectors. We provide an implementation regarding the creation of smart contracts with JASON \ac{BDI} agents, whereby the smart contracts are constructed using Solidity language, the agents are developed with the AgentSpeak run on JASON Python-based interpreter, and both are integrated with the web3 package. 
-
-\vspace{.5cm}
-Our study led us to the conclusion that agents can use smart contracts to coordinate their beliefs, desires and intentions with rules, which provides the explanation to our \textbf{RQ2}. The rules that control how supply chain participants interact can be referred to as smart contracts. These regulations may specify the terms and circumstances for carrying out certain activities, such as when a retailer may buy products from a wholesaler or when a manufacturer may send goods to a store. By using the smart contract's features and providing the necessary data and settings, agents can communicate with it. The smart contract may then put the rules into action and determine how the interaction will turn out based on the state of the supply chain at the moment and the data provided by the agents.
+The proposed application of this research was to build a decentralized supply chain network with various agents interacting with one another and smart contracts regulating the exchange of information and products. As a result, the supply chain process would be more transparent, traceable, and effective. 
 
 \vspace{.5cm}
 
-We came to the conclusion that roles for retailer, wholesaler, and manufacturer can be represented in a Solidity-based supply chain application using Agent \ac{BDI} Library in reference to our \textbf{RQ2} since it was addressed by our implementation. The \ac{BDI} Agent Library can be used to implement \ac{MAS} on the blockchain in addition to implementing the beliefs, desires, and intents of the agents, which can involve a variety of actions and behaviors in the supply chain.
+According to the research described in this thesis, the merge of both the technologies can be achieved by combining a library for interfacing with the Ethereum blockchain i.e. web3.py, and  a \ac{BDI}-based framework, JASON (python). Combining these two technologies enables the development of intelligent agents that can communicate and store the interactions in the form of transactions using smart contracts and perform steps depending on data stored on the blockchain.
 
 \vspace{.5cm}
 
-Additionally, smart contracts can be used to create consensus and dispute resolution processes, such as when a contract or agreement is not fulfilled by all parties or when there are disagreements. Further, the smart contract may be designed to encourage automated, transparent communication and coordination amongst supply chain agents. All parties in the supply chain may maintain tabs on the movement of goods and adjust their operations accordingly by using smart contracts, for instance, to automatically update inventory levels and shipment status of products.
+In conclusion, this thesis has shown the possibility of merging \ac{BDI}-based multi-agent systems with blockchain technology, specifically smart contracts. The \ac{BDI} model provides a strong foundation for developing intelligent agents capable of making decisions based on their beliefs, desires, and intentions, while blockchain technology and smart contracts provide a safe and decentralized platform on which these agents can interact. The findings of this study might pave the way for the creation of new decentralized applications and multi-agent systems in various domains.
 
-\vspace{.5cm}
 
-We also determined that synchronizing AgentSpeak tactics and goals with on-chain smart contract transaction payloads is achievable, albeit the precise implementation would rely on the AgentSpeak library and the blockchain platform employed. The technique we adopted was to utilize the AgentSpeak library to specify the agents' decision-making strategies and goals, and then use smart contracts to manage transaction execution based on those strategies and goals. It ought to be noted that synchronizing AgentSpeak tactics and goals with on-chain smart contract transaction payloads is a difficult operation that would need a thorough grasp of both AgentSpeak and blockchain technology.

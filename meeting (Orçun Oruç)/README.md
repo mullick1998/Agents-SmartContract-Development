@@ -170,11 +170,24 @@ _reply- I wrote at the starting of RELATED WORK CHAPTER regarding why we are rea
 - add a paragraph for sequence diagram, either sequence diagram or state diagram. change Fig 4.2 name and think about 4.2 diagram also. change 4.3 diagram name. and modify 4.3 too. Read UML book.
 - Put literature questions, how OOP is different from AOP. 
 
-### 16th meeting (20th January 2023) [09:30-]
+### 16th meeting (20th January 2023) [09:30-09:45]
 - agent behaviour change to belied desire. Change can, ask how!! combine Q1 and Q3
-- Use RQ and LRQ, combin LRQ1 with LRQ2
+- Use RQ and LRQ, combine LRQ1 with LRQ2
 - Create a sequence diagram
 - use gwei (shannon)10 exp 9 mwei (lovelace) 10 exp 6
 - change 5.2 and 5.3 and deatail description regarding the numbers.
 - Add discuss chapter after result, discuss with yourself.
 - Evaluate with Professor(maybe)
+
+### 17th meeting (27th January 2023) [09:30-09:55]
+- For Discussion chapter: think about aim, think about RQ and LRQ, intertpret them altogether. Interpret the result.
+- Read papers from discussion chapter (Just to be clear).
+- MOST IMPORTANTTTTT!!!!!!!!(DISCUSSION CHAPTER) Answer RQ and LRQ in Discussion.
+- FIX: 1.Add more related work paper, 2.Change RQ1, HOW TO*! add name of members, delete BDI or fix it.
+- Focus on realted work and discussion. Also fix LRQ3 sentence.
+- Please compare and create a table and compare in results. Check examples.
+Focusing more on interaction, try focus on agent part. 
+- LRQ3 can be comparitive analysis.
+- Include LightJason
+
+### 18th meeting (3rd february 2023) [09:30-09:]

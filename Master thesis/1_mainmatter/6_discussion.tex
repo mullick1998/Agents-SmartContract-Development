@@ -1,3 +1,116 @@
 {\chapter{Discussion}}
 
 The chapter is dedicated to the self-discussion of the main concepts discovered when exploring for the research topics, as well as the understanding of research, implementation, and findings discovered during the thesis.
+
+\vspace{.5cm}
+
+Beginning with the fundamentals, we investigated the distinctions between the AgentSpeak(L), AgentSpeak model, and \ac{BDI} model. AgentSpeak(L) (a high-level programming language) is created on top of the AgentSpeak model, which is itself based on the \ac{BDI} model. Following the \ac{BDI} model, which is a theoretical framework, that defines how agents choose, reason and behave in accordance with their beliefs, desires, and intentions. The AgentSpeak model extends the \ac{BDI} model by including a collection of libraries and tools for dealing with events and triggers. AgentSpeak(L) provides collection of libraries and tools for building agents based on the AgentSpeak model.
+
+\vspace{.5cm}
+
+Our study throughout the literature review assisted us in exploring various frameworks that can be utilized to create \ac{BDI}-based agents. The table \ref{BDI model frameworks} compares JASON (Java), JASON (Python), ASTRA, and various \ac{BDI} model frameworks. From table \ref{BDI model frameworks}, it's important to note that ASTRA is a research initiative rather than a programming language with the goal of creating a research agenda for the creation of agent-based systems and technologies. GOAL framework can be use to create \ac{MAS} as well as multi-agent programming environment. The initial difference between both the terminologies are that a \ac{MAS} is a system composed up of numerous autonomous agents that collaborate to achieve a mutual goals. A \ac{MAS}'s agents might be software, hardware, or a combination of the two, and a multi-agent programming environment, on the other hand, is a software framework or toolkit that makes \ac{MAS} creation, testing, and deployment easier. It includes a collection of tools and libraries that allow programmers to construct and control the behavior of numerous agents, as well as the communication and coordination mechanisms that allow them to communicate and coordinate with one another. In summary, a \ac{MAS} is the finished outcome, whereas a multi-agent programming environment is a tool used to create it.
+
+\begin{table}[h]
+\small
+\centering
+\caption{\ac{BDI} model frameworks}
+\label{BDI model frameworks}
+\resizebox{15cm}{!}{%
+\begin{tabular}{|l| l| l|}
+\hline
+\textbf{Framework} & \textbf{Language} & \textbf{Features} \\ 
+\hline\hline
+\textbf{JASON (Java)} &	AgentSpeak, Java & Based on Concurrent programming, includes \\
+& & speech-act based inter-agent communication, \\
+& & first fully-fledged interpreter for a  \\
+& & much enhanced version of AgentSpeak \\ \hline
+
+\textbf{JASON (Python)} &	AgentSpeak, Python & Based on Event-based programming, includes \\
+& & speech-act based inter-agent communication, \\
+& & first fully-fledged interpreter for a  \\
+& & much enhanced version of AgentSpeak \\ \hline
+
+\textbf{Agent Factory}	& ASTRA &	 Based on JASON, logic-based agent \\
+& & programming language, combines  \\
+& & AgentSpeak(L) with teleo-reactive functions \\ \hline
+
+
+\textbf{GOAL} &	Prolog as a knowledge  &	Based on basic practical reasoning \\ 
+& representation language & and common sense notions, design and implement \\  
+& & cognitive agents\\ \hline
+
+\textbf{JADEX} & Java & Extension of JADE to build rational agents,\\
+& & focuses on web services in a new version,\\
+& & called ActiveComponents implemented using Java \\ \hline
+
+\textbf{JACK} &	JACK Agent Language,  &	Provides graphical planning tool\\ 
+& a super-set of Java & and its own java based plan language \\ \hline
+
+\textbf{BRAHMS} & Graphical user interface, &	Simulate and develops multiagent  \\
+& custom syntax to define the  &  model of machine and human behaviour\\
+& agents and the environment & \\ \hline
+
+\textbf{2APL} & 2APL (logic-based, & 2APL interpreter is built on JADE. \\ 
+ & similar to Prolog) & \\ \hline
+
+\textbf{BDI4JADE} & Java & Provide infrastructure like message exchange\\
+& & and agent modularity \\ \hline
+
+\textbf{JaCaMo} & AgenntSpeak, Jason & Combining CartAgO (writing environment \\
+& & artifacts), Moise (programming multi-agent  \\
+& & organisation) and JASON (creating agents) \\ \hline
+\textbf{LightJason} & AgenntSpeak(L++), Java & Includes Lambda-expression, multi-plan \\
+& &  and multi-rule definition, explicit repair \\
+& & actions, multiple variable assignments  \\
+& & parallel execution and thread-safe variable \\ \hline
+\hline 
+\end{tabular}}
+\end{table}
+
+\vspace{.5cm}
+
+JASON with Python is a port of the original Java-based JASON Framework. It enables Python programmers to create \ac{MAS} and agents that are \ac{BDI}-based. It offers an event-based programming model, which enables programmers to create reactive code that reacts to outside events, as well as a high-level, user-friendly, expressive programming model for creating \ac{MAS}. JASON with Java is the JASON Framework's initial implementation. The Java programming language is used to create \ac{BDI}-based agents and \ac{MAS}, and it offers a concurrent programming approach that enables developers to create code that can manage numerous tasks at once. Debugging and visualization tools are among the several libraries and tools it offers for creating and deploying \ac{MAS}. There are more \ac{BDI} frameworks; this table is not all-inclusive.
+
+\vspace{.5cm}
+
+We also explored and delved deeply into the subject of smart contracts. To create the smart contracts, we explored numerous languages and had to choose between Solidity and Vyper. The contrasts between Solidity and Vyper were clearly illustrated in table \ref{Solidity v/s Vyper}. As a result of the comparison, we came to the realization that Solidity is a more feature-rich language that is better suited for complex contract construction, while Vyper is more streamlined and security-focused, making it more appropriate for auditing and basic contract writing. In addition to the language used, as we shown in the previous chapter, the kind of network, the complexity of the code, and the amount of data being processed all affect how much gas is consumed for deployment and contract execution.
+
+\vspace{.5cm}
+
+\begin{table}[h]
+\small
+\centering
+\caption{Solidity v/s Vyper}
+\label{Solidity v/s Vyper}
+\resizebox{12cm}{!}{%
+\begin{tabular}{|l| l| l|}
+\hline
+\textbf{Feature} & \textbf{Solidity} & \textbf{Vyper} \\ 
+\hline\hline
+		
+\textbf{Syntax}	& Similar to JavaScript and Python	& Similar to Python  \\ \hline
+\textbf{Feature Set }&	More extensive, including  &	More minimalistic, \\  
+& inheritance and libraries &  focused on security\\ \hline
+\textbf{Audibility} &	Less auditable	& More auditable  \\ \hline
+\textbf{Gas consumption}	& Can consume more gas	& Can consume less gas \\ \hline
+\textbf{Support for complex}  &	Yes &	No \\ 
+\textbf{user-defined types} & & \\ \hline
+\textbf{Support for libraries}	& Yes	& No \\ \hline
+\hline 
+\end{tabular}}
+\end{table}
+ 
+
+Our study and the results from our implementation led us to the evidence that agents can use smart contracts to coordinate their beliefs, desires and intentions with rules, which provides the explanation to our \textbf{RQ1}. The rules that control how supply chain participants interact can be referred to as smart contracts. These regulations may specify the terms and circumstances for carrying out certain activities, such as when a retailer may buy products from a wholesaler or when a manufacturer may send goods to a store. By using the smart contract's features and providing the necessary data and settings, agents can communicate with it. The smart contract may then put the rules into action and determine how the interaction will turn out based on the state of the supply chain at the moment and the data provided by the agents.
+
+\vspace{.5cm}
+
+We came to the conclusion that roles for retailer, wholesaler, and manufacturer can be represented in a Solidity-based supply chain application using \ac{BDI} model agent library in reference to our \textbf{RQ2} since it was addressed by our implementation. The \ac{BDI} Agent Library can be used to implement \ac{MAS} on the blockchain in addition to implementing the beliefs, desires, and intents of the agents, which can involve a variety of actions and behaviors in the supply chain.
+
+\vspace{.5cm}
+
+Additionally, smart contracts can be used to create consensus and dispute resolution processes, such as when a contract or agreement is not fulfilled by all parties or when there are disagreements. Further, the smart contract may be designed to encourage automated, transparent communication and coordination amongst supply chain agents. All parties in the supply chain may maintain tabs on the movement of goods and adjust their operations accordingly by using smart contracts, for instance, to automatically update inventory levels and shipment status of products.
+
+\vspace{.5cm}
+
+We also determined that synchronizing AgentSpeak tactics and goals with on-chain smart contract transaction payloads is achievable, albeit the precise implementation would rely on the AgentSpeak library and the blockchain platform employed. The technique we adopted was to utilize the AgentSpeak library to specify the agents' decision-making strategies and goals, and then use smart contracts to manage transaction execution based on those strategies and goals. It ought to be noted that synchronizing AgentSpeak tactics and goals with on-chain smart contract transaction payloads is a difficult operation that would need a thorough grasp of both AgentSpeak and blockchain technology.
