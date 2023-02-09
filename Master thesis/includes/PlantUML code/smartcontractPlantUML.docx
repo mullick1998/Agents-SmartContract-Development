@@ -11,60 +11,59 @@ end box
 box "Blockchain Framework" #LightGreen
 database EthereumVirtualMachine as EVM
 end box
-
 note over Manufacturer: //Manufactures product//
 Manufacturer -> EVM: invoking ""produceItemByManufacturer()""
 activate Manufacturer #DarkSalmon
 activate EVM #FFBBBB
-note right #Orange: **Generating Transaction Hash**
-EVM --> Manufacturer : ""Tx Hash""
+note over EVM #Orange: Generating ""Transaction Hash""
+note right #yellow: **""Tx hash""** for \n Product manufactured
 
 note over Manufacturer: //Packages product//
 Manufacturer -> EVM: invoking ""packageItemByManufacturer()""
-EVM --> Manufacturer: ""Tx Hash""
+note right #yellow: **""Tx hash""** for \n Product packaged
 
 note over Manufacturer: //Out for Sale//
 Manufacturer-> EVM: invoking ""sellItemByManufacturer()""
-EVM --> Manufacturer: ""Tx Hash""
+note right #yellow: **""Tx hash""** for \n Product sold
 
 note over Wholesaler: //Purchase Product by paying// \n //the desire amount by Manufacturer//
 Wholesaler -> Manufacturer : Purchases product
 activate Wholesaler #DarkSalmon
 Wholesaler -> EVM  : invoking ""purchaseItemByWholesaler()""
-EVM --> Wholesaler: ""Tx Hash""
+note right #yellow: **""Tx hash""**  for \n Product purchased
 
 note over Manufacturer: //Sending Product to Wholesaler//
 Manufacturer -> Wholesaler: Ships Product
 Manufacturer -> EVM: invoking ""shippedItemByManufacturer()""
-EVM --> Manufacturer: ""Tx Hash""
+note right #yellow: **""Tx hash""**  for \n Product shipped
 
 deactivate Manufacturer 
 
 note over Wholesaler: //Receives Product//
 Wholesaler -> EVM: invoking ""receivedItemByWholesaler()""
-EVM --> Wholesaler : ""Tx Hash""
+note right #yellow: **""Tx hash""**  for \n Product received
 
 note over Wholesaler: //Out for Sale//
 Wholesaler-> EVM: invoking ""sellItemByWholesaler()""
-EVM --> Wholesaler : ""Tx Hash""
+note right #yellow: **""Tx hash""**  for \n Product sold
 
 note over Retailer: //Purchase Product by paying// \n //the desire amount by Wholesaler//
 
 Retailer -> Wholesaler : Purchases product
 activate Retailer #DarkSalmon
 Retailer -> EVM  : invoking ""purchaseItemByRetailer()""
-EVM --> Retailer: ""Tx Hash""
+note right #yellow: **""Tx hash""**  for \n Product purchased
 
 note over Wholesaler: //Sending Product to Retailer//
 Wholesaler -> Retailer: Ships Product
 Wholesaler -> EVM: invoking ""shippedItemByWholesaler()""
-EVM --> Wholesaler: ""Tx Hash""
+note right #yellow: **""Tx hash""**  for \n Product shipped
 
 deactivate Wholesaler
 
 note over Retailer: //Receives Product//
 Retailer -> EVM: invoking ""receivedItemByRetailer()""
-EVM --> Retailer : ""Tx Hash""
+note right #yellow: **""Tx hash""**  for \n Product received
 deactivate EVM
 deactivate Retailer
 

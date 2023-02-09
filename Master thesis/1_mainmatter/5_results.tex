@@ -8,7 +8,7 @@ This chapter focuses on reviewing all of the work completed while utilizing all 
 
 \section{Multiple Agent System Development}
 
-We originally utilized JASON with a java-based interpreter to execute \ac{MAS}. To run \ac{MAS}, we downloaded the necessary scripts and libraries. Gradle and maven were then used for straightforward configuration and setting up the home variables. Then, in order to enable agent interaction, we created \texttt{mas2j} files after designing \texttt{asl} files for each agent. We introduced four agents: \texttt{supplyChainAgent}, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}. The \texttt{supplyChainAgent} is the primary agent who will engage other agents to achieve their objectives. As their names imply, the other agents will perform their respective tasks in an adaptive supply chain. Running the agents in the \ac{MAS} environment produced the following results.
+We originally utilized Jason with a java-based interpreter to execute \ac{MAS}. To run \ac{MAS}, we downloaded the necessary scripts and libraries. Gradle and maven were then used for straightforward configuration and setting up the home variables. Then, in order to enable agent interaction, we created \texttt{mas2j} files after designing \texttt{asl} files for each agent. We introduced four agents: \texttt{supplyChainAgent}, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}. The \texttt{supplyChainAgent} is the primary agent who will engage other agents to achieve their objectives. As their names imply, the other agents will perform their respective tasks in an adaptive supply chain. Running the agents in the \ac{MAS} environment produced the following results.
 
 \vspace{.5cm}
 
@@ -44,15 +44,15 @@ supplyChainAgent : SUPPLYCHAIN COMPLETE
 
 \vspace{.5cm}
 
-Due to the limitations of Java-based interpreter with \texttt{web3} package, we immediately switched to ASTRA and JASON with a Python-based interpreter. However, all of them produced the same outcome as described above, despite the fact that the scripting of agents and the \ac{MAS} environment differed.
+Due to the limitations of Java-based interpreter with \texttt{web3} package, we immediately switched to ASTRA and Jason with a Python-based interpreter. However, all of them produced the same outcome as described above, despite the fact that the scripting of agents and the \ac{MAS} environment differed.
 
 \vspace{.5cm}
 
-ASTRA agents, unlike JASON, are not written in \texttt{asl} files, and it also does not require a \texttt{mas2j} file to make all of the agents interact with one another. In ASTRA, all of the agents' primary and secondary goals may be expressed in a single \texttt{astra} file. Agents are written in Java-style syntax, which makes it easier for coders to comprehend and write in the format. The primary means of interaction between agents in ASTRA is through the usage of an \ac{ACL}. ASTRA allows for direct contact through \ac{FIPA} \ac{ACL}-based message forwarding.
+ASTRA agents, unlike Jason, are not written in \texttt{asl} files, and it also does not require a \texttt{mas2j} file to make all of the agents interact with one another. In ASTRA, all of the agents' primary and secondary goals may be expressed in a single \texttt{astra} file. Agents are written in Java-style syntax, which makes it easier for coders to comprehend and write in the format. The primary means of interaction between agents in ASTRA is through the usage of an \ac{ACL}. ASTRA allows for direct contact through \ac{FIPA} \ac{ACL}-based message forwarding.
 
 \vspace{.5cm}
 
-Although ASTRA is simpler to grasp, it suffers from the same restriction as JASON with its Java-based interpreter in that it cannot leverage the \texttt{web3} package to infuse \ac{BCT} into the \ac{MAS}. As a result, we decided to use JASON with a Python-based interpreter. It is being used after installing the \texttt{agentspeak} package using \ac{pip}. It utilizes the same \texttt{asl} file, but instead of a \texttt{mas2j} file, it initiates the agents interaction with a python script. It is as simple to run as any other Python script and works flawlessly when smart contract functionalities are added to it as \texttt{actions} of agents.
+Although ASTRA is simpler to grasp, it suffers from the same restriction as Jason with its Java-based interpreter in that it cannot leverage the \texttt{web3} package to infuse \ac{BCT} into the \ac{MAS}. As a result, we decided to use Jason with a Python-based interpreter. It is being used after installing the \texttt{agentspeak} package using \ac{pip}. It utilizes the same \texttt{asl} file, but instead of a \texttt{mas2j} file, it initiates the agents interaction with a python script. It is as simple to run as any other Python script and works flawlessly when smart contract functionalities are added to it as \texttt{actions} of agents.
 
 \section{Smart Contract Implementation }
 
@@ -139,7 +139,7 @@ We were decided from the outset to utilize Solidity to construct the smart contr
 
 \vspace{.5cm}
 
-JASON's and some issue with web3 libraries gave us the opportunity to explore more and to switch from Solidity to Vyper and learn more about the language. Because Vyper lacks \textit{Modifiers}, \textit{Class Inheritance}, \textit{Inline Assembly}, \textit{Function Overloading}, \textit{Operator Overloading}, and \textit{Binary Fixed Point}, a thorough examination of Vyper prompted us to chose Solidity once more. The usage of the following constructs might result in confusing or challenging to comprehend code, hence they are not included and to create final smart contracts, we continued to use Solidity as our primary language.
+Jason's and some issue with web3 libraries gave us the opportunity to explore more and to switch from Solidity to Vyper and learn more about the language. Because Vyper lacks \textit{Modifiers}, \textit{Class Inheritance}, \textit{Inline Assembly}, \textit{Function Overloading}, \textit{Operator Overloading}, and \textit{Binary Fixed Point}, a thorough examination of Vyper prompted us to chose Solidity once more. The usage of the following constructs might result in confusing or challenging to comprehend code, hence they are not included and to create final smart contracts, we continued to use Solidity as our primary language.
 
 
 \section{Infuse Blockchain Technology in Multiple Agent System}
@@ -148,7 +148,7 @@ Following the creation of contracts, we began looking for an appropriate \ac{AOP
 
 \subsubsection{Finale Outcome}
 
-Our main objective was to find a way to incorporate \ac{BCT} into \ac{MAS} and create smart contracts using JASON \ac{BDI} agents. One of our ideas was successful, and the infuse was effective. We tested the code several times to make sure it was running correctly by looking at the \texttt{contract address} and \texttt{transaction hashes} from ganache as we were deploying using local network, and each try was successful, as can be seen in the output from one of the evaluations below.
+Our main objective was to find a way to incorporate \ac{BCT} into \ac{MAS} and create smart contracts using Jason \ac{BDI} agents. One of our ideas was successful, and the infuse was effective. We tested the code several times to make sure it was running correctly by looking at the \texttt{contract address} and \texttt{transaction hashes} from ganache as we were deploying using local network, and each try was successful, as can be seen in the output from one of the evaluations below.
 
 \vspace{.5cm}
 
@@ -204,4 +204,4 @@ The output above demonstrates how the various supply chain roles interact with o
 
 \vspace{.5cm}
 
-After a successful implementation, we remained adamant on running it in Java and used the \texttt{web3j} package to integrate \ac{BCT} into \ac{MAS}. We attempted to use JASON with Java by converting the Python code into a Java application. The creation of a Java application containing Python code was successful, but when the \texttt{.mas2j} file was executed, it was unable to import the package \texttt{org.python} , which is necessary to start the program.
+After a successful implementation, we remained adamant on running it in Java and used the \texttt{web3j} package to integrate \ac{BCT} into \ac{MAS}. We attempted to use Jason with Java by converting the Python code into a Java application. The creation of a Java application containing Python code was successful, but when the \texttt{.mas2j} file was executed, it was unable to import the package \texttt{org.python} , which is necessary to start the program.

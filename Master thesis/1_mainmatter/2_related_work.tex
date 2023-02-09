@@ -6,11 +6,11 @@
 
 The pertinent research in the field of agent programming using smart contracts will be covered in this part. The associated papers' subjects were arranged to address the following literature research questions (LRQ): 
 \begin{itemize}[label={}]
-    \item \textbf{LRQ1.} How to determine the distinction between object-oriented and agent-oriented programming, and how to build agents and \ac{MAS} with JASON, ASTRA or other domain-specific \ac{AOP} languages, and have them interact in supply chain management?\\
+    \item \textbf{LRQ1.} How to build intelligent agents within \ac{MAS} using \ac{AOP} language while comparing it with \ac{OOP}? \\
 
-    \item \textbf{LRQ2.} While researching about the \ac{BDI}-based agents, an important question came into a picture regarding, What are the other frameworks available except \textbf{JASON} for writing the agents using the \ac{BDI} model, and how do they compare?\\
+    \item \textbf{LRQ2.} What are the frameworks available for creating agents using the \ac{BDI} model?\\
     
-    \item \textbf{LRQ3.} After understanding \ac{MAS}, how to include smart contracts into \ac{MAS}, record agent interactions on a blockchain using smart contracts, and store transactions on a blockchain?\\
+    \item \textbf{LRQ3.} How to include smart contracts into \ac{MAS} in order to store transactions on a blockchain?\\
 
     \item \textbf{LRQ4.} What is the purpose of conducting further study when there has already been considerable research done on decentralized execution of smart contracts using the agent model?
 
@@ -27,17 +27,33 @@ Researchers in agent-oriented programming have created a number of agent program
  
  \vspace{.5cm}
  
-In this paper \cite{astra}, a conceptual mapping between \ac{OOP} and the AgentSpeak(L) family of \ac{AOP} languages was made in an effort to create such a linkage. This mapping examines how AgentSpeak(L) notions connect to \ac{OOP} principles and the concurrent programming concept of threads. After that, they used the study of this mapping to inform the creation of the \textbf{ASTRA} programming language.
+In this paper \cite{astra}, a conceptual mapping between \ac{OOP} and the AgentSpeak(L), family of \ac{AOP} languages was made; in an effort to create a linkage. This mapping examines how AgentSpeak(L) notions connect to \ac{OOP} principles and the concurrent programming concept of threads. After that, they used the study of this mapping to inform the creation of the \textbf{ASTRA} programming language.
 
  \vspace{.5cm}
  
-\item \textbf{Paper Title: \textit{\ac{BDI} Agent Programming in AgentSpeak Using JASON}} \\
+\item \textbf{Paper Title: \textit{\ac{BDI} Agent Programming in AgentSpeak Using Jason}} \\
 
-This study \cite{jasonBDI} is premised on the instruction that was offered as a part of CLIMA-instructional VI's program. The tutorial's goal was to provide a general overview of the functionality offered by JASON, a \ac{MAS} development platform built around an interpreter for an enhanced version of AgentSpeak. The most well-known and extensively researched architecture for cognitive agents is the \ac{BDI} architecture, and AgentSpeak is a sophisticated, logic-based programming language that was inspired by the \ac{BDI} design.
+This study \cite{jasonBDI} is premised on the instruction that was offered as a part of CLIMA-instructional VI's program. The tutorial's goal was to provide a general overview of the functionality offered by Jason, a \ac{MAS} development platform built around an interpreter for an enhanced version of AgentSpeak. The most well-known and extensively researched architecture for cognitive agents is the \ac{BDI} architecture, and AgentSpeak is a sophisticated, logic-based programming language that was inspired by the \ac{BDI} design.
 
 \vspace{.5cm}
 
-The paper also discusses how agent-based technology has become increasingly popular for a number of reasons, including how well-suited it has proven to be for the invention of a wide range of applications, such as for air traffic control, autonomous spacecraft control, healthcare, and industrial systems control, to mention a few. These are undoubtedly application areas where reliable systems are needed. The fact that formal verification techniques tailored specifically for \ac{MAS} are also an area that is luring much research attention and is likely to have a major impact on the uptake of agent technology is one of the benefits of the approach to programming \ac{MAS} that results from the research reviewed in this paper.
+The paper also discusses how agent-based technology has become increasingly popular for a number of reasons, including how well-suited it has proven to be for the invention of a wide range of applications, such as for air traffic control, autonomous spacecraft control, healthcare, and industrial systems control, to mention a few. These are undoubtedly application areas where reliable systems are needed. The fact that formal verification techniques tailored specifically for \ac{MAS} are also an area that is luring much research attention and is likely to have a major impact on the uptake of agent technology.
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{A Multi-agent System for Optimizing Urban Traffic}}\\
+
+This article \cite{traffmulti} presents the creation of a hierarchical multi-agent framework for controlling an urban traffic system, which is made up of numerous locally running agents, each representing a traffic system intersection. Two traffic scenarios are studied to evaluate the operation of the proposed urban traffic multi-agent system. The multi-agent system efficiently controlled the network's progressive congestion in both circumstances (traffic accident and morning rush hour).
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{Decision Making in Multiagent Systems: A Survey}} \\
+
+In this study \cite{decision}, the researchers look at the most recent work on cooperative MAS decision making models, such as Markov decision processes, game theory, swarm intelligence, and graph theoretic models. Reinforcement learning, dynamic programming, evolutionary computing, and neural networks are examples of algorithms that produce optimum and suboptimal policies.
+
+\vspace{.5cm}
+
+The researchers also talk about how these models may be used in robotics, wireless sensor networks, cognitive radio networks, intelligent transportation systems, and smart electric grids. Furthermore, the researchers define key terms in the field and discuss remaining challenges such as incorporating big data advances into decision making, developing autonomous, scalable, and computationally efficient algorithms, tackling more complex tasks, and developing standardized evaluation metrics.
 
 \vspace{.5cm}
 
@@ -51,18 +67,24 @@ These agents collaborate with one another to plan and carry out their tasks and 
 
 \vspace{.5cm}
 
-The objective of developing models and methods that allow \ac{MAS} to do coordinated work in practical applications has been advanced by the research in a number of different ways. These strategies are carried out by the agents, which causes several organized dialogues to occur amongst the agents. These concepts have been supported by the development of a useful, application-neutral coordination language that offers tools for describing coordination-enhanced plans as well as the interpreter supporting their execution. The researcher of the study has tested the coordination language and the shell on a number of issues, including supply chain coordination initiatives carried out in collaboration with industry. Despite the fact that the number of solutions they built and the number of users of our system are both limited, the evidence they have so far shows that their methodology is promising in terms of the naturalness of the coordination model, the effectiveness of the representation and power, and the usability of the provided programming tools.
+The objective of developing models and methods that allow \ac{MAS} to do coordinated work in practical applications has been advanced by the research in a number of different ways. All the strategies are carried out by the agents, which causes several organized dialogues to occur amongst the agents. These concepts have been supported by the development of a useful, application-neutral coordination language that offers tools for describing coordination-enhanced plans as well as the interpreter supporting their execution. The researcher of the study has tested the coordination language and the shell on a number of issues, including supply chain coordination initiatives carried out in collaboration with industry. Despite the fact that the number of solutions they built and the number of users of our system are both limited, the evidence they have so far shows that their methodology is promising in terms of the naturalness of the coordination model, the effectiveness of the representation and power, and the usability of the provided programming tools.
 \end{itemize}
 
 \vspace{.5cm}
 
-The JASON framework facilitates reasoning about beliefs, desires, and intentions, as well as agent communication. Other frameworks that support the BDI paradigm and MAS are also available. \textbf{LRQ2} led us to these research articles presented below.
+There is Jason framework that we are about to use in order to create agents which facilitates reasoning about beliefs, desires, and intentions, as well as agent communication. However there are other frameworks available that support the \ac{BDI} paradigm and \ac{MAS}. \textbf{LRQ2} led us to these research articles presented below to understand better.
 
 \begin{itemize}[label={}]
 
+\item \textbf{Paper Title: \textit{Languages for Programming \ac{BDI}-style Agents: an Overview}}\\
+
+In this paper \cite{9lang}, nine languages and systems are reviewed and compared namely PRS, dMARS, JACK, JAM, Jadex, AgentSpeak(L), 3APL, Dribble, and Coo-\ac{BDI}. There are additional links to other systems and languages based on the \ac{BDI} concept, as well as surveys dealing with relevant themes.
+
+\newpage
+
 \item \textbf{Paper Title: \textit{A Review of Agent Platforms}}\\
 
-The goal of the paper \cite{review} is to give information on various frameworks and conduct an in-depth analysis. It offers details on active projects, projects whose status is unknown in relation to certain platform types, such as general-purpose, special-purpose, modeling-simulation platforms, and platforms that are no longer being developed. It also shows MAS development techniques.
+The goal of the paper \cite{review} is to give information on various frameworks and conduct an in-depth analysis. It offers details on active projects, projects whose status is unknown in relation to certain platform types, such as general-purpose, special-purpose, modeling-simulation platforms, and platforms that are no longer being developed. It also shows \ac{MAS} development techniques.
 
 \vspace{.5cm}
 
@@ -84,12 +106,45 @@ The article \cite{survey} provides an up-to-date comparative analysis of the mos
 
 The researchers have proposed a realistic guideline suggestion for comparing and assessing agent platforms in this article, which is directly connected to the scope of platform operation and the quality of each platform's given feature. This proposal for guidelines is made up of five separate criterion categories: platform attributes, usability, operational ability, pragmatics, and security management. Each of these categories contains a number of subcriteria indicating a thorough examination of each agent platform.
 
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{Multi-agent oriented programming with JaCaMo}}\\
+
+The researchers presented a complete strategy for multi-agent oriented programming that combines the agent, environment, and organizational levels, giving a programming model that tries to connect relevant abstraction elements in an effective and synergistic way. To put the concept into reality, the researchers developed the JaCaMo platform, which integrates and expands current techniques and supporting technologies, particularly Jason (agent dimension), CArtAgO (environment dimension), and Moise (communication dimension) (organisation dimension).  In this paper \cite{Jacamo}, a case study and various applications were used to demonstrate the overall strategy.
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{Brahms: A multiagent modelling environment for simulating work processes and practices}}\\
+
+The researchers suggest in this paper \cite{brahms} that the Brahms language is appropriate for researching many social and work practice issues of relevance to the organizational process modeling community. Their modeling work practice experience and findings imply that wider social problems may also be simulated. The Brahms modeling language provides significant advantages for researchers because, when compared to other tools like as Swarm, it allows for a more "natural" description of human behavior at the level of activities, reasoning, communication, contact with objects, and mobility in the world.
+
+\vspace{.5cm}
+
+Brahms, like other \ac{BDI} languages, is a declarative language, but it is distinct from the other \ac{BDI} languages in numerous ways:
+Brahms is an activity-based language, whereas the majority of other \ac{BDI} languages are task-based. Brahms has a subsumption design, whereas most other \ac{BDI} languages employ a goal-based architecture; it supports environment modeling (geography), agent mobility in the environment, and so on; Finally, Brahms provides a distinct fact-state for modeling the world state outside of the agent's belief-set, whereas typical \ac{BDI}-languages only describe agents with an independent belief-state.
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{Jadex: A \ac{BDI}-Agent System Combining Middleware and Reasoning}}\\
+
+This article \cite{jadex} describes a method for integrating an agent middleware with a reasoning engine in order to maximize the benefits of both strands. The reason for agent-oriented middleware was discussed, as well as an overview of the \ac{BDI} model, and the design and implementation of the Jadex \ac{BDI} engine as an extension to the widely used JADE agent platform. The Jadex system enables the creation of rational beings with goal-directed (rather than task-oriented) behavior. The Jadex agents are built using well-established software engineering approaches such as XML, Java, and OQL, allowing software professionals to swiftly capitalize on the possibilities of the mentalistic approach.
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{LightJason, a Highly Scalable and Concurrent Agent Framework: Overview and Application}}\\
+
+The paper \cite{lightjason} provides an overview and use of LightJason, a highly scalable Java-based \ac{AOP} and simulation platform. The researchers describe the architectural elements of LightJason and demonstrate its applicability via the use of an example of a browser-based web application that implements a traffic serious game designed to instruct an interdisciplinary student team in \ac{MAS} and \ac{AOP}.
+
+\vspace{.5cm}
+
+The use-case model illustrates a highway traffic scenario that is used to teach \ac{MAS} and \ac{AOP} to students. Vehicles, road segments with speed restrictions, and traffic rule enforcement are all modeled as \ac{BDI} agents. The researchers focused on how LightJason supports integrating agent technology into cutting-edge browser-based web applications, which is difficult with existing agent frameworks, which are mostly stand-alone with "hard-wired" integrated development environments, runtime, graphical user interface, and source editor. These components are modular in LightJason, making the structure lightweight, versatile, and simple to incorporate.
+
 \end{itemize}
 
 
 \section{Linking Blockchain with Agents}
 
-The principal objective was to include \ac{BCT} into \ac{MAS}, which is a very current and innovative subject that may be applied in a futuristic supply chain. Some researchers have already worked on it, which has given us some ideas on how to construct smart contracts with JASON \ac{BDI} agents. The papers listed below are aligned to our work and can be read to have a stronger insight to answer the \textbf{LRQ3} we posed in this chapter.
+The principal objective was to include \ac{BCT} into \ac{MAS}, which is a very current and innovative subject that may be applied in a futuristic supply chain. Some researchers have already worked on it, which has given us some ideas on how to run smart contracts by the agents, created using Jason framework. The papers listed below are aligned to our work and can be read to have a stronger insight to answer the \textbf{LRQ3} we posed in this chapter.
 
 \begin{itemize}[label={}]
 
@@ -124,6 +179,16 @@ The creation of intelligent distributed systems that manage sensitive data makes
 \vspace{.5cm}
 
 This paper\cite{literature} includes a thorough literature evaluation of trials using \ac{MAS} and \ac{BCT} as conciliatory remedies as the first required step toward achieving this aim. The authors examined the reasons, presumptions, prerequisites, characteristics, and limits offered in the current state of the art in an effort to give a thorough review of their application fields. They also lay out their vision for how \ac{MAS} and \ac{BCT} may be coupled in various application situations while noting upcoming hurdles.
+
+\vspace{.5cm}
+
+\item \textbf{Paper Title: \textit{Self-Aware Smart Contracts with Legal Relevance}} \\
+
+This paper \cite{sac} introduces a revolutionary, blockchain-agnostic paradigm for cross-organizational peer-to-peer cooperation. When new blockchain technology enabled smart contracts are paired with intelligent multi-agent systems, they provide so-called self-aware contracts, which offer a high degree of automation for such peer-to-peer partnerships.
+
+\vspace{.5cm}
+
+It was revealed that combining \ac{BDI} agents with the declarative SAC-Language results in self-aware contracts, where the former ensure that trustworthy information is routed into contract-based collaborations as a merged set. The researchers accomplished human manageability of the self-aware contract framework by offering a declarative smart-contract language that defines cross-organizational contract-collaborations, in addition to deploying agents that give a degree of artificial intelligence in a collaboration.
 \end{itemize}
 
 \vspace{.5cm}
@@ -132,8 +197,14 @@ Understanding how applications employing \ac{MAS} and smart contracts are deploy
 
 \vspace{.5cm}
 
-As mentioned in \textbf{LRQ4}, some work has been done combining agents and blockchain, but we are conducting additional research in this area because the agents we are about to use are \ac{BDI} agents, which are a type of software agent that can make autonomous decisions based on its beliefs about the environment, desires or goals, and intentions to achieve those goals. \ac{BDI} agents can assist with supply chain management by arranging the flow of commodities, monitoring inventory levels, and negotiating with suppliers and consumers. They may also be used to help with decision making, such as identifying the best suppliers to work with and identifying potential supply chain difficulties or problems.
+As mentioned in \textbf{LRQ4}, some work has been done combining agents and blockchain, however we are conducting additional research in this area because the agents we are about to use are \ac{BDI} agents with Jason framework, which are a type of software agent that can make autonomous decisions based on its beliefs about the environment, desires or goals, and intentions to achieve those goals. We are attempting to integrate blockchain technology into a multi-agent environment created using Jason framework in which intelligent agents can communicate with one another.\ac{BDI} agents can assist with supply chain management by arranging the flow of commodities, monitoring inventory levels, and negotiating with suppliers and consumers. 
 
-\vspace{.5cm}
 
-The next chapters attempt to construct our own application utilizing solidity-written smart contracts with JASON BDI agents to investigate if \ac{BDI} agents can enhance the collaboration, coordination and negotiation between supply chain members and if it can be used with smart contracts to manage unforeseen events and contingencies in supply chain.
+\begin{figure}[h]
+\centering
+  \includegraphics[width=12cm]{includes/figures/related work.png} 
+  \caption{Literature Contribution}
+  \label{related work}
+\end{figure}
+
+Figure \ref{related work} depicts a visual representation of the above-mentioned paper's contribution to our literature study and addressing the LRQs. The next chapters attempt to construct our own application utilizing solidity-written smart contracts with Jason \ac{BDI} agents to investigate if \ac{BDI} agents can enhance the collaboration, coordination and negotiation between supply chain members and if it can be used with smart contracts to manage unforeseen events and contingencies in supply chain.

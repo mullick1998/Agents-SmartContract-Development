@@ -191,3 +191,19 @@ Focusing more on interaction, try focus on agent part.
 - Include LightJason
 
 ### 18th meeting (3rd february 2023) [09:30-09:]
+- Remove the migration from class diagram.  <span style="color: green"> _(done)_  </span>
+- One big class diagram for the whole application  <span style="color: orange"> _(doesnt have any class in agents)_  </span>
+- About RQ1 can be changed with, (What character we need in smart contract to coordinate it with Belief- Desire- Intention of agents?) <span style="color: green"> _(done)_  </span>
+- Use Literature review part to describe the other BDI Agents mentioned in table. <span style="color: green"> _(done)_  </span>
+- Remove summary ask direct LRQs, dont mention technologies. <span style="color: green"> _(done)_  </span>
+- Check of BDI interpreter, check notation, what algorithm are used for each framework. 
+
+### REVIEW [03.02.2023]
+
+- Related Work should be extended.  <span style="color: green"> _(done)_  </span>
+- TxHash cannot be a response in Figure 4.2. Do all of the functions - return the same result? Why do we need different functions then? <span style="color: green"> _(done)_  </span>
+- Figure 4.6 should be detailed. What kind of messages? Do you mean events? <span style="color: green"> _(done)_  </span>
+- Please add LightJason in the comparison part. What is the difference between frameworks? (Aspect of BDI logic, interpreter, etc.) <span style="color: green"> _(done)_  </span>
+- The second research question should be how to. Reorganize the first question again. <span style="color: green"> _(done)_  </span>
+- Be careful about spelling mistakes in the framework. For instance, Table 6.1. <span style="color: green"> _(done)_  </span>
+

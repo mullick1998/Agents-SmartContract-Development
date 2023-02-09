@@ -5,7 +5,7 @@
 
 %design
 
-This chapter describes the layout of the thesis' proposed solution. It also discusses implementation specifics and the tools used to build smart contracts and JASON \ac{BDI} agents. The \ac{BDI} agents work in a \ac{MAS} via JASON AgentSpeak and communicate via solidity and python-based smart contracts. We will discuss about the application's design objectives and general overview. We will also go through the application's design and functionality for both creating smart contracts independently and after doing so, as well as for creating agents. We discuss the \ac{MAS} and \ac{BCT} implementation specifics, package and library versions utilized, and system configuration. Additionally, the procedures necessary to combine both in order to contribute to this thesis are also presented. This chapter's prerequisites include understanding the design and architecture of blockchain, AgentSpeak, and \ac{AOP} as described in the previous chapter. The prior chapter's contents should be reviewed in order to fully comprehend the chapters that follow.
+This chapter describes the layout of the thesis' proposed solution. It also discusses implementation specifics and the tools used to build smart contracts and Jason \ac{BDI} agents. The \ac{BDI} agents work in a \ac{MAS} via Jason AgentSpeak and communicate via solidity and python-based smart contracts. We will discuss about the application's design objectives and general overview. We will also go through the application's design and functionality for both creating smart contracts independently and after doing so, as well as for creating agents. We discuss the \ac{MAS} and \ac{BCT} implementation specifics, package and library versions utilized, and system configuration. Additionally, the procedures necessary to combine both in order to contribute to this thesis are also presented. This chapter's prerequisites include understanding the design and architecture of blockchain, AgentSpeak, and \ac{AOP} as described in the previous chapter. The prior chapter's contents should be reviewed in order to fully comprehend the chapters that follow.
 
 \section{Roadmaps}
 
@@ -78,13 +78,13 @@ The application is designed to be as basic as possible in order to learn how a s
 
 \vspace{.5cm}
 
-The application flow for the \textit{Smart contract development with JASON \ac{BDI} agents} is depicted in Figure  \ref{Flow chart}. These three agents, a manufacturer, a wholesaler, and a retailer, each perform a specific function in the supply chain. All three of the other agents are being invoked by another primary agent in the \ac{MAS}. Figure 
+The application flow for the \textit{Smart contract development with Jason \ac{BDI} agents} is depicted in Figure  \ref{Flow chart}. These three agents, a manufacturer, a wholesaler, and a retailer, each perform a specific function in the supply chain. All three of the other agents are being invoked by another primary agent in the \ac{MAS}. Figure 
  \ref{Smart Contract Sequence Diagram}  shows the sequence of generating the smart contracts and Figure \ref{State Diagram} can be used for brief demonstration regarding the states on which the smart contracts are to be generated within the supply chain.
 
 \vspace{.5cm}
 
 The application was created and tested on a Linux Ubuntu 22.04.1 LTS system.
-Visual Studio and InetlliJ are the \ac{IDE} used to create the application. \textit{jEdit} is also used somehow to run agents using JASON while creating \texttt{.asl} and running \texttt{.mas2j} file.
+Visual Studio and InetlliJ are the \ac{IDE} used to create the application. \textit{jEdit} is also used somehow to run agents using Jason while creating \texttt{.asl} and running \texttt{.mas2j} file.
 To test the compatibility of web3j with gradle for agents, many versions of Java Standard Edition Development Kit were utilized, however the most commonly used was Java SE Development Kit 18.0.2.1. 
 
 \vspace{.5cm}
@@ -102,9 +102,9 @@ As aforementioned, the terminology blockchain refers to two things: a distribute
 
 \vspace{.5cm}
 
-    \begin{figure}[h]
+    \begin{figure}[h!]
     \centering
-      \includegraphics[width=15cm]{includes/figures/Sequence Diagram.jpg} 
+      \includegraphics[width=12cm]{includes/figures/Sequence Diagram.png} 
       \caption{Smart Contract Sequence Diagram}
       \label{Smart Contract Sequence Diagram}
     \end{figure}
@@ -117,7 +117,7 @@ The programming for smart contracts related supply chain is done while keeping t
 
    \begin{figure}[h]
     \centering
-      \includegraphics[width=\linewidth]{includes/figures/State diagram.png} 
+      \includegraphics[width=12cm]{includes/figures/State diagram.png} 
       \caption{State Diagram for Smart Contracts}
       \label{State Diagram}
     \end{figure}
@@ -129,15 +129,14 @@ Each function is regarded as an event, and every event is given a state. It has 
 \vspace{.5cm}
 
 Solidity language is used to create smart contracts, while JavaScript is used for testing. The \texttt{.sol} files were compiled using Solidity v0.8.13, to retrieve \texttt{.abi} and \texttt{.bin} files for further implementation and deployment. The truffle tool, especially truffle v5.6.5, has been used for deployment and testing. We have used ganache v7.5.0 and ganache-UI v2.5.4 to examine state and manage chain behavior. All of the packages listed below have been obtained using node v14.0.0 (npm v6.14.4) in the table \ref{Package Version}.
-    
-\vspace{.5cm}
 
 \begin{table}[h]
 \small
 \centering
 \caption{Package Version}
 \label{Package Version}
-\begin{tabular}{|l| l|}
+\resizebox{5.5cm}{!}{%
+\begin{tabular}{|l|l|}
 \hline
 \textbf{Node Package} & \textbf{Version} \\ 
 \hline\hline
@@ -149,14 +148,12 @@ dotenv & 16.0.1\\ \hline
 geth & 0.4.0\\ \hline
 openzeppelin & 4.7.3\\ \hline
 \hline 
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \vspace{.5cm}
 
 Figure \ref{State Diagram} and Figure \ref{Activity Diagram} were used as a reference for developing smart contracts connected to supply chain. The following events were included in the supply chain: To complete the supply chain, (i) the manufacturer manufactures the product, (ii) the manufacturer packages the product, (iii) the manufacturer sells the product to the wholesaler, (iv) the wholesaler purchases the product, (v) the wholesaler receives the product, (vi) the wholesaler sells the product to the retailer, (vii) the retailer purchases the product, (viii) the retailer receives the product, and restocks his/her inventory.
-
-\vspace{.5cm}
 
 \begin{figure}[h]
 \centering
@@ -173,22 +170,18 @@ The model of the application for smart contracts can be easily understand from F
 
 Aside from Solidity, there are several more languages available for building smart contracts. Vyper was also chosen to construct smart contracts, which is now one of \ac{DeFi}'s most popular languages. Vyper is a high-level programming language identical to Python. However, due to its limitations over Solidity, the proposal was subsequently abandoned.
 
-
-\begin{figure}[!h]
+\begin{figure}[h!]
 \centering
   \includegraphics[width=21cm, angle=90]{includes/figures/OverallClassDiagram.png} 
   \caption{Smart Contract Class Diagram}
   \label{Overall Class Diagram}
 \end{figure}
 
-
 \section{Agent Model Implementation}
 
-An agent continually perceives its environment, makes decisions about how to act to achieve its objectives, and then takes action to alter the surroundings. The speech-act theory is commonly used to describe agent communication in \ac{MAS}. The speech-act hypothesis is based on the premise that language is action.
+An agent continually perceives its environment, makes decisions about how to act to achieve its objectives, and then takes action to alter the surroundings. The speech-act theory is commonly used to describe agent communication in \ac{MAS}. The speech-act hypothesis is based on the premise that language is action. An agent program is run by the Jason interpreter. An agent uses a reasoning cycle to carry out its operations, which may be broken down into the following steps: first, it perceives the environment; second, it updates the belief base; third, it receives communication from other agents; fourth, it selects "socially acceptable" messages; fifth, it chooses an event; sixth, it retrieves all relevant plans; seventh, it determines the applicable plans; eighth, it chooses one applicable plan; and last, it executes one step of an intention.
 
-\vspace{.5cm}
-
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
       \includegraphics[width=\linewidth]{includes/figures/agent.png} 
       \caption{Agent Interaction in Supply chain}
@@ -197,30 +190,19 @@ An agent continually perceives its environment, makes decisions about how to act
   
 \vspace{.5cm}
 
-An agent program is run by the JASON interpreter. An agent uses a reasoning cycle to carry out its operations, which may be broken down into the following steps: first, it perceives the environment; second, it updates the belief base; third, it receives communication from other agents; fourth, it selects "socially acceptable" messages; fifth, it chooses an event; sixth, it retrieves all relevant plans; seventh, it determines the applicable plans; eighth, it chooses one applicable plan; and last, it executes one step of an intention.
-
-\vspace{.5cm}
-
 In our \ac{MAS}, each agent within the supply chain will act autonomously , see Figure \ref{Agent Interaction}. The retailer agent will work to ensure that the product is available in the warehouse before ordering it from the wholesaler agent, who will then ask the wholesaler to check its inventory, get in touch with the manufacturer to produce the product, and ship it to the wholesaler, who will then send it to the retailer agent. There will be a \textit{main agent}, who will launch the retailer agent's efforts to sell items to consumers and also other agents by sending messages.
 
 \vspace{.5cm}
 
 The \ac{BDI} architecture is the most common technique to implementing "intelligent" or "rational" agents. The specification of a set of base beliefs and a set of plans results in the creation of an AgentSpeak(L) agent. AgentSpeak(L) differentiates between two kinds of goals: achievement goals and test goals. However, we use achievement targets for our agents. We employed a variety of techniques while writing our agents and ensuring that they could be utilized with smart contracts. We tested several different interpreters and wrote our agents using those. We pursue the following strategies:
-
- \vspace{.5cm}
  
 \begin{itemize}
-    \item \textbf{JASON (Java-based interpreter)}
-    
-    \vspace{.5cm}
+    \item \textbf{Jason (Java-based interpreter)}
     
     \item \textbf{ASTRA}
     
-    \vspace{.5cm}
-    
-    \item \textbf{JASON (Python-based interpreter)}
-    
-     \vspace{.5cm}
+    \item \textbf{Jason (Python-based interpreter)}
+
 \end{itemize}
 
 The solutions listed above have been defined later in this chapter.
@@ -257,13 +239,13 @@ Every implementation uses the same approach to how agents cooperate and communic
   \label{Agents in MAS}
 \end{figure}
 
-\subsubsection{JASON (Java-based interpreter)}
+\subsubsection{Jason (Java-based interpreter)}
 
-We first used JASON with a Java-based interpreter to develop the agents in \ac{MAS}. We set up the home variables, downloaded the necessary scripts and libraries, then used gradle as well as maven for simple configuration. AgentSpeak's expanded dialect has an interpreter named JASON. It implements the operational semantics of that language and offers a platform for creating \ac{MAS} with a variety of characteristics that may be altered by the user. Version 3.1 of JASON, which is the most recent version, was installed. The agents are constructed using figure  \ref{Agent Interaction} as a guide.
+We first used Jason with a Java-based interpreter to develop the agents in \ac{MAS}. We set up the home variables, downloaded the necessary scripts and libraries, then used gradle as well as maven for simple configuration. AgentSpeak's expanded dialect has an interpreter named Jason. It implements the operational semantics of that language and offers a platform for creating \ac{MAS} with a variety of characteristics that may be altered by the user. Version 3.1 of Jason, which is the most recent version, was installed. The agents are constructed using figure  \ref{Agent Interaction} as a guide.
 
 \vspace{.5cm}
 
-In addition to being able to interpret the original AgentSpeak, JASON possesses a few other crucial abilities. Inter-agent communication based on speech acts and strong negation are included, allowing for the use of both closed- and open-world assumptions. Additionally, it supports creating environments (which are not normally to be programmed in AgentSpeak; in this case they are programmed in Java). It offers the ability to deploy distributed \ac{MAS} via a network (using \ac{JADE}); the user may also add other distribution infrastructures. Furthermore, it offers an \ac{IDE} in the form of an Eclipse or jEdit plugin; the \ac{IDE} has a "mind inspector" that aids with debugging.
+In addition to being able to interpret the original AgentSpeak, Jason possesses a few other crucial abilities. Inter-agent communication based on speech acts and strong negation are included, allowing for the use of both closed- and open-world assumptions. Additionally, it supports creating environments (which are not normally to be programmed in AgentSpeak; in this case they are programmed in Java). It offers the ability to deploy distributed \ac{MAS} via a network (using \ac{JADE}); the user may also add other distribution infrastructures. Furthermore, it offers an \ac{IDE} in the form of an Eclipse or jEdit plugin; the \ac{IDE} has a "mind inspector" that aids with debugging.
 
 \subsubsection{ASTRA Implementation}
 
@@ -273,9 +255,9 @@ ASTRA programs are divided into agent classes, which may be expanded using a mul
  
 Agent Programming Languages are intended to aid in the creation of \ac{MAS}. Such systems are intended to have more than one agent and more than one agent type by default. Support for deploying numerous agents is given in many Agent Programming Languages via deployment files, which let the developer to define the initial community of agents to be deployed. ASTRA does not support this; instead, you construct an agent that generates new agents. The System \ac{API} provides the essential functionality to allow this approach. In ASTRA, coding one agent to produce another agent is extremely straightforward. You just invoke the System \ac{API}'s \texttt{createAgent(...)} operation.
 
-\subsubsection{JASON (Python-based interpreter)}
+\subsubsection{Jason (Python-based interpreter)}
 
-An interpreter for JASON, an agent-oriented programming language, built on Python. It can be installed in the system using \texttt{\ac{pip}}. For our implementation, we utilized agentspeak 0.1.0. Python-agentspeak is similar to JASON, except you don't need to create a \texttt{.mas2j} file to construct a multi-agent system; instead, all the agents may be called together by calling them in a \texttt{.py} file.
+An interpreter for Jason, an agent-oriented programming language, built on Python. It can be installed in the system using \texttt{\ac{pip}}. For our implementation, we utilized agentspeak 0.1.0. Python-agentspeak is similar to Jason, except you don't need to create a \texttt{.mas2j} file to construct a multi-agent system; instead, all the agents may be called together by calling them in a \texttt{.py} file.
 
 
 \section{Agent-Contract Collaboration}
@@ -288,7 +270,7 @@ The application flow is developed in accordance with Figure \ref{Sequence Diagra
 
  \begin{figure}[h!]
 \centering
-  \includegraphics[width=15cm]{includes/figures/sqdgm.jpg} 
+  \includegraphics[width=12cm]{includes/figures/sqdgm.png} 
   \caption{Sequence Diagram for \ac{BDI} agents and Smart Contracts}
   \label{Sequence Diagram for BDI agents and Smart Contracts}
 \end{figure}
@@ -297,27 +279,27 @@ The application flow is developed in accordance with Figure \ref{Sequence Diagra
 
 The thesis' core premise is the integration of the two technologies, \ac{MAS} and \ac{BCT}. We have tried to integrate both the technologies using several tries by using several web3 libraries, i.e., \textit{web3.js} for JavaScript, \textit{web3.py} for Python and \textit{web3j} for Java in order to interact with Ethereum.
 
-\subsubsection{JASON and Web3j}
+\subsubsection{Jason and Web3j}
 
-We attempted to test each smart contract using web3js after generating them with Solidity. We considered migrating to web3j since it would be simpler as opposed to continuing to utilize JASON AgentSpeak, which is based on Java. Through the Command Line Tools tool, Web3j facilitates the development of Java smart contract function wrappers from Solidity ABI files or straight from Truffle's Contract Schema. To reveal the contract's per-network deployment address, a wrapper is "improved" and produced. When the wrapper is created, these addresses are from the truffle deployment.
+We attempted to test each smart contract using web3js after generating them with Solidity. We considered migrating to web3j since it would be simpler as opposed to continuing to utilize Jason AgentSpeak, which is based on Java. Through the Command Line Tools tool, Web3j facilitates the development of Java smart contract function wrappers from Solidity ABI files or straight from Truffle's Contract Schema. To reveal the contract's per-network deployment address, a wrapper is "improved" and produced. When the wrapper is created, these addresses are from the truffle deployment.
 
 \vspace{.5cm}
 
-The plan to utilize Web3j with JASON was eventually scrapped since, in order for JASON to run \ac{MAS}, the \texttt{.mas2j} file had to be executed, and when it did, it couldn't find the \texttt{org.web3j} package. We attempted to download the jar files locally, change the version of web3j and JASON, and switched from gradle to maven in order to make the program run, but the problem persisted.
+The plan to utilize Web3j with Jason was eventually scrapped since, in order for Jason to run \ac{MAS}, the \texttt{.mas2j} file had to be executed, and when it did, it couldn't find the \texttt{org.web3j} package. We attempted to download the jar files locally, change the version of web3j and Jason, and switched from gradle to maven in order to make the program run, but the problem persisted.
 
 \subsubsection{ASTRA and Web3j}
 
-After several attempts with web3j and JASON, we considered switching to ASTRA, a programming language that is quite similar to Java and aims to be familiar to developers with language. A successful agent construction was followed by the same problem as with JASON when importing the web3j package.
+After several attempts with web3j and Jason, we considered switching to ASTRA, a programming language that is quite similar to Java and aims to be familiar to developers with language. A successful agent construction was followed by the same problem as with Jason when importing the web3j package.
 
-\subsubsection{JASON and Web3.py}
+\subsubsection{Jason and Web3.py}
 
 Web3.py is a Python package that allows you to connect with Ethereum. It is often used in \ac{Dapp}s to support a number of use cases, including sending transactions, communicating with smart contracts, accessing block data, and more. The Web3.js JavaScript \ac{API} served as the foundation for the original \ac{API}, which has since expanded to meet the demands and conveniences of Python developers.
 
 \vspace{.5cm}
 
-JASON's Python interpreter and Web3.py worked well together. In order to communicate or convey messages from one agent to another, \texttt{.asl} files for agents were produced in Python using AgentSpeak, which is a bit different from JASON constructed using Java. Additionally, running a \texttt{.mas2j} file is not necessary for \ac{MAS} in JASON-style AgentSpeak for Python.
+Jason's Python interpreter and Web3.py worked well together. In order to communicate or convey messages from one agent to another, \texttt{.asl} files for agents were produced in Python using AgentSpeak, which is a bit different from Jason constructed using Java. Additionally, running a \texttt{.mas2j} file is not necessary for \ac{MAS} in Jason-style AgentSpeak for Python.
 
-\subsubsection{JASON and Jython}
+\subsubsection{Jason and Jython}
 
 
 Jython is a Python programming language implementation meant to operate on the Java platform. JPython was the previous name for the implementation. Any Java class may be imported and used by Jython apps. Jython applications, with the exception of a few common modules, employ Java classes rather than Python modules. 
@@ -335,7 +317,7 @@ Jython provides practically all of the modules found in the standard Python prog
 
 \vspace{.5cm}
 
-JASON AgentSpeak's smart contract development for Python and Web3.py was a success that we explained in the next chapter. So we decided to give it another shot and try to develop it using Jython. The Jython project provides Python implementations in Java, giving Python the benefits of operating on the JVM and access to Java classes.
+Jason AgentSpeak's smart contract development for Python and Web3.py was a success that we explained in the next chapter. So we decided to give it another shot and try to develop it using Jython. The Jython project provides Python implementations in Java, giving Python the benefits of operating on the JVM and access to Java classes.
 
 \vspace{.5cm}
 
