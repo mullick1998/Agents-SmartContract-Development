@@ -190,7 +190,7 @@ Focusing more on interaction, try focus on agent part.
 - LRQ3 can be comparitive analysis.
 - Include LightJason
 
-### 18th meeting (3rd february 2023) [09:30-09:]
+### 18th meeting (3rd february 2023) [09:30-09:10:00]
 - Remove the migration from class diagram.  <span style="color: green"> _(done)_  </span>
 - One big class diagram for the whole application  <span style="color: orange"> _(doesnt have any class in agents)_  </span>
 - About RQ1 can be changed with, (What character we need in smart contract to coordinate it with Belief- Desire- Intention of agents?) <span style="color: green"> _(done)_  </span>
@@ -198,7 +198,7 @@ Focusing more on interaction, try focus on agent part.
 - Remove summary ask direct LRQs, dont mention technologies. <span style="color: green"> _(done)_  </span>
 - Check of BDI interpreter, check notation, what algorithm are used for each framework. 
 
-### REVIEW [03.02.2023]
+## REVIEW [03.02.2023]
 
 - Related Work should be extended.  <span style="color: green"> _(done)_  </span>
 - TxHash cannot be a response in Figure 4.2. Do all of the functions - return the same result? Why do we need different functions then? <span style="color: green"> _(done)_  </span>
@@ -207,3 +207,13 @@ Focusing more on interaction, try focus on agent part.
 - The second research question should be how to. Reorganize the first question again. <span style="color: green"> _(done)_  </span>
 - Be careful about spelling mistakes in the framework. For instance, Table 6.1. <span style="color: green"> _(done)_  </span>
 
+### 19th meeting (10th february 2023) [09:30-09:10:00]
+- You need to open the simulation from Supply Chain Examples under the example directory in the main screen when you opened AnyLogic Software.
+Search for “Supply Chain” example. You need to open a kind of simulation as follows: 
+![PastedGraphic-2.png](./PastedGraphic-2.png)
+- You can find the queue and stack implementation in Solidity. 
+https://programtheblockchain.com/posts/2018/03/23/storage-patterns-stacks-queues-and-deques/
+
+### 20th meeting (17th february 2023) [09:30-09:10:00]
+- provide fail goals with -! (But - and + are used to discard or accept belief)
+- integrate everything and put results

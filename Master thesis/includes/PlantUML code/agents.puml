@@ -1,0 +1,74 @@
+@startuml
+!pragma teoz true
+actor Customer
+
+box "Supply Chain Agents" #LightBlue
+entity MainAgent
+Participant ManufacturerAgent
+Participant WholesalerAgent
+Participant RetailerAgent
+end box
+
+
+note over Customer: Want to buy
+activate Customer #LightGrey
+Customer -> MainAgent : Approch Framework
+activate MainAgent #LightGrey
+
+MainAgent -> RetailerAgent : Activates ""RetailerAgent""
+activate RetailerAgent #DarkSalmon
+RetailerAgent -> RetailerAgent: Checks Warehouse
+note right RetailerAgent #Pink : //If it has product then sell// \n //to Customer otherwise it// \n will let the ""MainAgent"" \n //to activate// ""WholesalerAgent"". \n  **(Assume insufficient stock)**
+
+RetailerAgent -> MainAgent : request to activate ""WholesalerAgent""
+
+MainAgent-> WholesalerAgent: Activates ""WholesalerAgent""
+activate WholesalerAgent #DarkSalmon
+WholesalerAgent -> WholesalerAgent : Checks Warehouse
+note over WholesalerAgent #Pink :  **(Assume insufficient stock)**
+WholesalerAgent -> MainAgent : request to activate ""ManufacturerAgent""
+
+MainAgent-> ManufacturerAgent: Activates ""ManufacturerAgent""
+activate ManufacturerAgent #DarkSalmon
+ManufacturerAgent -> ManufacturerAgent : Checks Warehouse
+note over ManufacturerAgent #Pink : **(Assume insufficient stock)**
+
+note over ManufacturerAgent: //Manufactures product//
+
+note over ManufacturerAgent: //Packages product//
+
+
+ManufacturerAgent -> WholesalerAgent: //Out for Sale//
+
+
+note over WholesalerAgent: //Purchase Product by paying// \n //the desire amount by Manufacturer//
+
+
+ManufacturerAgent -> WholesalerAgent: //Sending Product to Wholesaler//
+
+note over WholesalerAgent: //Receives Product//
+
+WholesalerAgent -> WholesalerAgent : Checks Warehouse if Inventory is full, \n **If not** then order more product.
+note over WholesalerAgent #Pink :  **(Assume sufficient stock)**
+
+WholesalerAgent -> RetailerAgent : //Out for Sale//
+
+
+note over RetailerAgent: //Purchase Product by paying// \n //the desire amount by ""WholesalerAgent""//
+
+
+WholesalerAgent -> RetailerAgent : //Sending Product to Retailer//
+
+deactivate WholesalerAgent
+
+
+note over RetailerAgent: //Receives Product//
+
+RetailerAgent --> MainAgent: Confirmation of Product's availablity
+deactivate RetailerAgent
+
+
+MainAgent --> Customer : Sells Product
+deactivate MainAgent
+deactivate Customer
+@enduml

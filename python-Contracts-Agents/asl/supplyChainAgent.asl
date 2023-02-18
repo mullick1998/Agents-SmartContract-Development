@@ -26,6 +26,6 @@
        .wait(1000).
 
 +!a : true
-  <-  .print("TxHashes stored in BLOCKCHAIN"); 
+  <-  .print("Selling to customers"); 
       .print("SUPPLYCHAIN COMPLETE");
       .wait(1000).

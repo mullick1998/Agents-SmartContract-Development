@@ -1,0 +1,126 @@
+@startuml
+!pragma teoz true
+actor Customer
+box "Supply Chain (Jason BDI Agents and Smart Contrcats)" #LightYellow
+
+box "Supply Chain Agents" #LightBlue
+entity MainAgent
+Participant ManufacturerAgent
+Participant WholesalerAgent
+Participant RetailerAgent
+end box
+
+box #Yellow
+entity SmartContractGenerator as App
+end box
+
+end box
+
+note over Customer: Want to buy
+activate Customer #LightGrey
+Customer -> MainAgent : Approch Framework
+activate MainAgent #LightGrey
+
+MainAgent -> RetailerAgent : Activates ""RetailerAgent""
+activate RetailerAgent #DarkSalmon
+RetailerAgent -> RetailerAgent: Checks Warehouse
+note right RetailerAgent #Pink : //If it has product then sell// \n //to Customer otherwise it// \n will let the ""MainAgent"" \n //to activate ""WholesalerAgent"".// \n  **(Assume insufficient stock)**
+
+RetailerAgent -> MainAgent : request to activate ""WholesalerAgent""
+MainAgent-> WholesalerAgent: Activates ""WholesalerAgent""
+activate WholesalerAgent #DarkSalmon
+WholesalerAgent -> WholesalerAgent : Checks Warehouse
+note over WholesalerAgent #Pink :  **(Assume insufficient stock)**
+WholesalerAgent -> MainAgent : request to activate ""ManufacturerAgent""
+MainAgent-> ManufacturerAgent: Activates ""ManufacturerAgent""
+activate ManufacturerAgent #DarkSalmon
+ManufacturerAgent -> ManufacturerAgent : Checks Warehouse
+note over ManufacturerAgent #Pink : **(Assume insufficient stock)**
+
+box "Blockchain Network" #LightGreen
+database EthereumVirtualMachine as EVM
+end box
+
+note over ManufacturerAgent: //Manufactures product//
+ManufacturerAgent -> App: invoking ""produceItemByManufacturer()""
+activate App
+App -> EVM : generating smart contract
+activate EVM #FFBBBB
+note over EVM #Orange: Generating ""Transaction Hash""
+note right #yellow: **""Tx hash""** for \n Product manufactured
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over ManufacturerAgent: //Packages product//
+ManufacturerAgent -> App: invoking ""packageItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product packaged
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over ManufacturerAgent: //Out for Sale//
+ManufacturerAgent-> App: invoking ""sellItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over WholesalerAgent: //Purchase Product by paying// \n //the desire amount by Manufacturer//
+WholesalerAgent -> ManufacturerAgent : Purchases product
+WholesalerAgent -> App  : invoking ""purchaseItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over ManufacturerAgent: //Sending Product to Wholesaler//
+ManufacturerAgent -> WholesalerAgent: Ships Product
+ManufacturerAgent -> App: invoking ""shippedItemByManufacturer()""
+deactivate ManufacturerAgent
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+ 
+
+note over WholesalerAgent: //Receives Product//
+WholesalerAgent -> App: invoking ""receivedItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+WholesalerAgent -> WholesalerAgent : Checks Warehouse if Inventory is full, \n **If not** then order more product.
+note over WholesalerAgent #Pink :  **(Assume sufficient stock)**
+
+note over WholesalerAgent: //Out for Sale//
+WholesalerAgent -> App: invoking ""sellItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over RetailerAgent: //Purchase Product by paying// \n //the desire amount by// ""WholesalerAgent""
+
+RetailerAgent -> WholesalerAgent : Purchases product
+RetailerAgent -> App  : invoking ""purchaseItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over WholesalerAgent: //Sending Product to Retailer//
+WholesalerAgent -> RetailerAgent: Ships Product
+WholesalerAgent -> App: invoking ""shippedItemByWholesaler()""
+deactivate WholesalerAgent
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over RetailerAgent: //Receives Product//
+RetailerAgent -> App: invoking ""receivedItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+deactivate EVM
+deactivate App
+RetailerAgent --> MainAgent: Confirmation of Product's availablity
+deactivate RetailerAgent
+
+
+MainAgent --> Customer : Sells Product
+deactivate MainAgent
+deactivate Customer
+@enduml

@@ -1,3 +1,6 @@
+inventory(9).
+order(8).
+
 +!start
   <- .print("I am running");
      .wait(2000).
@@ -7,9 +10,16 @@
      .print("Hi, I am here, with account:", X);
      .wait(1000).
 
-+!check_warehouse: true
-    <- .print("Checking Warehouse, and order");
++!check_warehouse: inventory(A) & order(B) & A < B 
+    <- .print("Checking Warehouse");
+        .print("INSUFFICIENT INVENTORY!! Ordering Product..");
         !order;
+        .wait(1000).
+
++!check_warehouse: inventory(A) & order(B) & A >= B
+    <-  +inventory(10);
+        .print("Checking Warehouse, and no need to order");
+        !sell;
         .wait(1000).
 
 +!order: true
@@ -24,8 +34,24 @@
         .send(manufacturerAgent, achieve, ship);
         .wait(1000).
 
++!purchaseAgain: true
+    <- .print("Purchasing product from manufacturerAgent Again");
+        .purchaseItemByWholesaler(3, X);
+        .print("Tx purchaseItemByWholesaler successful with hash:", X);
+        .send(manufacturerAgent, achieve, shipAgain);
+        .wait(1000).
+
 +!receive: true
-    <- .print("Received product from manufacturerAgent");
+    <-  +inventory(10);
+        .print("Received product from manufacturerAgent, and added to the inventory and Inventory not full yet!!");
+        .receivedItemByWholesaler(3, X);
+        .print("Tx receivedItemByWholesaler successful with hash:", X);
+        .send(manufacturerAgent, achieve, sellAgain);
+        .wait(1000).
+
++!receiveAgain: true
+    <-  +inventory(10);
+        .print("Received product from manufacturerAgent, and added to the inventory and Inventory FULL!!");
         .receivedItemByWholesaler(3, X);
         .print("Tx receivedItemByWholesaler successful with hash:", X);
         !sell;
@@ -33,6 +59,7 @@
 
 +!sell: true
     <- .print("Selling product to retailerAgent");
+        -inventory(10);
         .sellItemByWholesaler(3, X);
         .print("Tx sellItemByWholesaler successful with hash:", X);
         .send(retailerAgent, achieve, purchase);

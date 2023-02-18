@@ -20,7 +20,7 @@ abi = supplyChain["abi"]
 bin = supplyChain["bytecode"]
 
 # Took depolyed Address
-contract_address = web3.toChecksumAddress("0xc9f78D73aCAf603Fe2319682316268A39Cc5CBB7")
+contract_address = web3.toChecksumAddress("0xa237d3944DbCD22b44462a1d8C6b8e764EC499Ef")
 # variable to be used to call function ('contract.functions.name.transact()')
 contract = web3.eth.contract(address=contract_address, abi=abi)
 print(f'Deployed Contract Address: {contract.address}')

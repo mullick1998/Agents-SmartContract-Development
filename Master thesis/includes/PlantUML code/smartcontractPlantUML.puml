@@ -1,0 +1,98 @@
+@startuml
+
+box "Supply Chain Roles" #LightBlue
+
+Participant Manufacturer
+Participant Wholesaler
+Participant Retailer
+end box
+
+box #Yellow
+entity SmartContractGenerator as App
+end box
+
+box "Blockchain Network" #LightGreen
+database EthereumVirtualMachine as EVM
+end box
+
+note over Manufacturer: //Manufactures product//
+Manufacturer -> App: invoking ""produceItemByManufacturer()""
+activate Manufacturer #DarkSalmon
+activate App
+App -> EVM : generating smart contract
+activate EVM #FFBBBB
+note over EVM #Orange: Generating ""Transaction Hash""
+note right #yellow: **""Tx hash""** for \n Product manufactured
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Manufacturer: //Packages product//
+Manufacturer -> App: invoking ""packageItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product packaged
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Manufacturer: //Out for Sale//
+Manufacturer-> App: invoking ""sellItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Wholesaler: //Purchase Product by paying// \n //the desire amount by Manufacturer//
+Wholesaler -> Manufacturer : Purchases product
+activate Wholesaler #DarkSalmon
+Wholesaler -> App  : invoking ""purchaseItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Manufacturer: //Sending Product to Wholesaler//
+Manufacturer -> Wholesaler: Ships Product
+Manufacturer -> App: invoking ""shippedItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+deactivate Manufacturer 
+
+note over Wholesaler: //Receives Product//
+Wholesaler -> App: invoking ""receivedItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Wholesaler: //Out for Sale//
+Wholesaler-> App: invoking ""sellItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Retailer: //Purchase Product by paying// \n //the desire amount by Wholesaler//
+
+Retailer -> Wholesaler : Purchases product
+activate Retailer #DarkSalmon
+Retailer -> App  : invoking ""purchaseItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Wholesaler: //Sending Product to Retailer//
+Wholesaler -> Retailer: Ships Product
+Wholesaler -> App: invoking ""shippedItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+deactivate Wholesaler
+
+note over Retailer: //Receives Product//
+Retailer -> App: invoking ""receivedItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+deactivate EVM
+deactivate App
+deactivate Retailer
+
+
+
+@enduml

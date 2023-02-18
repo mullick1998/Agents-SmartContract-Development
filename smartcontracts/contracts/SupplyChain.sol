@@ -225,7 +225,7 @@ event ReceivedByRetailer(uint upc);            //10
     sku = sku + 1;
 
     // Emit the appropriate event
-    emit ProduceByManufacturer(_upc);
+    // emit ProduceByManufacturer(_upc);
 
   }
 
@@ -235,11 +235,11 @@ event ReceivedByRetailer(uint upc);            //10
   */
   function packageItemByManufacturer(uint _upc) public
     onlyManufacturer() // check msg.sender belongs to ManufacturerRole
-    producedByManufacturer(_upc)
+    // producedByManufacturer(_upc)
     verifyCaller(items[_upc].ownerID) // check msg.sender is owner
     {
     items[_upc].itemState = State.PackageByManufacturer;
-    emit PackagedByManufacturer(_upc);
+    // emit PackagedByManufacturer(_upc);
   }
 
 /*
@@ -248,12 +248,12 @@ Allows manufacturer to sell product
 */
   function sellItemByManufacturer(uint _upc, uint _price) public
     onlyManufacturer() // check msg.sender belongs to manufacturerRole
-    packagedByManufacturer(_upc) // check items state has been produced
+    // packagedByManufacturer(_upc) // check items state has been produced
     verifyCaller(items[_upc].ownerID) // check msg.sender is owner
     {
       items[_upc].itemState = State.ForSaleByManufacturer;
       items[_upc].productPrice = _price;
-      emit ForSaleByManufacturer(_upc);
+      // emit ForSaleByManufacturer(_upc);
   }
 
 /*
@@ -262,7 +262,7 @@ Allows wholesaler to purchase product
 */
   function purchaseItemByWholesaler(uint _upc, string memory _wholesalerName) public payable
     onlyWholesaler() // check msg.sender belongs to wholesalerRole
-    forSaleByManufacturer(_upc) // check items state is for ForSaleByManufacturer
+    // forSaleByManufacturer(_upc) // check items state is for ForSaleByManufacturer
     paidEnough(items[_upc].productPrice) // check if wholesaler sent enough Ether for product
     checkValue(_upc, payable(msg.sender)) // check if overpayed return remaing funds back to msg.sender
     {
@@ -273,7 +273,7 @@ Allows wholesaler to purchase product
     items[_upc].wholesalerName = _wholesalerName; //wholesaler name
     items[_upc].itemState = State.PurchasedByWholesaler; // update state
     itemsHistory[_upc].MTW = block.number; // add block number
-    emit PurchasedByWholesaler(_upc);
+    // emit PurchasedByWholesaler(_upc);
 
   }
 
@@ -283,11 +283,11 @@ Allows wholesaler to purchase product
   */
   function shippedItemByManufacturer(uint _upc) public payable
     onlyManufacturer() // check msg.sender belongs to ManufacturerRole
-    purchasedByWholesaler(_upc)
+    // purchasedByWholesaler(_upc)
     verifyCaller(items[_upc].originManufacturerID) // check msg.sender is originFarmID
     {
     items[_upc].itemState = State.ShippedByManufacturer; // update state
-    emit ShippedByManufacturer(_upc);
+    // emit ShippedByManufacturer(_upc);
   }
 
   /*
@@ -296,11 +296,11 @@ Allows wholesaler to purchase product
   */
   function receivedItemByWholesaler(uint _upc) public
     onlyWholesaler() // check msg.sender belongs to WholesalerRole
-    shippedByManufacturer(_upc)
+    // shippedByManufacturer(_upc)
     verifyCaller(items[_upc].ownerID) // check msg.sender is owner
     {
     items[_upc].itemState = State.ReceivedByWholesaler; // update state
-    emit ReceivedByWholesaler(_upc);
+    // emit ReceivedByWholesaler(_upc);
   }
 
   /*
@@ -309,12 +309,12 @@ Allows wholesaler to purchase product
   */
   function sellItemByWholesaler(uint _upc, uint _price) public
     onlyWholesaler() // check msg.sender belongs to WholesalerRole
-    receivedByWholesaler(_upc)
+    // receivedByWholesaler(_upc)
     verifyCaller(items[_upc].ownerID) // check msg.sender is owner
     {
         items[_upc].itemState = State.ForSaleByWholesaler;
         items[_upc].productPrice = _price;
-        emit ForSaleByWholesaler(upc);
+        // emit ForSaleByWholesaler(upc);
   }
 
   /*
@@ -323,7 +323,7 @@ Allows wholesaler to purchase product
   */
   function purchaseItemByRetailer(uint _upc, string memory _retailerName) public payable
     onlyRetailer() // check msg.sender belongs to RetailerRole
-    forSaleByWholesaler(_upc)
+    // forSaleByWholesaler(_upc)
     paidEnough(items[_upc].productPrice)
     checkValue(_upc, payable(msg.sender))
     {
@@ -334,7 +334,7 @@ Allows wholesaler to purchase product
     items[_upc].retailerName = _retailerName;
     items[_upc].itemState = State.PurchasedByRetailer;
     itemsHistory[_upc].WTR = block.number;
-    emit PurchasedByRetailer(_upc);
+    // emit PurchasedByRetailer(_upc);
   }
 
   /*
@@ -343,11 +343,11 @@ Allows wholesaler to purchase product
   */
   function shippedItemByWholesaler(uint _upc) public
     onlyWholesaler() // check msg.sender belongs to WholesalerRole
-    purchasedByRetailer(_upc)
+    // purchasedByRetailer(_upc)
     verifyCaller(items[_upc].wholesalerID) // check msg.sender is wholesalerID
     {
       items[_upc].itemState = State.ShippedByWholesaler;
-      emit ShippedByWholesaler(_upc);
+      // emit ShippedByWholesaler(_upc);
   }
 
   /*
@@ -355,11 +355,11 @@ Allows wholesaler to purchase product
   */
   function receivedItemByRetailer(uint _upc) public
     onlyRetailer() // check msg.sender belongs to RetailerRole
-    shippedByWholesaler(_upc)
+    // shippedByWholesaler(_upc)
     verifyCaller(items[_upc].ownerID) // check msg.sender is ownerID
     {
       items[_upc].itemState = State.ReceivedByRetailer;
-      emit ReceivedByRetailer(_upc);
+      // emit ReceivedByRetailer(_upc);
   }
 
   // Define a function 'fetchItemBufferOne' that fetches the data
