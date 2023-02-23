@@ -2,7 +2,7 @@
 !pragma teoz true
 actor Customer
 
-box "Supply Chain Agents" #LightBlue
+box "Supply Chain Agents" #Yellow
 entity MainAgent
 Participant ManufacturerAgent
 Participant WholesalerAgent

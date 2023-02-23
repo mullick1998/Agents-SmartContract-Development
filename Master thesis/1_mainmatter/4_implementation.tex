@@ -5,7 +5,7 @@
 
 %design
 
-This chapter describes the layout of the thesis' proposed solution. It also discusses implementation specifics and the tools used to build smart contracts and Jason \ac{BDI} agents. The \ac{BDI} agents work in a \ac{MAS} via Jason AgentSpeak and communicate via solidity and python-based smart contracts. We will discuss about the application's design objectives and general overview. We will also go through the application's design and functionality for both creating smart contracts independently and after doing so, as well as for creating agents. We discuss the \ac{MAS} and \ac{BCT} implementation specifics, package and library versions utilized, and system configuration. Additionally, the procedures necessary to combine both in order to contribute to this thesis are also presented. This chapter's prerequisites include understanding the design and architecture of blockchain, AgentSpeak, and \ac{AOP} as described in the previous chapter. The prior chapter's contents should be reviewed in order to fully comprehend the chapters that follow.
+This chapter describes the layout of the thesis' proposed solution. It also discusses implementation specifics and the tools used to build smart contracts and Jason \ac{BDI} agents. The \ac{BDI} agents are created using the Jason framework and communicate by sending messages and storing the interaction details using Solidity-based smart contracts. We will discuss the application's design objectives and general overview. We will also go through the application's design and functionality for both creating smart contracts independently and after doing so, as well as for creating agents. We discuss the \ac{MAS} and \ac{BCT} implementation specifics, package and library versions utilized, and system configuration. Additionally, the procedures necessary to combine both to contribute to this thesis are also presented. This chapter's prerequisites include understanding the design and architecture of blockchain, AgentSpeak, and \ac{AOP} as described in the previous chapter. The prior chapter's contents should be reviewed to fully comprehend the chapters that follow.
 
 \section{Roadmaps}
 
@@ -17,15 +17,16 @@ The next step will be to create smart contracts for each process on a blockchain
 
 \section{Design Goals}
 
-The purpose of this project is to develop an application that integrates \ac{MAS} and \ac{BCT}. To construct such an application, we took design considerations that influenced our architecture. We have certain particular goals in mind while contemplating integrating both technologies. The following design objectives are listed:
+The goal of this project is to create an application that combines \ac{MAS} and \ac{BCT}. We used design considerations that guided our architecture to build such an application.
+In considering integrating both technologies, we have specific aims in mind. The following design objectives are listed:
 \vspace{.5cm}
 \begin{itemize}
 
-    \item \textbf{Decentralization} \\ One of the main advantages of using smart contracts and \ac{BDI} agents in supply chain management is that they allow for decentralized decision-making and coordination. The design of the system should aim to enable decentralized .
+    \item \textbf{Decentralization} \\ One of the main advantages of using smart contracts and \ac{BDI} agents in supply chain management is that they allow for decentralized decision-making and coordination. The design of the system should aim to enable decentralization.
 
     \vspace{.5cm}
     
-    \item \textbf{Autonomous} \\Autonomy simply implies being able to work autonomously. To fulfill an objective, an autonomous agent will makes independent judgments about how to accomplish its given goals; these decisions and subsequently, its actions are within its own control and are not influenced by other forces.
+    \item \textbf{Autonomous} \\Autonomy simply implies being able to work autonomously. To fulfill an objective, an autonomous agent will make independent judgments about how to accomplish its given goals; these decisions and subsequently, its actions are within its control and are not influenced by other forces.
 
     \vspace{.5cm}
 
@@ -78,8 +79,9 @@ The application is designed to be as basic as possible in order to learn how a s
 
 \vspace{.5cm}
 
-The application flow for the \textit{Smart contract development with Jason \ac{BDI} agents} is depicted in figure \ref{Flow chart}. These three agents, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}, each perform a specific function in the supply chain. All three of the other agents are being invoked by another primary agent in the \ac{MAS}. figure 
- \ref{Smart Contract Sequence Diagram}  shows the sequence of generating the smart contracts and figure \ref{State Diagram} can be used for brief demonstration regarding the states on which the smart contracts are to be generated within the supply chain.
+The application flow for the \textit{Smart contract development with Jason \ac{BDI} agents} is depicted in figure \ref{Flow chart}. These three agents, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}, each perform a specific function in the supply chain. All three of the other agents are being invoked by another primary agent i.e., \texttt{mainAgent} in the \ac{MAS}. Figure 
+ \ref{Smart Contract Sequence Diagram}  shows the sequence of generating the smart contracts and figure \ref{State Diagram} can be used for a brief demonstration of which the smart contracts are to be generated within the supply chain.
+Later, figure \ref{Agents in MAS} and \ref{agentsequence} shows the agent interaction, and figure \ref{Sequence Diagram for BDI agents and Smart Contracts} shows the integration of \ac{BDI} agents and smart contracts together.
 
 \vspace{.5cm}
 
@@ -93,7 +95,7 @@ Other standards for the development of Smart contracts and \ac{BDI} agents are d
 
 \section{Smart Contracts Development }   
 
-While taking into consideration the scenario of a supply chain where all information on suppliers, recipients, products, and business circumstances is dispersed over supply chain databases.
+While taking into consideration the scenario of a supply chain where all information on suppliers, recipients, products, and business circumstances are dispersed over supply chain databases.
 It is possible to execute the sale of products or services as a transaction that is cryptographically signed by the seller and the buyer and attached to a smart contract for sales transactions. When the sale occurs and all other conditions, such as documentation and quality checks, are met, the execution of the transfer of the corresponding funds and rights can be enforced; in other words, smart contracts can ensure that collaborative and entrepreneurial processes are carried out correctly.
 
 \vspace{.5cm}
@@ -122,7 +124,7 @@ The programming for smart contracts related supply chain is done while keeping t
 
 \vspace{.5cm}
 
-Each function is regarded as an event, and every event is given a state. It has always been a rule that each event must occur after the one before it has concluded. For example, a manufacturer cannot sell a product before producing it, while a wholesaler cannot receive a product before buying it. It is carried out with the aid of a state check as shown in figure \ref{State Diagram}. A product can also be tracked using the \ac{UPC} or by utilizing the \ac{SKU} to trace the entire batch. Later, while integrating smart contracts with agents, the state element was removed because there were various scenarios when a manufacturer or wholesaler was not a part of the particular supply chain due to sufficient inventory.
+Each function is regarded as an event, and every event is given a state. It has always been a rule that each event must occur after the one before it has concluded. For example, a manufacturer cannot sell a product before producing it, while a wholesaler cannot receive a product before buying it. It is carried out with the aid of a state check as shown in figure \ref{State Diagram}. A product can also be tracked using the \ac{UPC} or by utilizing the \ac{SKU} to trace the entire batch. Later, while integrating smart contracts with agents, the state element was removed to make the supply chain adaptive because there can be sometimes a scenarios when a manufacturer, wholesaler or both will be not a part of the particular supply chain due to the availability of sufficient inventory. Scenarios pertaining to these possibilities are added in the subsequent chapter as a result.
 
 \vspace{.5cm}
 
@@ -151,7 +153,7 @@ openzeppelin & 4.7.3\\ \hline
 
 \vspace{.5cm}
 
-Figure \ref{State Diagram} and figure \ref{Activity Diagram} were used as a reference for developing smart contracts connected to supply chain. The following events were included in the supply chain: To complete the supply chain, (i) the manufacturer manufactures the product, (ii) the manufacturer packages the product, (iii) the manufacturer sells the product to the wholesaler, (iv) the wholesaler purchases the product, (v) the wholesaler receives the product, (vi) the wholesaler sells the product to the retailer, (vii) the retailer purchases the product, (viii) the retailer receives the product, and restocks his/her inventory. These events are also covered earlier in this chapter.
+Figure \ref{State Diagram} and figure \ref{Activity Diagram} were used as a reference for developing smart contracts connected to the supply chain. The following events were included in the supply chain: To complete the supply chain, (i) the manufacturer manufactures the product, (ii) the manufacturer packages the product, (iii) the manufacturer sells the product to the wholesaler, (iv) the wholesaler purchases the product, (v) the wholesaler receives the product, (vi) the wholesaler sells the product to the retailer, (vii) the retailer purchases the product, (viii) the retailer receives the product and restocks his/her inventory. These events are also covered earlier in this chapter.
 
 \begin{figure}[h]
 \centering
@@ -162,7 +164,7 @@ Figure \ref{State Diagram} and figure \ref{Activity Diagram} were used as a refe
 
 \vspace{.5cm}
 
-To understand the model of the application for smart contracts and the way in which files organised an classes imported using inheritance in depth, figure \ref{Overall Class Diagram} should be taken into consideration. Solidity contracts can make use of a particular type of format to give detailed documentation for functions, return variables, and other features. The name of this unique format is the \ac{NatSpec}. The formatting for comments used by the author of a smart contract and recognized by the Solidity compiler is included in \ac{NatSpec}\footnote{Check more about NatSpec : https://docs.soliditylang.org/en/v0.8.17/natspec-format.html}. Additionally, third-party tool annotations can be also included in \ac{NatSpec}. The \texttt{@custom:<name>} tag is most likely how they are completed, and analysis and verification tools are an excellent example of this in usage.
+To understand the model of the application for smart contracts and the files organized and classes imported using inheritance in-depth, figure \ref{Overall Class Diagram} should be taken into consideration. Solidity contracts can make use of a particular type of format to give detailed documentation for functions, return variables, and other features. The name of this unique format is the \ac{NatSpec}. The formatting for comments used by the author of a smart contract and recognized by the Solidity compiler is included in \ac{NatSpec}\footnote{Check more about NatSpec : https://docs.soliditylang.org/en/v0.8.17/natspec-format.html}. Additionally, third-party tool annotations can be also included in \ac{NatSpec}. The \texttt{@custom:<name>} tag is most likely how they are completed, and analysis and verification tools are an excellent example of this in usage.
 
 \vspace{.5cm}
 
@@ -309,7 +311,7 @@ Web3.py is a Python package that allows you to connect with Ethereum. It is ofte
 
 \vspace{.5cm}
 
-Jason's Python interpreter and Web3.py worked well together. In order to communicate or convey messages from one agent to another, \texttt{.asl} files for each agent was written with belief sets and plans with goals and a \ac{MAS} was produced using Python with AgentSpeak as shown in figure \ref{Agents in MAS}, which is a bit different from Jason constructed using Java. Additionally, running a \texttt{.mas2j} file is not necessary for \ac{MAS} in Jason-style AgentSpeak for Python.
+Jason's Python interpreter and Web3.py worked well together. In order to communicate or convey messages from one agent to another, \texttt{.asl} files for the each agent were written with belief sets and plans with goals and a \ac{MAS} was produced using Python with AgentSpeak as shown in figure \ref{Agents in MAS}, which is a bit different from Jason constructed using Java. Additionally, running a \texttt{.mas2j} file is not necessary for \ac{MAS} in Jason-style AgentSpeak for Python.
 
 \subsubsection{Jason and Jython}
 

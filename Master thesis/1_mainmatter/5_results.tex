@@ -4,11 +4,11 @@
 
 \label{sec:results}
 
-This chapter focuses on reviewing all of the work completed while utilizing all of the technologies to construct the application. Prior to integrating the technologies, each technique is evaluated independently.
+This chapter focuses on reviewing all of the work completed while utilizing all of the technologies to constrBeforeapplicationa. Before integrating the technologies, each technique is evaluated independently.
 
 \section{Multiple Agent System Development}
 
-We originally utilized Jason with a java-based interpreter to execute \ac{MAS}. To run \ac{MAS}, we downloaded the necessary scripts and libraries. Gradle and maven were then used for straightforward configuration and setting up the home variables. Then, in order to enable agent interaction, we created \texttt{mas2j} files after designing \texttt{asl} files for each agent. We introduced four agents: \texttt{supplyChainAgent}, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}. The \texttt{supplyChainAgent} is the primary agent who will engage other agents to achieve their objectives. As their names imply, the other agents will perform their respective tasks in an adaptive supply chain. Running the agents in the \ac{MAS} environment produced the following results.
+We originally utilized Jason with a java-based interpreter to execute \ac{MAS}. To run \ac{MAS}, we downloaded the necessary scripts and libraries. Gradle and maven were then used for straightforward configuration and setting up of the tables. Then, to enable agent interaction, we created \texttt{mas2j} files after designing \texttt{asl} files for each agent. We introduced four agents: \texttt{supplyChainAgent}, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}. The \texttt{supplyChainAgent} is the primary agent who will engage other agents to achieve their objectives. As their names imply, the other agents will perform their respective tasks in an adaptive supply chain. Running the agents in the \ac{MAS} environment produced the following results.
 
 \vspace{.5cm}
 
@@ -30,7 +30,7 @@ manufacturerAgent: Hi, I am here
 manufacturerAgent: Checking Warehouse, and Manufacturing
 manufacturerAgent: Manufacturing Product
 manufacturerAgent: Packaging Product
-manufacturerAgent: Selling product to wholesalerAgent
+manufacturerAgent: Selling a product to wholesalerAgent
 wholesalerAgent  : Purchasing product from manufacturerAgent
 manufacturerAgent: Shipping product to wholesalerAgent
 wholesalerAgent  : Received product from manufacturerAgent
@@ -44,19 +44,19 @@ supplyChainAgent : SUPPLYCHAIN COMPLETE
 
 \vspace{.5cm}
 
-Due to the limitations of Java-based interpreter with \texttt{web3} package, we immediately switched to ASTRA and Jason with a Python-based interpreter. However, all of them produced the same outcome as described above, despite the fact that the scripting of agents and the \ac{MAS} environment differed.
+Due to the limitations of Java-basa ed interpreter with \texttt{web3} package, we immediately switched to ASTRA and Jason with a Pythonased interpreter. However, all of them produced the same outcome as described above, despite the fact that the scripting of agents and the \ac{MAS} enviroSUPPLY CHAINred.
 
 \vspace{.5cm}
 
-ASTRA agents, unlike Jason, are not written in \texttt{asl} files, and it also does not require a \texttt{mas2j} file to make all of the agents interact with one another. In ASTRA, all of the agents' primary and secondary goals may be expressed in a single \texttt{astra} file. Agents are written in Java-style syntax, which makes it easier for coders to comprehend and write in the format. The primary means of interaction between agents in ASTRA is through the usage of an \ac{ACL}. ASTRA allows for direct contact through \ac{FIPA} \ac{ACL}-based message forwarding.
+ASTRA agents, unlike Jason, are not written in the \texttt{asl} files, and it also does not require a \texttt{mas2j} file to make all of the agents interact with one another. In ASTRA, all of the agents' primary and secondary goals may be expended through \texttt{astra} file. Agents are written in Java-style syntax, which makes it easier for coders to comprehend and write in the format. The primary means of interaction between agents in ASTRA is through the usage of an \ac{ACL}. ASTRA allows for direct contact through \ac{FIPA} \ac{ACL}-based message forwarding.
 
 \vspace{.5cm}
 
-Although ASTRA is simpler to grasp, it suffers from the same restriction as Jason with its Java-based interpreter in that it cannot leverage the \texttt{web3} package to infuse \ac{BCT} into the \ac{MAS}. As a result, we decided to use Jason with a Python-based interpreter. It is being used after installing the \texttt{agentspeak} package using \ac{pip}. It utilizes the same \texttt{asl} file, but instead of a \texttt{mas2j} file, it initiates the agents interaction with a python script. It is as simple to run as any other Python script and works flawlessly when smart contract functionalities are added to it as \texttt{actions} of agents.
+Although ASTRA is simpler to grasp, it suffers from the same restriction as Jason with its Java-based interpreter in that it cannot leverage the \texttt{web3} package to infuse \ac{BCT} into the \ac{MAS}. As a result, we decided to use Jason with a Python-based interpreter. It is being used after installing the \texttt{agentspeak} package using \ac{pip}. It utilizes the same \texttt{asl} file, but instead of a \texttt{mas2j} file, it initiates the agent's interaction with a python script. It is as simple to run as any other Python script and works flawlessly when smart contract functionalities are added to it as \texttt{actions} of agents.
 
 \section{Smart Contract Implementation }
 
-Solidity-based smart contracts were created with the intention of integrating them into supply chains to maintain records of goods ownership and movement from one entity to another. It was vital to determine if the smart contracts were functioning properly or not shortly after developing them while keeping in mind the supply chain's sequence as shown in figure \ref{Smart Contract Sequence Diagram}. 
+Solidity-based smart contracts were created to integrate them into supply chains to maintain records of goods ownership and movement from one entity to another. It was vital to determine if the smart contracts were functioning properly or not shortly after developing them while keeping in mind the supply chain's sequence as shown in figure \ref{Smart Contract Sequence Diagram}. 
 
 \vspace{.5cm}
 
@@ -348,8 +348,8 @@ Also, regarding the quantity of stock in the warehouse and the batch order for t
     \end{itemize}
 
 
-The output above demonstrates how the various supply chain roles interact with one another in order to complete the process of planning, manufacturing, and delivering a product or service. It demonstrates that each role has been given an \texttt{account number}, and that whenever they interact or complete a procedure, a \texttt{transaction hash} is issued to verify its authenticity and for future use.
+The output above demonstrates how the various supply chain roles interact with one another to complete the process of planning, manufacturing, and delivering a product or service. It demonstrates that each role has been given an \texttt{account number} and that whenever they interact or complete a procedure, a \texttt{transaction hash} is issued to verify its authenticity and for future use.
 
 \vspace{.5cm}
 
-After a successful implementation, we remained adamant on running it in Java and used the \texttt{web3j} package to integrate \ac{BCT} into \ac{MAS}. We attempted to use Jason with Java by converting the Python code into a Java application. The creation of a Java application containing Python code was successful, but when the \texttt{.mas2j} file was executed, it was unable to import the package \texttt{org.python} , which is necessary to start the program.
+After a successful implementation, we remained adamant about running it in Java and used the \texttt{web3j} package to integrate \ac{BCT} into \ac{MAS}. We attempted to use Jason with Java by converting the Python code into a Java application. The creation of a Java application containing Python code was successful, but when the \texttt{.mas2j} file was executed, but it was unable to import the package \texttt{org.python}, which is necessary to start the program.

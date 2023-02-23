@@ -40,7 +40,7 @@ Aside from being located in an environment, the following characteristics are ex
     \vspace{.5cm}
     
     \item \textbf{Social ability}\\
-    In this context, social ability refers to an agent's ability to collaborate and coordinate actions with other agents in order to achieve goals. To realize this type of social ability, it is necessary to create agents that can interact not just in terms of exchanging bytes or calling procedures on one another, but also at the knowledge level. That is, agents should be able to communicate with one another about their opinions, aims, and plans.
+    In this context, social ability refers to an agent's ability to collaborate and coordinate actions with other agents to achieve goals. To realize this type of social ability, it is necessary to create agents that can interact not just in terms of exchanging bytes or calling procedures on one another, but also at the knowledge level. That is, agents should be able to communicate with one another about their opinions, aims, and plans.
     
     \vspace{.5cm}
     
@@ -48,11 +48,11 @@ Aside from being located in an environment, the following characteristics are ex
 
 \subsection{Multiple Agent System (MAS)}
 \textit{'Single agent systems'} are uncommon in practice. The more usual scenario is for agents to coexist in an environment with other agents, resulting in a multi-agent system.
-Each agent has the unique capacity to control a portion of its surroundings, but more generically, and more problematically, the domains of influence in the environment may overlap, implying that the environment is jointly controlled by more than on agent. This complicates life for our agents because, in order to accomplish the desired outcome in the environment, our agent must consider how the other agents with some influence are likely to respond.
+Each agent has the unique capacity to control a portion of its surroundings, but more generically, and more problematically, the domains of influence in the environment may overlap, implying that the environment is jointly controlled by more than one agent.
 
 \vspace{.5cm}
 
-Agents may have different organizational ties to one another; one agent may be a peer to another or have line authority over another. Eventually, these agents will have some awareness of one another, however one agent may not have comprehensive knowledge of the other agents in the system.
+Agents may have different organizational ties to one another; one agent may be a peer to another or have line authority over another. Eventually, these agents will have some awareness of one another, however, one agent may not have comprehensive knowledge of the other agents in the system.
 
 \vspace{.5cm}
 
@@ -62,11 +62,11 @@ A language that supports goal-level delegation, support for goal-directed proble
 
 \subsection{Introduction}
 
-The \ac{BDI} software model is a programming approach for intelligent agents. Although it appears to be defined by the implementation of an agent's beliefs, desires, and intentions, it really employs these notions to address a specific challenge in agent programming \cite{ap}. 
+The \ac{BDI} software model is a programming approach for intelligent agents. Although it appears to be defined by the implementation of an agent's beliefs, desires, and intentions, its emphasis is on the notions to address a specific challenge in agent programming \cite{ap}. 
 
 \vspace{.5cm}
 
-In essence, it offers a technique for distinguishing between the action of picking a plan and the execution of already active plans. As a result, \ac{BDI} agents may balance the time spent discussing about plans and implementing those plans.
+In essence, it offers a technique for distinguishing between the action of picking a plan and the execution of already active plans. As a result, \ac{BDI} agents may balance the time spent discussing plans and implementing those plans.
 
 \subsection{Architecture}
 
@@ -81,15 +81,15 @@ This section outlines the \ac{BDI} system's modeled architecture, also shown in 
     
 \begin{itemize}
     \item \textbf{Beliefs} \\
-    Beliefs reflect the agent's informational state, or its perspective (including itself and other agents). Inference rules can also be included in beliefs, allowing forward chaining to lead to new beliefs. Using the word belief rather than knowledge acknowledges that what an agent believes may or may not be accurate (and in fact may change in the future). One or more belief states and a belief set constitute a belief model.
+    Beliefs reflect the agent's informational state or perspective (including itself and other agents). Inference rules can also be included in beliefs, allowing forward chaining to lead to new beliefs. Using the word belief rather than knowledge acknowledges that what an agent believes may or may not be accurate (and in fact may change in the future). One or more belief states and a belief set constitute a belief 
  
     \begin{itemize}[label={}]
         \item \textbf{Belief set} \\
-        A collection of object diagrams that outline the subject matter of an agent class's beliefs serve as the specification for the belief set. A set of instance diagrams that specify a specific instance of the belief set is referred to as a belief state. Although this is an operational decision, beliefs are maintained in a database (also known as a belief foundation or a belief set).
+        A collection of object diagrams that outline the subject matter of an agent class's beliefs serve as the specification for the belief set. A set of instance diagrams specifying a specific instance of the belief set is called a belief state. Although this is an operational decision, beliefs are maintained in a database (also known as a belief foundation or a belief set).
     \end{itemize}
 
 \item \textbf{Desires} \\
-Desires indicate the agent's motivational state. They reflect goals or scenarios that the agent wishes to achieve or create.
+Desires indicate the agent's motivational state. They reflect the goals or scenarios that the agent wishes to achieve or create.
 
     \begin{itemize}[label={}]
         \item \textbf{Goals} \\
@@ -101,16 +101,16 @@ Intentions depict the agent's deliberate state, or what the agent has decided to
     
     \begin{itemize}[label={}]
         \item \textbf{Plans} \\
-        Plans are collection of instructions that an agent can follow to carry out one or more of its objectives. They can be thought of as recipes or knowledge bases. Plans could incorporate different plans.
+        Plans are collections of instructions an agent can follow to carry out one or more objectives. They can be thought of as recipes or knowledge bases. Plans could incorporate different plans.
     
         \begin{itemize}[label={}]
         \item \textbf{Plan Execution} \\
-        An \textit{activation event} and \textit{activation condition}, which specify when and in what context the plan should be activated, are labeled on the plan graph's first transition. The activation event could be a goal event that happens as a result of the accomplishment of a sub goal activity in another plan, leading to goal-driven activation, or a belief event that happens when an agent's beliefs change or when certain external changes are noticed. If more than one plan is relevant to an event in a particular context, they are either engaged concurrently if the activation is event-driven or progressively until they are successfully terminated if the activation is goal-driven. When a plan is activated, an action may be conducted with the help of an optional activation action. Events pass and fail may be used to indicate the success or failure of the activity connected with the active state during transitions between them. Activities may be halted by transitions from active states that are denoted with the event any whenever their condition is satisfied. The transition of a plan that is aborted is a specific instance of this. The plan fails if the abort condition is true at any point during the execution of its body after it has been triggered. The final transitions of the plan graph may be labeled with the steps to be taken in the event that the plan is successful, unsuccessful, or abandoned.
+        An \textit{activation event} and \textit{activation condition}, which specify when and in what context the plan should be activated, are labeled on the plan graph's first transition. The activation event could be a goal event that happens as a result of the accomplishment of a sub-goal activity in another plan, leading to goal-driven activation, or a belief event that happens when an agent's beliefs change or when certain external changes are noticed. If more than one plan is relevant to an event in a particular context, they are either engaged concurrently if the activation is event-driven or progressively until they are successfully terminated if the activation is goal-driven. When a plan is activated, an action may be conducted with the help of an optional activation action. Events pass and fail may be used to indicate the success or failure of the activity connected with the active state during transitions between them. Activities may be halted by transitions from active states that are denoted with the event whenever their condition is satisfied. The transition of a plan that is aborted is a specific instance of this. The plan fails if the abort condition is true at any point during the execution of its body after it has been triggered. The final transitions of the plan graph may be labeled with the steps to be taken if the plan is successful, unsuccessful, or abandoned.
         
         \vspace{.5cm}
         
         \item \textbf{Failure} \\
-        The semantics of plan graphs includes the idea of failure. When an action on a transition fails, when there is an explicit transition to a fail state, or when the activity of an active state ends in failure with no outbound transition enabled, failure inside a graph can happen.
+        The semantics of plan graphs includes the idea of failure. When an action on a transition fails, when there is an explicit transition to a fail state, or when the activity of an active state fails with no outbound transition enabled, failure inside a graph can happen.
         \end{itemize}
     \end{itemize}
    
@@ -118,7 +118,7 @@ Intentions depict the agent's deliberate state, or what the agent has decided to
     \item \textbf{Events} \\
     In a nutshell, events function as triggers for the agent to react. An event may alter aims, activate plans, or update beliefs. Externally produced events may be picked up by sensors or other connected systems. Events may also be produced internally to start decoupling updates or activity plans.
 \end{itemize}
-In order to include obligations, norms, and commitments of agents acting within a social context, the \ac{BDI} was further enhanced with an obligations component, giving rise to the \ac{BOID} \cite{boid} agent architecture.
+To include obligations, norms, and commitments of agents acting within a social context, the \ac{BDI} was further enhanced with an obligations component, giving rise to the \ac{BOID} \cite{boid} agent architecture.
 
 
 \subsubsection{Agent-Oriented Programming}
@@ -163,11 +163,11 @@ The agent's existing belief state may be considered as a model of itself, its en
 
 \subsubsection{Jason}
 
-The agent program and an agent architecture can be differentiate as, the software framework in which an agent program operates is referred to as the agent architecture. The \ac{PRS} is an example of an agent architecture, and the plans are the software that exists within it. We design the program that will drive the agent's behavior, but the architecture itself determines most of what the agent does without the programmer having to worry about it. Jason is an extension of AgentSpeak, which is based on the \ac{BDI} architecture. As a result, a belief basis is one of the components of the agent architecture. Another key component is the agent's goals, which are realized through plan execution.
+The agent program and an agent architecture can be differentiated as, the software framework in which an agent program operates is referred to as the agent architecture. The \ac{PRS} is an example of an agent architecture, and the plans are the software that exists within it. We design the program that will drive the agent's behavior, but the architecture itself determines most of what the agent does without the programmer having to worry about it. Jason is an extension of AgentSpeak, which is based on the \ac{BDI} architecture. As a result, a belief basis is one of the components of the agent architecture. Another key component is the agent's goals, which are realized through plan execution.
 
 \vspace{.5cm}
 
-It has become customary to include a simple example program to aid comprehension. Hence, an example of Jason AgentSpeak code:
+It has become customary to include a simple example program to aid comprehension. Hence, an example of Jason's AgentSpeak code:
 
 \vspace{.5cm}
 
@@ -179,11 +179,11 @@ It has become customary to include a simple example program to aid comprehension
 
 \vspace{.5cm}
 
-Let us attempt to grasp some of what is going on here. The first thing to realize is that this is the definition of a single agent. This specification is generally kept in a single file with the \texttt{'.asl'} extension. Agent's basic beliefs is described in the first line. The full stop, \texttt{'.'}, serves as a syntactic separator in the same way as a semicolon does in Java or C. The next line establishes a plan for the agent, which is the sole plan this agent possesses. This action will display \texttt{'Hello, I'm an Agent'} on the user's terminal. Later, more goals and sub-goals also can be added, according to the plans and requirements.
+Let us attempt to grasp some of what is going on here. The first thing to realize is that this is the definition of a single agent. This specification is generally kept in a single file with the \texttt{'.asl'} extension. Agent's basic beliefs are described in the first line. The full stop, \texttt{'.'}, serves as a syntactic separator in the same way as a semicolon does in Java or C. The next line establishes a plan for the agent, which is the sole plan this agent possesses. This action will display \texttt{'Hello, I'm an Agent'} on the user's terminal. Later, more goals and sub-goals also can be added, according to the plans and requirements.
 
 \subsubsection{ASTRA}
 
-ASTRA is also based on AgentSpeak(L) in that it provides all of the same fundamental capabilities as AgentSpeak(L), but it also adds a number of extra features that makes it more practical agent programming language. The fundamental distinction between beliefs, aims, and events is that words and variables are typed. ASTRA's type system is based on the Java type system, mainly because Java is the underlying implementation language, and using a comparable type system makes translating between ASTRA and Java easier and more visible.
+ASTRA is also based on AgentSpeak(L) in that it provides all of the same fundamental capabilities as AgentSpeak(L), but it also adds several extra features that makes it a more practical agent programming language. The fundamental distinction between beliefs aims, and events are that words and variables are typed. ASTRA's type system is based on the Java type system, mainly because Java is the underlying implementation language, and using a comparable type system makes translating between ASTRA and Java easier and more visible.
 
 \vspace{.5cm}
 As a result, ASTRA programs are more organized than AgentSpeak(L) applications. The basic structure is seen below:
@@ -212,19 +212,19 @@ As can be observed, ASTRA has embraced the Java \texttt{package} and \texttt{imp
 \section{Web3}
 
 \subsection{Overview}
-The terms "Web 1.0" and "Web 2.0" refer to phases in the development of the World Wide Web using different technology and formats. Web 1.0 refers to a time when the bulk of websites just had static pages and the great majority of people consumed information rather than created it. Web 2.0 is centered on user-generated content that is published to forums, social media and networking sites, blogs, and wikis, among other services. It is founded on the concept of "the web as platform."
+The terms "Web 1.0" and "Web 2.0" refer to phases in the development of the World Wide Web using different technology and formats. Web 1.0 refers to a time when the bulk of websites just had static pages and the great majority of people consumed information rather than created it. Web 2.0 is centered on user-generated content that is published on forums, social media, networking sites, blogs, and wikis, among other services. It is founded on the concept of "the web as a platform."
 
 \vspace{.5cm}
 
-An notion for a new version of the World Wide Web called Web3 (sometimes referred to as Web 3.0) integrates ideas including decentralization, blockchain technology, and token-based economy. Some journalists and engineers have compared it to Web 2.0, where they claim that content and data are concentrated in a select few businesses frequently referred to as "Big Tech."
+A notion for the new version of the World Wide Web called Web3 (sometimes referred to as Web 3.0) integrates ideas including decentralization, blockchain technology, and a token-based economy. Some journalists and engineers have compared it to Web 2.0, where they claim that content and data are concentrated in a select few businesses frequently referred to as "Big Tech."
 
 \vspace{.5cm}
 
-Web3's specific goals vary, and the phrase has been characterized as "ambiguous," but they all revolve on the concept of decentralization and frequently include \ac{BCT}, including multiple crypto-currencies and \ac{NFT}. The concept of Web3 would include financial resources, in the form of tokens. It can alternatively be described as the ostensible next generation of the web's technological, legal, and monetary infrastructure, which includes crypto-currencies, blockchain, and smart contracts. Web3's three core architectural enablers were recognized as a mix of decentralized or federated platforms, safe interoperability, and verifiable computing via distributed ledger technologies.
+Web3's specific goals vary, and the phrase has been characterized as "ambiguous," but they all revolve around the concept of decentralization and frequently include \ac{BCT}, including multiple crypto-currencies and \ac{NFT}. The concept of Web3 would include financial resources, in the form of tokens. It can alternatively be described as the ostensible next generation of the web's technological, legal, and monetary infrastructure, which includes cryptocurrencies, blockchain, and smart contracts. Web3's three core architectural enablers were recognized as a mix of decentralized or federated platforms, safe interoperability, and verifiable computing via distributed ledger technologies.
 
 \vspace{.5cm}
 
-The idea of \ac{DAO} serves as the foundation for several concepts. On addition to owning your data in Web3, you can also use tokens that function like stock to collectively own the platform. \ac{DAO} enables decentralized platform ownership coordination and future platform decision-making. Another important idea is \ac{DeFi}, which allows for money exchange without the intervention of banks or the government. \ac{SSI} enables users to identify themselves without depending on an authentication system like OAuth \cite{oauth}, where identity verification requires contacting a trusted party. Web3 would most likely coexist with Web 2.0 websites, with Web 2.0 websites most likely adopting Web3 technology to keep their services updated.
+The idea of \ac{DAO} serves as the foundation for several concepts. In addition to owning your data in Web3, you can also use tokens that function like a stock to collectively own the platform. \ac{DAO} enables decentralized platform ownership coordination and future platform decision-making. Another important idea is \ac{DeFi}, which allows for money exchange without the intervention of banks or the government. \ac{SSI} enables users to identify themselves without depending on an authentication system like OAuth \cite{oauth}, where identity verification requires contacting a trusted party. Web3 would most likely coexist with Web 2.0 websites, with Web 2.0 websites most likely adopting Web3 technology to keep their services updated.
 
 \subsection{Concept}
 
@@ -235,7 +235,7 @@ Web 3.0 may be recognized by a collection of traits that are altering how people
 \begin{itemize}
 
     \item \textbf{Individualized} \\
-    Information may be divided into context-relevant segments based on network contacts and personal preferences. In fact, one of the features of Web 3.0 is the capacity to deal with unstructured content on the web more intelligently by giving the published data about individual or group factors contextual meaning. The social networks are a well-known method of connection with a very broad audience of adopters. People may choose their own exposure and contacts depending on information preferences and "proximity".
+    Information may be divided into context-relevant segments based on network contacts and personal preferences. One of the features of Web 3.0 is the capacity to deal with unstructured content on the web more intelligently by giving published data about individual or group factors contextual meaning. Social networks are a well-known method of connection with a very broad audience of adopters. People may choose their exposure and contacts depending on information preferences and "proximity".
 
 \vspace{.5cm}
 
@@ -247,7 +247,7 @@ Web 3.0 may be recognized by a collection of traits that are altering how people
 
 
     \item \textbf{Efficient} \\
-    Both people and computing devices are capable of filtering information based on context, meaning, and relevance. This trait has an implied connection to the individualized trait. Regarding individual variances, knowledge causes various responses in various persons. The capacity to filter content based on user interests appears to be a benefit of Web 3.0. Efficiency requires that the information must be organized such that algorithms can read it and comprehend it as clearly and completely as humans can.
+    Both people and computing devices are capable of filtering information based on context, meaning, and relevance. This trait has an implied connection to the individualized trait. Regarding individual variances, knowledge causes various responses in various persons. The capacity to filter content based on user interests appears to be a benefit of Web 3.0. Efficiency requires the information must be organized such that algorithms can read it and comprehend it as clearly and completely as humans can.
 
 \end{itemize}
 \section{Blockchain}
@@ -261,11 +261,11 @@ Due to the lack of a single administrator who has access to change and remove th
 
 \vspace{.5cm}
 
-The modern blockchains allow users to create their own custom code that is then performed as functions inside the ecosystem and the outputs of these functions are added to the blockchain's updated state. These functions are often run at numerous network nodes and a consensus on the status of outcomes is reached. These tasks or workloads are known as smart contracts in Ethereum and several other public blockchains, and chaincodes in Hyperledger Fabric.
+Modern blockchains allow users to create their own custom code that is then performed as functions inside the ecosystem and the outputs of these functions are added to the blockchain's updated state. These functions are often run at numerous network nodes and a consensus on the status of outcomes is reached. These tasks or workloads are known as smart contracts in Ethereum and several other public blockchains, and chain codes in Hyperledger Fabric.
 
 
 \subsection{Architecture}
-According to its technical definition, a blockchain is a series of interconnected blocks that, as seen in figure \ref{Blocks chained together in a blockchain}, include the data on a group of transactions up to the most recent block. The block headers retain the details of their own hash, that of their preceding block, a list of transactions, and the time stamp. In the blockchain network, these characteristics are utilized to track a specific transaction. All blockchain nodes save a block as the most recent state once it has been approved and confirmed by the majority of network participants.
+According to its technical definition, a blockchain is a series of interconnected blocks that, as seen in figure \ref{Blocks chained together in a blockchain}, include the data on a group of transactions up to the most recent block. The block headers retain the details of their hash, that of their preceding block, a list of transactions, and the time stamp. In the blockchain network, these characteristics are utilized to track a specific transaction. All blockchain nodes save a block as the most recent state once it has been approved and confirmed by the majority of network participants.
 
  \vspace{.5cm}
  
@@ -277,7 +277,7 @@ According to its technical definition, a blockchain is a series of interconnecte
 
  \vspace{.5cm}
  
-Different procedures, including as \ac{PoW} \cite{pow}, \ac{PoS} \cite{pos}, and \ac{PoA} \cite{poa}, etc., are available to reach agreement on the choice of a block.
+Different procedures, including \ac{PoW} \cite{pow}, \ac{PoS} \cite{pos}, and \ac{PoA} \cite{poa}, etc., are available to reach agreement on the choice of a block.
  
 \vspace{.5cm}
  
@@ -297,7 +297,7 @@ Private blockchains are distributed node clusters that operate within a secure p
 \vspace{.5cm}
 
  \item \textbf{Consortial Blockchains}\\
-Consortial blockchains are permissioned blockchains, just as private blockchains, and the general public cannot join them. They belong to a group of priveleged individuals who could be associated with this network. The cluster of nodes is dispersed throughout the intranets of the participating organizations. They are especially helpful when two mutually trusted parties wish to use the distributed ledger's privacy-preserving features. Hyperledger Fabric, Hyperledger Indy, and other consortium blockchains are the most well-known.
+Consortial blockchains are permissioned blockchains, just like private blockchains and the general public cannot join them. They belong to a group of privileged individuals who could be associated with this network. The cluster of nodes is dispersed throughout the intranets of the participating organizations. They are especially helpful when two mutually trusted parties wish to use the distributed ledger's privacy-preserving features. Hyperledger Fabric, Hyperledger Indy, and other consortium blockchains are the most well-known.
 \end{itemize}
 
 \subsection{Smart Contracts}
@@ -337,7 +337,7 @@ The \ac{EVM} may be conceptualized practically as a vast, decentralized system w
 \subsection{Truffle Suite}
 \subsubsection{Truffle}
 
-As a programming environment, testing framework, and asset pipeline for blockchains running on the \ac{EVM}, truffle basically aims to simplify the workload of a developer. Truffle offers built-in binary management, deployment, linking, compilation, and testing for smart contracts in addition to automated contract testing for quick development. It offers configurable build pipeline with support for tight integration, as well as pNPM ackage management using \ac{NPM} and the ERC190 standard, i.e. \ac{ERC}.
+As a programming environment, testing framework, and asset pipeline for blockchains running on the \ac{EVM}, truffle aims to simplify the workload of a developer. Truffle offers built-in binary management, deployment, linking, compilation, and testing for smart contracts in addition to automated contract testing for quick development. It offers a configurable build pipeline with support for tight integration, as well as NPM package management using \ac{NPM} and the ERC190 standard, i.e. \ac{ERC}.
 
 \vspace{.5cm}
 
@@ -347,15 +347,15 @@ Provides a scriptable, extendable framework for deployment and migrations, as we
 
 \subsubsection{Ganache}
 
-Ganache is a private blockchain enabling speedy production of Corda and Ethereum distributed applications. Ganache may be used throughout the whole development cycle, allowing you to create, distribute, and test \ac{Dapp} in a secure and predictable setting.
+Ganache is a private blockchain enabling the speedy production of Corda and Ethereum-distributed applications. Ganache may be used throughout the whole development cycle, allowing you to create, distribute, and test \ac{Dapp} in a secure and predictable setting.
 
 \vspace{.5cm}
 
 Both a \ac{UI} and a \ac{CLI} are available with ganache. A desktop program called Ganache \ac{UI} supports both Corda and Ethereum. Ethereum programming is possible using the powerful command-line tool ganache. It supports snapshot/revert state, Ethereum JSON-RPC compatibility, Zero-config Mainnet and testnet forking, console-log in Solidity, and the ability to impersonate any account without the need for private keys.
 
 \subsection{Vision}
-As blockchain technology continues to develop, a number of new blockchains have recently come to light, each with a unique architecture and implementation that has been carefully chosen for the intended use case. Additionally, there are significant flaws in the conventional blockchain architecture that remain unresolved, and other implementations aim to address these concerns. (1) Lack of anonymity in transaction execution (2) High transactional delay owing to complex consensus procedures that cause scalability concerns are the two main outstanding challenges with blockchains. (3) Communication between several blockchains; (4) Integration with the outside world.
+As blockchain technology continues to develop, several new blockchains have recently come to light, each with a unique architecture and implementation that has been carefully chosen for the intended use case. Additionally, there are significant flaws in the conventional blockchain architecture that remain unresolved, and other implementations aim to address these concerns. (1) Lack of anonymity in transaction execution (2) High transactional delay owing to complex consensus procedures that cause scalability concerns are the two main outstanding challenges with blockchains. (3) Communication between several blockchains; (4) Integration with the outside world.
 
 \vspace{.5cm}
 
-Each of the more recent blockchain implementations, including Zcash, Polkadot, Ethereum 2.0, Chainlink, etc., is working to find a solution to these problems. With the use of trustworthy execution environments, we also hope to address the aforementioned issues with conventional blockchains in this thesis. Because the burden from the blockchain is transferred to secure execution environments, the blockchains are lightweight and offer transaction execution privacy. In addition, the Hyperledger Avalon has developed blockchain connectors for a number of distinct blockchains that may be used to promote interoperability between them. The Avalon infrastructure may also be used to build "attested oracles," which connect blockchains with data from the outside world.
+Each of the more recent blockchain implementations, including Zcash, Polkadot, Ethereum 2.0, Chainlink, etc., is working to find a solution to these problems. With the use of trustworthy execution environments, we also hope to address the aforementioned issues with conventional blockchains in this thesis. Because the burden from the blockchain is transferred to secure execution environments, the blockchains are lightweight and offer transaction execution privacy. In addition, Hyperledger Avalon has developed blockchain connectors for several distinct blockchains that may be used to promote interoperability between them. The Avalon infrastructure may also be used to build "attested oracles," which connect blockchains with data from the outside world.
