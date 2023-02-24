@@ -60,7 +60,23 @@ Solidity-based smart contracts were created to integrate them into supply chains
 
 \vspace{.5cm}
 
-To verify this, we created several test cases and ran them using the Truffle tool. We kept in mind to verify the states, which are essentially the order of the supply chain, as well as store the ownership and movement of the product from one entity to another entity in each contract when doing the testing. The test cases are illustrated below utilizing a local network named "development," in which we are testing each contract by confirming the state of the product displayed in the figure \ref{State Diagram}, as well as movement and ownership of the product using \ac{SKU}, \ac{UPC}, and owner ID and storing it into a buffer and then the cross checking them.
+To verify this, we created several test cases and ran them using the Truffle tool. Each test case examines a variety of factors to determine whether the smart contracts are being executed by the correct contract owner. The example of verifying one smart contract is shown in the code fragment below.
+
+\vspace{.5cm}
+\begin{lstlisting}[numbers=none, basicstyle=\ttfamily\tiny]
+        assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
+        assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
+        assert.equal(resultBufferOne[2], ownerID, 'Error: Missing or Invalid ownerID')
+        assert.equal(resultBufferTwo[2], productID,'Error: Missing or Invalid productID')
+        assert.equal(resultBufferOne[3], originManufacturerID, 'Error: Missing or Invalid originManufacturerID')
+        assert.equal(resultBufferOne[4], originManufacturerName, 'Error: Missing or Invalid originManufacturerName')
+        assert.equal(resultBufferTwo[6], itemState, 'Error: Invalid item State')
+        assert.equal(eventEmitted, true, 'Invalid event emitted')
+\end{lstlisting}
+
+\vspace{.5cm}
+
+        We kept in mind to verify the states, which are essentially the order of the supply chain, as well as store the ownership and movement of the product from one entity to another entity in each contract when doing the testing. The test cases are illustrated below utilizing a local network named "development," in which we are testing each contract by confirming the state, as well as movement and ownership of the product using \ac{SKU}, \ac{UPC}, and owner ID and storing it into a buffer and then the cross checking them.
 
 \vspace{.5cm}
 
@@ -100,11 +116,9 @@ According to the test scenarios, smart contracts are functioning well. Each cont
 
 Due to a built-in feature of the truffle tool that indicates how long it takes to build each contract as well as how long it takes to generate all of the contracts, we had to consider other options for our smart contracts. We tried to check the time taken by each network in order to get more knowledge, specifically taking into account the local network, Alfajores, and Rinkeby. We also considered testing out a different programming language to write our contracts in order to determine why Solidity is more effective than all of them.
 
-\vspace{.5cm}
-
 \begin{figure}[h]
 \centering
-  \includegraphics[width=15cm]{includes/figures/graph.png} 
+  \includegraphics[width=13.5cm]{includes/figures/graph.png} 
   \caption{Performance across various networks}
   \label{Testing on networks}
 \end{figure}
@@ -125,7 +139,7 @@ It is obvious that the local network used far less time than the other two netwo
 
 The entire amount of gas utilized on a public testnet, such as alfajores and rinkeby, will depend on the network's present condition and resource demand. Due to the greater volume of transactions and contracts being executed on the public testnet, the overall gas consumption can be higher than on a local test network. In light of the fact that gas prices change on the public testnet as well, the total amount of gas utilized will also rely on those prices at the time of deployment and transaction. In figure \ref{Overall Gas Cost calculation}, The most expensive test network is rinkeby, however even though its gas consumption was same as alfajores test network's, alfajores' overall cost decreased to approximately one-third of rinkeby test network's cost due to low gas prices which was just 7.5 Gwei or 7500000000 Wei compared to rinkeby test network's gas price which was 20 Gwei or 20000000000 Wei.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 \centering
   \includegraphics[width=12cm]{includes/figures/smartcontractgas.png} 
   \caption{Gas consumed by each smart contract}
@@ -155,7 +169,7 @@ Our main objective was to find a way to incorporate \ac{BCT} into \ac{MAS} and c
 
 \vspace{.5cm}
 
-Also, regarding the quantity of stock in the warehouse and the batch order for the product, there are several scenarios that might occur. The results of each scenario are displayed below:
+Also, regarding the quantity of stock in the warehouse and the batch order for the product, there are several scenarios that might occur as shown in figure \ref{Agent Interaction} and figure \ref{agentsequence}. The results of each scenario are displayed below:
 
 \vspace{.5cm}
 

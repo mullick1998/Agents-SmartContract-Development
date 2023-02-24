@@ -13,7 +13,7 @@ The initial roadmap will involve generating multiple agents in a \ac{MAS} and ru
 
 \vspace{.5cm}
 
-The next step will be to create smart contracts for each process on a blockchain, complete with state and events. Additionally, while creating the contract, select the appropriate language and version. After ensuring that everything is in order, combine \ac{MAS} and \ac{BCT} and try to run the overall program to ensure compatibility.
+The next step will be to create smart contracts for each process on a blockchain. Additionally, while creating the contract, select the appropriate language and version. After ensuring that everything is in order, combine \ac{MAS} and \ac{BCT} and try to run the overall program to ensure compatibility.
 
 \section{Design Goals}
 
@@ -30,7 +30,7 @@ In considering integrating both technologies, we have specific aims in mind. The
 
     \vspace{.5cm}
 
-    \item \textbf{Transparency} \\ Smart contracts and \ac{BDI} agents are designed to provide transparency in the supply chain. The design of the system should aim to provide transparency of all activities and interactions among agents, allowing all parties to see the flow of goods and the state of the supply chain.
+    \item \textbf{Transparency} \\ Smart contracts and \ac{BDI} agents are designed to provide transparency in the supply chain. The design of the system should aim to provide transparency of all activities and interactions among agents, allowing all parties to see the flow of goods within the supply chain.
 
     \vspace{.5cm}
     
@@ -80,7 +80,7 @@ The application is designed to be as basic as possible in order to learn how a s
 \vspace{.5cm}
 
 The application flow for the \textit{Smart contract development with Jason \ac{BDI} agents} is depicted in figure \ref{Flow chart}. These three agents, \texttt{manufacturerAgent}, \texttt{wholesalerAgent}, and \texttt{retailerAgent}, each perform a specific function in the supply chain. All three of the other agents are being invoked by another primary agent i.e., \texttt{mainAgent} in the \ac{MAS}. Figure 
- \ref{Smart Contract Sequence Diagram}  shows the sequence of generating the smart contracts and figure \ref{State Diagram} can be used for a brief demonstration of which the smart contracts are to be generated within the supply chain.
+ \ref{Smart Contract Sequence Diagram}  shows the sequence of generating the smart contracts within the supply chain.
 Later, figure \ref{Agents in MAS} and \ref{agentsequence} shows the agent interaction, and figure \ref{Sequence Diagram for BDI agents and Smart Contracts} shows the integration of \ac{BDI} agents and smart contracts together.
 
 \vspace{.5cm}
@@ -115,16 +115,7 @@ The programming for smart contracts related supply chain is done while keeping t
 
 \vspace{.5cm}
 
-   \begin{figure}[h]
-    \centering
-      \includegraphics[width=12cm]{includes/figures/State diagram.png} 
-      \caption{State Diagram for Smart Contracts}
-      \label{State Diagram}
-    \end{figure}
-
-\vspace{.5cm}
-
-Each function is regarded as an event, and every event is given a state. It has always been a rule that each event must occur after the one before it has concluded. For example, a manufacturer cannot sell a product before producing it, while a wholesaler cannot receive a product before buying it. It is carried out with the aid of a state check as shown in figure \ref{State Diagram}. A product can also be tracked using the \ac{UPC} or by utilizing the \ac{SKU} to trace the entire batch. Later, while integrating smart contracts with agents, the state element was removed to make the supply chain adaptive because there can be sometimes a scenarios when a manufacturer, wholesaler or both will be not a part of the particular supply chain due to the availability of sufficient inventory. Scenarios pertaining to these possibilities are added in the subsequent chapter as a result.
+Each function is regarded as an event, and every event is given a state. It has always been a rule that each event must occur after the one before it has concluded. For example, a manufacturer cannot sell a product before producing it, while a wholesaler cannot receive a product before buying it. It is carried out with the aid of a state check. A product can also be tracked using the \ac{UPC} or by utilizing the \ac{SKU} to trace the entire batch. Later, while integrating smart contracts with agents, the state element was removed to make the supply chain adaptive because there can be sometimes a scenarios when a manufacturer, wholesaler or both will be not a part of the particular supply chain due to the availability of sufficient inventory. Scenarios pertaining to these possibilities are added in the subsequent chapter as a result.
 
 \vspace{.5cm}
 
@@ -153,7 +144,7 @@ openzeppelin & 4.7.3\\ \hline
 
 \vspace{.5cm}
 
-Figure \ref{State Diagram} and figure \ref{Activity Diagram} were used as a reference for developing smart contracts connected to the supply chain. The following events were included in the supply chain: To complete the supply chain, (i) the manufacturer manufactures the product, (ii) the manufacturer packages the product, (iii) the manufacturer sells the product to the wholesaler, (iv) the wholesaler purchases the product, (v) the wholesaler receives the product, (vi) the wholesaler sells the product to the retailer, (vii) the retailer purchases the product, (viii) the retailer receives the product and restocks his/her inventory. These events are also covered earlier in this chapter.
+Figure \ref{Activity Diagram} was used as a reference for developing smart contracts connected to the supply chain. The following events were included in the supply chain: To complete the supply chain, (i) the manufacturer manufactures the product, (ii) the manufacturer packages the product, (iii) the manufacturer sells the product to the wholesaler, (iv) the wholesaler purchases the product, (v) the wholesaler receives the product, (vi) the wholesaler sells the product to the retailer, (vii) the retailer purchases the product, (viii) the retailer receives the product and restocks his/her inventory. These events are also covered earlier in this chapter.
 
 \begin{figure}[h]
 \centering
@@ -190,7 +181,7 @@ An agent continually perceives its environment, makes decisions about how to act
   
 \vspace{.5cm}
 
-In our \ac{MAS}, each agent within the supply chain will act autonomously , see figure \ref{Agent Interaction}. The \texttt{retailerAgent} will work to ensure that the product is available in the warehouse before ordering it from the \texttt{wholesalerAgent}, who will then ask the \texttt{wholesalerAgent} to check its inventory and if insufficient stock then, get in touch with the \texttt{manufacturerAgent} to produce the product, and ship it to the \texttt{wholesalerAgent}, who will then send it to the \texttt{retailerAgent}. The quantity of stock available and the quantity ordered will be set as belief for each agents as '\texttt{inventory(A).}' and '\texttt{order(B).}', respectively and it will be compared while checking the warehouse before selling product. There will be a \texttt{mainAgent}, who will launch the retailer agent's efforts to sell items to consumers and also other agents by sending messages.
+In our \ac{MAS}, each agent within the supply chain will act autonomously , see figure \ref{Agent Interaction} to get an idea of how the agents are communicating according to their beliefs, updating them, and executing plans. The \texttt{retailerAgent} will work to ensure that the product is available in the warehouse before ordering it from the \texttt{wholesalerAgent}, who will then ask the \texttt{wholesalerAgent} to check its inventory and if insufficient stock then, get in touch with the \texttt{manufacturerAgent} to produce the product, and ship it to the \texttt{wholesalerAgent}, who will then send it to the \texttt{retailerAgent}. The quantity of stock available and the quantity ordered will be set as belief for each agents as '\texttt{inventory(A).}' and '\texttt{order(B).}', respectively and it will be compared while checking the warehouse before selling product. There will be a \texttt{mainAgent}, who will launch the retailer agent's efforts to sell items to consumers and also other agents by sending messages.
 
 \vspace{.5cm}
 
@@ -311,6 +302,52 @@ Web3.py is a Python package that allows you to connect with Ethereum. It is ofte
 
 \vspace{.5cm}
 
+The following excerpts demonstrate how to utilize smart contracts with previously deployed contract addresses and link to the Web3 library.
+
+\vspace{.5cm}
+
+\begin{lstlisting}[frame=none, numbers=none]
+    from web3 import Web3
+    web3 = Web3(Web3.HTTPProvider(ganache_url))
+    contract_address = web3.toChecksumAddress("0xc9f78D73aCAf603Fe2319682316268A39Cc5CBB7")
+    contract = web3.eth.contract(address=contract_address, abi=abi)
+    print(f'Deployed Contract Address: {contract.address}')
+\end{lstlisting}
+
+\vspace{.5cm}
+
+The code snippet below demonstrates how to define a specific action regarding product manufacturing i.e., \texttt{produceItemByManufacturer} and store the action in blockchain network when performed by the agent. \ac{BDI} agents created using the Jason framework are capable of performing a variety of actions, and it is also possible to create the custom actions that help us to integrate the smart contract functions with the agents.
+
+\vspace{.5cm}
+
+\begin{lstlisting}[ frame=none, numbers=none]
+    actions = agentspeak.Actions(agentspeak.stdlib.actions)
+    @actions.add_function(".produceItemByManufacturer", (int, ))
+    def produceItemByManufacturer(upc): 
+        tx1 = contract.functions.produceItemByManufacturer(upc, "manufacturer_name", "product", 10).transact({
+             'from': manufacturer_id
+            })
+        tx_receipt = web3.eth.wait_for_transaction_receipt(tx1)
+        hash = tx_receipt.transactionHash.hex()
+        return hash
+\end{lstlisting}
+
+\vspace{.5cm}
+
+The code sample below demonstrates how specific agents' \texttt{.asl} files can call the functions specified in the actions declared for those agents in the main file to execute a plan and accomplish goals.
+
+\vspace{.5cm}
+
+\begin{lstlisting}[frame=none, numbers=none]
+    +!manufacture: true
+    <-  .print("Manufacturing Product");
+        .produceItemByManufacturer(upc, X);
+        .print("Tx produceItemByManufacturer successful with hash:", X);
+        !package;
+        .wait(1000).
+\end{lstlisting}
+
+\vspace{.5cm}
 Jason's Python interpreter and Web3.py worked well together. In order to communicate or convey messages from one agent to another, \texttt{.asl} files for the each agent were written with belief sets and plans with goals and a \ac{MAS} was produced using Python with AgentSpeak as shown in figure \ref{Agents in MAS}, which is a bit different from Jason constructed using Java. Additionally, running a \texttt{.mas2j} file is not necessary for \ac{MAS} in Jason-style AgentSpeak for Python.
 
 \subsubsection{Jason and Jython}

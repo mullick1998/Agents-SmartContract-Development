@@ -217,3 +217,8 @@ https://programtheblockchain.com/posts/2018/03/23/storage-patterns-stacks-queues
 ### 20th meeting (17th february 2023) [09:30-09:10:00]
 - provide fail goals with -! (But - and + are used to discard or accept belief)
 - integrate everything and put results
+
+### 21st meeting (24th february 2023) [09:30-09:10:00]
+- Add code snippets to implementation part
+- renove technology name from conclusion chapter
+- Ask for defence
