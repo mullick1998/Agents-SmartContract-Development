@@ -1,4 +1,4 @@
-inventory(9).
+inventory(2).
 order(8).
 
 +!start
