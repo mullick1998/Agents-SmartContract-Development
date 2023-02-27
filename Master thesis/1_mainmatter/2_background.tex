@@ -24,7 +24,6 @@ Aside from being located in an environment, the following characteristics are ex
 
 \begin{itemize}
     \item \textbf{Autonomy}\\
-    
     At its most basic, autonomy implies being able to work freely in order to attain the goals assigned to an agent. Thus, an autonomous agent, at the very least, makes independent judgments about how to attain its designated goals; its decisions (and thus actions) are under its own control and are not influenced by others.
 
     \vspace{.5cm}
@@ -334,28 +333,8 @@ The second-largest blockchain system in the world is believed to be Ethereum. Wi
 
 The \ac{EVM} may be conceptualized practically as a vast, decentralized system with large numbers of objects, called \textit{accounts}, that can maintain an internal database, run code, and communicate with one another.
 
-\subsection{Truffle Suite}
-\subsubsection{Truffle}
-
-As a programming environment, testing framework, and asset pipeline for blockchains running on the \ac{EVM}, truffle aims to simplify the workload of a developer. Truffle offers built-in binary management, deployment, linking, compilation, and testing for smart contracts in addition to automated contract testing for quick development. It offers a configurable build pipeline with support for tight integration, as well as NPM package management using \ac{NPM} and the ERC190 standard, i.e. \ac{ERC}.
-
-\vspace{.5cm}
-
-Truffle supports transactions and deployments with MetaMask to safeguard your mnemonic, which is a pattern of letters, and it offers enhanced debugging with breakpoints, variable analysis, and step functionality.
-With an interactive terminal for direct contract communication, it is an external script runner that runs scripts inside the Truffle environment.
-Provides a scriptable, extendable framework for deployment and migrations, as well as network management for deploying to any number of public and private networks.
-
-\subsubsection{Ganache}
-
-Ganache is a private blockchain enabling the speedy production of Corda and Ethereum-distributed applications. Ganache may be used throughout the whole development cycle, allowing you to create, distribute, and test \ac{Dapp} in a secure and predictable setting.
-
-\vspace{.5cm}
-
-Both a \ac{UI} and a \ac{CLI} are available with ganache. A desktop program called Ganache \ac{UI} supports both Corda and Ethereum. Ethereum programming is possible using the powerful command-line tool ganache. It supports snapshot/revert state, Ethereum JSON-RPC compatibility, Zero-config Mainnet and testnet forking, console-log in Solidity, and the ability to impersonate any account without the need for private keys.
 
 \subsection{Vision}
 As blockchain technology continues to develop, several new blockchains have recently come to light, each with a unique architecture and implementation that has been carefully chosen for the intended use case. Additionally, there are significant flaws in the conventional blockchain architecture that remain unresolved, and other implementations aim to address these concerns. (1) Lack of anonymity in transaction execution (2) High transactional delay owing to complex consensus procedures that cause scalability concerns are the two main outstanding challenges with blockchains. (3) Communication between several blockchains; (4) Integration with the outside world.
 
-\vspace{.5cm}
-
-Each of the more recent blockchain implementations, including Zcash, Polkadot, Ethereum 2.0, Chainlink, etc., is working to find a solution to these problems. With the use of trustworthy execution environments, we also hope to address the aforementioned issues with conventional blockchains in this thesis. Because the burden from the blockchain is transferred to secure execution environments, the blockchains are lightweight and offer transaction execution privacy. In addition, Hyperledger Avalon has developed blockchain connectors for several distinct blockchains that may be used to promote interoperability between them. The Avalon infrastructure may also be used to build "attested oracles," which connect blockchains with data from the outside world.
+In this thesis, we will attempt to merge blockchain technology with agent programming while taking into account a supply chain, which may serve to connect the technologies to the outside world in some way.

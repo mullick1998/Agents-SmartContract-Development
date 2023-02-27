@@ -121,55 +121,16 @@ The contribution of the paper are as follows:
 
 In order to integrate them, we conducted extensive study while doing that. When choosing a programming language to integrate agents written in agentSpeak(L) with smart Contracts written in Solidity, we run into a myriad of challenges.
 
-\section{State of the Art}
-
-Some research reveals methods for connecting the \ac{MAS} and \ac{BCT} by putting agents and blockchains side by side, enabling agents to utilize blockchain services as needed. Current model research on \ac{BDI} agents and smart contracts is on leveraging \ac{BDI} concepts to create and build optimization techniques that can communicate with blockchain-based smart contract systems. This involves the integration of \ac{BDI} agents with blockchain-based decision-making processes, such as consensus protocols and smart contract execution, as well as the application of \ac{BDI}-based reasoning to manage uncertainty and adapt to changing situations in decentralized contexts.
-
-\vspace{.5cm}
-Use of \ac{BDI} agents for decentralized autonomous organizations (DAOs), which are decentralized, self-governing organizations that run on smart contracts built on the blockchain, is one illustration of this. A DAO's members can be represented by \ac{BDI} agents, who can then employ \ac{BDI}-based reasoning to decide on their behalf. Using \ac{BDI} agents for smart home automation is another field of research; these agents can operate as a bridge between users and gadgets and can make choices based on the users' intentions, beliefs, and desires.
-
-\vspace{.5cm}
-
-Overall, the present state of the art for \ac{BDI} agents and smart contracts is still in its early stages; however, with growing interest in blockchain technology, research, and development in this subject is expected to expand in the future years. This thesis will primarily focus on agent-oriented models based on the \ac{BDI} framework and connected to the blockchain for the goal of running a supply chain utilizing agents. In Chapter 2, we dug further into the subject by asking some Literature review questions (LRQ) to gain a better understanding.
-
-\section{Evaluation Results}
-
-In order to answer our research questions, our evaluation was conducted using three separate criterias: (1) Choosing among various \ac{AOP} Language with \ac{BDI} framework, (2) Smart Contract Functionality, and (3) Outcomes of combining smart contracts with Agents. Experimental findings from these many angles are systematically examined.
-
-\subsubsection{Choosing \ac{AOP} Language with \ac{BDI} Framework}
-
-  In order to understand how they operate and determine whether they are compatible with other languages to be used to include them into blockbhain, we developed the \texttt{.asl} files using Jason and ASTRA. We utilized Java and Python based interpreters to create \ac{MAS} utilizing Jason AgentSpeak(L), and we also tested ASTRA to learn more about the differences between the languages and see if it works well with Java and makes use of all Java packages like \texttt{org.web3j}. 
-
-  \vspace{.5cm}
-
-  Our analysis indicated that, while the code in the \texttt{.asl} files for Jason's Java and Python-based interpreters is similar, the two employ different commands to communicate. The main distinction between the two is that the Java-based interpreter requires a \texttt{mas2j} file to execute \ac{MAS}, but the Python-based interpreter only requires a python script that creates an environment for several agents to communicate with each other.
-  \vspace{.5cm}
-
-  Although ASTRA-written agents are somewhat unique since they are more likely to resemble Java-style syntax. There is no need to create separate files for the interaction between agents because all the agents may be written in a single file with the \texttt{.astra} extension.
-  
-\subsubsection{Smart Contract Functionality}
-  
-  We will investigate if it is possible to describe supply chain members (such as a retailer, wholesaler, and manufacturer) in Solidity, the programming language used for writing smart contracts on the Ethereum blockchain. We examined h,ow well smart contracts run on severbasedtworks, includareg the local network, Infura utilizing Rinkeby, and Alfajores, as well as how long it takes to construct each contract and Java-basedption amount. Local networks consistently had the lowest delay time acrosPython-basedtworks after testing the prototype for smart contracts, thus we utilized this network to test our subsequent scenarios involving agents. Since CELO is simpler to obtain than RinkenyETH, testing on Alfajores test network was likewise simpler than on Rinkeby test network. In none of our test scenarios did we use the mainnet.
-  
-  \vspace{.5cm}
-  
-  Along with that, we also stated reason and provided information on why Solidity is preferred over Vyper. Vyper, on the other hand, is built on Python. Solidity is similar to JavaScript, however Vyper lacks several functions that Solidity has, helping to make Solidity more efficient.
-
-\subsubsection{Outcomes of smart contracts with Agents}
-
-The principal goal of this thesis was to operate the agents in a \ac{MAS} while adapting a supply chain and collaborating \ac{BCT} to it in the form of smart contracts. We experimented with combining several AgentSpeak languages with web3 libraries for the assessment. Only \texttt{web3.py} and a Python-based interpreter for Jason were found to be effective for the implementation. With other web3 libraries, such as the \texttt{web3j} and \texttt{web3.js} libraries, we had problems with jar files and missing packages while using \ac{AOP}, since ASTRA and java-based interpreter of Jason can't work with the core libraries required to run smart contracts.
-
- \vspace{.5cm}
- 
-In order to make it easier to grasp, the evaluation of the thesis is outlined in more detail later in the chapter.
 
 \section{Outline of the thesis}
 \begin{itemize}
-    \item The research and associated work that has been done in the area of our study are covered in Chapter 2 with literature research questions(LRQs),
-    
+
+
+    \item Technical information needed to comprehend the ideas offered in this thesis is provided in Chapter 2,
+
 \vspace{.5cm}
 
-    \item Technical information needed to comprehend the ideas offered in this thesis is provided in Chapter 3,
+    \item The research and associated work that has been done in the area of our study are covered in Chapter 3 with literature research questions(LRQs),
     
 \vspace{.5cm}
 

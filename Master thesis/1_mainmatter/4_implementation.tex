@@ -121,6 +121,17 @@ Each function is regarded as an event, and every event is given a state. It has 
 
 Solidity language is used to create smart contracts, while JavaScript is used for testing. The \texttt{.sol} files were compiled using Solidity v0.8.13, to retrieve \texttt{.abi} and \texttt{.bin} files for further implementation and deployment. The truffle tool, especially truffle v5.6.5, has been used for deployment and testing. We have used ganache v7.5.0 and ganache-UI v2.5.4 to examine state and manage chain behavior. All of the packages listed below have been obtained using node v14.0.0 (npm v6.14.4) in the table \ref{Package Version}.
 
+We have used Truffle Suite for the implementation of Solidity-based smart contracts, especially truffle and Ganache. As a programming environment, testing framework, and asset pipeline for blockchains running on the \ac{EVM}, truffle aims to simplify the workload of a developer. Truffle offers built-in binary management, deployment, linking, compilation, and testing for smart contracts in addition to automated contract testing for quick development. It offers a configurable build pipeline with support for tight integration, as well as NPM package management using \ac{NPM} and the ERC190 standard, i.e. \ac{ERC}.
+
+\vspace{.5cm}
+
+Truffle supports transactions and deployments with MetaMask to safeguard your mnemonic, which is a pattern of letters, and it offers enhanced debugging with breakpoints, variable analysis, and step functionality.
+With an interactive terminal for direct contract communication, it is an external script runner that runs scripts inside the Truffle environment. Provides a scriptable, extendable framework for deployment and migrations, as well as network management for deploying to any number of public and private networks. Ganache is a private blockchain enabling the speedy production of Corda and Ethereum-distributed applications. Ganache may be used throughout the whole development cycle, allowing you to create, distribute, and test \ac{Dapp} in a secure and predictable setting.
+
+\vspace{.5cm}
+
+Both a \ac{UI} and a \ac{CLI} are available with ganache. A desktop program called Ganache \ac{UI} supports both Corda and Ethereum. Ethereum programming is possible using the powerful command-line tool ganache. It supports snapshot/revert state, Ethereum JSON-RPC compatibility, Zero-config Mainnet and testnet forking, console-log in Solidity, and the ability to impersonate any account without the need for private keys.
+
 \begin{table}[h]
 \small
 \centering
@@ -185,7 +196,7 @@ In our \ac{MAS}, each agent within the supply chain will act autonomously , see 
 
 \vspace{.5cm}
 
-The \ac{BDI} architecture is the most common technique to implementing "intelligent" or "rational" agents. The specification of a set of base beliefs and a set of plans results in the creation of an AgentSpeak(L) agent. AgentSpeak(L) differentiates between two kinds of goals: achievement goals and test goals. However, we use achievement targets for our agents. We employed a variety of techniques while writing our agents and ensuring that they could be utilized with smart contracts, and put them appropriately as actions within the suitable plans. We tested several different interpreters and wrote our agents using those. We pursue the following strategies:
+The \ac{BDI} architecture is the most common technique to implementing "intelligent" or "rational" agents. The specification of a set of base beliefs and a set of plans results in the creation of an AgentSpeak(L) agent. AgentSpeak(L) differentiates between two kinds of goals: achievement goals and test goals. However, we use achievement targets for our agents. We employed a variety of techniques while writing our agents and ensuring that they could be utilized with smart contracts, and put them appropriately as actions within the suitable plans. We tested several framework with different interpreters and wrote our agents using those. We pursue the following strategies:
  \vspace{.3cm }
 
 \begin{itemize}
