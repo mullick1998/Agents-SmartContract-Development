@@ -222,3 +222,22 @@ https://programtheblockchain.com/posts/2018/03/23/storage-patterns-stacks-queues
 - Add code snippets to implementation part
 - renove technology name from conclusion chapter
 - Ask for defence
+
+reviews are as follows:
+
+ -   1.3 and 1.4 is in the wrong place. After 1.2 in the introduction, 1.5 should come after. (Think about this again)
+   -   Under chapter 3.4 (Blockchain), 3.4.4 does not belong to the Blockchain part because it is a technology. You can mention this part in the implementation.
+   -   Some diagrams (especially sequence diagrams can be moved to the Appendix. But we are going to decide after completing the conclusion chapter)
+-  You need to be careful about claiming something like this sentence: JACK Agent Language, a super-set of Java (if possible give a citation - Table 6.1)
+
+  -    You can open a subchapter for related work (or literature review) as a literature review discussion. 
+  -    Subchapter 1.3 State-of-the-Art is in the wrong place. Combine it with the related work. 
+   -   The background chapter should come before Related Work; otherwise, the purpose of the background chapter would be meaningless. We have three objectives in the Background chapter: 
+
+a) Historical, geographical, and other descriptions of your study data. 
+
+b) Definitions and usages of words and expressions as appropriate to your thesis. 
+
+c) Existing theory and practice for your research topic.
+
+   -   Before you start to discuss literature with your literature questions, you can open a subchapter for it. 
