@@ -4,7 +4,7 @@
 
 \label{sec:results}
 
-This chapter focuses on reviewing all of the work completed while utilizing all of the technologies to constrBeforeapplicationa. Before integrating the technologies, each technique is evaluated independently.
+This chapter focuses on reviewing all of the work completed while utilizing all of the technologies. Before integrating the technologies, each technique is evaluated independently. Whenever necessary and feasible, analysis has been conducted using both quantitative and qualitative methods. Numerical measures like gas cost and time are taken into consideration while implementing smart contracts which lead to quantitative analysis where the purpose is to test hypotheses and draw statistical predictions based on data analysis. After integrating it with \ac{BDI} agents, a qualitative analysis is carried out to examine the study and determine whether the objective and outcomes are related or not.
 
 \section{Multiple Agent System Development}
 
@@ -125,10 +125,6 @@ Due to a built-in feature of the truffle tool that indicates how long it takes t
 
 It is obvious that the local network used far less time than the other two networks from figure \ref{Testing on networks}. However, it was simpler to obtain CELO for Alfajores, the blockchain currency we used as gas for deployment and payment, than it was to acquire RinkebyETH for the Rinkeby test network. On the other hand, we can see that contract deployment was a little faster using the Rinkeby test network compared to the Alfajores test network.
 
-\vspace{.5cm}
-
-The entire amount of gas utilized on a public testnet, such as alfajores and rinkeby, will depend on the network's present condition and resource demand. Due to the greater volume of transactions and contracts being executed on the public test network, the overall gas consumption can be higher than on a local test network. In light of the fact that gas prices change on the public test network as well, the total amount of gas utilized will also rely on those prices at the time of deployment and transaction. In figure \ref{Overall Gas Cost calculation}, The most expensive test network is rinkeby, however even though its gas consumption was the same as the alfajores test network's, alfajores' overall cost decreased to approximately one-third of rinkeby test network's cost due to low gas prices which were just 7.5 Gwei or 7500000000 Wei compared to rinkeby test network's gas price which was 20 Gwei or 20000000000 Wei.
-
 \begin{figure}[h!]
 \centering
   \includegraphics[width=12cm]{includes/figures/totalCost.png} 
@@ -137,6 +133,10 @@ The entire amount of gas utilized on a public testnet, such as alfajores and rin
 \end{figure}
 
 \vspace{.5cm}
+
+The entire amount of gas utilized on a public testnet, such as alfajores and rinkeby, will depend on the network's present condition and resource demand. Due to the greater volume of transactions and contracts being executed on the public test network, the overall gas consumption can be higher than on a local test network. In light of the fact that gas prices change on the public test network as well, the total amount of gas utilized will also rely on those prices at the time of deployment and transaction. In figure \ref{Overall Gas Cost calculation}, The most expensive test network is rinkeby, however even though its gas consumption was the same as the alfajores test network's, alfajores' overall cost decreased to approximately one-third of rinkeby test network's cost due to low gas prices which were just 7.5 Gwei or 7500000000 Wei compared to rinkeby test network's gas price which was 20 Gwei or 20000000000 Wei.
+
+
 
 \begin{figure}[!h]
 \centering
@@ -165,4 +165,4 @@ Following the creation of contracts, we began looking for an appropriate \ac{AOP
 \subsubsection{Qualitative Analysis}
 Our main objective was to find a way to incorporate \ac{BCT} into \ac{MAS} and generate smart contracts using Jason framework for\ac{BDI} agents. One of our ideas of using the web3 library of python as well as Jason framework with Python interpreter was successful, and the infuse was effective.
 
-Supply chain management entails coordinating the activities of numerous organizations such as manufacturers, distributors, and retailers to guarantee that items are supplied to clients in a timely and effective way. We designed a system that resulted in optimizing supply chain procedures, improves transparency, and reduces costs by merging these technologies.
+Supply chain management entails coordinating the activities of numerous organizations such as manufacturers, distributors, and retailers to guarantee that items are supplied to clients in a timely and effective way. We designed a system that resulted in optimizing supply chain procedures and improved transparency by merging these technologies.

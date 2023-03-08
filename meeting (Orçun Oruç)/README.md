@@ -244,3 +244,10 @@ c) Existing theory and practice for your research topic.
 
 ### 22nd meeting (3rd March 2023) [09:30-09:10:00]
 - Give listing number.
+
+## Thesis Review - 07.03.2023
+1. Please define qualitative and quantitative parameters before you talk about the result <span style="color: green"> _(done)_  </span>
+2. In the Discussion chapter, RQ items can be clickable through references. You can do this with https://tex.stackexchange.com/questions/180571/making-clickable-links-to-sections-with-hyperref <span style="color: green"> _(done)_  </span>
+3. Please eliminate unspecific keywords like in this sentence - as conciliatory remedies as the first required step toward achieving this aim. (This is not a poem.) <span style="color: green"> _(done)_  </span>
+4. I want you to mention the drawbacks of each related work so that the reviewer can understand these drawbacks and you have been motivated by these drawbacks. <span style="color: Yellow"> (The paper I mentioned in the related work are just supporting my paper, I am not solving there problems or drawback. Logic of all those pappers contitutes the idea of my thesis. I mentioned them as kinda references to my paper.) </span>
+5. lease complete Figure 3.1 with citations like [Che+17].  <span style="color: Yellow"> (The idea of this diagram was provided by you, I didn't take this diagram or idea of this diagram from any paper. So maybe you can provide me the paper from where you had the idea of this diagram) </span> 
