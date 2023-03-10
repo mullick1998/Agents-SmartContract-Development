@@ -3,6 +3,7 @@
 cd smartcontracts/
 truffle test --network development
 ```
+![Test](/images/Screenshot%20from%202023-02-25%2014-43-07.png)
 **show ganache page also, transaction page**
 
 ## Check Agents with smart Contracts
@@ -18,11 +19,14 @@ Cases:
 python3 env.py
 ```
 
+![Test](/images/Screenshot%20from%202023-02-25%2018-46-53.png)
+
 2. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleagent, and wholesaler warehouse has sufficient inventory
 
 ```
 python3 env.py
 ```
+![Test](/images/Screenshot%20from%202023-02-25%2018-48-18.png)
 
 3. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleragent, and wholesaler warehouse has also insufficient inventory, so ask manufactureragent, and manufacturer warehouse has also sufficient inventory
 
@@ -31,22 +35,11 @@ python3 env.py
 ```
 
 
-4. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleragent, and wholesaler warehouse has also insufficient inventory, so ask manufactureragent, and manufacturer warehouse has sufficient inventory
+![Test](/images/Screenshot%20from%202023-02-25%2018-49-15.png)
+
+4. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleragent, and wholesaler warehouse has also insufficient inventory, so ask manufactureragent, and manufacturer warehouse has also insufficient inventory, so manufacture product.
 
 ```
 python3 env.py
 ```
-
-
-3. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleragent, and wholesaler warehouse has also insufficient inventory, so ask manufactureragent, and manufacturer warehouse has also insufficient inventory, so manufacture product.
-
-```
-python3 env.py
-```
-
-1. dont change anything
-2. Change retailer
-3. change wholesaler
-4. change retailer and wholesaler
-5. change retailer
-6. change wholesaler and manufacturer
+![Test](/images/Screenshot%20from%202023-02-25%2018-50-46.png)
