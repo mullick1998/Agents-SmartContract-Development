@@ -50,7 +50,7 @@ While conducting a further in-depth study on programming agents and smart contra
  
 \end{itemize}
 
-In this thesis, \textbf{\textit{Smart contract development with Jason \ac{BDI} Agents}}, we will attempt to develop an application that will display various agents, allowing agents across the supply chain to interact with one another while comparing different \ac{BDI} agent Framework to answer the above questions. This ecosystem will allow agents to maintain relationships, store transactions using smart contracts, and determine whether both technologies can be used to create a fair and efficient dispute resolution mechanism in the supply chain by providing a transparent and tamper-proof record of the agreements and interactions between parties.
+In this thesis, \textbf{\textit{Smart contract development with Jason \ac{BDI} Agents}}, we will attempt to develop an application that will display various agents, allowing agents across the supply chain to interact with one another while comparing different \ac{BDI} agent Framework and discuss our findings to answer the above questions in \hyperref[sec:discussion]{chapter 6}. This ecosystem will allow agents to maintain relationships, store transactions using smart contracts, and determine whether both technologies can be used to create a fair and efficient dispute resolution mechanism in the supply chain by providing a transparent and tamper-proof record of the agreements and interactions between parties.
 
 \section{Motivation}
 
@@ -121,6 +121,31 @@ The contribution of the paper are as follows:
 
 In order to integrate them, we conducted extensive study while doing that. When choosing a programming language to integrate agents written in agentSpeak(L) with smart Contracts written in Solidity, we run into a myriad of challenges.
 
+\section{Limitation}
+
+Smart contracts and \ac{BDI} agents are two distinct technologies with distinct functions, and combining them might have both ideal and technical limits. Some restrictions to take into account are as follows:
+
+\subsubsection{Ideal limitations}
+\begin{itemize}
+    \item\textbf{Diverse objectives}\\ Smart contracts are meant to automate the execution of particular activities, whereas \ac{BDI} agents are designed to aid in decision-making and reasoning. As a result, they have distinct aims, and combining them can occasionally not be desirable.
+
+    \vspace{.5cm}
+    
+    \item\textbf{Restricted scope} \\ Smart contracts are frequently used in simple, pre-defined scenarios, but \ac{BDI} agents are generally used in complex contexts where decisions are made based on a variety of inputs. Because of its small scope, it may be difficult to appropriately integrate the two technologies.
+    
+\end{itemize}
+
+\subsubsection{Technical limitations}
+\begin{itemize}
+    \item\textbf{Compatibility}\\ It can be difficult to achieve interoperability between \ac{BDI} agents and smart contracts because they can employ various programming languages and protocols. To make sure that the two technologies can coexist successfully, more development effort will be necessary.
+
+    \vspace{.5cm}
+    
+    \item\textbf{Complexity} \\ Smart contracts and \ac{BDI} agents may both be challenging technologies to integrate and combine. The level of technical knowledge needed to integrate the two might be a major obstacle.
+    
+\end{itemize}
+
+Therefore, while combining \ac{BDI} agents with smart contracts has advantages, there are major obstacles to solve. To guarantee that the two technologies can perform effectively together, the ideal restrictions and technical limitations must be carefully considered.
 
 \section{Outline of the thesis}
 \begin{itemize}

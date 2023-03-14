@@ -251,3 +251,17 @@ c) Existing theory and practice for your research topic.
 3. Please eliminate unspecific keywords like in this sentence - as conciliatory remedies as the first required step toward achieving this aim. (This is not a poem.) <span style="color: green"> _(done)_  </span>
 4. I want you to mention the drawbacks of each related work so that the reviewer can understand these drawbacks and you have been motivated by these drawbacks. <span style="color: Yellow"> (The paper I mentioned in the related work are just supporting my paper, I am not solving there problems or drawback. Logic of all those pappers contitutes the idea of my thesis. I mentioned them as kinda references to my paper.) </span>
 5. lease complete Figure 3.1 with citations like [Che+17].  <span style="color: Yellow"> (The idea of this diagram was provided by you, I didn't take this diagram or idea of this diagram from any paper. So maybe you can provide me the paper from where you had the idea of this diagram) </span> 
+
+### 22nd meeting (10th March 2023) [09:30-09:10:00]
+- Wrote limitation of each paper, change diagram in related work.
+- showed demo
+- planned to submit by 15.03.2023
+
+## Thesis Review - 07.03.2023
+- Please talk about your qualitative parameters before you mentioned the rest.<span style="color: green"> _(done)_  </span>
+- Fix the typo mistakes. Like Finale Outcome - the word Final and Outcome semantically very similar. <span style="color: green"> _(done)_  </span>
+- Conclusion findings are very weak. <span style="color: yellow"> I have already answered the RQs in the discussion chapter, so I have tried to stretch a bit in the conclusion. I took the idea from other papers, read their conclusion part, and wrote accordingly.  </span>
+- I want you to write your limitation about your thesis. What was the scope of your thesis? What is your ideal limitation or technical limitation? This must be a subchapter under the Introduction. <span style="color: green"> _(done)_  </span>
+- The conclusion must be closely relevant to your research questions. These are going to be your findings. When I ask your first research question (What character do we need in smart contracts to coordinate with the beliefs, desires, and intentions of agents?), am I getting an answer in your conclusion? It is the same for your second question as well. <span style="color: green"> _(done)_  </span>
+- What are tactics? synchronizing AgentSpeak tactics and goals?  
+
