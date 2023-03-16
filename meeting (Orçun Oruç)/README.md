@@ -257,11 +257,17 @@ c) Existing theory and practice for your research topic.
 - showed demo
 - planned to submit by 15.03.2023
 
-## Thesis Review - 07.03.2023
+## Thesis Review - 14.03.2023
 - Please talk about your qualitative parameters before you mentioned the rest.<span style="color: green"> _(done)_  </span>
 - Fix the typo mistakes. Like Finale Outcome - the word Final and Outcome semantically very similar. <span style="color: green"> _(done)_  </span>
 - Conclusion findings are very weak. <span style="color: yellow"> I have already answered the RQs in the discussion chapter, so I have tried to stretch a bit in the conclusion. I took the idea from other papers, read their conclusion part, and wrote accordingly.  </span>
 - I want you to write your limitation about your thesis. What was the scope of your thesis? What is your ideal limitation or technical limitation? This must be a subchapter under the Introduction. <span style="color: green"> _(done)_  </span>
 - The conclusion must be closely relevant to your research questions. These are going to be your findings. When I ask your first research question (What character do we need in smart contracts to coordinate with the beliefs, desires, and intentions of agents?), am I getting an answer in your conclusion? It is the same for your second question as well. <span style="color: green"> _(done)_  </span>
 - What are tactics? synchronizing AgentSpeak tactics and goals?  
+
+## Last changes to paper
+1. You need to change the order of the List of Figures, List of Tables, and List of Listings. Please put them all after the Contents of the Thesis. <span style="color: green"> _(done)_  </span>
+2. You need to eliminate the third paragraph of the Abstract somehow. After changing it, you can send me your abstract via E-mail. <span style="color: green"> _(done)_  </span>
+
+## Submitted on March 16th, 2023.
 
