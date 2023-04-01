@@ -11,20 +11,370 @@ A manufacturer, wholesaler, and retailer can realize a product flow. **A retaile
 
 # Contents
 - [Directory Structure](#directory-structure)
-- [Implement Smart-contracts](#compile-contract)
-- [MAS Implementation using JASON](#jason-agentspeak)
+- [Sequence DIagram](#sequence-diagrams)
+- [MAS Implementation with smart-contracts](#check-agents-with-smart-contracts)
 
 ## Overall Class Diagram
 <img src="diagrams/OverallClassDiagram.svg" alt="Overall Class Diagram"/>
 
-## Activity Diagram
-<img src="diagrams/Activity Diagram.svg" alt="Activity Diagram"/>
+# Sequence Diagrams
 
-## Contract Data Model Diagram
-<img src="diagrams/Data Model diagram.svg" alt="Contract Data Model Diagram"/>
+## Agent Interaction Sequence Diagram
 
-## Contract Sequence Diagram
-<img src="diagrams/Sequence diagram.svg" alt="Contract Sequence Diagram"/>
+```mermaid
+@startuml
+!pragma teoz true
+actor Customer
+
+box "Supply Chain Agents" #Yellow
+entity MainAgent
+Participant ManufacturerAgent
+Participant WholesalerAgent
+Participant RetailerAgent
+end box
+
+
+note over Customer: Want to buy
+activate Customer #LightGrey
+Customer -> MainAgent : Approch Framework
+activate MainAgent #LightGrey
+
+MainAgent -> RetailerAgent : Activates ""RetailerAgent""
+activate RetailerAgent #DarkSalmon
+RetailerAgent -> RetailerAgent: Checks Warehouse
+note right RetailerAgent #Pink : //If it has product then sell// \n //to Customer otherwise it// \n will let the ""MainAgent"" \n //to activate// ""WholesalerAgent"". \n  **(Assume insufficient stock)**
+
+RetailerAgent -> MainAgent : request to activate ""WholesalerAgent""
+
+MainAgent-> WholesalerAgent: Activates ""WholesalerAgent""
+activate WholesalerAgent #DarkSalmon
+WholesalerAgent -> WholesalerAgent : Checks Warehouse
+note over WholesalerAgent #Pink :  **(Assume insufficient stock)**
+WholesalerAgent -> MainAgent : request to activate ""ManufacturerAgent""
+
+MainAgent-> ManufacturerAgent: Activates ""ManufacturerAgent""
+activate ManufacturerAgent #DarkSalmon
+ManufacturerAgent -> ManufacturerAgent : Checks Warehouse
+note over ManufacturerAgent #Pink : **(Assume insufficient stock)**
+
+note over ManufacturerAgent: //Manufactures product//
+
+note over ManufacturerAgent: //Packages product//
+
+
+ManufacturerAgent -> WholesalerAgent: //Out for Sale//
+
+
+note over WholesalerAgent: //Purchase Product by paying// \n //the desire amount by Manufacturer//
+
+
+ManufacturerAgent -> WholesalerAgent: //Sending Product to Wholesaler//
+
+note over WholesalerAgent: //Receives Product//
+
+WholesalerAgent -> WholesalerAgent : Checks Warehouse if Inventory is full, \n **If not** then order more product.
+note over WholesalerAgent #Pink :  **(Assume sufficient stock)**
+
+WholesalerAgent -> RetailerAgent : //Out for Sale//
+
+
+note over RetailerAgent: //Purchase Product by paying// \n //the desire amount by ""WholesalerAgent""//
+
+
+WholesalerAgent -> RetailerAgent : //Sending Product to Retailer//
+
+deactivate WholesalerAgent
+
+
+note over RetailerAgent: //Receives Product//
+
+RetailerAgent --> MainAgent: Confirmation of Product's availablity
+deactivate RetailerAgent
+
+
+MainAgent --> Customer : Sells Product
+deactivate MainAgent
+deactivate Customer
+@enduml
+```
+
+## Smart Contract Sequence Diagram
+```mermaid
+@startuml
+
+box "Supply Chain Roles" #LightBlue
+
+Participant Manufacturer
+Participant Wholesaler
+Participant Retailer
+end box
+
+box #Yellow
+entity SmartContractGenerator as App
+end box
+
+box "Blockchain Network" #LightGreen
+database EthereumVirtualMachine as EVM
+end box
+
+note over Manufacturer: //Manufactures product//
+Manufacturer -> App: invoking ""produceItemByManufacturer()""
+activate Manufacturer #DarkSalmon
+activate App
+App -> EVM : generating smart contract
+activate EVM #FFBBBB
+note over EVM #Orange: Generating ""Transaction Hash""
+note right #yellow: **""Tx hash""** for \n Product manufactured
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Manufacturer: //Packages product//
+Manufacturer -> App: invoking ""packageItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product packaged
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Manufacturer: //Out for Sale//
+Manufacturer-> App: invoking ""sellItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Wholesaler: //Purchase Product by paying// \n //the desire amount by Manufacturer//
+Wholesaler -> Manufacturer : Purchases product
+activate Wholesaler #DarkSalmon
+Wholesaler -> App  : invoking ""purchaseItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Manufacturer: //Sending Product to Wholesaler//
+Manufacturer -> Wholesaler: Ships Product
+Manufacturer -> App: invoking ""shippedItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+deactivate Manufacturer 
+
+note over Wholesaler: //Receives Product//
+Wholesaler -> App: invoking ""receivedItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Wholesaler: //Out for Sale//
+Wholesaler-> App: invoking ""sellItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Retailer: //Purchase Product by paying// \n //the desire amount by Wholesaler//
+
+Retailer -> Wholesaler : Purchases product
+activate Retailer #DarkSalmon
+Retailer -> App  : invoking ""purchaseItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over Wholesaler: //Sending Product to Retailer//
+Wholesaler -> Retailer: Ships Product
+Wholesaler -> App: invoking ""shippedItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+deactivate Wholesaler
+
+note over Retailer: //Receives Product//
+Retailer -> App: invoking ""receivedItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+deactivate EVM
+deactivate App
+deactivate Retailer
+
+@enduml
+```
+
+## Agent and Smart Contract Sequence Diagram
+
+```mermaid
+@startuml
+!pragma teoz true
+actor Customer
+box "Supply Chain (Jason BDI Agents and Smart Contrcats)" #LightYellow
+
+box "Supply Chain Agents" #LightBlue
+entity MainAgent
+Participant ManufacturerAgent
+Participant WholesalerAgent
+Participant RetailerAgent
+end box
+
+box #Yellow
+entity SmartContractGenerator as App
+end box
+
+end box
+
+note over Customer: Want to buy
+activate Customer #LightGrey
+Customer -> MainAgent : Approch Framework
+activate MainAgent #LightGrey
+
+MainAgent -> RetailerAgent : Activates ""RetailerAgent""
+activate RetailerAgent #DarkSalmon
+RetailerAgent -> RetailerAgent: Checks Warehouse
+note right RetailerAgent #Pink : //If it has product then sell// \n //to Customer otherwise it// \n will let the ""MainAgent"" \n //to activate ""WholesalerAgent"".// \n  **(Assume insufficient stock)**
+
+RetailerAgent -> MainAgent : request to activate ""WholesalerAgent""
+MainAgent-> WholesalerAgent: Activates ""WholesalerAgent""
+activate WholesalerAgent #DarkSalmon
+WholesalerAgent -> WholesalerAgent : Checks Warehouse
+note over WholesalerAgent #Pink :  **(Assume insufficient stock)**
+WholesalerAgent -> MainAgent : request to activate ""ManufacturerAgent""
+MainAgent-> ManufacturerAgent: Activates ""ManufacturerAgent""
+activate ManufacturerAgent #DarkSalmon
+ManufacturerAgent -> ManufacturerAgent : Checks Warehouse
+note over ManufacturerAgent #Pink : **(Assume insufficient stock)**
+
+box "Blockchain Network" #LightGreen
+database EthereumVirtualMachine as EVM
+end box
+
+note over ManufacturerAgent: //Manufactures product//
+ManufacturerAgent -> App: invoking ""produceItemByManufacturer()""
+activate App
+App -> EVM : generating smart contract
+activate EVM #FFBBBB
+note over EVM #Orange: Generating ""Transaction Hash""
+note right #yellow: **""Tx hash""** for \n Product manufactured
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over ManufacturerAgent: //Packages product//
+ManufacturerAgent -> App: invoking ""packageItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product packaged
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over ManufacturerAgent: //Out for Sale//
+ManufacturerAgent-> App: invoking ""sellItemByManufacturer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""** for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over WholesalerAgent: //Purchase Product by paying// \n //the desire amount by Manufacturer//
+WholesalerAgent -> ManufacturerAgent : Purchases product
+WholesalerAgent -> App  : invoking ""purchaseItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over ManufacturerAgent: //Sending Product to Wholesaler//
+ManufacturerAgent -> WholesalerAgent: Ships Product
+ManufacturerAgent -> App: invoking ""shippedItemByManufacturer()""
+deactivate ManufacturerAgent
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+ 
+
+note over WholesalerAgent: //Receives Product//
+WholesalerAgent -> App: invoking ""receivedItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+WholesalerAgent -> WholesalerAgent : Checks Warehouse if Inventory is full, \n **If not** then order more product.
+note over WholesalerAgent #Pink :  **(Assume sufficient stock)**
+
+note over WholesalerAgent: //Out for Sale//
+WholesalerAgent -> App: invoking ""sellItemByWholesaler()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product sold
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over RetailerAgent: //Purchase Product by paying// \n //the desire amount by// ""WholesalerAgent""
+
+RetailerAgent -> WholesalerAgent : Purchases product
+RetailerAgent -> App  : invoking ""purchaseItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product purchased
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over WholesalerAgent: //Sending Product to Retailer//
+WholesalerAgent -> RetailerAgent: Ships Product
+WholesalerAgent -> App: invoking ""shippedItemByWholesaler()""
+deactivate WholesalerAgent
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product shipped
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+
+note over RetailerAgent: //Receives Product//
+RetailerAgent -> App: invoking ""receivedItemByRetailer()""
+App -> EVM: generating smart contract
+note right #yellow: **""Tx hash""**  for \n Product received
+EVM --> App: Fetching **""Tx hash""** from Blockchain network
+deactivate EVM
+deactivate App
+RetailerAgent --> MainAgent: Confirmation of Product's availablity
+deactivate RetailerAgent
+
+
+MainAgent --> Customer : Sells Product
+deactivate MainAgent
+deactivate Customer
+@enduml
+```
+
+## Test smart Contracts
+```
+cd smartcontracts/
+truffle test --network development
+```
+![Test](/images/Screenshot%20from%202023-02-25%2014-43-07.png)
+**show ganache page also, transaction page**
+
+# Check Agents with smart Contracts
+
+```
+cd ..
+cd python-Contracts-Agents/
+```
+Cases:
+1. RetailerAgent been asked and it send and sells products because retailer warehouse has sufficient inventory.
+
+```
+python3 env.py
+```
+
+![Test](/images/Screenshot%20from%202023-02-25%2018-46-53.png)
+
+2. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleagent, and wholesaler warehouse has sufficient inventory
+
+```
+python3 env.py
+```
+![Test](/images/Screenshot%20from%202023-02-25%2018-48-18.png)
+
+3. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleragent, and wholesaler warehouse has also insufficient inventory, so ask manufactureragent, and manufacturer warehouse has also sufficient inventory
+
+```
+python3 env.py
+```
+
+
+![Test](/images/Screenshot%20from%202023-02-25%2018-49-15.png)
+
+4. Retailer been asked but retailer warehouse has unsufficient inventory, so ask wholesaleragent, and wholesaler warehouse has also insufficient inventory, so ask manufactureragent, and manufacturer warehouse has also insufficient inventory, so manufacture product.
+
+```
+python3 env.py
+```
+![Test](/images/Screenshot%20from%202023-02-25%2018-50-46.png)
+
 
 ## Directory Structure
 

@@ -271,3 +271,4 @@ c) Existing theory and practice for your research topic.
 
 ## Submitted on March 16th, 2023.
 
+### 23rd meeting (17th March 2023) [09:30-09:10:00]
