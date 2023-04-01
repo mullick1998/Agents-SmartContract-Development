@@ -21,7 +21,7 @@ A manufacturer, wholesaler, and retailer can realize a product flow. **A retaile
 
 ## Agent Interaction Sequence Diagram
 
-```mermaid
+```plantuml
 @startuml
 !pragma teoz true
 actor Customer
@@ -99,7 +99,8 @@ deactivate Customer
 ```
 
 ## Smart Contract Sequence Diagram
-```mermaid
+
+```plantuml
 @startuml
 
 box "Supply Chain Roles" #LightBlue
@@ -200,7 +201,7 @@ deactivate Retailer
 
 ## Agent and Smart Contract Sequence Diagram
 
-```mermaid
+```plantuml
 @startuml
 !pragma teoz true
 actor Customer
