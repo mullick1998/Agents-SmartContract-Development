@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 inventory(2).
 order(8).
 
+=======
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466
 +!start
   <- .print("I am running");
      .wait(2000).
@@ -11,6 +14,7 @@ order(8).
      .print("Hi, I am here, with account:", X);
      .wait(1000).
 
+<<<<<<< HEAD
 +!check_warehouse: inventory(A) & order(B) & A < B 
     <- .print("Checking Warehouse");
         .print("INSUFFICIENT INVENTORY!! Ordering Product..");
@@ -23,6 +27,8 @@ order(8).
         !noneedofreceive;
         .wait(1000).
 
+=======
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466
 +!check_warehouse: true
     <- .print("Checking Warehouse, and order");
         !order;
@@ -40,6 +46,7 @@ order(8).
         .send(wholesalerAgent, achieve, ship);
         .wait(1000).
 
+<<<<<<< HEAD
 +!noneedofreceive: true
     <-  .print("Giving products to supplyChainAgent");
         .send(supplyChainAgent, achieve, a).
@@ -49,4 +56,11 @@ order(8).
         .receivedItemByRetailer(3, X);
         .print("Tx receivedItemByRetailer successful with hash:", X);
         .print("Giving products to supplyChainAgent");
+=======
++!receive: true
+    <-  .print("Received product from wholesalerAgent");
+        .receivedItemByRetailer(3, X);
+        .print("Tx receivedItemByRetailer successful with hash:", X);
+        .print("NOW SELL TO CUSTOMER!!");
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466
         .send(supplyChainAgent, achieve, a).

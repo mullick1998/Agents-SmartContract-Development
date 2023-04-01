@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 inventory(9).
 order(8).
 
+=======
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466
 +!start
   <- .print("I am running");
      .wait(2000).
@@ -10,6 +13,7 @@ order(8).
      .print("Hi, I am here, with account:", X);
      .wait(1000).
 
+<<<<<<< HEAD
 +!check_warehouse: inventory(A) & order(B) & A < B 
     <- .print("Checking Warehouse");
         .print("INSUFFICIENT INVENTORY!! Ordering Product..");
@@ -22,6 +26,13 @@ order(8).
         !sell;
         .wait(1000).
 
+=======
++!check_warehouse: true
+    <- .print("Checking Warehouse, and order");
+        !order;
+        .wait(1000).
+
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466
 +!order: true
     <- .print("Ordering to manufacturerAgent");
         .send(supplyChainAgent, achieve, create_manufacturer);
@@ -34,6 +45,7 @@ order(8).
         .send(manufacturerAgent, achieve, ship);
         .wait(1000).
 
+<<<<<<< HEAD
 +!purchaseAgain: true
     <- .print("Purchasing product from manufacturerAgent Again");
         .purchaseItemByWholesaler(3, X);
@@ -52,6 +64,10 @@ order(8).
 +!receiveAgain: true
     <-  +inventory(10);
         .print("Received product from manufacturerAgent, and added to the inventory and Inventory FULL!!");
+=======
++!receive: true
+    <- .print("Received product from manufacturerAgent");
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466
         .receivedItemByWholesaler(3, X);
         .print("Tx receivedItemByWholesaler successful with hash:", X);
         !sell;
@@ -59,7 +75,10 @@ order(8).
 
 +!sell: true
     <- .print("Selling product to retailerAgent");
+<<<<<<< HEAD
         -inventory(10);
+=======
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466
         .sellItemByWholesaler(3, X);
         .print("Tx sellItemByWholesaler successful with hash:", X);
         .send(retailerAgent, achieve, purchase);

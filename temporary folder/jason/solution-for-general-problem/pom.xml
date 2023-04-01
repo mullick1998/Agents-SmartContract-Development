@@ -10,7 +10,10 @@
     <groupId>org.jason</groupId>
     <artifactId>supplyChainAgents</artifactId>
     <version>1.0</version>
+<<<<<<< HEAD:temporary folder/jason/solution-for-general-problem/pom.xml
 
+=======
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466:jason/supplyChainAgents/pom.xml
     <properties>
         <maven.compiler.source>11 </maven.compiler.source>
         <maven.compiler.target>11 </maven.compiler.target>
@@ -21,7 +24,11 @@
         <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>core</artifactId>
+<<<<<<< HEAD:temporary folder/jason/solution-for-general-problem/pom.xml
             <version>5.0.0</version>
+=======
+            <version>4.5.16</version>
+>>>>>>> fdc260c2e0c9b57baf96b7b4c28f1d1f893b1466:jason/supplyChainAgents/pom.xml
         </dependency>
         <dependency>
             <groupId>org.jason</groupId>
@@ -37,4 +44,28 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+    <build>
+    <plugins>
+            <plugin>
+				<groupId>com.github.longdt</groupId>
+				<artifactId>web3j-maven-plugin</artifactId>
+				<version>4.8.10</version>
+				<configuration>
+					<soliditySourceFiles>
+						<directory>../../smartcontracts/contracts</directory>
+						<includes>
+							<include>**/*.sol</include>
+						</includes>
+					</soliditySourceFiles>
+					<outputDirectory>
+						<java></java>
+						<abi></abi>
+						<bin></bin>
+					</outputDirectory>
+					<packageName>thesis.SupplyChain.rolebasedcontracts</packageName>
+				</configuration>
+			</plugin>
+        </plugins>
+
+    </build>
 </project>

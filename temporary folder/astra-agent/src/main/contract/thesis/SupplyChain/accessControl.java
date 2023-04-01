@@ -4,12 +4,10 @@ import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
-
 import java.io.IOException;
 import java.math.BigInteger;
-
-import static java.math.BigInteger.valueOf;
-
+import static java.math.BigInteger.*;
+//import thesis.SupplyChain.rolebasedcontracts.SupplyChain;
 
 public class accessControl {
     Web3j web3j = Web3j.build(new HttpService("HTTP://127.0.0.1:9545"));

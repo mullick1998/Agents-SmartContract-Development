@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>examples</groupId>
+    <artifactId>hello</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>com.astralanguage</groupId>
+        <artifactId>astra-base</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>crypto</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>clean compile astra:deploy</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>com.astralanguage</groupId>
+                <artifactId>astra-maven-plugin</artifactId>
+                <version>1.3.2</version>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
